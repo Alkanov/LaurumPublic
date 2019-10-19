@@ -1877,7 +1877,7 @@ public class Translations : MonoBehaviour
             skillDescriptions[64015] = "Close range AOE damage";
             #endregion
             #region Item descriptions for skill items
-            //string ou="";
+            //string ou="";<- I dont like this like here 
             foreach (var skill_details in skillTitles)
             {
                 // ou = ou + "," + skill_details.Key;
