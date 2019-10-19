@@ -126,7 +126,7 @@ new Task(111,Task.task_types.material_collection,new int[] {54},15),//Collect Go
 new Task(112,Task.task_types.material_collection,new int[] {50},15),//Collect Enchanted Sand
 new Task(113,Task.task_types.material_collection,new int[] {66},15),//Collect Heart of Ice skeleton
 new Task(114,Task.task_types.online_time,new int[] {0},600),//Stay Online for 10 minutes
-new Task(115,Task.task_types.online_time,new int[] {0},720),//Stay Online for 12 Hours
+new Task(115,Task.task_types.online_time,new int[] {0},43200),//Stay Online for 12 Hours
 new Task(116,Task.task_types.pve_kill_x_y_times,new int[] {20},500),//Kill 'Treant'
 new Task(117,Task.task_types.pve_kill_x_y_times,new int[] {21},500),//Kill 'Golem'
 new Task(118,Task.task_types.pve_kill_x_y_times,new int[] {28},750),//Kill 'Death Watch'
