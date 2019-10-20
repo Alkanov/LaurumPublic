@@ -1267,7 +1267,7 @@ public class Translations : MonoBehaviour
             itemNamesTranslation[3301] = "Upgrade Jewel B";
             itemDescrTranslation[3301] = "Used to upgrade <color=#0070ff>Rare</color> gear to <color=#a335ee>Epic</color> (+50)";
             itemNamesTranslation[3302] = "Upgrade Jewel C";
-            itemDescrTranslation[3302] = "Used to upgrade <color=#a335ee>Epic</color> gear to <color=#ff8000>Legendary</color> (+500)";
+            itemDescrTranslation[3302] = "Used to upgrade <color=#a335ee>Epic</color> gear to <color=#ff8000>Legendary</color> (+200)";
             itemNamesTranslation[3303] = "Upgrade Jewel D";
             itemDescrTranslation[3303] = "Used to upgrade <color=#ff8000>Legendary</color> gear to +500";
 
