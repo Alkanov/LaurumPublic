@@ -370,9 +370,9 @@ public class Translations : MonoBehaviour
             materialsNames[material.material_translation.re_crown] = "Regal Crown"; materialsDescriptions[material.material_translation.re_crown] = "A golden crown with gems imbedded in it.";
             materialsNames[material.material_translation.pur_cape] = "Purple Cape"; materialsDescriptions[material.material_translation.pur_cape] = "This cape seems to still be in good condition. One good wash and it will be like new.";
             materialsNames[material.material_translation.H_of_ice_skeleton] = "Heart of Ice Skeleton"; materialsDescriptions[material.material_translation.H_of_ice_skeleton] = "A powerful, cursed heart. You can feel how it still beats.";
-            materialsNames[material.material_translation.holy_coin] = "The Holy Coin."; materialsDescriptions[material.material_translation.holy_coin] = "The Holy Coin is considered to be to most precious coin on earth.";
-            materialsNames[material.material_translation.demo_coin] = "The Demon Coin."; materialsDescriptions[material.material_translation.demo_coin] = "The Demon coin is the currency used between demons.";
-            materialsNames[material.material_translation.f_shards] = "Fire shards"; materialsDescriptions[material.material_translation.f_shards] = "Shards imbued with an enchanted flame.";
+            materialsNames[material.material_translation.holy_coin] = "The Holy Coin"; materialsDescriptions[material.material_translation.holy_coin] = "The Holy Coin is considered to be to most precious coin on earth.";
+            materialsNames[material.material_translation.demo_coin] = "The Demon Coin"; materialsDescriptions[material.material_translation.demo_coin] = "The Demon coin is the currency used between demons.";
+            materialsNames[material.material_translation.f_shards] = "Fire Shards"; materialsDescriptions[material.material_translation.f_shards] = "Shards imbued with an enchanted flame.";
             materialsNames[material.material_translation.hell_core] = "Hellfire Core"; materialsDescriptions[material.material_translation.hell_core] = "A concentrated orb of hellish power.";
             #endregion
             //item names
