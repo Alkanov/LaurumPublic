@@ -92,18 +92,18 @@ public class Translations : MonoBehaviour
             #endregion
 
             #region Quests
-            questNameTranslations[1] = "The Beginning of a Journey"; questLoreTranslations[1] = "Welcome to Laurum Harbour, this is the main hub for many shops. As you're new here, have a look around and familiarize yourself with the town! ";
-            questNameTranslations[2] = "Ready for Combat! "; questLoreTranslations[2] = "Equipment is essential to be more powerful. However without the correct equipment this cannot be accomplished. We'll start with a basic training, head across the bridge to the south of Laurum Harbour and start on those monsters. Who knows, they might drop some useful ingredients. ";
-            questNameTranslations[3] = "Gathering Material"; questLoreTranslations[3] = "Now you are going to learn about gathering, go kill some Slime and Worms and collect some Slime Core and Worms.";
-            questNameTranslations[4] = "Bee-Gone!"; questLoreTranslations[4] = "What's all the buzz about in this newsletter..? Oh I see..\n\"Exterminator needed to kill bees South East of Laurum Harbour! \n<color=red>WARNING: Snakes are not friendly</color>\"\n...seems like a job for you young hero. ";
-            questNameTranslations[5] = "Powerful Mix"; questLoreTranslations[5] = "Did you know a venom mixed with Honey can make a powerful healing potion? Collect some Venom from the Snake and Honey from the Bees.";
+            questNameTranslations[1] = "The Beginning of a Journey"; questLoreTranslations[1] = "Welcome to Laurum Harbour, this is the main hub for many shops. As you're new here, have a look around and familiarize yourself with the town!";
+            questNameTranslations[2] = "Ready for Combat! "; questLoreTranslations[2] = "Equipment is essential to be more powerful. However without the correct equipment this cannot be accomplished. We'll start with a basic training, head across the bridge to the south of Laurum Harbour and start on those monsters. Who knows, they might drop some useful ingredients.";
+            questNameTranslations[3] = "Gathering Material"; questLoreTranslations[3] = "Now you are going to learn about gathering, go kill some Slimes and Worms and collect some Slime Core and Worms.";
+            questNameTranslations[4] = "Bee-Gone!"; questLoreTranslations[4] = "What's all the buzz about in this newsletter...? Oh I see...\n\"Exterminator needed to kill bees South East of Laurum Harbour! \n<color=red>WARNING: Snakes are not friendly</color>\"\n...seems like a job for you young hero.";
+            questNameTranslations[5] = "Powerful Mix"; questLoreTranslations[5] = "Did you know a venom mixed with Honey can make a powerful healing potion? Collect some Venom from the Snakes and Honey from the Bees.";
             questNameTranslations[6] = "Mysterious Cave"; questLoreTranslations[6] = "There is a mysterious cave near Laurum Harbour and I need you to go and check if it is a safe place to start a mining site.";
             questNameTranslations[7] = "Spider Hunting!"; questLoreTranslations[7] = "Cave explorers keep getting caught in the Spider Webs, kill the Spiders and eradicate their webs before something dangerous happens to a cave explorer.";
             questNameTranslations[8] = "Web of Despair"; questLoreTranslations[8] = "Rumor has it that in the Spiders cave nearby, the Spiders drop a thick web. That may prove useful. Go collect some!";
-            questNameTranslations[9] = "Vampiric Showdown"; questLoreTranslations[9] = "Sharp fangs, and wings! What a terrifying combination! Let's see what you can do without garlic. The Bat's can be found within the Spider cave. ";
-            questNameTranslations[10] = "Fruity!"; questLoreTranslations[10] = "The Bats that are inside the cave always carry fruit with them, kill them and gather some Fruit. It may prove useful. ";
+            questNameTranslations[9] = "Vampiric Showdown"; questLoreTranslations[9] = "Sharp fangs, and wings! What a terrifying combination! Let's see what you can do without garlic. The Bat's can be found within the Spider cave.";
+            questNameTranslations[10] = "Fruity!"; questLoreTranslations[10] = "The Bats that are inside the cave always carry fruit with them, kill them and gather some Fruit. It may prove useful.";
             questNameTranslations[11] = " Magical Mushroom?"; questLoreTranslations[11] = "Hey! The recent cold weather we have had recently has caused problems. We've got a Mushroom infestation and they are vicious ones. Clear them out will ya?";
-            questNameTranslations[12] = "Shroom Party!"; questLoreTranslations[12] = "There seems to be no stop to this infestation. Hanging around the Red Mushrooms we have what seems to be some Blue Mushrooms. Please kill and collect them so we can put this infestation to an end! ";
+            questNameTranslations[12] = "Shroom Party!"; questLoreTranslations[12] = "There seems to be no stop to this infestation. Hanging around the Red Mushrooms we have what seems to be some Blue Mushrooms. Please kill and collect them so we can put this infestation to an end!";
             questNameTranslations[13] = "Shroom Party! (Part 2)"; questLoreTranslations[13] = "The Red Mushrooms have continued with their infestation plan. Take them out and collect them as well. They may be worth something sooner or later!";
             questNameTranslations[14] = "Mushroom Eradication"; questLoreTranslations[14] = "Everything we have tried has failed! It seems the infestation will go on but that doesn't mean we can't quickly pause the problem. Hunt those Mushrooms, in less than 30 minutes!";
             questNameTranslations[15] = "Rotten Flesh"; questLoreTranslations[15] = "We have a problem. Strange Zombies who seem to have migrated from the Ghost Town have taken over the Windmill near the Ghost Town. Dispose of those Zombies before they escape out of the building!";
@@ -112,40 +112,40 @@ public class Translations : MonoBehaviour
             questNameTranslations[18] = "The Sealing Blow!"; questLoreTranslations[18] = "Not everyone wins... Lay these courageous souls to rest! Be the one to push further than the rest, and grab some dark ectoplasm while you're at it.";
             questNameTranslations[19] = "Spectral War."; questLoreTranslations[19] = "Kill those Ghosts, and Lost Souls! Collect the goods!";
             questNameTranslations[20] = "Tentacle Search"; questLoreTranslations[20] = "What once an amazing beach, now an infestation of Octopus. Head due west from the Ghost Town and you will stumble upon a path to the beach. Kill those pesky Octopus and maybe collect some Tentacles in the process.";
-            questNameTranslations[21] = "Dehydrated"; questLoreTranslations[21] = "You thirsty too? Those Water Elements are a good source of water so kill them and bottle up whatever's left! They're West of the ghost town.";
+            questNameTranslations[21] = "Dehydrated"; questLoreTranslations[21] = "You thirsty too? Those Water Elements are a good source of water so kill them and bottle up whatever's left! They're West of the Ghost Town.";
             questNameTranslations[22] = "Low Tide"; questLoreTranslations[22] = "This is very strange. There have been reports of walking sea monsters. There must be something wrong with them. Go investigate and collect some Sacred Water while your at it.";
             questNameTranslations[23] = "Boiling Point..."; questLoreTranslations[23] = "Oh dear, the Wizards are back. These creatures normally camped near the beach in order to be a blockade to anyone not strong enough. Many remember the trouble they caused for other warriors. We need to find out a way to clear them out. Please kill some and bring back whatever they drop so we can work on finding the weakness.";
             questNameTranslations[24] = "Forbidden Wind Stones"; questLoreTranslations[24] = "Hellfaces are a type of creature which have a nature to do bad things. This time they are gathering the Forbidden Wind Stones in order to try and summon some kind of demon. We need to get these stones off them before they do anything bad.";
             questNameTranslations[25] = "Deadly Desire"; questLoreTranslations[25] = "Recently in the village many villagers have suffered from some strange pains and diseases. Our scouts have reported they have spotted the culprits. The Soulmasks using some Ritual Mask. We need you to teach them a lesson and take those Ritual Masks away  from them.";
-            questNameTranslations[26] = "One of Us"; questLoreTranslations[26] = "Phasemasks and Soultalon are some type of higher ranked Hellface. The Phasemask eat the Green Mushroom for special night vision, and the Soultalon use the ring of protection  as an hidden source of defence. Please collect these so we can find a way to destroy them. ";
+            questNameTranslations[26] = "One of Us"; questLoreTranslations[26] = "Phasemasks and Soultalons are some type of higher ranked Hellface. The Phasemask eat the Green Mushroom for special night vision, and the Soultalon use the ring of protection  as an hidden source of defense. Please collect these so we can find a way to destroy them.";
             questNameTranslations[27] = "Deadly Combo"; questLoreTranslations[27] = "The Phasemask and Soultalon have joined forces to gather Heart Stones and achieve immortality, we must stop them before it's too late, go kill them both and retrieve all the Heart Stones.";
-            questNameTranslations[28] = "Mysterious Creatures "; questLoreTranslations[28] = "The villagers have found some mysterious creatures inside the forest, some have reported trees moving ,go inside the forest and kill some Treants so villagers can travel safe inside the forest.";
+            questNameTranslations[28] = "Mysterious Creatures "; questLoreTranslations[28] = "The villagers have found some mysterious creatures inside the forest, some have reported trees moving, go inside the forest and kill some Treants so villagers can travel safe inside the forest.";
             questNameTranslations[29] = "Seed of Evil"; questLoreTranslations[29] = "New reports are in about these walking Trees. It seems they have all found themselves above the Volcano. This could have had some effect on them but we still can't rule out a curse. Please investigate these things further but stay away from the volcano entrance. We can't afford to lose another hero.";
-            questNameTranslations[30] = "Golems Have Gone Too Far"; questLoreTranslations[30] = "There was once a noble order of golems who lived in the nearby forest. They still live there, but they are no longer noble, far from it. Their behaviours seem more demonic than anything else and we cannot let them go on. Hero, please get rid of those Golems.";
+            questNameTranslations[30] = "Golems Have Gone Too Far"; questLoreTranslations[30] = "There was once a noble order of golems who lived in the nearby forest. They still live there, but they are no longer noble, far from it. Their behaviours seem more demonic than anything else and we cannot let them go on. Please get rid of those Golems.";
             questNameTranslations[31] = "Rocky Curse"; questLoreTranslations[31] = "The noble order of Golems is far from defeated. It seems their behaviour shift must be due to some dark forces. Just the thought of it sends chills down my spine! collect the Black Walnut Wood from them so they become weaker.";
-            questNameTranslations[32] = "The Sailor and His Ship"; questLoreTranslations[32] = "A recent storm has done quite a bit of damage to a sailors ship and he is supposed to set sail within the next few days. His ship is far from sailable, there's holes all over it. Would you mind helping him by collecting the materials he need to repair the ship?";
+            questNameTranslations[32] = "The Sailor and His Ship"; questLoreTranslations[32] = "A recent storm has done quite a bit of damage to a sailors ship and he is supposed to set sail within the next few days. His ship is far from sailable, there's holes all over it. Would you mind helping him by collecting the materials he needs to repair the ship?";
             questNameTranslations[33] = "Scorpions' Invasion"; questLoreTranslations[33] = "Vile creatures have crept up in our lands. Reports of attacks are trickling in slowly, but we cannot afford to sit back idly. This could get out of control very quickly go and kill the Scorpions.";
-            questNameTranslations[34] = "Poison for Victory"; questLoreTranslations[34] = "Adventurer please gather some Scorpion Tails for me, we urgently need it to extract the poison from it and put it on the tip of our arrow, it will be a great tool for our victory against the sandguard evil army.";
+            questNameTranslations[34] = "Poison for Victory"; questLoreTranslations[34] = "Adventurer please gather some Scorpion Tails for me, we urgently need it to extract the poison from it and put it on the tip of our arrow, it will be a great tool for our victory against the Sandguard Evil Army.";
             questNameTranslations[35] = "Traditional Meal"; questLoreTranslations[35] = "Since you are a newbie in Libra I'm going to make you a special traditional meal, but first I need you to collect some Scorpions as they are the main ingredients.";
             questNameTranslations[36] = "Guardians of the Sand"; questLoreTranslations[36] = "The Sandguards are the local residents of the desert. That does not mean they do not cause trouble though as they have began attacking the local people. Please help calm them by knocking some sense into them.";
             questNameTranslations[37] = "What Could That Be?"; questLoreTranslations[37] = "Collect the Earth Stone from the Sandguard. We never seen such a rare stone before and it might be useful.";
             questNameTranslations[38] = "There's More..?"; questLoreTranslations[38] = "Collect Enchanted Sand from the Sandguard as well, It might be useful to make a glowing sand castle.";
             questNameTranslations[39] = "The Living Dead..?"; questLoreTranslations[39] = "Strange noises have been erupting from the nearby temple. There are two entrances, one to the North East and one to the South West. See what all the commotion is about.";
             questNameTranslations[40] = "This Isn't Very, Humerous..."; questLoreTranslations[40] = "The temple is absolutely infested with Skeletons. We can't let them get out. Please kill them and help put them back in their tombs.";
-            questNameTranslations[41] = "Nice Find!"; questLoreTranslations[41] = "Collect the Golden Tooth from the Skeletons and Ancient Axe from the Skeleton Chief, those damned Skeletons were bandits when they were alive and still bandits when dead, always stealing the goods from Fort Libra.";
+            questNameTranslations[41] = "Nice Find!"; questLoreTranslations[41] = "Collect the Golden Tooth from the Skeletons and Ancient Axe from the Skeleton Chiefs, those damned Skeletons were bandits when they were alive and still bandits when dead, always stealing the goods from Fort Libra.";
             questNameTranslations[42] = "Deep Exploration"; questLoreTranslations[42] = "I've gotten word there's a volcano nearby, located within the Libra Jungle. Go explore it, there may even be some loot inside it!";
-            questNameTranslations[43] = "Hellish Blaze"; questLoreTranslations[43] = "Look like raiding the volcano won't be easy.. Not only is it scorching hot but we have some enemies to defeat! Please clear them out.";
+            questNameTranslations[43] = "Hellish Blaze"; questLoreTranslations[43] = "Look like raiding the volcano won't be easy... Not only is it scorching hot but we have some enemies to defeat! Please clear them out.";
             questNameTranslations[44] = "Fire Demon's Secrets"; questLoreTranslations[44] = "Collect the Fire Orb from the Fire Lich so we can research it and know it's true purpose, also get the Charred Bones from the Skeletons. They must be useful for something.";
-            questNameTranslations[45] = "Chilling News #1 "; questLoreTranslations[45] = "Hero, we have received some bad news. The Arctic realm of Rynthia has come under attack from creatures who have emerged from the cave on the North side of the forest. You are just the hero we need. However you need more training, head to the nearby mountain to train! Remember to collect materials while you're out so you can equip yourself better. ";
-            questNameTranslations[46] = "Chilling News #2"; questLoreTranslations[46] = "Good news hero, we have found a way to get to Rynthia quickly. The stone circle on the Laurum Hills should have a portal in the centre which leads right to the Rynthia Forest. However we need you to clear out monsters from nearby the portal. Don't forget to gather some Leather from the Observer and Magic Leather from the Death Watch.";
+            questNameTranslations[45] = "Chilling News #1 "; questLoreTranslations[45] = "Hero, we have received some bad news. The Arctic Realm of Rynthia has come under attack from creatures who have emerged from the cave on the North side of the forest. You are just the hero we need. However you need more training, head to the nearby mountain to train! Remember to collect materials while you're out so you can equip yourself better.";
+            questNameTranslations[46] = "Chilling News #2"; questLoreTranslations[46] = "Good news Hero, we have found a way to get to Rynthia quickly. The stone circle on the Laurum Hills should have a portal in the centre which leads right to the Rynthia Forest. However we need you to clear out monsters from nearby the portal. Don't forget to gather some Leather from the Observer and Magic Leather from the Death Watch.";
             questNameTranslations[47] = "Chilling News #3 "; questLoreTranslations[47] = "We have a problem. Princess Aiwin of Rynthia has sent word that creatures called Observers seem to be working on the same side as the Rynthia Invaders. There is no way you can reach the portal unless you clear some of these enemies out. Come back after you have accomplished this task and collected the Leather from the Observer.";
             questNameTranslations[48] = "Eyes Wide Open"; questLoreTranslations[48] = "To the east of Laurum lies the Laurum Hills. The Beholders sent to prevent travellers getting into Rynthia have decided to settle down there. Please venture into their new home and reduce their numbers.";
-            questNameTranslations[49] = "Chilling News #4 "; questLoreTranslations[49] = "The time has come hero, the route to Rynthia awaits. You need to get into Rynthia quickly to scout out the situation. Be ready for Combat, the Invaders don't joke around. ";
-            questNameTranslations[50] = "Frozen Royalty "; questLoreTranslations[50] = "Welcome to Rynthia Hero, we have heard a lot about you and your skills. Is it possible you could help me? The Rynthia forests are infested with mysterious frozen creatures. Princess Aiwin is stuck within the centre of the forest awaiting help from outsiders. Please without your help she might perish in these woods and we can't allow that to happen! ";
-            questNameTranslations[51] = "Frigid Rebellion"; questLoreTranslations[51] = "Have you been enjoying your time here in Rynthia? It's a nice place isn't it. You know what would be even nicer? If the monsters were gone. Maybe if you could clear out some of these fiends then maybe we won't be attacks with every corner we turn. ";
-            questNameTranslations[52] = "Breakout"; questLoreTranslations[52] = "The Ice creatures that have resided in a nearby cave have broken out and invaded our town.. These creatures are strong but we can't give up just there. collect the Purple Cape and the Heart of Ice Skeletons from the Ice Skeletons , also Ice Bracelet and Regal Crown from the Ice Lich.";
-            questNameTranslations[53] = "Inside the Devil square"; questLoreTranslations[53] = "So adventurer, do you think you are the most powerful person in here? Well go inside the Devil square and get some kills to prove it.";
-            questNameTranslations[54] = "Laurum Arena"; questLoreTranslations[54] = "Hello Hero! Here in Laurum Harbour we hold host to the arena. This is a place where you and other people can test your skills against each other in a safe death free environment. Give it a try sometime and maybe make some new friends along the way. ";
+            questNameTranslations[49] = "Chilling News #4 "; questLoreTranslations[49] = "The time has come Hero, the route to Rynthia awaits. You need to get into Rynthia quickly to scout out the situation. Be ready for combat, the Invaders don't joke around.";
+            questNameTranslations[50] = "Frozen Royalty "; questLoreTranslations[50] = "Welcome to Rynthia Hero, we have heard a lot about you and your skills. Is it possible you could help me? The Rynthia forests are infested with mysterious frozen creatures. Princess Aiwin is stuck within the centre of the forest awaiting help from outsiders. Please without your help she might perish in these woods and we can't allow that to happen!";
+            questNameTranslations[51] = "Frigid Rebellion"; questLoreTranslations[51] = "Have you been enjoying your time here in Rynthia? It's a nice place isn't it. You know what would be even nicer? If the monsters were gone. Maybe if you could clear out some of these fiends then maybe we won't be attacks with every corner we turn.";
+            questNameTranslations[52] = "Breakout"; questLoreTranslations[52] = "The ice creatures that have resided in a nearby cave have broken out and invaded our town... These creatures are strong but we can't give up just there. Collect the Purple Cape and the Heart of Ice Skeleton from the Ice Skeletons, also Ice Bracelet and Regal Crown from the Ice Lich.";
+            questNameTranslations[53] = "Inside the Devil Square"; questLoreTranslations[53] = "So adventurer, do you think you are the most powerful person in here? Well go inside the Devil Square and get some kills to prove it.";
+            questNameTranslations[54] = "Laurum Arena"; questLoreTranslations[54] = "Hello Hero! Here in Laurum Harbour we hold host to the arena. This is a place where you and other people can test your skills against each other in a safe death free environment. Give it a try sometime and maybe make some new friends along the way.";
             questNameTranslations[55] = "Yoga Time... or Not?"; questLoreTranslations[55] = "Time to chill for 10 minutes, hydrate yourself, take a short break and help others in the chat... You can also ignore this and keep playing for free exp!";
             questNameTranslations[56] = "Yoga Time... or Not?"; questLoreTranslations[56] = "Time to chill for 10 minutes, hydrate yourself, take a short break and help others in the chat... You can also ignore this and keep playing for free exp!";
             questNameTranslations[57] = "Yoga Time... or Not?"; questLoreTranslations[57] = "Time to chill for 10 minutes, hydrate yourself, take a short break and help others in the chat... You can also ignore this and keep playing for free exp!";
@@ -153,28 +153,28 @@ public class Translations : MonoBehaviour
             questNameTranslations[59] = "Yoga Time... or Not?"; questLoreTranslations[59] = "Time to chill for 10 minutes, hydrate yourself, take a short break and help others in the chat... You can also ignore this and keep playing for free exp!";
 
             questNameTranslations[500] = "[D] Desire for Blood"; questLoreTranslations[500] = "Are you feeling strong today? Go inside the arena and spill some blood.";
-            questNameTranslations[501] = "[D] The Devil Square"; questLoreTranslations[501] = "Hello Hero, are you feeling courageous?. Well I offer a reward for you if you are courageous enough to brave Devil's Square.";
+            questNameTranslations[501] = "[D] The Devil Square"; questLoreTranslations[501] = "Hello Hero! Are you feeling courageous? Well I offer a reward for you if you are courageous enough to brave the Devil Square.";
 
-            questNameTranslations[601] = "Devil Square Iron"; questLoreTranslations[601] = "Are you ready to prove yourself as a worthy fighter? Then get inside Devil's Square and try to reach for the Iron rank!";
-            questNameTranslations[602] = "Devil Square Bronze"; questLoreTranslations[602] = "Oh congratulation on getting the iron rank of the Devil square but let's be honest anybody can get the iron rank get back inside and try to reach for higher kills and wave.";
-            questNameTranslations[603] = "Devil Square Silver"; questLoreTranslations[603] = "Very good, I can see you have trained, but this did not impressed anybody, now get back inside and get the silver rank.";
-            questNameTranslations[604] = "Devil Square Gold"; questLoreTranslations[604] = "Hmm you can consider yourself somewhat decent i guess... Who am i kidding get back inside and get the gold rank!";
-            questNameTranslations[605] = "Devil Square Platinum"; questLoreTranslations[605] = "You actually managed to get the gold rank of the Devil square i guess i underestimated you, I'm glad i can see you evolve now get inside and get the Platinum rank!";
+            questNameTranslations[601] = "Devil Square Iron"; questLoreTranslations[601] = "Are you ready to prove yourself as a worthy fighter? Then get inside the Devil Square and try to reach for the Iron rank!";
+            questNameTranslations[602] = "Devil Square Bronze"; questLoreTranslations[602] = "Oh congratulation on getting the Iron Rank of the Devil Square but let's be honest anybody can get the Iron Rank get back inside and try to reach for higher kills and wave.";
+            questNameTranslations[603] = "Devil Square Silver"; questLoreTranslations[603] = "Very good, I can see you have trained, but this did not impressed anybody, now get back inside and get the Silver Rank.";
+            questNameTranslations[604] = "Devil Square Gold"; questLoreTranslations[604] = "Hmm you can consider yourself somewhat decent I guess... Who am I kidding? Get back inside and get the Gold Rank!";
+            questNameTranslations[605] = "Devil Square Platinum"; questLoreTranslations[605] = "You actually managed to get the Gold Rank of the Devil Square I guess I underestimated you, I'm glad I can see you evolve now get inside and get the Platinum Rank!";
             questNameTranslations[606] = "Devil Square Diamond"; questLoreTranslations[606] = "Great job only a few people have managed to get the platinum rank in the Devil Square, Now are you ready for a good challenge?";
-            questNameTranslations[607] = "Devil Square Master"; questLoreTranslations[607] = "Now you got my respect I'm glad you have become a power fighter but can you do the unthinkable and achieve the devil square master rank?";
-            questNameTranslations[608] = "Devil Square Grandmaster"; questLoreTranslations[608] = "You are getting very strong very powerful you are now known through the land. Remember to train everyday with no excuses, now i do not believe no matter how strong you are that you gonna be able to get the Devil square Grand Master rank.";
-            questNameTranslations[609] = "Devil Square Challenger"; questLoreTranslations[609] = "Congratulation, are one of the strongest fighter in the land and history no one has ever managed to get this far, but now can you get the last rank of the devil square? You will be known forever in the history of Laurum online.";
+            questNameTranslations[607] = "Devil Square Master"; questLoreTranslations[607] = "Now you got my respect I'm glad you have become a power fighter but can you do the unthinkable and achieve the Devil Square Master Rank?";
+            questNameTranslations[608] = "Devil Square Grandmaster"; questLoreTranslations[608] = "You are getting very strong and powerful, you are now known through the land. Remember to train everyday with no excuses, now I do not believe no matter how strong you are that you gonna be able to get the Devil Square Grand Master Rank.";
+            questNameTranslations[609] = "Devil Square Challenger"; questLoreTranslations[609] = "Congratulations! You are one of the strongest fighters in the land and history. No one have ever managed to get this far, but now can you get the last rank of the Devil Square? You will be known forever in the history of Laurum Online.";
 
-            questNameTranslations[300] = "Destructive Takeover #1"; questLoreTranslations[300] = "Hello Hero I have awaited your arrival, I have a quest for you. The ancient volcano north of Fort Libra holds the body of ancient ruler of the Libra Desert, Alainon the Bane. He was trapped within the volcano years ago and was forced into a slumber protected by one single warrior. However, we have reason to believe he has been awake for some time and is the reason behind recent disasters such as the Rynthia Invasion. Of course he has stayed put in the volcano but his henchmen have been causing chaos for him. Please go into the volcano and clear out some of his minions so we can get easy access to him. ";
-            questNameTranslations[301] = "Destructive Takeover #2"; questLoreTranslations[301] = "Welcome back Hero, the situation has gotten worse. Recent earthquakes near the volcano have been reported which can mean only one thing. An eruption! If what we have recorded is correct then he is angry about you killing his minions and has plans to take over this world with threat of a massive eruption. There is no time to lose! You have proven your strength before by saving Rynthia so please head into the volcano and destroy him to stop his destructive take over. ";
+            questNameTranslations[300] = "Destructive Takeover #1"; questLoreTranslations[300] = "Hello Hero! I have awaited your arrival, I have a quest for you. The ancient volcano north of Fort Libra holds the body of ancient ruler of the Libra Desert, Alainon the Bane. He was trapped within the volcano years ago and was forced into a slumber protected by one single warrior. However, we have reason to believe he has been awake for some time and is the reason behind recent disasters such as the Rynthia Invasion. Of course he has stayed put in the volcano but his henchmen have been causing chaos for him. Please go into the volcano and clear out some of his minions so we can get easy access to him.";
+            questNameTranslations[301] = "Destructive Takeover #2"; questLoreTranslations[301] = "Welcome back Hero, the situation has gotten worse. Recent earthquakes near the volcano have been reported which can mean only one thing. An eruption! If what we have recorded is correct then he is angry about you killing his minions and has plans to take over this world with threat of a massive eruption. There is no time to lose! You have proven your strength before by saving Rynthia so please head into the volcano and destroy him to stop his destructive take over.";
             questNameTranslations[302] = "Volcanic Treasures #1"; questLoreTranslations[302] = "Ah it's good to see you. I have some interesting news. A recent archaeological search party was sent into the jungle volcano to find an ancient treasure deep within the volcano. However they never managed to find it. This is probably because the right treasure tracking equipment was not used. Would it be possible if you could help with the material collecting for this treasure tracker. We need multiple different ingredients to craft it. Please collect the necessary ingredients to find it.";
             questNameTranslations[303] = "Volcanic Treasures #2"; questLoreTranslations[303] = "Well done, it seems you were the right person to ask to gather these materials. Now we may be able to track down this treasure. The eyeballs have all pointed towards the Volcano. Oh no! This is bad, it seems guarding the treasure is Abelot the Keeper the twin of Alainon the Bane. He is an ancient warrior who is responsible for attacking the once beautiful ghost village. According to this magic sand it seems he is trying to escape and wreak havoc in Laurum Harbour. We can't let this happen. Please go stop Abelot the Keeper within the volcano, and don't forget to bring back some treasure!";
 
             questNameTranslations[900] = "Big Trouble in Little Laurum"; questLoreTranslations[900] = "The twins: Abelot the Keeper and Alainon the Bane are up to their old tricks again. Journey into the volcano with a party or by yourself take them out.";
             questNameTranslations[901] = "Dangerous Deciduous"; questLoreTranslations[901] = "The Enchanted Forest is home to many dangerous deciduous Treants and Golems. Release your inner lumberjack and cut those trees down to size. Try not to set any fires, we don't want any shovel wielding bears to attack.";
-            questNameTranslations[902] = "Beauty Lies in the Eye of the Beholder"; questLoreTranslations[902] = "These Beholders have the looks that can kill. Dont be charmed by their appearance or before long you may be petrified or devoured. ";
+            questNameTranslations[902] = "Beauty Lies in the Eye of the Beholder"; questLoreTranslations[902] = "These Beholders have the looks that can kill. Dont be charmed by their appearance or before long you may be petrified or devoured.";
             questNameTranslations[903] = "Frostbite"; questLoreTranslations[903] = "I don't know whats worse: This blistering cold or the horde of undead.  Will the cold be my demise or shall I fall in battle? Maybe I'll make it through another night and see the Sun glistening off the snowy peaks; ha that will be the day.";
-            questNameTranslations[904] = "Heros vs. Villians"; questLoreTranslations[904] = "Will you be the one to save a life... or take it.";
+            questNameTranslations[904] = "Heroes vs. Villians"; questLoreTranslations[904] = "Will you be the one to save a life... or take it.";
             #endregion
 
             #region Tasks
@@ -215,7 +215,7 @@ public class Translations : MonoBehaviour
             questTasksTranslations[35] = "Collect Wind Stone";
             questTasksTranslations[36] = "Kill 'Soulmask'";
             questTasksTranslations[37] = "Collect Ritual Mask";
-            questTasksTranslations[38] = "Collect Green mushroom";
+            questTasksTranslations[38] = "Collect Green Mushroom";
             questTasksTranslations[39] = "Collect Ring of protection";
             questTasksTranslations[40] = "Kill 'Phasemask'";
             questTasksTranslations[41] = "Kill 'Soultalon'";
@@ -262,7 +262,7 @@ public class Translations : MonoBehaviour
             questTasksTranslations[82] = "Collect Regal Crown";
             questTasksTranslations[83] = "Kill 'Ice Skeleton'";
             questTasksTranslations[84] = "Collect Purple Cape";
-            questTasksTranslations[85] = "Collect Heart of Ice skeleton";
+            questTasksTranslations[85] = "Collect Heart of Ice Skeleton";
             questTasksTranslations[86] = "Enter Devil Square";
             questTasksTranslations[87] = "Kill 25 enemies in D.S";
             questTasksTranslations[88] = "Take down 20 players in the Arena";
@@ -290,9 +290,9 @@ public class Translations : MonoBehaviour
             questTasksTranslations[110] = "Collect Eyeball";
             questTasksTranslations[111] = "Collect Golden Horn";
             questTasksTranslations[112] = "Collect Enchanted Sand";
-            questTasksTranslations[113] = "Collect Heart of Ice skeleton";
+            questTasksTranslations[113] = "Collect Heart of Ice Skeleton";
             questTasksTranslations[114] = "Stay Online for 10 minutes";
-            questTasksTranslations[115] = "Stay Online for 12 Hours";
+            questTasksTranslations[115] = "Stay Online for 12 hours";
             questTasksTranslations[116] = "Kill 'Treant'";
             questTasksTranslations[117] = "Kill 'Golem'";
             questTasksTranslations[118] = "Kill 'Death Watch'";
@@ -307,7 +307,7 @@ public class Translations : MonoBehaviour
             materialsNames[material.material_translation.eventB] = "Silver Tickets"; materialsDescriptions[material.material_translation.eventB] = "Obtainable during special events. Can be exchanged for rewards";
             materialsNames[material.material_translation.eventC] = "Reserved for Other Tickets (not in use)"; materialsDescriptions[material.material_translation.eventC] = "";
             materialsNames[material.material_translation.eventD] = "Reserved for Other Tickets (not in use)"; materialsDescriptions[material.material_translation.eventD] = "";
-            materialsNames[material.material_translation.slime_core] = "Slime Core"; materialsDescriptions[material.material_translation.slime_core] = "A small orb imbued with magic; this must be what animates slimes";
+            materialsNames[material.material_translation.slime_core] = "Slime Core"; materialsDescriptions[material.material_translation.slime_core] = "A small orb imbued with magic; this must be what animates slimes.";
             materialsNames[material.material_translation.mliquid] = "Mysterious Liquid"; materialsDescriptions[material.material_translation.mliquid] = "This strange substance is very acidic. Better handle with care.";
             materialsNames[material.material_translation.dirt] = "Dirt"; materialsDescriptions[material.material_translation.dirt] = "Just a pile of dirt.";
             materialsNames[material.material_translation.worm] = "Worm"; materialsDescriptions[material.material_translation.worm] = "A completely intact worm; great for fishing.";
@@ -315,10 +315,10 @@ public class Translations : MonoBehaviour
             materialsNames[material.material_translation.honey] = "Honey"; materialsDescriptions[material.material_translation.honey] = "A sweet floral scented honey.Watch for wild bears";
             materialsNames[material.material_translation.snake_venom] = "Venom"; materialsDescriptions[material.material_translation.snake_venom] = "You were able to extract some venom? Be careful as it is fatal.";
             materialsNames[material.material_translation.snake_egg] = "Snake Egg"; materialsDescriptions[material.material_translation.snake_egg] = "You discovered a snake egg.";
-            materialsNames[material.material_translation.silk_web] = "Silk Web"; materialsDescriptions[material.material_translation.silk_web] = "A lavish piece of silk. Someone might be able to craft some clothing with this";
+            materialsNames[material.material_translation.silk_web] = "Silk Web"; materialsDescriptions[material.material_translation.silk_web] = "A lavish piece of silk. Someone might be able to craft some clothing with this.";
             materialsNames[material.material_translation.spider_venom] = "Venom"; materialsDescriptions[material.material_translation.spider_venom] = "You were able to extract some venom? Be careful as it is fatal.";
             materialsNames[material.material_translation.fruit] = "Fruit"; materialsDescriptions[material.material_translation.fruit] = "Some left over fruit the bat didn't eat, no thanks to you.";
-            materialsNames[material.material_translation.bat_blood] = "Bat Blood"; materialsDescriptions[material.material_translation.bat_blood] = "Not sure what kind of experiments the apothecary needed this for. I'm just hoping we don't have some half Bat, half Man running around after this";
+            materialsNames[material.material_translation.bat_blood] = "Bat Blood"; materialsDescriptions[material.material_translation.bat_blood] = "Not sure what kind of experiments the apothecary needed this for. I'm just hoping we don't have some half bat, half man running around after this.";
             materialsNames[material.material_translation.blue_shroom] = "Blue Shroom"; materialsDescriptions[material.material_translation.blue_shroom] = "Warning: Unknown side effects once consumed, proceed with caution.";
             materialsNames[material.material_translation.blue_spore] = "Blue Spore"; materialsDescriptions[material.material_translation.blue_spore] = "Weird looking blue spore. Try not to breath it in.";
             materialsNames[material.material_translation.red_shroom] = "Red Shroom"; materialsDescriptions[material.material_translation.red_shroom] = "Warning: Unknown side effects once consumed, proceed with caution.";
@@ -332,12 +332,12 @@ public class Translations : MonoBehaviour
             materialsNames[material.material_translation.soul] = "Soul"; materialsDescriptions[material.material_translation.soul] = "If I have it's soul is it still considered a Lost Soul?";
             materialsNames[material.material_translation.tentacles] = "Tentacles"; materialsDescriptions[material.material_translation.tentacles] = "Step 1 : Kill octopus. Step 2: Cut off tentacles. Step 3: Apply tentacles to fire. Step 4: Devour tentacles.";
             materialsNames[material.material_translation.seaweed] = "Seaweed"; materialsDescriptions[material.material_translation.seaweed] = "Seaweed that was stuck to the octopus. Looks edible.";
-            materialsNames[material.material_translation.s_water] = "Sacred Water"; materialsDescriptions[material.material_translation.s_water] = "This looks like it came from a mytical creature. It may have mystical properties";
+            materialsNames[material.material_translation.s_water] = "Sacred Water"; materialsDescriptions[material.material_translation.s_water] = "This looks like it came from a mytical creature. It may have mystical properties.";
             materialsNames[material.material_translation.w_stone] = "Water Stone"; materialsDescriptions[material.material_translation.w_stone] = "Some strange stone. You can feel a vast amount of power emanating from it.";
             materialsNames[material.material_translation.b_staff] = "Blue Staff"; materialsDescriptions[material.material_translation.b_staff] = "The staff from the blue wizard, wonder what secrets it holds?";
             materialsNames[material.material_translation.crys_ball] = "Crystal Ball"; materialsDescriptions[material.material_translation.crys_ball] = "A crystal ball, used to see the future. Guess it didn't warn him of his impending doom.";
             materialsNames[material.material_translation.r_staff] = "Red Staff"; materialsDescriptions[material.material_translation.r_staff] = "The staff from the red wizard. Seems like there is no magic imbued in it.";
-            materialsNames[material.material_translation.red_wizard_banner] = "red wizard banner"; materialsDescriptions[material.material_translation.red_wizard_banner] = "Once flown by Red Wizards. Its intent may have been to strike fear in one's enemies.";
+            materialsNames[material.material_translation.red_wizard_banner] = "Red Wizard Banner"; materialsDescriptions[material.material_translation.red_wizard_banner] = "Once flown by Red Wizards. Its intent may have been to strike fear in one's enemies.";
             materialsNames[material.material_translation.wi_stone] = "Wind Stone"; materialsDescriptions[material.material_translation.wi_stone] = "Some strange stone. You can feel a vast amount of power emanating from it.";
             materialsNames[material.material_translation.shr_skull] = "Shrunken Skull"; materialsDescriptions[material.material_translation.shr_skull] = "A shrunken skull, it almost resembles an adventurer you once knew... couldn't be, could it?";
             materialsNames[material.material_translation.b_necklace] = "Bone Necklace"; materialsDescriptions[material.material_translation.b_necklace] = "A bone necklace, wonder what the meaning of it is?";
@@ -369,7 +369,7 @@ public class Translations : MonoBehaviour
             materialsNames[material.material_translation.i_bracelet] = "Ice Bracelet"; materialsDescriptions[material.material_translation.i_bracelet] = "A blue bracelet imbued with strong ice magic.";
             materialsNames[material.material_translation.re_crown] = "Regal Crown"; materialsDescriptions[material.material_translation.re_crown] = "A golden crown with gems imbedded in it.";
             materialsNames[material.material_translation.pur_cape] = "Purple Cape"; materialsDescriptions[material.material_translation.pur_cape] = "This cape seems to still be in good condition. One good wash and it will be like new.";
-            materialsNames[material.material_translation.H_of_ice_skeleton] = "Heart of Ice skeleton"; materialsDescriptions[material.material_translation.H_of_ice_skeleton] = "A powerful, cursed heart. You can feel how it still beats";
+            materialsNames[material.material_translation.H_of_ice_skeleton] = "Heart of Ice Skeleton"; materialsDescriptions[material.material_translation.H_of_ice_skeleton] = "A powerful, cursed heart. You can feel how it still beats.";
             materialsNames[material.material_translation.holy_coin] = "The Holy Coin."; materialsDescriptions[material.material_translation.holy_coin] = "The Holy Coin is considered to be to most precious coin on earth.";
             materialsNames[material.material_translation.demo_coin] = "The Demon Coin."; materialsDescriptions[material.material_translation.demo_coin] = "The Demon coin is the currency used between demons.";
             materialsNames[material.material_translation.f_shards] = "Fire shards"; materialsDescriptions[material.material_translation.f_shards] = "Shards imbued with an enchanted flame.";
@@ -379,38 +379,38 @@ public class Translations : MonoBehaviour
             #region item names and descriptions
 
             itemNamesTranslation[500] = "Eang";
-            itemDescrTranslation[500] = "Grants you remote access to your bank";
+            itemDescrTranslation[500] = "Grants you remote access to your bank.";
             itemNamesTranslation[501] = "Welgac";
             itemDescrTranslation[501] = "Will refill your potions remotely.";
             itemNamesTranslation[502] = "Tordur";
             itemDescrTranslation[502] = "Allows you to sell items remotely.";
             itemNamesTranslation[503] = "Xorag";
-            itemDescrTranslation[503] = "A companion that remotely brings you to devil square and returns you upon completion";
+            itemDescrTranslation[503] = "A companion that remotely brings you to the Devil Square and returns you upon completion.";
             itemNamesTranslation[504] = "Dourur";
             itemDescrTranslation[504] = "Grants remote access to the broker.";
             itemNamesTranslation[505] = "Talon";
             itemDescrTranslation[505] = "Teleports you to 1 of 5 places of your choosing  every  10 minutes.";
             itemNamesTranslation[506] = "Rust";
-            itemDescrTranslation[506] = "Grants remote access to quests";
+            itemDescrTranslation[506] = "Grants remote access to quests.";
             itemNamesTranslation[507] = "Randolf";
             itemDescrTranslation[507] = "Collects loot automatically for you. Applies to Party loot and gold.";
             itemNamesTranslation[508] = "Bank Minion";
             itemDescrTranslation[508] = "Grants remote access to your bank - <color=red>Limited Edition</color>";
 
             itemNamesTranslation[509] = "Golha";
-            itemDescrTranslation[509] = "Grants you remote access to your bank";
+            itemDescrTranslation[509] = "Grants you remote access to your bank.";
             itemNamesTranslation[510] = "Medulli";
             itemDescrTranslation[510] = "Will refill your potions remotely.";
             itemNamesTranslation[511] = "Kellpoor";
             itemDescrTranslation[511] = "Allows you to sell items remotely.";
             itemNamesTranslation[512] = "Poryno";
-            itemDescrTranslation[512] = "A companion that remotely brings you to devil square and returns you upon completion";
+            itemDescrTranslation[512] = "A companion that remotely brings you to the Devil Square and returns you upon completion.";
             itemNamesTranslation[513] = "Oatorog";
             itemDescrTranslation[513] = "Grants remote access to the broker.";
             itemNamesTranslation[514] = "Drieclops";
             itemDescrTranslation[514] = "Teleports you to 1 of 5 places of your choosing  every  10 minutes.";
             itemNamesTranslation[515] = "Noadorm";
-            itemDescrTranslation[515] = "Grants remote access to quests";
+            itemDescrTranslation[515] = "Grants remote access to quests.";
             itemNamesTranslation[516] = "Greecos";
             itemDescrTranslation[516] = "Collects loot automatically for you. Applies to Party loot and gold.";
 
@@ -420,7 +420,7 @@ public class Translations : MonoBehaviour
             itemNamesTranslation[1101] = "Loyal Shortsword";
             itemDescrTranslation[1101] = "A sword given to beginners for a small price";
             itemNamesTranslation[1102] = "Warped Bronze Shortsword";
-            itemDescrTranslation[1102] = "A better shortsword";
+            itemDescrTranslation[1102] = "A better Shortsword";
             itemNamesTranslation[1103] = "Gleaming Iron Longsword";
             itemDescrTranslation[1103] = "A weapon designed for the strong";
             itemNamesTranslation[1104] = "Defiled Skeletal Greatsword";
@@ -448,9 +448,9 @@ public class Translations : MonoBehaviour
             itemNamesTranslation[1205] = "Burnished Greatshield";
             itemDescrTranslation[1205] = "Round and light yet has sufficient defensive capability";
             itemNamesTranslation[1206] = "Ivaders Shield";
-            itemDescrTranslation[1206] = "The pattern on this shield signifies it was used by Ivaders";
+            itemDescrTranslation[1206] = "The pattern on this shield signifies it was used by Invaders";
             itemNamesTranslation[1207] = "Viking Shield";
-            itemDescrTranslation[1207] = "Its been through alot of fights but its still strong";
+            itemDescrTranslation[1207] = "Its been through a lot of fights but its still strong";
             itemNamesTranslation[1208] = "Adamantite Greatshield";
             itemDescrTranslation[1208] = "A chunk of adamantite forged into a shield";
             itemNamesTranslation[1209] = "Reinforced Palladium Shield";
@@ -533,7 +533,7 @@ public class Translations : MonoBehaviour
             itemNamesTranslation[1302] = "Jugular";
             itemDescrTranslation[1302] = "Made from a special type of wood";
             itemNamesTranslation[1303] = "Hedgehog";
-            itemDescrTranslation[1303] = "Its color comes from the moss of the tree it was from";
+            itemDescrTranslation[1303] = "It's color comes from the moss of the tree it was from";
             itemNamesTranslation[1304] = "Grieving Yew Heavy Crossbow";
             itemDescrTranslation[1304] = "Its weight gives it more power";
             itemNamesTranslation[1305] = "Maple Self Bow";
@@ -1183,7 +1183,7 @@ public class Translations : MonoBehaviour
             itemNamesTranslation[4001] = "Golden Ticket Crate";
             itemDescrTranslation[4001] = "This crate grants you one Golden Ticket";
             itemNamesTranslation[4002] = "Premium Gems Crate";
-            itemDescrTranslation[4002] = "This crate contains from 6 to 12 premium gems";
+            itemDescrTranslation[4002] = "This crate contains from 6 to 12 Premium Gems";
             itemNamesTranslation[4003] = "Testbox 4003";
             itemDescrTranslation[4003] = "Description";
             itemNamesTranslation[4004] = "Testbox 4004";
@@ -1263,11 +1263,11 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[3123] = "Used to train\n(%3%)Wisdom\n(%8%)Intelligence\n(%2%)Agility\n(%2%)Dexterity";
 
             itemNamesTranslation[3300] = "Upgrade Jewel A";
-            itemDescrTranslation[3300] = "Used to upgrade <color=white>Common</color> and <color=#1eff00>Uncommon</color> gear to <color=#0070ff>Rare</color>";
+            itemDescrTranslation[3300] = "Used to upgrade <color=white>Common</color> and <color=#1eff00>Uncommon</color> gear to <color=#0070ff>Rare</color> (+15)";
             itemNamesTranslation[3301] = "Upgrade Jewel B";
-            itemDescrTranslation[3301] = "Used to upgrade <color=#0070ff>Rare</color> gear to <color=#a335ee>Epic</color>";
+            itemDescrTranslation[3301] = "Used to upgrade <color=#0070ff>Rare</color> gear to <color=#a335ee>Epic</color> (+50)";
             itemNamesTranslation[3302] = "Upgrade Jewel C";
-            itemDescrTranslation[3302] = "Used to upgrade <color=#a335ee>Epic</color> gear to <color=#ff8000>Legendary</color>";
+            itemDescrTranslation[3302] = "Used to upgrade <color=#a335ee>Epic</color> gear to <color=#ff8000>Legendary</color> (+500)";
             itemNamesTranslation[3303] = "Upgrade Jewel D";
             itemDescrTranslation[3303] = "Used to upgrade <color=#ff8000>Legendary</color> gear to +500";
 
@@ -1301,7 +1301,7 @@ public class Translations : MonoBehaviour
 
 
             itemNamesTranslation[5200] = "Egg";
-            itemDescrTranslation[5200] = "Eggggg description";
+            itemDescrTranslation[5200] = "Egg description";
 
 
             itemNamesTranslation[25101] = "Female Warrior";
@@ -1730,7 +1730,7 @@ public class Translations : MonoBehaviour
 
             enchantDescriptions[21] = "Gypsum: Chance to create a explosion on killing target, dealing 300% auto attack damage to near targets";
             enchantDescriptions[-21] = "Gypsum: Chance to cast skills for half of the mana usage";
-            enchantDescriptions_penalties[-21] = "10% chance of faill on casting skill";
+            enchantDescriptions_penalties[-21] = "10% chance of fail on casting skill";
             #endregion
 
 
@@ -1761,7 +1761,7 @@ public class Translations : MonoBehaviour
             skillTitles[61024] = "Armor Crusher";
             skillDescriptions[61024] = "{1}% chance to add a debuff on target that reduces its total DEF by {0}%. for {2} seconds";
             skillTitles[61025] = "Dismember";
-            skillDescriptions[61025] = "Does damage and Disarms ({2}% INT and STR damage) enemies with Armor Crusher (debuff) on for {1}s";
+            skillDescriptions[61025] = "Does damage and disarms ({2}% INT and STR damage) enemies with Armor Crusher (debuff) on for {1}s";
             skillTitles[61006] = "Charge";
             skillDescriptions[61006] = "Buffs your walking speed by +{0}% for {1}s";
             skillTitles[61008] = "Provoke";
