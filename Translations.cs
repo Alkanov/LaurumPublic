@@ -193,7 +193,7 @@ public class Translations : MonoBehaviour
             questTasksTranslations[13] = "Collect Silk Web";
             questTasksTranslations[14] = "Kill 'Bat'";
             questTasksTranslations[15] = "Collect Fruit";
-            questTasksTranslations[16] = "Enter the bat cave";
+            questTasksTranslations[16] = "Enter the Bat Cave";
             questTasksTranslations[17] = "Kill 'Blue Mush'";
             questTasksTranslations[18] = "Kill 'Red Mush'";
             questTasksTranslations[19] = "Collect Blue Shroom";
@@ -216,7 +216,7 @@ public class Translations : MonoBehaviour
             questTasksTranslations[36] = "Kill 'Soulmask'";
             questTasksTranslations[37] = "Collect Ritual Mask";
             questTasksTranslations[38] = "Collect Green Mushroom";
-            questTasksTranslations[39] = "Collect Ring of protection";
+            questTasksTranslations[39] = "Collect Ring of Protection";
             questTasksTranslations[40] = "Kill 'Phasemask'";
             questTasksTranslations[41] = "Kill 'Soultalon'";
             questTasksTranslations[42] = "Collect Heart Stone";
@@ -238,11 +238,11 @@ public class Translations : MonoBehaviour
             questTasksTranslations[58] = "Kill 'Skeleton Chief'";
             questTasksTranslations[59] = "Collect Ancient Axe";
             questTasksTranslations[60] = "Collect Golden Horn";
-            questTasksTranslations[61] = "Explore desert entrance A";
-            questTasksTranslations[62] = "Explore desert entrance B";
-            questTasksTranslations[63] = "Explore fire cave ";
-            questTasksTranslations[64] = "Explore fire cave boss A";
-            questTasksTranslations[65] = "Explore fire cave boss B";
+            questTasksTranslations[61] = "Explore Desert Entrance A";
+            questTasksTranslations[62] = "Explore Desert Entrance B";
+            questTasksTranslations[63] = "Explore Fire Cave ";
+            questTasksTranslations[64] = "Explore Fire Cave Boss A";
+            questTasksTranslations[65] = "Explore Fire Cave Boss B";
             questTasksTranslations[66] = "Kill 'Fire Lich'";
             questTasksTranslations[67] = "Collect Fire Bracelet";
             questTasksTranslations[68] = "Collect Fire Orb";
@@ -255,7 +255,7 @@ public class Translations : MonoBehaviour
             questTasksTranslations[75] = "Kill 'Observer'";
             questTasksTranslations[76] = "Collect Eyeball";
             questTasksTranslations[77] = "Collect Leather";
-            questTasksTranslations[78] = "Enter Rynthia portal";
+            questTasksTranslations[78] = "Enter Rynthia Portal";
             questTasksTranslations[79] = "Find the Princess camp";
             questTasksTranslations[80] = "Kill 'Ice Lich'";
             questTasksTranslations[81] = "Collect Ice Bracelet";
@@ -303,8 +303,8 @@ public class Translations : MonoBehaviour
             #endregion
 
             #region Materials
-            materialsNames[material.material_translation.eventA] = "Golden Tickets"; materialsDescriptions[material.material_translation.eventA] = "Obtainable during special events. Can be exchanged for rewards";
-            materialsNames[material.material_translation.eventB] = "Silver Tickets"; materialsDescriptions[material.material_translation.eventB] = "Obtainable during special events. Can be exchanged for rewards";
+            materialsNames[material.material_translation.eventA] = "Golden Tickets"; materialsDescriptions[material.material_translation.eventA] = "Obtainable during special events. Can be exchanged for rewards.";
+            materialsNames[material.material_translation.eventB] = "Silver Tickets"; materialsDescriptions[material.material_translation.eventB] = "Obtainable during special events. Can be exchanged for rewards.";
             materialsNames[material.material_translation.eventC] = "Reserved for Other Tickets (not in use)"; materialsDescriptions[material.material_translation.eventC] = "";
             materialsNames[material.material_translation.eventD] = "Reserved for Other Tickets (not in use)"; materialsDescriptions[material.material_translation.eventD] = "";
             materialsNames[material.material_translation.slime_core] = "Slime Core"; materialsDescriptions[material.material_translation.slime_core] = "A small orb imbued with magic; this must be what animates slimes.";
@@ -1172,7 +1172,7 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[2903] = "Summons a bank manager that will follow you for 5 minutes - Infinite uses";
 
             itemNamesTranslation[2904] = "Event Experience Potion";
-            itemDescrTranslation[2904] = "A bottle full of souls.. drink it! +20k Exp";
+            itemDescrTranslation[2904] = "A bottle full of souls... drink it! +20,000 Experience";
             itemNamesTranslation[2905] = "Large Experience Potion";
             itemDescrTranslation[2905] = "20,000 Experience points... in a bottle";
             itemNamesTranslation[2906] = "Level Points (LP) Reset Potion";
@@ -1562,9 +1562,9 @@ public class Translations : MonoBehaviour
 
 
             itemNamesTranslation[26101] = "Green Set";
-            itemDescrTranslation[26101] = "Warriors green basic set";
+            itemDescrTranslation[26101] = "Warriors Green Basic Set";
             itemNamesTranslation[26102] = "Yellow Set";
-            itemDescrTranslation[26102] = "Warriors yellow basic set";
+            itemDescrTranslation[26102] = "Warriors Yellow Basic Set";
             itemNamesTranslation[26103] = "Sharp Claw Set Blue";
             itemDescrTranslation[26103] = "Description";
             itemNamesTranslation[26104] = "Sharp Claw Set Green";
@@ -1598,9 +1598,9 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26117] = "Description";
 
             itemNamesTranslation[26201] = "Red Set";
-            itemDescrTranslation[26201] = "Hunters red basic set";
+            itemDescrTranslation[26201] = "Hunters Red Basic Set";
             itemNamesTranslation[26202] = "Yellow Set";
-            itemDescrTranslation[26202] = "Hunters yellow basic set";
+            itemDescrTranslation[26202] = "Hunters Yellow Basic Set";
             itemNamesTranslation[26203] = "Yew Warbow Blue";
             itemDescrTranslation[26203] = "Description";
             itemNamesTranslation[26204] = "Yew Warbow Green";
@@ -1634,9 +1634,9 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26217] = "Description";
 
             itemNamesTranslation[26301] = "Red Staff";
-            itemDescrTranslation[26301] = "Wizards red basic set";
+            itemDescrTranslation[26301] = "Wizards Red Basic Set";
             itemNamesTranslation[26302] = "Yellow Staff";
-            itemDescrTranslation[26302] = "Wizards yellow basic set";
+            itemDescrTranslation[26302] = "Wizards Yellow Basic Set";
             itemNamesTranslation[26303] = "Golden Staff Black";
             itemDescrTranslation[26303] = "Description";
             itemNamesTranslation[26304] = "Golden Staff Blue";
@@ -1670,9 +1670,9 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26317] = "Description";
 
             itemNamesTranslation[26401] = "Green Set";
-            itemDescrTranslation[26401] = "Paladins green basic set";
+            itemDescrTranslation[26401] = "Paladins Green Basic Set";
             itemNamesTranslation[26402] = "Red Set";
-            itemDescrTranslation[26402] = "Paladins red basic set";
+            itemDescrTranslation[26402] = "Paladins Red Basic Set";
             itemNamesTranslation[26403] = "Golden Set Black";
             itemDescrTranslation[26403] = "Description";
             itemNamesTranslation[26404] = "Golden Set Blue";
@@ -1722,7 +1722,7 @@ public class Translations : MonoBehaviour
 
             enchantDescriptions[11] = "Sapphire: Chance to heal your HP (by the amount of the HP Potion equipped) on killing a target";
             enchantDescriptions[-11] = "Sapphire: Chance to gain 1 HP and MP refil on kill";
-            enchantDescriptions_penalties[-11] = "Your movement speed will decrease by 25 % ";
+            enchantDescriptions_penalties[-11] = "Your movement speed will decrease by 25 %";
 
             enchantDescriptions[16] = "Siderite: Chance to heal your MP (by the amount of the HP Potion equipped) on killing a target";
             enchantDescriptions[-16] = "Siderite: Chance to heal 1% of your maximum HP and MP on kill";
@@ -1768,9 +1768,9 @@ public class Translations : MonoBehaviour
             skillDescriptions[61008] = "Low damage with a {1}% chance to pull enemies aggro (cancel target on PVP)";
             skillTitles[61013] = "Battle Shout";
             skillDescriptions[61013] = "Buffs your maximum health by +{0}% for {1}s";
-            skillTitles[61026] = "Slow down!";
+            skillTitles[61026] = "Slow Down!";
             skillDescriptions[61026] = "Has infinite range and slows your target by -{0}% for {1}s";
-            skillTitles[61027] = "On your knees!";
+            skillTitles[61027] = "On your Knees!";
             skillDescriptions[61027] = "{0}% chance to stun your target if its HP is below {1}%";
             skillTitles[61003] = "Shield Stun";
             skillDescriptions[61003] = "Hits your target with less power but has a {1}% chance of stunning it";
@@ -1785,7 +1785,7 @@ public class Translations : MonoBehaviour
             //Wizard
             skillTitles[62001] = "Fireball";
             skillDescriptions[62001] = "Powerful fireball that hits a single enemy";
-            skillTitles[62002] = "Flame missile";
+            skillTitles[62002] = "Flame Missile";
             skillDescriptions[62002] = "Damages your target and has a {1}% chance to apply Burn";
             skillTitles[62003] = "Burn";
             skillDescriptions[62003] = "100% chance to apply Burn on your target";
@@ -1820,9 +1820,9 @@ public class Translations : MonoBehaviour
             skillDescriptions[63002] = "Increases critical chance by +{0}% for {1} seconds";
             skillTitles[63003] = "Multishot";
             skillDescriptions[63003] = "Hits the {1} closest targets";
-            skillTitles[63004] = "Steady shot";
+            skillTitles[63004] = "Steady Shot";
             skillDescriptions[63004] = "Long casting, high single target damage";
-            skillTitles[63005] = "Hamstring shot";
+            skillTitles[63005] = "Hamstring Shot";
             skillDescriptions[63005] = "Low damage ability with a {1}% chance of slowing the enemy by {2}%";
             skillTitles[63006] = "Poison Arrow";
             skillDescriptions[63006] = "Damages your target and has a {1}% chance to apply Poison on it";
@@ -1830,8 +1830,8 @@ public class Translations : MonoBehaviour
             skillDescriptions[63007] = "Deploys 4 visible traps in 4 directions. Traps slow on trigger";
             skillTitles[63008] = "Poison Trap";
             skillDescriptions[63008] = "Deploys 1 hidden trap. Apply poison when triggered";
-            skillTitles[63009] = "Steel trap";
-            skillDescriptions[63009] = "Deploys 1 visible trap that stuns on touch.";
+            skillTitles[63009] = "Steel Trap";
+            skillDescriptions[63009] = "Deploys 1 visible trap that stuns on touch";
             skillTitles[63010] = "Booby Trap";
             skillDescriptions[63010] = "Deploys a trap that applies a bomb on touch. Bombs explode after 2 seconds applying burn around it";
             skillTitles[63011] = "Hunters Mark";
@@ -1859,7 +1859,7 @@ public class Translations : MonoBehaviour
             skillDescriptions[64006] = "Single target damage";
             skillTitles[64007] = "Self Heal";
             skillDescriptions[64007] = "Heals yourself over 5 seconds";
-            skillTitles[64008] = "Heal banner";
+            skillTitles[64008] = "Heal Banner";
             skillDescriptions[64008] = "Deploys a banner that heals nearby party members every second. Lasts for 10 seconds";
             skillTitles[64009] = "Resurrection";
             skillDescriptions[64009] = "Revives all nearby players with {0}% HP/MP";
@@ -1871,7 +1871,7 @@ public class Translations : MonoBehaviour
             skillDescriptions[64012] = "{0}% chance to Silence your target for {1} seconds. Has infinite range";
             skillTitles[64013] = "Speed banner";
             skillDescriptions[64013] = "Deploys a banner that increases {0}% movement speed. Buff lasts for {1} seconds";
-            skillTitles[64014] = "Buff remover";
+            skillTitles[64014] = "Buff Remover";
             skillDescriptions[64014] = "{0}% chance to remove all target buffs";
             skillTitles[64015] = "Consecration";
             skillDescriptions[64015] = "Close range AOE damage";
