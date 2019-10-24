@@ -83,7 +83,7 @@ public class craftingRecipesDatabase : MonoBehaviour
            craftingType.profession.none,//not in use
            0,//not in use
            29041,//item ID in this case "Large Experience Potion"
-           -1//category number used in client UI
+           1//category number used in client UI
            ));
         //**************CATEGORY 2 - JEWELS*********************
         //1 Failsafe tickets for 1 perfect jewel A
