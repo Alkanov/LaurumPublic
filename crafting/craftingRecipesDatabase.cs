@@ -66,9 +66,85 @@ public class craftingRecipesDatabase : MonoBehaviour
 
         //**************CATEGORY 0 - SCROLLS*********************
         //**************CATEGORY 1 - POTIONS*********************
+        //-------15k exp potion
+        craftingRecipes_list.Add(new craftingRecipe(1000,
+           new Dictionary<material.material_translation, int>() {
+                { material.material_translation.mliquid, 10 },
+                { material.material_translation.worm, 10 },
+                { material.material_translation.honey, 10 },
+                { material.material_translation.snake_egg, 10 },
+                { material.material_translation.spider_venom, 10 },
+                { material.material_translation.bat_blood, 10 },
+                { material.material_translation.blue_spore, 10 },
+                { material.material_translation.red_spore, 10 },
+                { material.material_translation.brain, 10 }
+           },
+           15000,//gold required
+           20,//playerlevel required
+           craftingType.profession.none,//not in use
+           0,//not in use
+           29041,//item ID in this case "Large Experience Potion"
+           1//category number used in client UI
+           ));
+        //-------30k exp potion
+        craftingRecipes_list.Add(new craftingRecipe(1001,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.ectoplasm, 15 },
+                { material.material_translation.dk_ectoplasm, 15 },
+                { material.material_translation.tentacles, 15 },
+                { material.material_translation.s_water, 15 },
+                { material.material_translation.b_staff, 15 },
+                { material.material_translation.r_staff, 15 },
+                { material.material_translation.shr_skull, 15 },
+                { material.material_translation.r_mask, 20 },
+                { material.material_translation.grn_mush, 20 },
+                { material.material_translation.ring_pro, 20 },
+
+         },
+         30000,//gold required
+         50,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29042,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+        //-------45k exp potion
+        craftingRecipes_list.Add(new craftingRecipe(1002,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.leaf, 25 },
+                { material.material_translation.aut_leaf, 25 },
+                { material.material_translation.scorpion, 30 },
+                { material.material_translation.enc_sand, 30 },
+                { material.material_translation.g_tooth, 35 },
+                { material.material_translation.g_horn, 35 },
+                { material.material_translation.fire_orb, 40 },
+                { material.material_translation.cha_bone, 40 },
+         },
+         45000,//gold required
+         80,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29043,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+        //-------60k exp potion
+        craftingRecipes_list.Add(new craftingRecipe(1003,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.dw_leather, 50 },
+                { material.material_translation.ob_leather, 50 },
+                { material.material_translation.re_crown, 50 },
+                { material.material_translation.H_of_ice_skeleton, 50 },
+         },
+         60000,//gold required
+         100,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29044,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
         //**************CATEGORY 2 - JEWELS*********************
         //1 Failsafe tickets for 1 perfect jewel A
-        craftingRecipes_list.Add(new craftingRecipe(1,
+        craftingRecipes_list.Add(new craftingRecipe(2000,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventA, 1 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -77,7 +153,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //2 silver tickets for 1 Failsafe jewel A
-        craftingRecipes_list.Add(new craftingRecipe(5,
+        craftingRecipes_list.Add(new craftingRecipe(2001,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventB, 2 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -87,7 +163,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             ));
 
         //2 Failsafe tickets for 1 perfect jewel B
-        craftingRecipes_list.Add(new craftingRecipe(2,
+        craftingRecipes_list.Add(new craftingRecipe(2002,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventA, 2 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -96,7 +172,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //4 silver tickets for 1 Failsafe jewel B
-        craftingRecipes_list.Add(new craftingRecipe(6,
+        craftingRecipes_list.Add(new craftingRecipe(2003,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventB, 4 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -105,7 +181,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //3 Failsafe tickets for 1 perfect jewel C
-        craftingRecipes_list.Add(new craftingRecipe(3,
+        craftingRecipes_list.Add(new craftingRecipe(2004,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventA, 3 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -114,7 +190,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //6 silver tickets for 1 Failsafe jewel C
-        craftingRecipes_list.Add(new craftingRecipe(7,
+        craftingRecipes_list.Add(new craftingRecipe(2005,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventB, 6 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -123,16 +199,16 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //4 Failsafe tickets for 1 perfect jewel D
-        craftingRecipes_list.Add(new craftingRecipe(4,
+        craftingRecipes_list.Add(new craftingRecipe(2006,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventA, 4 }},
             0, 0, craftingType.profession.jewelry, 0,
 
             3315,//this is the ItemID = result of the crafting
             2
-            )); 
+            ));
         //10 silver tickets for 1 Failsafe jewel D
-        craftingRecipes_list.Add(new craftingRecipe(8,
+        craftingRecipes_list.Add(new craftingRecipe(2007,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventB, 10 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -143,7 +219,7 @@ public class craftingRecipesDatabase : MonoBehaviour
 
         //**************CATEGORY 3 - MISC*********************
         //+100k gold ingot
-        craftingRecipes_list.Add(new craftingRecipe(12,
+        craftingRecipes_list.Add(new craftingRecipe(3000,
             100000, //gold required
             0, craftingType.profession.jewelry, 0,
             29060,//this is the ItemID = result of the crafting
@@ -151,28 +227,28 @@ public class craftingRecipesDatabase : MonoBehaviour
             ));
 
         //+500k gold ingot
-        craftingRecipes_list.Add(new craftingRecipe(13,
+        craftingRecipes_list.Add(new craftingRecipe(3001,
             500000, //gold required
             0, craftingType.profession.jewelry, 0,
             29061,//this is the ItemID = result of the crafting
             3
             ));
         //+1M gold ingot
-        craftingRecipes_list.Add(new craftingRecipe(14,
+        craftingRecipes_list.Add(new craftingRecipe(3002,
             1000000, //gold required
             0, craftingType.profession.jewelry, 0,
             29062,//this is the ItemID = result of the crafting
             3
             ));
         //+10M gold ingot
-        craftingRecipes_list.Add(new craftingRecipe(15,
+        craftingRecipes_list.Add(new craftingRecipe(3004,
             10000000, //gold required
             0, craftingType.profession.jewelry, 0,
             29063,//this is the ItemID = result of the crafting
             3
             ));
         //+50M gold ingot
-        craftingRecipes_list.Add(new craftingRecipe(16,
+        craftingRecipes_list.Add(new craftingRecipe(3005,
             50000000, //gold required
             0, craftingType.profession.jewelry, 0,
             29064,//this is the ItemID = result of the crafting
