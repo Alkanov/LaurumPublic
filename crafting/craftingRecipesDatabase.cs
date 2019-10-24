@@ -17,7 +17,7 @@ public class craftingRecipesDatabase : MonoBehaviour
     private void Awake()
     {
 
-        //**************EXAMPLES -1*********************
+        //**************EXAMPLES 0 - SCROLLS*********************
         //example 1 - recipe that requires materials and outputs 1 material "1 Bat Blood"
         craftingRecipes_list.Add(new craftingRecipe(
             9,//recipe ID - very important to not have duplicates
@@ -66,6 +66,25 @@ public class craftingRecipesDatabase : MonoBehaviour
 
         //**************CATEGORY 0 - SCROLLS*********************
         //**************CATEGORY 1 - POTIONS*********************
+        craftingRecipes_list.Add(new craftingRecipe(1000,
+           new Dictionary<material.material_translation, int>() {
+                { material.material_translation.mliquid, 10 },
+                { material.material_translation.worm, 10 },
+                { material.material_translation.honey, 10 },
+                { material.material_translation.snake_egg, 10 },
+                { material.material_translation.spider_venom, 10 },
+                { material.material_translation.bat_blood, 10 },
+                { material.material_translation.blue_spore, 10 },
+                { material.material_translation.red_spore, 10 },
+                { material.material_translation.brain, 10 }
+           },
+           15000,//gold required
+           20,//playerlevel required
+           craftingType.profession.none,//not in use
+           0,//not in use
+           29041,//item ID in this case "Large Experience Potion"
+           -1//category number used in client UI
+           ));
         //**************CATEGORY 2 - JEWELS*********************
         //1 Failsafe tickets for 1 perfect jewel A
         craftingRecipes_list.Add(new craftingRecipe(1,
@@ -130,7 +149,7 @@ public class craftingRecipesDatabase : MonoBehaviour
 
             3315,//this is the ItemID = result of the crafting
             2
-            )); 
+            ));
         //10 silver tickets for 1 Failsafe jewel D
         craftingRecipes_list.Add(new craftingRecipe(8,
             new Dictionary<material.material_translation, int>() {

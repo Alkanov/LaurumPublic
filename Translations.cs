@@ -1173,6 +1173,13 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[29012] = "Single use Teleport to your last place before the gods took your soul";
             itemNamesTranslation[29013] = "Teleport Scroll: Party Leader";
             itemDescrTranslation[29013] = "Single use Teleport to your party's leader";
+            itemNamesTranslation[29014] = "Teleport Scroll: Mysterious Place";
+            itemDescrTranslation[29014] = "Single use Teleport to Ghost Town";
+            itemNamesTranslation[29015] = "Teleport Scroll: Welcome to the jungle!";
+            itemDescrTranslation[29015] = "Single use Teleport to Fire Cave's Entrance";
+            itemNamesTranslation[29016] = "Teleport Scroll: Shake it!";
+            itemDescrTranslation[29016] = "Single use Teleport to Rynthia";
+
             //exp potions
             itemNamesTranslation[29040] = "Event Experience Potion";
             itemDescrTranslation[29040] = "A bottle full of souls.. drink it! +20k Exp";
@@ -1184,18 +1191,26 @@ public class Translations : MonoBehaviour
             itemNamesTranslation[29051] = "Rebirth Points (RP) Reset Potion";
             itemDescrTranslation[29051] = "Used to reset your RP progress";
             itemNamesTranslation[29052] = "Positive Karma Potion";
-            itemDescrTranslation[29052] = "Used to gain +5000 Karma";
+            itemDescrTranslation[29052] = "Used to gain +500 Karma";
             itemNamesTranslation[29053] = "Karma Reset Potion";
             itemDescrTranslation[29053] = "Used to reset your Karma to 0";
             itemNamesTranslation[29054] = "Negative Karma Potion";
             itemDescrTranslation[29054] = "Used to gain -5000 Karma";
+            itemNamesTranslation[29055] = "Tears of the ancestors";
+            itemDescrTranslation[29055] = "Used to gain +1000 Karma";
+            itemNamesTranslation[29056] = "Potion of suffering";
+            itemDescrTranslation[29056] = "Used to gain +2500 Karma";
             //gold ingots
-            itemNamesTranslation[29060] = "100k Gold Ingot";
+            itemNamesTranslation[29060] = "100k Golden Coin";
             itemDescrTranslation[29060] = "Use this to obtain 100,000 Gold";
-            itemNamesTranslation[29061] = "500k Gold Ingot";
+            itemNamesTranslation[29061] = "500k Golden Feather";
             itemDescrTranslation[29061] = "Use this to obtain 500,000 Gold";
-            itemNamesTranslation[29062] = "1 Million Gold Ingot";
+            itemNamesTranslation[29062] = "1 Million Gold Ore";
             itemDescrTranslation[29062] = "Use this to obtain 1,000,000 Gold";
+            itemNamesTranslation[29063] = "10 Million Gold Ingot";
+            itemDescrTranslation[29063] = "Use this to obtain 10,000,000 Gold";
+            itemNamesTranslation[29064] = "50 Million Golden Ingots";
+            itemDescrTranslation[29064] = "Use this to obtain 50,000,000 Gold";
 
             itemNamesTranslation[4000] = "Silver Ticket Crate";
             itemDescrTranslation[4000] = "This crate grants you one Silver Ticket";
