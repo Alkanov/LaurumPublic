@@ -17,7 +17,7 @@ public class craftingRecipesDatabase : MonoBehaviour
     private void Awake()
     {
 
-        //**************EXAMPLES 0 - SCROLLS*********************
+        //**************EXAMPLES -1*********************
         //example 1 - recipe that requires materials and outputs 1 material "1 Bat Blood"
         craftingRecipes_list.Add(new craftingRecipe(
             9,//recipe ID - very important to not have duplicates
