@@ -66,6 +66,7 @@ public class craftingRecipesDatabase : MonoBehaviour
 
         //**************CATEGORY 0 - SCROLLS*********************
         //**************CATEGORY 1 - POTIONS*********************
+        //-------15k exp potion
         craftingRecipes_list.Add(new craftingRecipe(1000,
            new Dictionary<material.material_translation, int>() {
                 { material.material_translation.mliquid, 10 },
@@ -85,6 +86,62 @@ public class craftingRecipesDatabase : MonoBehaviour
            29041,//item ID in this case "Large Experience Potion"
            1//category number used in client UI
            ));
+        //-------30k exp potion
+        craftingRecipes_list.Add(new craftingRecipe(1001,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.ectoplasm, 15 },
+                { material.material_translation.dk_ectoplasm, 15 },
+                { material.material_translation.tentacles, 15 },
+                { material.material_translation.s_water, 15 },
+                { material.material_translation.b_staff, 15 },
+                { material.material_translation.r_staff, 15 },
+                { material.material_translation.shr_skull, 15 },
+                { material.material_translation.r_mask, 20 },
+                { material.material_translation.grn_mush, 20 },
+                { material.material_translation.ring_pro, 20 },
+
+         },
+         30000,//gold required
+         50,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29042,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+        //-------45k exp potion
+        craftingRecipes_list.Add(new craftingRecipe(1002,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.leaf, 25 },
+                { material.material_translation.aut_leaf, 25 },
+                { material.material_translation.scorpion, 30 },
+                { material.material_translation.enc_sand, 30 },
+                { material.material_translation.g_tooth, 35 },
+                { material.material_translation.g_horn, 35 },
+                { material.material_translation.fire_orb, 40 },
+                { material.material_translation.cha_bone, 40 },
+         },
+         45000,//gold required
+         80,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29043,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+        //-------60k exp potion
+        craftingRecipes_list.Add(new craftingRecipe(1003,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.dw_leather, 50 },
+                { material.material_translation.ob_leather, 50 },
+                { material.material_translation.re_crown, 50 },
+                { material.material_translation.H_of_ice_skeleton, 50 },
+         },
+         60000,//gold required
+         100,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29044,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
         //**************CATEGORY 2 - JEWELS*********************
         //1 Failsafe tickets for 1 perfect jewel A
         craftingRecipes_list.Add(new craftingRecipe(2000,
