@@ -89,6 +89,11 @@ public class Translations : MonoBehaviour
 
             wordsTranslation[60] = "Congratulations!! Quest <color=green>{0}</color> completed!";
             wordsTranslation[61] = "Max of 20 quests reached - please complete or abandon quests in order to accept new ones";
+
+            //general - 2
+            wordsTranslation[80] = "Player Level";
+            wordsTranslation[81] = "Your Current Level is:{0}";
+            wordsTranslation[82] = "<color=red>WARNING</color> You will return to your last unsafe location, are you sure about this?";
             #endregion
 
             #region Quests
@@ -1183,8 +1188,15 @@ public class Translations : MonoBehaviour
             //exp potions
             itemNamesTranslation[29040] = "Event Experience Potion";
             itemDescrTranslation[29040] = "A bottle full of souls.. drink it! +20k Exp";
-            itemNamesTranslation[29041] = "Large Experience Potion";
-            itemDescrTranslation[29041] = "20,000 Experience points... in a bottle";
+            itemNamesTranslation[29041] = "Small Experience Potion";
+            itemDescrTranslation[29041] = "15,000 Experience points... in a bottle";
+            itemNamesTranslation[29042] = "Medium Experience Potion";
+            itemDescrTranslation[29042] = "30,000 Experience points... in a bottle";
+            itemNamesTranslation[29043] = "Large Experience Potion";
+            itemDescrTranslation[29043] = "45,000 Experience points... in a bottle";
+            itemNamesTranslation[29044] = "Flask of Experience Potion";
+            itemDescrTranslation[29044] = "60,000 Experience points... in a bottle";
+
             //misc potions
             itemNamesTranslation[29050] = "Level Points (LP) Reset Potion";
             itemDescrTranslation[29050] = "Used to reset your LP progress";
