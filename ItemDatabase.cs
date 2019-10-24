@@ -547,18 +547,18 @@ public class ItemDatabase : MonoBehaviour
 
         //exp potions
         items.Add(new Item(29040, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 20000, 1, 1));//20k event exp potion
-        items.Add(new Item(29041, Item.UseAs.Consumable, Item.Restrictions.tradeable, 15000, 1, 20));//crafted 15000 exp potion
-        items.Add(new Item(29042, Item.UseAs.Consumable, Item.Restrictions.tradeable, 30000, 1, 50));//crafted 30000 exp potion
-        items.Add(new Item(29043, Item.UseAs.Consumable, Item.Restrictions.tradeable, 45000, 1, 80));//crafted 45000 exp potion
-        items.Add(new Item(29044, Item.UseAs.Consumable, Item.Restrictions.tradeable, 60000, 1, 100));//crafted 60000 exp potion        
+        items.Add(new Item(29041, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 15000, 1, 20));//crafted 15000 exp potion
+        items.Add(new Item(29042, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 30000, 1, 50));//crafted 30000 exp potion
+        items.Add(new Item(29043, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 45000, 1, 80));//crafted 45000 exp potion
+        items.Add(new Item(29044, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 60000, 1, 100));//crafted 60000 exp potion        
         //misc
-        items.Add(new Item(29050, Item.UseAs.Consumable, Item.Restrictions.tradeable, 0, 1, 20));//LP reset potion
-        items.Add(new Item(29051, Item.UseAs.Consumable, Item.Restrictions.tradeable, 0, 1, 1));//RP reset potion
-        items.Add(new Item(29052, Item.UseAs.Consumable, Item.Restrictions.tradeable, 500, 1, 1));//positive karma potion
-        items.Add(new Item(29053, Item.UseAs.Consumable, Item.Restrictions.tradeable, 0, 1, 100));//reset karma potion
-        items.Add(new Item(29054, Item.UseAs.Consumable, Item.Restrictions.tradeable, -5000, 1, 50));//negative karma potion
-        items.Add(new Item(29055, Item.UseAs.Consumable, Item.Restrictions.tradeable, 1000, 1, 50));//positive karma potion
-        items.Add(new Item(29056, Item.UseAs.Consumable, Item.Restrictions.tradeable, 2500, 1, 75));//positive karma potion
+        items.Add(new Item(29050, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 0, 1, 20));//LP reset potion
+        items.Add(new Item(29051, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 0, 1, 1));//RP reset potion
+        items.Add(new Item(29052, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 500, 1, 1));//positive karma potion
+        items.Add(new Item(29053, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 0, 1, 100));//reset karma potion
+        items.Add(new Item(29054, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, -5000, 1, 50));//negative karma potion
+        items.Add(new Item(29055, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 1000, 1, 50));//positive karma potion
+        items.Add(new Item(29056, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 2500, 1, 75));//positive karma potion
 
         //gold ingots
         items.Add(new Item(29060, Item.UseAs.Consumable, Item.Restrictions.NOT_tradeable, 100000, 1, 1));//+100k gold ingot
