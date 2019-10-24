@@ -1171,7 +1171,7 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[2811] = "+140 MP";
             //teleport scrolls
             itemNamesTranslation[29010] = "Teleport Scroll: Laurum Port";
-            itemDescrTranslation[29010] = "Single use Teleport to Laurums Port";
+            itemDescrTranslation[29010] = "Single use Teleport to Laurum's Port";
             itemNamesTranslation[29011] = "Teleport Scroll: Fort Libra";
             itemDescrTranslation[29011] = "Single use Teleport to Fort Libra";
             itemNamesTranslation[29012] = "Teleport Scroll: Last Death Position";
@@ -1187,7 +1187,7 @@ public class Translations : MonoBehaviour
 
             //exp potions
             itemNamesTranslation[29040] = "Event Experience Potion";
-            itemDescrTranslation[29040] = "A bottle full of souls.. drink it! +20k Exp";
+            itemDescrTranslation[29040] = "A bottle full of souls... drink it! +20,000 Experience";
             itemNamesTranslation[29041] = "Small Experience Potion";
             itemDescrTranslation[29041] = "15,000 Experience points... in a bottle";
             itemNamesTranslation[29042] = "Medium Experience Potion";
@@ -1208,9 +1208,9 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[29053] = "Used to reset your Karma to 0";
             itemNamesTranslation[29054] = "Negative Karma Potion";
             itemDescrTranslation[29054] = "Used to gain -5000 Karma";
-            itemNamesTranslation[29055] = "Tears of the ancestors";
+            itemNamesTranslation[29055] = "Tears of the Ancestors";
             itemDescrTranslation[29055] = "Used to gain +1000 Karma";
-            itemNamesTranslation[29056] = "Potion of suffering";
+            itemNamesTranslation[29056] = "Potion of Suffering";
             itemDescrTranslation[29056] = "Used to gain +2500 Karma";
             //gold ingots
             itemNamesTranslation[29060] = "100k Golden Coin";
