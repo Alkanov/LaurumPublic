@@ -86,6 +86,7 @@ public class craftingRecipesDatabase : MonoBehaviour
            29041,//item ID in this case "Large Experience Potion"
            1//category number used in client UI
            ));
+
         //-------30k exp potion
         craftingRecipes_list.Add(new craftingRecipe(1001,
          new Dictionary<material.material_translation, int>() {
@@ -108,6 +109,7 @@ public class craftingRecipesDatabase : MonoBehaviour
          29042,//item ID in this case "Large Experience Potion"
          1//category number used in client UI
          ));
+
         //-------45k exp potion
         craftingRecipes_list.Add(new craftingRecipe(1002,
          new Dictionary<material.material_translation, int>() {
@@ -127,6 +129,7 @@ public class craftingRecipesDatabase : MonoBehaviour
          29043,//item ID in this case "Large Experience Potion"
          1//category number used in client UI
          ));
+
         //-------60k exp potion
         craftingRecipes_list.Add(new craftingRecipe(1003,
          new Dictionary<material.material_translation, int>() {
@@ -142,6 +145,126 @@ public class craftingRecipesDatabase : MonoBehaviour
          29044,//item ID in this case "Large Experience Potion"
          1//category number used in client UI
          ));
+
+        //-------LP reset potion
+        craftingRecipes_list.Add(new craftingRecipe(1004,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.mys_flyer, 25 },
+                { material.material_translation.soul, 25 }
+         },
+         10000,//gold required
+         20,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29050,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+
+        //-------RP reset potion
+        craftingRecipes_list.Add(new craftingRecipe(1005,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.holy_coin, 2 },
+                { material.material_translation.demo_coin, 2 },
+                { material.material_translation.i_bracelet, 2000 },
+                { material.material_translation.pur_cape, 2000 }
+         },
+         1000000,//gold required
+         1,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29051,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+
+        //-------500 karma potion
+        craftingRecipes_list.Add(new craftingRecipe(1006,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.zombie_blood, 25 },
+                { material.material_translation.seaweed, 25 },
+                { material.material_translation.soul, 25 },
+                { material.material_translation.w_stone, 25 },
+                { material.material_translation.crys_ball, 25 },
+                { material.material_translation.red_wizard_banner, 25 },
+         },
+         100000,//gold required
+         1,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29052,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+
+        //-------1000 karma potion
+        craftingRecipes_list.Add(new craftingRecipe(1007,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.w_stone, 25 },
+                { material.material_translation.b_necklace, 25 },
+                { material.material_translation.rune, 25 },
+                { material.material_translation.h_stone, 25 },
+                { material.material_translation.mah_wood, 25 },
+                { material.material_translation.bw_wood, 25 },
+         },
+         150000,//gold required
+         50,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29055,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+
+        //-------2500 karma potion
+        craftingRecipes_list.Add(new craftingRecipe(1008,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.sco_tail, 100 },
+                { material.material_translation.e_stone, 100 },
+                { material.material_translation.dus_tome, 25 },
+                { material.material_translation.anc_axe, 25 },
+         },
+         250000,//gold required
+         75,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29056,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+
+        //-------karma reset potion
+        craftingRecipes_list.Add(new craftingRecipe(1009,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.f_bracelet, 100 },
+                { material.material_translation.f_stone, 100 },
+                { material.material_translation.f_shards, 2 },
+                { material.material_translation.hell_core, 2 },
+         },
+         500000,//gold required
+         100,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29053,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+
+        //------- NEGATIVE 5000 karma potion
+        craftingRecipes_list.Add(new craftingRecipe(1010,
+         new Dictionary<material.material_translation, int>() {
+                { material.material_translation.w_stone, 10 },
+                { material.material_translation.b_necklace, 12 },
+                { material.material_translation.rune, 5 },
+                { material.material_translation.soul, 10 },
+                { material.material_translation.w_stone, 12 },
+                { material.material_translation.crys_ball, 12 },
+                { material.material_translation.red_wizard_banner, 5 },
+         },
+         25000,//gold required
+         10,//playerlevel required
+         craftingType.profession.none,//not in use
+         0,//not in use
+         29054,//item ID in this case "Large Experience Potion"
+         1//category number used in client UI
+         ));
+
+
+
         //**************CATEGORY 2 - JEWELS*********************
         //1 Failsafe tickets for 1 perfect jewel A
         craftingRecipes_list.Add(new craftingRecipe(2000,
@@ -152,6 +275,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             3312,//this is the ItemID = result of the crafting
             2
             ));
+
         //2 silver tickets for 1 Failsafe jewel A
         craftingRecipes_list.Add(new craftingRecipe(2001,
             new Dictionary<material.material_translation, int>() {
@@ -171,6 +295,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             3313,//this is the ItemID = result of the crafting
             2
             ));
+
         //4 silver tickets for 1 Failsafe jewel B
         craftingRecipes_list.Add(new craftingRecipe(2003,
             new Dictionary<material.material_translation, int>() {
@@ -180,6 +305,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             3309,//this is the ItemID = result of the crafting
             2
             ));
+
         //3 Failsafe tickets for 1 perfect jewel C
         craftingRecipes_list.Add(new craftingRecipe(2004,
             new Dictionary<material.material_translation, int>() {
@@ -189,6 +315,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             3314,//this is the ItemID = result of the crafting
             2
             ));
+
         //6 silver tickets for 1 Failsafe jewel C
         craftingRecipes_list.Add(new craftingRecipe(2005,
             new Dictionary<material.material_translation, int>() {
@@ -198,6 +325,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             3310,//this is the ItemID = result of the crafting
             2
             ));
+
         //4 Failsafe tickets for 1 perfect jewel D
         craftingRecipes_list.Add(new craftingRecipe(2006,
             new Dictionary<material.material_translation, int>() {
@@ -207,6 +335,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             3315,//this is the ItemID = result of the crafting
             2
             ));
+
         //10 silver tickets for 1 Failsafe jewel D
         craftingRecipes_list.Add(new craftingRecipe(2007,
             new Dictionary<material.material_translation, int>() {
@@ -233,6 +362,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             29061,//this is the ItemID = result of the crafting
             3
             ));
+
         //+1M gold ingot
         craftingRecipes_list.Add(new craftingRecipe(3002,
             1000000, //gold required
@@ -240,6 +370,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             29062,//this is the ItemID = result of the crafting
             3
             ));
+
         //+10M gold ingot
         craftingRecipes_list.Add(new craftingRecipe(3004,
             10000000, //gold required
@@ -247,6 +378,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             29063,//this is the ItemID = result of the crafting
             3
             ));
+
         //+50M gold ingot
         craftingRecipes_list.Add(new craftingRecipe(3005,
             50000000, //gold required
@@ -254,7 +386,6 @@ public class craftingRecipesDatabase : MonoBehaviour
             29064,//this is the ItemID = result of the crafting
             3
             ));
-
     }
 
     /// <summary>
