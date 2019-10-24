@@ -100,7 +100,7 @@ public class Translations : MonoBehaviour
             questNameTranslations[6] = "Mysterious Cave"; questLoreTranslations[6] = "There is a mysterious cave near Laurum Harbour and I need you to go and check if it is a safe place to start a mining site.";
             questNameTranslations[7] = "Spider Hunting!"; questLoreTranslations[7] = "Cave explorers keep getting caught in the Spider Webs, kill the Spiders and eradicate their webs! ... Before something dangerous happens to cave explorers.";
             questNameTranslations[8] = "Web of Despair"; questLoreTranslations[8] = "Rumor has it that in the Spiders cave nearby, the Spiders drop a thick web. That may prove useful. Go collect some!";
-             questNameTranslations[9] = "Vampiric Showdown"; questLoreTranslations[9] = "Sharp fangs, and wings! What a terrifying combination! Let's see what you can do without garlic. The Bats can be found within the Spider cave.";
+            questNameTranslations[9] = "Vampiric Showdown"; questLoreTranslations[9] = "Sharp fangs, and wings! What a terrifying combination! Let's see what you can do without garlic. The Bats can be found within the Spider cave.";
             questNameTranslations[10] = "Fruity!"; questLoreTranslations[10] = "The Bats that are inside the cave always carry fruit with them, kill them and gather some Fruit. It may prove useful.";
             questNameTranslations[11] = "Magical Mushroom?"; questLoreTranslations[11] = "Hey! The recent cold weather we have had recently has caused problems. We've got a Mushroom infestation and they are vicious ones. Clear them out, will ya?";
             questNameTranslations[12] = "Shroom Party!"; questLoreTranslations[12] = "There seems to be no stop to this infestation. Hanging around the Red Mushrooms we have what seems to be some Blue Mushrooms. Please kill and collect them so we can put this infestation to an end!";
@@ -1164,19 +1164,38 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[2810] = "+130 MP";
             itemNamesTranslation[2811] = "Super Mana Potion";
             itemDescrTranslation[2811] = "+140 MP";
-            itemNamesTranslation[2901] = "Teleport Scroll: Laurum Port";
-            itemDescrTranslation[2901] = "Teleport to Laurums Port - Infinite uses";
-            itemNamesTranslation[2902] = "Teleport Scroll: Fort Libra";
-            itemDescrTranslation[2902] = "Teleport to Fort Libra - Infinite uses";
-            itemNamesTranslation[2903] = "Bank Manager";
-            itemDescrTranslation[2903] = "Summons a bank manager that will follow you for 5 minutes - Infinite uses";
-
-            itemNamesTranslation[2904] = "Event Experience Potion";
-            itemDescrTranslation[2904] = "A bottle full of souls... drink it! +20,000 Experience";
-            itemNamesTranslation[2905] = "Large Experience Potion";
-            itemDescrTranslation[2905] = "20,000 Experience points... in a bottle";
-            itemNamesTranslation[2906] = "Level Points (LP) Reset Potion";
-            itemDescrTranslation[2906] = "Used to reset your LP progress";
+            //teleport scrolls
+            itemNamesTranslation[29010] = "Teleport Scroll: Laurum Port";
+            itemDescrTranslation[29010] = "Single use Teleport to Laurums Port";
+            itemNamesTranslation[29011] = "Teleport Scroll: Fort Libra";
+            itemDescrTranslation[29011] = "Single use Teleport to Fort Libra";
+            itemNamesTranslation[29012] = "Teleport Scroll: Last Death Position";
+            itemDescrTranslation[29012] = "Single use Teleport to your last place before the gods took your soul";
+            itemNamesTranslation[29013] = "Teleport Scroll: Party Leader";
+            itemDescrTranslation[29013] = "Single use Teleport to your party's leader";
+            //exp potions
+            itemNamesTranslation[29040] = "Event Experience Potion";
+            itemDescrTranslation[29040] = "A bottle full of souls.. drink it! +20k Exp";
+            itemNamesTranslation[29041] = "Large Experience Potion";
+            itemDescrTranslation[29041] = "20,000 Experience points... in a bottle";
+            //misc potions
+            itemNamesTranslation[29050] = "Level Points (LP) Reset Potion";
+            itemDescrTranslation[29050] = "Used to reset your LP progress";
+            itemNamesTranslation[29051] = "Rebirth Points (RP) Reset Potion";
+            itemDescrTranslation[29051] = "Used to reset your RP progress";
+            itemNamesTranslation[29052] = "Positive Karma Potion";
+            itemDescrTranslation[29052] = "Used to gain +5000 Karma";
+            itemNamesTranslation[29053] = "Karma Reset Potion";
+            itemDescrTranslation[29053] = "Used to reset your Karma to 0";
+            itemNamesTranslation[29054] = "Negative Karma Potion";
+            itemDescrTranslation[29054] = "Used to gain -5000 Karma";
+            //gold ingots
+            itemNamesTranslation[29060] = "100k Gold Ingot";
+            itemDescrTranslation[29060] = "Use this to obtain 100,000 Gold";
+            itemNamesTranslation[29061] = "500k Gold Ingot";
+            itemDescrTranslation[29061] = "Use this to obtain 500,000 Gold";
+            itemNamesTranslation[29062] = "1 Million Gold Ingot";
+            itemDescrTranslation[29062] = "Use this to obtain 1,000,000 Gold";
 
             itemNamesTranslation[4000] = "Silver Ticket Crate";
             itemDescrTranslation[4000] = "This crate grants you one Silver Ticket";
