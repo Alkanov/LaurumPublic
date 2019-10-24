@@ -251,7 +251,6 @@ public class craftingRecipesDatabase : MonoBehaviour
                 { material.material_translation.b_necklace, 12 },
                 { material.material_translation.rune, 5 },
                 { material.material_translation.soul, 10 },
-                { material.material_translation.w_stone, 12 },
                 { material.material_translation.crys_ball, 12 },
                 { material.material_translation.red_wizard_banner, 5 },
          },
