@@ -87,7 +87,7 @@ public class craftingRecipesDatabase : MonoBehaviour
            ));
         //**************CATEGORY 2 - JEWELS*********************
         //1 Failsafe tickets for 1 perfect jewel A
-        craftingRecipes_list.Add(new craftingRecipe(1,
+        craftingRecipes_list.Add(new craftingRecipe(2000,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventA, 1 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -96,7 +96,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //2 silver tickets for 1 Failsafe jewel A
-        craftingRecipes_list.Add(new craftingRecipe(5,
+        craftingRecipes_list.Add(new craftingRecipe(2001,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventB, 2 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -106,7 +106,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             ));
 
         //2 Failsafe tickets for 1 perfect jewel B
-        craftingRecipes_list.Add(new craftingRecipe(2,
+        craftingRecipes_list.Add(new craftingRecipe(2002,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventA, 2 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -115,7 +115,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //4 silver tickets for 1 Failsafe jewel B
-        craftingRecipes_list.Add(new craftingRecipe(6,
+        craftingRecipes_list.Add(new craftingRecipe(2003,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventB, 4 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -124,7 +124,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //3 Failsafe tickets for 1 perfect jewel C
-        craftingRecipes_list.Add(new craftingRecipe(3,
+        craftingRecipes_list.Add(new craftingRecipe(2004,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventA, 3 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -133,7 +133,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //6 silver tickets for 1 Failsafe jewel C
-        craftingRecipes_list.Add(new craftingRecipe(7,
+        craftingRecipes_list.Add(new craftingRecipe(2005,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventB, 6 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -142,7 +142,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //4 Failsafe tickets for 1 perfect jewel D
-        craftingRecipes_list.Add(new craftingRecipe(4,
+        craftingRecipes_list.Add(new craftingRecipe(2006,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventA, 4 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -151,7 +151,7 @@ public class craftingRecipesDatabase : MonoBehaviour
             2
             ));
         //10 silver tickets for 1 Failsafe jewel D
-        craftingRecipes_list.Add(new craftingRecipe(8,
+        craftingRecipes_list.Add(new craftingRecipe(2007,
             new Dictionary<material.material_translation, int>() {
                 { material.material_translation.eventB, 10 }},
             0, 0, craftingType.profession.jewelry, 0,
@@ -162,7 +162,7 @@ public class craftingRecipesDatabase : MonoBehaviour
 
         //**************CATEGORY 3 - MISC*********************
         //+100k gold ingot
-        craftingRecipes_list.Add(new craftingRecipe(12,
+        craftingRecipes_list.Add(new craftingRecipe(3000,
             100000, //gold required
             0, craftingType.profession.jewelry, 0,
             29060,//this is the ItemID = result of the crafting
@@ -170,28 +170,28 @@ public class craftingRecipesDatabase : MonoBehaviour
             ));
 
         //+500k gold ingot
-        craftingRecipes_list.Add(new craftingRecipe(13,
+        craftingRecipes_list.Add(new craftingRecipe(3001,
             500000, //gold required
             0, craftingType.profession.jewelry, 0,
             29061,//this is the ItemID = result of the crafting
             3
             ));
         //+1M gold ingot
-        craftingRecipes_list.Add(new craftingRecipe(14,
+        craftingRecipes_list.Add(new craftingRecipe(3002,
             1000000, //gold required
             0, craftingType.profession.jewelry, 0,
             29062,//this is the ItemID = result of the crafting
             3
             ));
         //+10M gold ingot
-        craftingRecipes_list.Add(new craftingRecipe(15,
+        craftingRecipes_list.Add(new craftingRecipe(3004,
             10000000, //gold required
             0, craftingType.profession.jewelry, 0,
             29063,//this is the ItemID = result of the crafting
             3
             ));
         //+50M gold ingot
-        craftingRecipes_list.Add(new craftingRecipe(16,
+        craftingRecipes_list.Add(new craftingRecipe(3005,
             50000000, //gold required
             0, craftingType.profession.jewelry, 0,
             29064,//this is the ItemID = result of the crafting
