@@ -65,6 +65,105 @@ public class craftingRecipesDatabase : MonoBehaviour
             ));
 
         //**************CATEGORY 0 - SCROLLS*********************
+        //-------Teleports you to Laurum Harbour
+        craftingRecipes_list.Add(new craftingRecipe(1,
+           new Dictionary<material.material_translation, int>() {
+                { material.material_translation.dirt, 5 },
+                { material.material_translation.slime_core, 5 },
+           },
+           1000,//gold required
+           1,//playerlevel required
+           craftingType.profession.none,//not in use
+           0,//not in use
+           29010,//item ID in this case "Large Experience Potion"
+           0//category number used in client UI
+           ));
+
+        //-------Teleports you to the Party Leader's Location
+        craftingRecipes_list.Add(new craftingRecipe(2,
+           new Dictionary<material.material_translation, int>() {
+                { material.material_translation.rune, 25 },
+                { material.material_translation.h_stone, 25 },
+           },
+           15000,//gold required
+           1,//playerlevel required
+           craftingType.profession.none,//not in use
+           0,//not in use
+           29013,//item ID in this case "Large Experience Potion"
+           0//category number used in client UI
+           ));
+
+        //-------Teleports you to your Last Die Location
+        craftingRecipes_list.Add(new craftingRecipe(3,
+           new Dictionary<material.material_translation, int>() {
+                { material.material_translation.dus_tome, 25 },
+                { material.material_translation.anc_axe, 25 },
+           },
+           15000,//gold required
+           50,//playerlevel required
+           craftingType.profession.none,//not in use
+           0,//not in use
+           29012,//item ID in this case "Large Experience Potion"
+           0//category number used in client UI
+           ));
+
+        //-------Teleports you to Ghost Town
+        craftingRecipes_list.Add(new craftingRecipe(4,
+           new Dictionary<material.material_translation, int>() {
+                { material.material_translation.mys_flyer, 10 },
+                { material.material_translation.soul, 10 },
+           },
+           2000,//gold required
+           1,//playerlevel required
+           craftingType.profession.none,//not in use
+           0,//not in use
+           29014,//item ID in this case "Large Experience Potion"
+           0//category number used in client UI
+           ));
+
+        //-------Teleports you to Libra
+        craftingRecipes_list.Add(new craftingRecipe(5,
+           new Dictionary<material.material_translation, int>() {
+                { material.material_translation.sco_tail, 20 },
+                { material.material_translation.e_stone, 20 },
+           },
+           5000,//gold required
+           50,//playerlevel required
+           craftingType.profession.none,//not in use
+           0,//not in use
+           29011,//item ID in this case "Large Experience Potion"
+           0//category number used in client UI
+           ));
+
+        //-------Teleports you to Rynthia
+        craftingRecipes_list.Add(new craftingRecipe(6,
+           new Dictionary<material.material_translation, int>() {
+                { material.material_translation.i_bracelet, 25 },
+                { material.material_translation.pur_cape, 25 },
+           },
+           10000,//gold required
+           100,//playerlevel required
+           craftingType.profession.none,//not in use
+           0,//not in use
+           29016,//item ID in this case "Large Experience Potion"
+           0//category number used in client UI
+           ));
+
+        //-------Teleports you to Fire Cave's Entrance
+        craftingRecipes_list.Add(new craftingRecipe(7,
+           new Dictionary<material.material_translation, int>() {
+                { material.material_translation.mah_wood, 15 },
+                { material.material_translation.bw_wood, 15 },
+                { material.material_translation.f_bracelet, 15 },
+                { material.material_translation.f_stone, 15 },
+           },
+           15000,//gold required
+           50,//playerlevel required
+           craftingType.profession.none,//not in use
+           0,//not in use
+           29015,//item ID in this case "Large Experience Potion"
+           0//category number used in client UI
+           ));
         //**************CATEGORY 1 - POTIONS*********************
         //-------15k exp potion
         craftingRecipes_list.Add(new craftingRecipe(1000,
