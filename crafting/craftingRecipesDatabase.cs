@@ -296,7 +296,7 @@ public class craftingRecipesDatabase : MonoBehaviour
         //-------1000 karma potion
         craftingRecipes_list.Add(new craftingRecipe(1007,
          new Dictionary<material.material_translation, int>() {
-                { material.material_translation.w_stone, 25 },
+                { material.material_translation.wi_stone, 25 },
                 { material.material_translation.b_necklace, 25 },
                 { material.material_translation.rune, 25 },
                 { material.material_translation.h_stone, 25 },
