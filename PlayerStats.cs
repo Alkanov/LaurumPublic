@@ -422,15 +422,15 @@ public class PlayerStats : NetworkBehaviour
         //Dodge
         Dodge_chance *= AGI;
         Dodge_chance += modDodge + PlayerEquipStats[7] + passive_dodge; //+passive_DodgeChance     
-        if (Dodge_chance > 50f)
+        if (Dodge_chance > 25f)
         {
-            Dodge_chance = (Dodge_chance - 50f) / 2f;
-            Dodge_chance += 50f;
+            Dodge_chance = (Dodge_chance - 25f) / 2f;
+            Dodge_chance += 25f;
         }
         Dodge_chance += Conditions.increasedDodge;
-        if (Dodge_chance > 90f)
+        if (Dodge_chance > 50f)
         {
-            Dodge_chance = 90f;
+            Dodge_chance = 50f;
         }
 
         //Regens
