@@ -263,21 +263,25 @@ public class PlayerPVPDamage : NetworkBehaviour
         float playerTotalDef = 0;
         float fromPlayerDamage = 0;
         float nerfDamage = 0.35f;
+        float pvpPdefBonus = PlayerStats.Defense_from_pdef * 1.0f; //JWR - Pdef bonus using base defense before armor/buff
+        float pvpMdefBonus = PlayerStats.Defense_from_mdef * 1.0f; //JWR - Mdef bonus using base defense before armor/buff
 
         switch (fromPlayerStats.DamageType_now)
         {
             case PlayerStats.DamageType.magical:
                 playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * 0.2f);
+                playerTotalDef += pvpMdefBonus; //JWR - Add def bonus
                 fromPlayerDamage = fromPlayerStats.Damage_int;
                 break;
             case PlayerStats.DamageType.physical:
                 playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * 0.2f);
+                playerTotalDef += pvpPdefBonus; //JWR Add def bonus
                 fromPlayerDamage = fromPlayerStats.Damage_str;
                 break;
             default:
                 break;
         }
-
+        
         DamageRX = Mathf.RoundToInt((fromPlayerDamage - playerTotalDef) * nerfDamage);
 
         //if damage is below 0 make sure to return 0, a negative number here would heal the player instead (100HP-(-100 damage)=200)
@@ -558,15 +562,19 @@ public class PlayerPVPDamage : NetworkBehaviour
         float playerTotalDef = 0;
         float fromPlayerDamage = 0;
         float nerfDamage = 0.35f;
+        float pvpPdefBonus = PlayerStats.Defense_from_pdef * 1.0f; //JWR - Pdef bonus using base defense before armor/buff
+        float pvpMdefBonus = PlayerStats.Defense_from_mdef * 1.0f; //JWR - Mdef bonus using base defense before armor/buff
 
         switch (fromPlayerStats.DamageType_now)
         {
             case PlayerStats.DamageType.magical:
                 playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * 0.2f);
+                playerTotalDef += pvpMdefBonus; //JWR - Add def bonus
                 fromPlayerDamage = fromPlayerStats.Damage_int * power_multiplier;
                 break;
             case PlayerStats.DamageType.physical:
                 playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * 0.2f);
+                playerTotalDef += pvpPdefBonus; //JWR - Add def bonus
                 fromPlayerDamage = fromPlayerStats.Damage_str * power_multiplier;
                 break;
             default:
