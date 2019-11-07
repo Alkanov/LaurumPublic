@@ -87,6 +87,7 @@ public class PlayerStats : NetworkBehaviour
     public float Critical_damage = 0;
 
     public float Dodge_chance = 0;
+    public float Dodge_from_agi = 0; //JWR - Added label for dodge from stats
 
     public float AutoAtk_speed = 1f;
     public float AutoAtk_range = 1f;
@@ -426,6 +427,7 @@ public class PlayerStats : NetworkBehaviour
 
         //Dodge
         Dodge_chance *= AGI;
+        Dodge_from_agi = Dodge_chance; //JWR - Assign dodge from stats
         Dodge_chance += modDodge + PlayerEquipStats[7] + passive_dodge; //+passive_DodgeChance     
         if (Dodge_chance > 25f)
         {
