@@ -731,9 +731,18 @@ public class PlayerInventory : NetworkBehaviour
                                          {
                                              if (leader.Player!=gameObject)//if we are not the leader
                                              {
-                                                 PlayerGeneral.use_teleport_stone(leader.Player.transform.position);                                                
-                                                 used = true;
-                                             }
+                                                if (!leader.Player.GetComponent<PlayerGeneral>().in_devilSquare)
+                                                {
+                                                    PlayerGeneral.use_teleport_stone(leader.Player.transform.position);
+                                                    used = true;
+                                                }
+                                                else
+                                                {
+                                                    used = false;
+                                                    PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: Party leader inside Devil Square, try again later");
+                                                }
+
+                                            }
                                              else
                                              {
                                                  used = false;
