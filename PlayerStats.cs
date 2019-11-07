@@ -79,6 +79,9 @@ public class PlayerStats : NetworkBehaviour
 
     public float Defense_str = 0;
     public float Defense_int = 0;
+    
+    public float Defense_from_pdef = 0; //JWR - Added label for pdef from stats
+    public float Defense_from_mdef = 0; //JWR - Added label for mdef from stats
 
     public float Critical_chance = 0;
     public float Critical_damage = 0;
@@ -391,6 +394,8 @@ public class PlayerStats : NetworkBehaviour
         }
 
         //defense
+        Defense_from_pdef = Defense_str * DEF; //JWR - Assign pdef from stats
+        Defense_from_mdef = Defense_int * MDEF; //JWR - Assign mdef from stats
         Defense_str = (Defense_str * DEF) + PlayerEquipStats[5];
         Defense_int = (Defense_int * MDEF) + PlayerEquipStats[6];
         if (Conditions.increasedDEF != 0f)
