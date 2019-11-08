@@ -197,7 +197,7 @@ public class PlayerPVPDamage : NetworkBehaviour
 			{
 				Adj_dodge_chance = PlayerStats.Dodge_chance; // JWR - No bonus if stationary
 			}
-			if (Adj_dodge_chance > PlayerStats.Dodge_hard_cap) { Adj_dodge_chance = PlayerStats.Dodge_hard_cap; } // JWR - still want hard cap
+//			if (Adj_dodge_chance > PlayerStats.Dodge_hard_cap) { Adj_dodge_chance = PlayerStats.Dodge_hard_cap; } // JWR - still want hard cap
 
             if (Random.Range(1, 100) <= Adj_dodge_chance) //JWR - Use adjusted dodge chance
             {
