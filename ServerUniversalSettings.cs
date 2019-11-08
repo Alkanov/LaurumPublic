@@ -93,6 +93,10 @@ public class ServerUniversalSettings : MonoBehaviour
 
     /// <summary>
     /// This is the dictionary that will store all our variables, note var_data also has var_names in it and should not be used at all.. yes, its weird but thats what I could come up with
+    /// We can get to this Dictionary from almost any Player scrip like this:
+    /// - PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.ENUM_HERE].value
+    /// if we are in PlayerGeneral then we omit the PlayerGeneral part like this:
+    /// - x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.ENUM_HERE].value
     /// </summary>
     public Dictionary<var_names, var_data> dict_vars;
 
