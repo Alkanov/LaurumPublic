@@ -58,7 +58,7 @@ public class ItemDatabase : MonoBehaviour
     public float Wiz_Boots = (MAX_Crit_Dodge * 0.9f) / N_TIERS;
 
     //Hunter
-    public float Hun_Weapon = (MAX_Damage * 0.95f) / N_TIERS;
+    public float Hun_Weapon = (MAX_Damage * 0.9f) / N_TIERS;
     public float Hun_Left_Hand_1 = (Damage_Secondary) / N_TIERS;
     public float Hun_Left_Hand_2 = (Crit_Secondary) / N_TIERS;
     public float Hun_Helm = (MAX_HP * 0.75f) / N_TIERS;
