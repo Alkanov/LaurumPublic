@@ -221,7 +221,7 @@ public class PlayerStats : NetworkBehaviour
         public static float PDEF_Multipplier = 0.75f;
         public static float MDEF_Multiplier = 0.75f;
         public static float Crit_Dodge_Multiplier = 1f;
-        public static float DMG_Multiplier = 0.95f;
+        public static float DMG_Multiplier = 0.9f;
 
         public static float Base_HP = PlayerSharedStats.MAX_Base_HP * HP_Multiplier;
         public static float HP_per_STA = PlayerSharedStats.MAX_HP_per_Sta * HP_Multiplier;
