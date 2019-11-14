@@ -1254,7 +1254,7 @@ public class PlayerStats : NetworkBehaviour
     public void player_exp_change(int exp_to_change, exp_source exp_source)
     {
 
-        if (exp_to_change > 0 && PlayerAccountInfo.PlayerKarmaStage != PlayerAccountInfo.karma_stages.pk_3)
+        if (exp_to_change > 0)
         {
             float exp_multiplier = 1f;
             switch (exp_source)
@@ -1740,8 +1740,7 @@ public class PlayerStats : NetworkBehaviour
 
                     PlayerAccountInfo.PlayerNickname = substrings[0];
                     //admin
-                    if (PlayerAccountInfo.PlayerNickname == "Alkanov" || 
-                        PlayerAccountInfo.PlayerNickname == "Cankan" || 
+                    if (PlayerAccountInfo.PlayerNickname == "Alkanov" ||                         
                         PlayerAccountInfo.PlayerNickname == "Celmi" || 
                         PlayerAccountInfo.PlayerNickname == "Zelp")
                     {
