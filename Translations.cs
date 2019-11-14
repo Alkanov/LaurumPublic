@@ -1171,19 +1171,19 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[2811] = "+140 MP";
             //teleport scrolls
             itemNamesTranslation[29010] = "Teleport Scroll: Laurum Port";
-            itemDescrTranslation[29010] = "Single use Teleport to Laurum's Port";
+            itemDescrTranslation[29010] = "Teleport to Laurum's Port";
             itemNamesTranslation[29011] = "Teleport Scroll: Fort Libra";
-            itemDescrTranslation[29011] = "Single use Teleport to Fort Libra";
+            itemDescrTranslation[29011] = "Teleport to Fort Libra";
             itemNamesTranslation[29012] = "Teleport Scroll: Last Death Position";
-            itemDescrTranslation[29012] = "Single use Teleport to your last place before the gods took your soul";
+            itemDescrTranslation[29012] = "Teleport to your last place before the gods took your soul";
             itemNamesTranslation[29013] = "Teleport Scroll: Party Leader";
-            itemDescrTranslation[29013] = "Single use Teleport to your party's leader";
+            itemDescrTranslation[29013] = "Teleport to your party's leader";
             itemNamesTranslation[29014] = "Teleport Scroll: Mysterious Place";
-            itemDescrTranslation[29014] = "Single use Teleport to Ghost Town";
+            itemDescrTranslation[29014] = "Teleport to Ghost Town";
             itemNamesTranslation[29015] = "Teleport Scroll: Welcome to the jungle!";
-            itemDescrTranslation[29015] = "Single use Teleport to Fire Cave's Entrance";
+            itemDescrTranslation[29015] = "Teleport to Fire Cave's Entrance";
             itemNamesTranslation[29016] = "Teleport Scroll: Shake it!";
-            itemDescrTranslation[29016] = "Single use Teleport to Rynthia";
+            itemDescrTranslation[29016] = "Teleport to Rynthia";
 
             //exp potions
             itemNamesTranslation[29040] = "Event Experience Potion";
