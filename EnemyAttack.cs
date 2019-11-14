@@ -117,20 +117,7 @@ public class EnemyAttack : MonoBehaviour
                         Critico = true;
                         DamageTX = Mathf.RoundToInt(DamageTX * 2);
                     }
-                    float Adj_dodge_chance = 5; //JWR - Moving dodge bonus
-                    float Player_dodge_chance = PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance;
-                    float Dodge_hard_cap = PlayerToAttack.GetComponent<PlayerStats>().Dodge_hard_cap;
-	                if (Player_dodge_chance > (Dodge_hard_cap - 5)) { Adj_dodge_chance = Player_dodge_chance - (Dodge_hard_cap - 5); }
-	                if (Player_dodge_chance >= Dodge_hard_cap) { Adj_dodge_chance = 0; }
-                    if (!PlayerMPSync.stationary) // JWR
-                    {
-	    	            Adj_dodge_chance += PlayerStats.Dodge_chance; // JWR - Add bonus if moving
-	                }
-                    else
-	                {
-	    	            Adj_dodge_chance = PlayerStats.Dodge_chance; // JWR - No bonus if stationary
-	                }
-                    if (Random.Range(0, 100) <= Adj_dodge_chance)
+                    if (Random.Range(0, 100) <= PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance)
                     {
                         dodged = true;
                         DamageTX = 0;
