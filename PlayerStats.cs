@@ -89,7 +89,6 @@ public class PlayerStats : NetworkBehaviour
     public float CC_hard_cap = 50f; //JWR - Added hard cap label for easier mod
 
     public float Dodge_chance = 0;
-    public float Dodge_from_agi = 0; //JWR - Added label for dodge from stats
     public float Dodge_soft_cap = 25f; //JWR - Added soft cap label for easier mod
     public float Dodge_hard_cap = 50f; //JWR - Added hard cap label for easier mod
 
@@ -435,7 +434,6 @@ public class PlayerStats : NetworkBehaviour
 
         //Dodge
         Dodge_chance *= AGI;
-        Dodge_from_agi = Dodge_chance; //JWR - Assign dodge from stats
         Dodge_chance += modDodge + PlayerEquipStats[7] + passive_dodge; //+passive_DodgeChance     
         if (Dodge_chance > Dodge_soft_cap)	//JWR changed from hard coded cap to label
         {
