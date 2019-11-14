@@ -442,11 +442,11 @@ public class PlayerStats : NetworkBehaviour
             Dodge_chance = (Dodge_chance - Dodge_soft_cap) / 2f; 
             Dodge_chance += Dodge_soft_cap; 
         }
-        Dodge_chance += Conditions.increasedDodge;
         if (Dodge_chance > Dodge_hard_cap) //JWR changed from hard coded cap to label
         {
             Dodge_chance = Dodge_hard_cap;
         }
+        Dodge_chance += Conditions.increasedDodge;
 
         //Regens
         HP_regen_percent += modHPRegen + passive_HPRegen;
