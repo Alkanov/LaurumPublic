@@ -61,8 +61,6 @@ public class PlayerStats : NetworkBehaviour
     #endregion
     public PlayerClass PlayerClass_now;
     public DamageType DamageType_now;
-    
-    //Generic base stats declaration
 
     public float Base_HP = 50;
     public float HP_per_STA = 5;
@@ -102,19 +100,6 @@ public class PlayerStats : NetworkBehaviour
     public float ExtraExp;
     public float CD_reduction;
 
-    public class PlayerSharedStats
-    {
-        public static float MAX_Base_HP = 150f;
-        public static float MAX_HP_per_Sta = 15f;
-        public static float MAX_HP_per_level = 5f;
-        public static float MAX_Base_MP = MAX_Base_HP * 0.6f;
-        public static float MAX_MP_per_Wis = MAX_HP_per_Sta * 0.6f;
-        public static float MAX_MP_per_level = MAX_HP_per_level * 0.6f;
-        public static float MAX_Defense = 4f;
-        public static float MAX_Crit_Dodge = 0.16f;
-        public static float MAX_Damage = MAX_Defense * 0.8f;
-    }
-
     public enum PlayerClass
     {
         Any,
@@ -132,35 +117,28 @@ public class PlayerStats : NetworkBehaviour
     #region Base class multipliers
     public class WarriorMultiplier
     {
-        public static float HP_Multiplier = 1f;
-        public static float MP_Multiplier = 0.6f;
-        public static float PDEF_Multipplier = 1f;
-        public static float MDEF_Multiplier = 0.6f;
-        public static float Crit_Dodge_Multiplier = 0.6f;
-        public static float DMG_Multiplier = 1f;
-
-        public static float Base_HP = PlayerSharedStats.MAX_Base_HP * HP_Multiplier;
-        public static float HP_per_STA = PlayerSharedStats.MAX_HP_per_Sta * HP_Multiplier;
-        public static float HP_per_level = PlayerSharedStats.MAX_HP_per_level * HP_Multiplier;
+        public static float Base_HP = 120;
+        public static float HP_per_STA = 15f; //current: 10
+        public static float HP_per_level = 5f;
         public static float HP_regen_time = 5f; //this is in seconds and every HP_regen_time it will regen hp
         public static float HP_regen_percent = 0.5f; //on % so 0.5%
 
-        public static float Base_MP = PlayerSharedStats.MAX_Base_MP * MP_Multiplier;
-        public static float MP_per_WIS = PlayerSharedStats.MAX_MP_per_Wis * MP_Multiplier;
-        public static float MP_per_level = PlayerSharedStats.MAX_MP_per_level * MP_Multiplier;
+        public static float Base_MP = 40f;
+        public static float MP_per_WIS = 2f;
+        public static float MP_per_level = 1f;
         public static float MP_regen_time = 5f;
         public static float MP_regen_percent = 0.5f; //on % so 0.5%
 
-        public static float Damage_per_str = PlayerSharedStats.MAX_Damage * DMG_Multiplier;
+        public static float Damage_per_str = 3f;
         public static float Damage_per_int = 1.0f;
 
-        public static float Defense_per_str = PlayerSharedStats.MAX_Defense * PDEF_Multipplier;
-        public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
+        public static float Defense_per_str = 3.8f;
+        public static float Defense_per_int = 2.5f;
 
-        public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
+        public static float Critical_chance_per_DEX = 0.08f;
         public static float Critical_damage_percent_base = 2.0f;
 
-        public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
+        public static float Dodge_chance_per_AGI = 0.1f;
 
         public static float AutoAtk_speed = 1f;
         public static float AutoAtk_range = 1f;
@@ -174,35 +152,28 @@ public class PlayerStats : NetworkBehaviour
     }
     public class PaladinMultiplier
     {
-        public static float HP_Multiplier = 0.9f;
-        public static float MP_Multiplier = 0.9f;
-        public static float PDEF_Multipplier = 0.9f;
-        public static float MDEF_Multiplier = 0.9f;
-        public static float Crit_Dodge_Multiplier = 0.75f;
-        public static float DMG_Multiplier = 0.9f;
-
-        public static float Base_HP = PlayerSharedStats.MAX_Base_HP * HP_Multiplier;
-        public static float HP_per_STA = PlayerSharedStats.MAX_HP_per_Sta * HP_Multiplier;
-        public static float HP_per_level = PlayerSharedStats.MAX_HP_per_level * HP_Multiplier;
+        public static float Base_HP = 90f;
+        public static float HP_per_STA = 12f; //current: 8
+        public static float HP_per_level = 3.5f;
         public static float HP_regen_time = 5f;
         public static float HP_regen_percent = 0.5f;
 
-        public static float Base_MP = PlayerSharedStats.MAX_Base_MP * MP_Multiplier;
-        public static float MP_per_WIS = PlayerSharedStats.MAX_MP_per_Wis * MP_Multiplier;
-        public static float MP_per_level = PlayerSharedStats.MAX_MP_per_level * MP_Multiplier;
+        public static float Base_MP = 70f;
+        public static float MP_per_WIS = 4f;
+        public static float MP_per_level = 3f;
         public static float MP_regen_time = 5f;
         public static float MP_regen_percent = 0.5f;
 
         public static float Damage_per_str = 1.0f;
-        public static float Damage_per_int = PlayerSharedStats.MAX_Damage * DMG_Multiplier;
+        public static float Damage_per_int = 2.7f; //current: 2.5
 
-        public static float Defense_per_str = PlayerSharedStats.MAX_Defense * PDEF_Multipplier;
-        public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
+        public static float Defense_per_str = 3.5f;
+        public static float Defense_per_int = 3.5f;
 
-        public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
+        public static float Critical_chance_per_DEX = 0.05f;
         public static float Critical_damage_percent_base = 2.0f;
 
-        public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
+        public static float Dodge_chance_per_AGI = 0.13f;
 
         public static float AutoAtk_speed = 1f;
         public static float AutoAtk_range = 1f;
@@ -216,35 +187,28 @@ public class PlayerStats : NetworkBehaviour
     }
     public class HunterMultiplier
     {
-        public static float HP_Multiplier = 0.75f;
-        public static float MP_Multiplier = 0.75f;
-        public static float PDEF_Multipplier = 0.75f;
-        public static float MDEF_Multiplier = 0.75f;
-        public static float Crit_Dodge_Multiplier = 1f;
-        public static float DMG_Multiplier = 0.9f;
-
-        public static float Base_HP = PlayerSharedStats.MAX_Base_HP * HP_Multiplier;
-        public static float HP_per_STA = PlayerSharedStats.MAX_HP_per_Sta * HP_Multiplier;
-        public static float HP_per_level = PlayerSharedStats.MAX_HP_per_level * HP_Multiplier;
+        public static float Base_HP = 100f;
+        public static float HP_per_STA = 12f; //current: 9
+        public static float HP_per_level = 4f;
         public static float HP_regen_time = 5f;
         public static float HP_regen_percent = 0.5f;
 
-        public static float Base_MP = PlayerSharedStats.MAX_Base_MP * MP_Multiplier;
-        public static float MP_per_WIS = PlayerSharedStats.MAX_MP_per_Wis * MP_Multiplier;
-        public static float MP_per_level = PlayerSharedStats.MAX_MP_per_level * MP_Multiplier;
+        public static float Base_MP = 50f;
+        public static float MP_per_WIS = 3f;
+        public static float MP_per_level = 2f;
         public static float MP_regen_time = 5f;
         public static float MP_regen_percent = 0.5f;
 
-        public static float Damage_per_str = PlayerSharedStats.MAX_Damage * DMG_Multiplier;
+        public static float Damage_per_str = 2.85f;
         public static float Damage_per_int = 1.0f;
 
-        public static float Defense_per_str = PlayerSharedStats.MAX_Defense * PDEF_Multipplier;
-        public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
+        public static float Defense_per_str = 3f;
+        public static float Defense_per_int = 3f;
 
-        public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
+        public static float Critical_chance_per_DEX = 0.12f;
         public static float Critical_damage_percent_base = 2.0f;
 
-        public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
+        public static float Dodge_chance_per_AGI = 0.16f;
 
         public static float AutoAtk_speed = 1f;
         public static float AutoAtk_range = 2.8f;
@@ -258,35 +222,28 @@ public class PlayerStats : NetworkBehaviour
     }
     public class WizardMultiplier
     {
-        public static float HP_Multiplier = 0.6f;
-        public static float MP_Multiplier = 1f;
-        public static float PDEF_Multipplier = 0.6f;
-        public static float MDEF_Multiplier = 1f;
-        public static float Crit_Dodge_Multiplier = 0.9f;
-        public static float DMG_Multiplier = 1f;
-
-        public static float Base_HP = PlayerSharedStats.MAX_Base_HP * HP_Multiplier;
-        public static float HP_per_STA = PlayerSharedStats.MAX_HP_per_Sta * HP_Multiplier;
-        public static float HP_per_level = PlayerSharedStats.MAX_HP_per_level * HP_Multiplier;
+        public static float Base_HP = 80f;
+        public static float HP_per_STA = 10f; //current: 7
+        public static float HP_per_level = 3f;
         public static float HP_regen_time = 5f;
         public static float HP_regen_percent = 0.5f;
 
-        public static float Base_MP = PlayerSharedStats.MAX_Base_MP * MP_Multiplier;
-        public static float MP_per_WIS = PlayerSharedStats.MAX_MP_per_Wis * MP_Multiplier;
-        public static float MP_per_level = PlayerSharedStats.MAX_MP_per_level * MP_Multiplier;
+        public static float Base_MP = 80f;
+        public static float MP_per_WIS = 5f;
+        public static float MP_per_level = 3f;
         public static float MP_regen_time = 5f;
         public static float MP_regen_percent = 0.5f;
 
         public static float Damage_per_str = 1.0f;
-        public static float Damage_per_int = PlayerSharedStats.MAX_Damage * DMG_Multiplier;
+        public static float Damage_per_int = 3f; //current: 3.50
 
-        public static float Defense_per_str = PlayerSharedStats.MAX_Defense * PDEF_Multipplier;
-        public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
+        public static float Defense_per_str = 2f;
+        public static float Defense_per_int = 4f;
 
-        public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
+        public static float Critical_chance_per_DEX = 0.10f;
         public static float Critical_damage_percent_base = 2.0f;
 
-        public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
+        public static float Dodge_chance_per_AGI = 0.11f;
 
         public static float AutoAtk_speed = 1f;
         public static float AutoAtk_range = 2.3f;
@@ -1481,30 +1438,30 @@ public class PlayerStats : NetworkBehaviour
                     break;
                 case 3111:
                     stat_training_exp[5] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
-                    stat_training_exp[6] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
+                    stat_training_exp[6] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
                     total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3112:
-                    stat_training_exp[1] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
-                    stat_training_exp[7] += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade)); 
+                    stat_training_exp[1] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    stat_training_exp[7] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3113:
-                    stat_training_exp[0] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
-                    stat_training_exp[3] += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade)); 
+                    stat_training_exp[0] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    stat_training_exp[3] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3114:
-                    stat_training_exp[2] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
-                    stat_training_exp[4] += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade)); 
+                    stat_training_exp[2] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    stat_training_exp[4] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
                     allowed_to_gain_character_exp = false;
                     break;                
                 case 3115:
@@ -1553,7 +1510,7 @@ public class PlayerStats : NetworkBehaviour
                     break;
                 case 3121:
                     stat_training_exp[2] += Mathf.RoundToInt((WARNING_full_exp * 0.03f * stone_upgrade));
-                    stat_training_exp[3] += Mathf.RoundToInt((WARNING_full_exp * 0.03f * stone_upgrade));
+                    stat_training_exp[4] += Mathf.RoundToInt((WARNING_full_exp * 0.03f * stone_upgrade));
                     stat_training_exp[6] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
                     total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.03f * stone_upgrade));
                     total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.03f * stone_upgrade));
@@ -1572,7 +1529,7 @@ public class PlayerStats : NetworkBehaviour
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3123:
-                    stat_training_exp[3] += Mathf.RoundToInt((WARNING_full_exp * 0.03f * stone_upgrade));
+                    stat_training_exp[4] += Mathf.RoundToInt((WARNING_full_exp * 0.03f * stone_upgrade));
                     stat_training_exp[2] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
                     stat_training_exp[7] += Mathf.RoundToInt((WARNING_full_exp * 0.02f * stone_upgrade));
                     stat_training_exp[1] += Mathf.RoundToInt((WARNING_full_exp * 0.02f * stone_upgrade));
