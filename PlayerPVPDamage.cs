@@ -18,7 +18,6 @@ public class PlayerPVPDamage : NetworkBehaviour
     #region PVP Data
     float pvp_damage_factor = 1f;
     float pvp_defense_bonus_modifier = 0.5f;
-    float pvp_dodge_bonus_modifier = 0.3f;
     [HideInInspector]
     public string PVPmodeOn;
     [HideInInspector]
@@ -187,10 +186,9 @@ public class PlayerPVPDamage : NetworkBehaviour
             }
 
             //dodge chance lottery
-            float Adj_dodge_chance = PlayerStats.Dodge_from_agi * pvp_dodge_bonus_modifier; //JWR - Moving dodge bonus based on agi (no gear)
-	    if (PlayerStats.Dodge_chance >= (PlayerStats.Dodge_hard_cap - 5)) { Adj_dodge_chance = (PlayerStats.Dodge_chance + Adj_dodge_chance) - 45; }
+            float Adj_dodge_chance = 5; //JWR - Moving dodge bonus
+	    if (PlayerStats.Dodge_chance > (PlayerStats.Dodge_hard_cap - 5)) { Adj_dodge_chance = PlayerStats.Dodge_chance - (PlayerStats.Dodge_hard_cap - 5); }
 	    if (PlayerStats.Dodge_chance >= PlayerStats.Dodge_hard_cap) { Adj_dodge_chance = 0; }
-            if (Adj_dodge_chance > 5) { Adj_dodge_chance = 5; } //JWR - Cap bonus at 5%
             if (!PlayerMPSync.stationary) // JWR
             {
 	    	Adj_dodge_chance += PlayerStats.Dodge_chance; // JWR - Add bonus if moving
@@ -449,10 +447,9 @@ public class PlayerPVPDamage : NetworkBehaviour
                         }
 
                         //dodge chance lottery
-            		float Adj_dodge_chance = PlayerStats.Dodge_from_agi * pvp_dodge_bonus_modifier; //JWR - Moving dodge bonus based on agi (no gear)
-	    		if (PlayerStats.Dodge_chance >= (PlayerStats.Dodge_hard_cap - 5)) { Adj_dodge_chance = (PlayerStats.Dodge_chance + Adj_dodge_chance) - 45; }
+	            	float Adj_dodge_chance = 5; //JWR - Moving dodge bonus
+			if (PlayerStats.Dodge_chance > (PlayerStats.Dodge_hard_cap - 5)) { Adj_dodge_chance = PlayerStats.Dodge_chance - (PlayerStats.Dodge_hard_cap - 5); }
 	    		if (PlayerStats.Dodge_chance >= PlayerStats.Dodge_hard_cap) { Adj_dodge_chance = 0; }
-            		if (Adj_dodge_chance > 5) { Adj_dodge_chance = 5; } //JWR - Cap bonus at 5%
             		if (!PlayerMPSync.stationary) // JWR
             		{
 				Adj_dodge_chance += PlayerStats.Dodge_chance; // JWR - Add bonus if moving
