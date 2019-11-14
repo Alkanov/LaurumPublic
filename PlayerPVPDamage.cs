@@ -282,13 +282,13 @@ public class PlayerPVPDamage : NetworkBehaviour
         {
             case PlayerStats.DamageType.magical:
                 playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * 0.2f);
-                playerTotalDef += pvpMdefBonus; //JWR - Add def bonus (general bonus for PvP balance)
+                //playerTotalDef += pvpMdefBonus; //JWR - Add def bonus (general bonus for PvP balance)
                 if (PlayerMPSync.stationary) { playerTotalDef += pvpMdefBonus; } //JWR - If stationary, double the defense bonus
                 fromPlayerDamage = fromPlayerStats.Damage_int;
                 break;
             case PlayerStats.DamageType.physical:
                 playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * 0.2f);
-                playerTotalDef += pvpPdefBonus; //JWR Add def bonus
+                //playerTotalDef += pvpPdefBonus; //JWR Add def bonus
                 if (PlayerMPSync.stationary) { playerTotalDef += pvpPdefBonus; } //JWR - If stationary, double the defense bonus
                 fromPlayerDamage = fromPlayerStats.Damage_str;
                 break;
