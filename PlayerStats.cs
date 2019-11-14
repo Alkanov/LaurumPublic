@@ -426,11 +426,11 @@ public class PlayerStats : NetworkBehaviour
             Critical_chance = (Critical_chance - CC_soft_cap) / 2f;
             Critical_chance += CC_soft_cap;
         }
-        Critical_chance += Conditions.increasedCritical;
         if (Critical_chance > CC_hard_cap) //JWR changed from hard coded cap to label
         {
             Critical_chance = CC_hard_cap;
         }
+        Critical_chance += Conditions.increasedCritical;
 
         //Dodge
         Dodge_chance *= AGI;
