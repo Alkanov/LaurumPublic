@@ -679,133 +679,108 @@ public class PlayerInventory : NetworkBehaviour
                     {
                         if (!PlayerGeneral.in_devilSquare)
                         {
-                            if (ItemReference.itemDurability > 0)
+                            var teleport_allowed = PlayerGeneral.x_ObjectHelper.PlayerTeleport.is_tp_ready(PlayerAccountInfo.PlayerAccount);//--->teleport cool down is boring
+                            if (teleport_allowed == 0)
                             {
-                                var teleport_allowed = PlayerGeneral.x_ObjectHelper.PlayerTeleport.is_tp_ready(PlayerAccountInfo.PlayerAccount);//--->teleport cool down is boring
-                                if (teleport_allowed == 0)
+                                bool used = false;
+                                if (Item_.ItemID == 29010)//laurumharbor
                                 {
-                                    bool used = false;
-                                    if (Item_.ItemID == 29010)//laurumharbor
-                                    {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[0].transform.position);
-                                        used = true;
-                                    }
-                                    else if (Item_.ItemID == 29011)//libra
-                                    {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[1].transform.position);
-                                        used = true;
-                                    }
-                                    else if (Item_.ItemID == 29014)//Ghost
-                                    {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[2].transform.position);
-                                        used = true;
-                                    }
-                                    else if (Item_.ItemID == 29015)//Fire Cave
-                                    {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[5].transform.position);
-                                        used = true;
-                                    }
-                                    else if (Item_.ItemID == 29016)//Rynthia
-                                    {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[4].transform.position);
-                                        used = true;
-                                    }
-                                    else if (Item_.ItemID == 29012)//back to death pos teleport
-                                    {
-                                        if (PlayerDeath.respawn_position_before_death_world != Vector3.zero)
-                                        {
-                                            PlayerGeneral.use_teleport_stone(PlayerDeath.respawn_position_before_death_world);
-                                            PlayerDeath.respawn_position_before_death_world = Vector3.zero;
-                                            used = true;
-                                        }
-                                        else
-                                        {
-                                            used = false;
-                                            PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: You haven't died yet!");
-                                        }
-                                    }
-                                    else if (Item_.ItemID == 29013)// to party leader
-                                    {
-                                        if (PlayerGeneral.PartyID != string.Empty)//if we are in party
-                                        {
-                                            var leader = PlayerGeneral.x_ObjectHelper.PartyController.get_party_leader(PlayerGeneral.PartyID);//get leader
-                                            if (leader != null && leader.Player != null)//if leader found
-                                            {
-                                                if (leader.Player != gameObject)//if we are not the leader
+                                    PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[0].transform.position);
+                                    used = true;                                    
+                                }
+                                else if (Item_.ItemID == 29011)//libra
+                                {
+                                    PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[1].transform.position);
+                                    used = true;
+                                }
+                                else if (Item_.ItemID == 29014)//Ghost
+                                {
+                                    PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[2].transform.position);
+                                    used = true;
+                                }
+                                else if (Item_.ItemID == 29015)//Fire Cave
+                                {
+                                    PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[5].transform.position);
+                                    used = true;
+                                }
+                                else if (Item_.ItemID == 29016)//Rynthia
+                                {
+                                    PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[4].transform.position);
+                                    used = true;
+                                }
+                                else if (Item_.ItemID == 29012)//back to death pos teleport
+                                {
+                                    if (PlayerDeath.respawn_position_before_death_world != Vector3.zero)
+                                     {
+                                         PlayerGeneral.use_teleport_stone(PlayerDeath.respawn_position_before_death_world);
+                                         PlayerDeath.respawn_position_before_death_world = Vector3.zero;
+                                         used = true;
+                                     }
+                                     else
+                                     {
+                                         used = false;
+                                         PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: You haven't died yet!");
+                                     }
+                                }
+                                else if (Item_.ItemID == 29013)// to party leader
+                                {
+                                    if (PlayerGeneral.PartyID != string.Empty)//if we are in party
+                                     {
+                                         var leader = PlayerGeneral.x_ObjectHelper.PartyController.get_party_leader(PlayerGeneral.PartyID);//get leader
+                                         if (leader != null && leader.Player != null)//if leader found
+                                         {
+                                             if (leader.Player!=gameObject)//if we are not the leader
+                                             {
+                                                if (!leader.Player.GetComponent<PlayerGeneral>().in_devilSquare)
                                                 {
-                                                    if (!leader.Player.GetComponent<PlayerGeneral>().in_devilSquare)
-                                                    {
-                                                        PlayerGeneral.use_teleport_stone(leader.Player.transform.position);
-                                                        used = true;
-                                                    }
-                                                    else
-                                                    {
-                                                        used = false;
-                                                        PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: Party leader inside Devil Square, try again later");
-                                                    }
-
+                                                    PlayerGeneral.use_teleport_stone(leader.Player.transform.position);
+                                                    used = true;
                                                 }
                                                 else
                                                 {
                                                     used = false;
-                                                    PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: You are the party leader.");
+                                                    PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: Party leader inside Devil Square, try again later");
                                                 }
+
                                             }
-                                            else
-                                            {
-                                                used = false;
-                                                PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: Party Leader not found, try again later.");
-                                            }
+                                             else
+                                             {
+                                                 used = false;
+                                                 PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: You are the party leader.");
+                                             }
+                                         }
+                                         else
+                                         {
+                                             used = false;
+                                             PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: Party Leader not found, try again later.");
+                                         }
 
-                                        }
-                                        else
-                                        {
-                                            used = false;
-                                            PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: You need to be in a party to use this scroll");
-                                        }
-                                    }
-
-                                    if (used)
-                                    {
-                                        //take one durability now
-                                        ItemReference.itemDurability--;
-                                        //change and save durability of item
-                                        Change_durabil(ItemReference.itemDurability, ItemReference);
-                                        //if this item still has durability above 0 then keep it, if not destroy it
-                                        if (ItemReference.itemDurability <= 0)
-                                        {
-                                            //delete from db and memmory and client 
-                                            remove_item_from_DB_and_player_INVENTORY(ItemReference, "tp_scroll_fully_used");
-                                            PlayerGeneral.TargetSendToChat(connectionToClient, "Teleport Scroll fully used");
-                                        }
-                                        else
-                                        {
-                                            //change inv on mem and send update client
-                                            Mody_durability_on_inventory_and_send(ItemReference);
-                                            //notify client
-                                            PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Used");
-                                        }                                       
-                                        //add to cd
-                                        PlayerGeneral.x_ObjectHelper.PlayerTeleport.teleport_cd.Add(new PlayerTeleport.TeleportCD(PlayerAccountInfo.PlayerAccount, Time.time + 120));
-                                    }
-
+                                     }
+                                     else
+                                     {
+                                         used = false;
+                                         PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Failed: You need to be in a party to use this scroll");
+                                     }                                  
                                 }
-                                else
+
+                                if (used)
                                 {
-                                    var msg = "Teleport in cooldown for: " + Mathf.RoundToInt(teleport_allowed) + " seconds";
-                                    if (teleport_allowed > 60f)
-                                    {
-                                        teleport_allowed = Mathf.RoundToInt(teleport_allowed / 60);
-                                        msg = "Teleport in cooldown for: " + teleport_allowed + " minutes";
-                                    }
-                                    PlayerGeneral.TargetSendToChat(connectionToClient, msg);
+                                    //delete from db and memmory and client 
+                                    remove_item_from_DB_and_player_INVENTORY(ItemReference, "scroll_used");
+                                    PlayerGeneral.TargetSendToChat(connectionToClient, "Scroll Used");
+                                    PlayerGeneral.x_ObjectHelper.PlayerTeleport.teleport_cd.Add(new PlayerTeleport.TeleportCD(PlayerAccountInfo.PlayerAccount, Time.time + 120));
                                 }
+                                
                             }
                             else
                             {
-                                //delete from db and memmory and client 
-                                remove_item_from_DB_and_player_INVENTORY(ItemReference, "tp_scroll_fully_used");
-                                PlayerGeneral.TargetSendToChat(connectionToClient, "Teleport Scroll fully used");
+                                var msg = "Teleport in cooldown for: " + Mathf.RoundToInt(teleport_allowed) + " seconds";
+                                if (teleport_allowed > 60f)
+                                {
+                                    teleport_allowed = Mathf.RoundToInt(teleport_allowed / 60);
+                                    msg = "Teleport in cooldown for: " + teleport_allowed + " minutes";
+                                }
+                                PlayerGeneral.TargetSendToChat(connectionToClient, msg);
                             }
                         }
                         else
@@ -871,8 +846,7 @@ public class PlayerInventory : NetworkBehaviour
                                 PlayerGeneral.TargetSendToChat(connectionToClient, "Potion fully used");
                             }
 
-                        }
-                        else if (Item_.ItemID == 29051)//RP reset potion
+                        }else if (Item_.ItemID == 29051)//RP reset potion
                         {
                             if (ItemReference.itemDurability > 0)
                             {
@@ -900,8 +874,7 @@ public class PlayerInventory : NetworkBehaviour
                                 remove_item_from_DB_and_player_INVENTORY(ItemReference, "charges_RP_reset_potion_used");
                                 PlayerGeneral.TargetSendToChat(connectionToClient, "Potion fully used");
                             }
-                        }
-                        else if (Item_.ItemID == 29052 || Item_.ItemID == 29055 || Item_.ItemID == 29056)
+                        }else if(Item_.ItemID== 29052 || Item_.ItemID == 29055 || Item_.ItemID == 29056)
                         {
                             if (ItemReference.itemDurability > 0)
                             {
@@ -1329,7 +1302,7 @@ public class PlayerInventory : NetworkBehaviour
                                 if (!PlayerStats.ench_potion_block)
                                 {
                                     //Guardamos la neuva mana en Memoria
-                                    var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * PlayerGeneral.x_ObjectHelper.potions_upgrades_stat_increase(Inventory.EquippedList[i].itemUpgrade) / 100f)) * (1f + (PlayerStats.ench_extra_mp_from_pots / 100f)));
+                                    var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * PlayerGeneral.x_ObjectHelper.potions_upgrades_stat_increase(Inventory.EquippedList[i].itemUpgrade)/100f)) * (1f + (PlayerStats.ench_extra_mp_from_pots / 100f)));
                                     var futureMP = PlayerStats.CurrentMP + to_gain;
                                     if (futureMP >= PlayerStats.MaxMana)
                                     {
@@ -1484,7 +1457,7 @@ public class PlayerInventory : NetworkBehaviour
 
                         trade_defaults();
                         RemotePlayer_GO.GetComponent<PlayerInventory>().trade_defaults();
-                    }
+                    }                  
 
                 }
 
@@ -1884,7 +1857,7 @@ public class PlayerInventory : NetworkBehaviour
                 {
                     for (int i = 0; i < Items_to_burn.Count; i++)
                     {
-                        remove_item_from_DB_and_player_INVENTORY(Items_to_burn[i], "{uid:" + uid + " crafting_recipe_ID->" + recipe.ID + "}");
+                        remove_item_from_DB_and_player_INVENTORY(Items_to_burn[i], "{uid:"+ uid + " crafting_recipe_ID->" + recipe.ID + "}");
                     }
                 }
                 //take material requirements                
@@ -1892,7 +1865,7 @@ public class PlayerInventory : NetworkBehaviour
                 {
                     if (material_required.Value > 0)
                     {
-                        material_add_amount_and_save(material_required.Key, -material_required.Value, "{uid:" + uid + " crafting_recipe_ID->" + recipe.ID + "}");
+                        material_add_amount_and_save(material_required.Key, -material_required.Value, "{uid:"+ uid + " crafting_recipe_ID->" + recipe.ID + "}");
                     }
                 }
                 //take gold requirements
@@ -1924,7 +1897,7 @@ public class PlayerInventory : NetworkBehaviour
                 {
                     material_add_amount_and_save(recipe.material_crafted_result, 1, "Result:{uid:" + uid + " crafting_recipe_ID->" + recipe.ID + "}");
                     gameObject.GetComponent<PlayerQuestInfo>().change_quest_progress(Task.task_types.crafted_item, (int)recipe.material_crafted_result, gameObject, 1);
-                }
+                }               
 
                 //increase player crafting exp and others here
                 //to chat
@@ -2419,7 +2392,7 @@ public class PlayerInventory : NetworkBehaviour
      }*/
     public void cancelProcess()
     {
-        TargetCancelTrade(connectionToClient, null, "Trade cancelled by remote player");
+        TargetCancelTrade(connectionToClient,null, "Trade cancelled by remote player");
         //StartCoroutine(getPlayerItems(false));
         SendWholeInventoryToClient();
         trade_defaults();
@@ -2459,14 +2432,13 @@ public class PlayerInventory : NetworkBehaviour
         //quita el item de la lista y envia la orden al cliente
         //Inventory.InventoryList.Remove(ItemReference);--->doesnt work against duped items
         delete_item_from_everywhere(ItemReference);
-        //remove item from client
+
         TargetOperateInventory(connectionToClient, ItemReference.itemUniqueID, 1, null);
     }
     void delete_item_from_everywhere(InventoryItem ItemReference)
     {
         bool inv_dupe = false;
         bool bank_dupe = false;
-        bool equ_dupe = false;
         if (Inventory.InventoryList.RemoveAll(x => x.itemUniqueID == ItemReference.itemUniqueID) > 1)
         {
             PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.ServerNetworkManager.saveLog("logsgame", PlayerAccountInfo.PlayerAccount, string.Format("inv_duped: {0}", ItemReference.itemUniqueID), PlayerAccountInfo.PlayerIP));
@@ -2477,20 +2449,9 @@ public class PlayerInventory : NetworkBehaviour
             PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.ServerNetworkManager.saveLog("logsgame", PlayerAccountInfo.PlayerAccount, string.Format("bank_duped: {0}", ItemReference.itemUniqueID), PlayerAccountInfo.PlayerIP));
             bank_dupe = true;
         }
-        if (Inventory.EquippedList.RemoveAll(x => x.itemUniqueID == ItemReference.itemUniqueID) > 1)
-        {
-            PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.ServerNetworkManager.saveLog("logsgame", PlayerAccountInfo.PlayerAccount, string.Format("equ_duped: {0}", ItemReference.itemUniqueID), PlayerAccountInfo.PlayerIP));
-            equ_dupe = true;
-        }
-        //wtf is this? why is it even here? who cares if the item was "dual" dupped or not??
         if (bank_dupe && inv_dupe)
         {
             PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.ServerNetworkManager.saveLog("logsgame", PlayerAccountInfo.PlayerAccount, string.Format("dual_duped: {0}", ItemReference.itemUniqueID), PlayerAccountInfo.PlayerIP));
-        }
-        if (inv_dupe || bank_dupe || equ_dupe)
-        {
-            PlayerGeneral.PlayerMPSync.TargetLogStatus(connectionToClient, "ERROR#0W033", 0.5f);
-            GetComponent<NetworkIdentity>().connectionToClient.Disconnect();
         }
     }
     public void dropItem(int list_selector, InventoryItem item_to_drop, string log)// for items only
@@ -2503,7 +2464,7 @@ public class PlayerInventory : NetworkBehaviour
         //basic info       
         droppedItemInfo.situation = "dropped";
         droppedItemInfo.owner = PlayerAccountInfo.PlayerNickname;
-        droppedItemInfo.itemDurability = item_to_drop.itemDurability;
+        droppedItemInfo.itemDurability = 0;
         droppedItemInfo.destroy_in = 300f;
         //item info
         droppedItemInfo.itemID = item_to_drop.itemID;
@@ -3142,7 +3103,7 @@ public class PlayerInventory : NetworkBehaviour
                     var upgrade_amount = 1;
                     //penalty
                     var downgrade_penalty = 0;
-
+                   
                     /*
                      normal stones 3300-3303
                      Failsafe jewels 3308-3011
@@ -3185,7 +3146,7 @@ public class PlayerInventory : NetworkBehaviour
                     else if (InventoryItem_to_change.itemUpgrade >= 15 && InventoryItem_to_change.itemUpgrade < 50)
                     {
                         switch (item_material.ItemID)
-                        {
+                        {                           
                             case 3301://Normal Jewel B
                                 chance_succeed = 100f;
                                 downgrade_penalty = 0;
@@ -3214,7 +3175,7 @@ public class PlayerInventory : NetworkBehaviour
                     else if (InventoryItem_to_change.itemUpgrade >= 50 && InventoryItem_to_change.itemUpgrade < 200)
                     {
                         switch (item_material.ItemID)
-                        {
+                        {                           
                             case 3302://Normal Jewel C
                                 chance_succeed = 100f;
                                 downgrade_penalty = 0;
@@ -3243,7 +3204,7 @@ public class PlayerInventory : NetworkBehaviour
                     else if (InventoryItem_to_change.itemUpgrade >= 200)
                     {
                         switch (item_material.ItemID)
-                        {
+                        {                            
                             case 3303://Normal Jewel D
                                 chance_succeed = 100f;
                                 downgrade_penalty = 0;
@@ -3274,9 +3235,9 @@ public class PlayerInventory : NetworkBehaviour
                     {
                         if (UnityEngine.Random.Range(1, 101) <= chance_succeed)
                         {
-                            //change it      
-                            InventoryItem_to_change.itemUpgrade += upgrade_amount;
-                            //limit
+                             //change it      
+                            InventoryItem_to_change.itemUpgrade+= upgrade_amount;
+                             //limit
                             if (InventoryItem_to_change.itemUpgrade > 500)
                             {
                                 InventoryItem_to_change.itemUpgrade = 500;
@@ -3287,7 +3248,7 @@ public class PlayerInventory : NetworkBehaviour
                             //save the new item changes
                             PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(PlayerGeneral.x_ObjectHelper.ServerDBHandler.modifyItem(InventoryItem_to_change.itemUniqueID, string.Join("-", new List<int>(InventoryItem_to_change.itemMods).ConvertAll(r => r.ToString()).ToArray()), InventoryItem_to_change.itemUpgrade, InventoryItem_to_change.enchants)));
                             //send result
-                            TargetItemUpgradeResult(connectionToClient, true, InventoryItem_to_change.itemUniqueID);
+                            TargetItemUpgradeResult(connectionToClient, true, InventoryItem_to_change.itemUniqueID);  
                         }
                         else
                         {
@@ -3306,15 +3267,15 @@ public class PlayerInventory : NetworkBehaviour
                             //log it                           
                             PlayerGeneral.x_ObjectHelper.save_game_log("logsgame", PlayerAccountInfo.PlayerAccount, string.Format("item_upgrade_fail->UID:{0} now:{1} down_by:{2}", InventoryItem_to_change.itemUniqueID, InventoryItem_to_change.itemUpgrade, downgrade_penalty), log_uid, PlayerAccountInfo.PlayerIP);
                             //send result
-                            TargetItemUpgradeResult(connectionToClient, false, 0);
-                        }
+                            TargetItemUpgradeResult(connectionToClient, false, 0);      
+                        }                       
 
                         //send changed item to client               
                         Mody_item_on_inventory_and_send(InventoryItem_to_change);
                         //remove item material on client
                         Remove_item_on_client_inventory(mat_used_item);
                         //remove from_item from inventory on DB
-                        remove_item_from_DB_and_player_INVENTORY(mat_used_item, "item_upgrade uid:" + log_uid);
+                        remove_item_from_DB_and_player_INVENTORY(mat_used_item, "item_upgrade uid:"+log_uid);
                     }
 
                 }
