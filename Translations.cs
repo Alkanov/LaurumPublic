@@ -1269,16 +1269,16 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[3110] = "Used to train\n(%6%)Intelligence\n(%6%)Magical Defense";
             itemNamesTranslation[3110] = "Stone of Sham";
 
-            itemDescrTranslation[3111] = "Used to train\n(%6%)Physical Defense\n(%6%)Magical Defense";
+            itemDescrTranslation[3111] = "Used to train\n(%5%)Physical Defense\n(%8%)Magical Defense";
             itemNamesTranslation[3111] = "Stone of Canopus";
 
-            itemDescrTranslation[3112] = "Used to train\n(%6%)Agility\n(%6%)Dexterity";
+            itemDescrTranslation[3112] = "Used to train\n(%5%)Agility\n(%8%)Dexterity";
             itemNamesTranslation[3112] = "Stone of Achird";
 
-            itemDescrTranslation[3113] = "Used to train\n(%6%)Stamina\n(%6%)Strength";
+            itemDescrTranslation[3113] = "Used to train\n(%5%)Stamina\n(%8%)Strength";
             itemNamesTranslation[3113] = "Stone of Procyon";
 
-            itemDescrTranslation[3114] = "Used to train\n(%6%)Stamina\n(%6%)Intelligence";
+            itemDescrTranslation[3114] = "Used to train\n(%8%)Stamina\n(%5%)Intelligence";
             itemNamesTranslation[3114] = "Stone of Centauri";
 
             itemDescrTranslation[3115] = "Used to train\n(%8%)Stamina\n(%5%)Wisdom";
