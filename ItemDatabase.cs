@@ -7,132 +7,132 @@ public class ItemDatabase : MonoBehaviour
     public List<Item> items = new List<Item>();
     
     //Number of total item tiers
-    public int N_TIERS = 10;
+    public const int N_TIERS = 10;
     
     //Number of total item by tier
-    public int N_ITEMS = 8;
+    public const int N_ITEMS = 8;
 
     /*** Level 90 max stats ***/
-    public float MAX_HP = 750f;
-    public float MAX_MP = MAX_HP * 0.6f;
-    public float MAX_Def = 550f;
-    public float MAX_Crit_Dodge = 4.4f;
-    public float MAX_Damage = MAX_Def * 0.8f;
+    public const float MAX_HP = 750f;
+    public const float MAX_MP = MAX_HP * 0.6f;
+    public const float MAX_Def = 550f;
+    public const float MAX_Crit_Dodge = 4.4f;
+    public const float MAX_Damage = MAX_Def * 0.8f;
 
     //Secondary (Quiver, Shield, Book)
-    public float Def_Secondary = MAX_Def * 0.2f;
-    public float Damage_Secondary = MAX_Damage * 0.2f;
-    public float HP_Secondary = MAX_HP * 0.2f;
-    public float MP_Secondary = MAX_MP * 0.2f;
-    public float Crit_Secondary = MAX_Crit_Dodge * 0.6f;
+    public const float Def_Secondary = MAX_Def * 0.2f;
+    public const float Damage_Secondary = MAX_Damage * 0.2f;
+    public const float HP_Secondary = MAX_HP * 0.2f;
+    public const float MP_Secondary = MAX_MP * 0.2f;
+    public const float Crit_Secondary = MAX_Crit_Dodge * 0.6f;
 
     //Accessories(Necklace, ring)
-    public float Def_Accessory = Def_Secondary * 0.6f;    
-    public float Damage_Accessory = Damage_Secondary * 0.6f;
-    public float HP_Accessory = HP_Secondary * 0.6f;
-    public float MP_Accessory = MP_Secondary * 0.6f;
-    public float Crit_Accessory = MAX_Crit_Dodge * 0.5f;
+    public const float Def_Accessory = Def_Secondary * 0.6f;    
+    public const float Damage_Accessory = Damage_Secondary * 0.6f;
+    public const float HP_Accessory = HP_Secondary * 0.6f;
+    public const float MP_Accessory = MP_Secondary * 0.6f;
+    public const float Crit_Accessory = MAX_Crit_Dodge * 0.5f;
 
     //Declare every item class modifier based on the max item stat and the multiplier associated to that class(same as stat multipliers of each class)
     //We divide that into the max item tiers we have in the game(current 10: 1 to 90)
 
     //Warrior
-    public float War_Weapon = (MAX_Damage * 1f) / N_TIERS;
-    public float War_Left_Hand = (Def_Secondary) / N_TIERS;
-    public float War_Helm = (MAX_HP * 1f) / N_TIERS;
-    public float War_Chest = (MAX_Def * 1f) / N_TIERS;
-    public float War_Gloves = (MAX_Crit_Dodge * * 0.6f) / N_TIERS;
-    public float War_Belt = (MAX_MP * 0.6f) / N_TIERS;
-    public float War_Pants = (MAX_Def * 0.6f) / N_TIERS;
-    public float War_Boots = (MAX_Crit_Dodge * 0.6f) / N_TIERS;
+    public const float War_Weapon = (MAX_Damage * 1f) / N_TIERS;
+    public const float War_Left_Hand = (Def_Secondary) / N_TIERS;
+    public const float War_Helm = (MAX_HP * 1f) / N_TIERS;
+    public const float War_Chest = (MAX_Def * 1f) / N_TIERS;
+    public const float War_Gloves = (MAX_Crit_Dodge * 0.6f) / N_TIERS;
+    public const float War_Belt = (MAX_MP * 0.6f) / N_TIERS;
+    public const float War_Pants = (MAX_Def * 0.6f) / N_TIERS;
+    public const float War_Boots = (MAX_Crit_Dodge * 0.6f) / N_TIERS;
 
     //Wizard
-    public float Wiz_Weapon = (MAX_Damage * 1f) / N_TIERS;
-    public float Wiz_Left_Hand_1 = (MP_Secondary) / N_TIERS;
-    public float Wiz_Left_Hand_2 = (Def_Secondary) / N_TIERS;
-    public float Wiz_Helm = (MAX_HP * 0.6f) / N_TIERS;
-    public float Wiz_Chest = (MAX_Def * 0.6f) / N_TIERS;
-    public float Wiz_Gloves = (MAX_Crit_Dodge * 0.9f) / N_TIERS;
-    public float Wiz_Belt = (MAX_MP * 1f) / N_TIERS;
-    public float Wiz_Pants = (MAX_Def * 1f) / N_TIERS;
-    public float Wiz_Boots = (MAX_Crit_Dodge * 0.9f) / N_TIERS;
+    public const float Wiz_Weapon = (MAX_Damage * 1f) / N_TIERS;
+    public const float Wiz_Left_Hand_1 = (MP_Secondary) / N_TIERS;
+    public const float Wiz_Left_Hand_2 = (Def_Secondary) / N_TIERS;
+    public const float Wiz_Helm = (MAX_HP * 0.6f) / N_TIERS;
+    public const float Wiz_Chest = (MAX_Def * 0.6f) / N_TIERS;
+    public const float Wiz_Gloves = (MAX_Crit_Dodge * 0.9f) / N_TIERS;
+    public const float Wiz_Belt = (MAX_MP * 1f) / N_TIERS;
+    public const float Wiz_Pants = (MAX_Def * 1f) / N_TIERS;
+    public const float Wiz_Boots = (MAX_Crit_Dodge * 0.9f) / N_TIERS;
 
     //Hunter
-    public float Hun_Weapon = (MAX_Damage * 0.9f) / N_TIERS;
-    public float Hun_Left_Hand_1 = (Damage_Secondary) / N_TIERS;
-    public float Hun_Left_Hand_2 = (Crit_Secondary) / N_TIERS;
-    public float Hun_Helm = (MAX_HP * 0.75f) / N_TIERS;
-    public float Hun_Chest = (MAX_Def * 0.75f) / N_TIERS;
-    public float Hun_Gloves = (MAX_Crit_Dodge * 1f) / N_TIERS;
-    public float Hun_Belt = (MAX_MP * 0.75f) / N_TIERS;
-    public float Hun_Pants = (MAX_Def * 0.75f) / N_TIERS;
-    public float Hun_Boots = (MAX_Crit_Dodge * 1f) / N_TIERS;
+    public const float Hun_Weapon = (MAX_Damage * 0.9f) / N_TIERS;
+    public const float Hun_Left_Hand_1 = (Damage_Secondary) / N_TIERS;
+    public const float Hun_Left_Hand_2 = (Crit_Secondary) / N_TIERS;
+    public const float Hun_Helm = (MAX_HP * 0.75f) / N_TIERS;
+    public const float Hun_Chest = (MAX_Def * 0.75f) / N_TIERS;
+    public const float Hun_Gloves = (MAX_Crit_Dodge * 1f) / N_TIERS;
+    public const float Hun_Belt = (MAX_MP * 0.75f) / N_TIERS;
+    public const float Hun_Pants = (MAX_Def * 0.75f) / N_TIERS;
+    public const float Hun_Boots = (MAX_Crit_Dodge * 1f) / N_TIERS;
 
     //Paladin
-    public float Pal_Weapon = (MAX_Damage * 0.9f) / N_TIERS;
-    public float Pal_Helm = (MAX_HP * 0.9f) / N_TIERS;
-    public float Pal_Chest = (MAX_Def * 0.9f) / N_TIERS;
-    public float Pal_Gloves = (MAX_Crit_Dodge * 0.75f) / N_TIERS;
-    public float Pal_Belt = (MAX_MP * 0.9f) / N_TIERS;
-    public float Pal_Pants = (MAX_Def * 0.9f) / N_TIERS;
-    public float Pal_Boots = (MAX_Crit_Dodge * 0.75f) / N_TIERS;
+    public const float Pal_Weapon = (MAX_Damage * 0.9f) / N_TIERS;
+    public const float Pal_Helm = (MAX_HP * 0.9f) / N_TIERS;
+    public const float Pal_Chest = (MAX_Def * 0.9f) / N_TIERS;
+    public const float Pal_Gloves = (MAX_Crit_Dodge * 0.75f) / N_TIERS;
+    public const float Pal_Belt = (MAX_MP * 0.9f) / N_TIERS;
+    public const float Pal_Pants = (MAX_Def * 0.9f) / N_TIERS;
+    public const float Pal_Boots = (MAX_Crit_Dodge * 0.75f) / N_TIERS;
     
     /***Items ids by class and tier***/
 
     //Warrior
-    public int[] War_Lvl_1 = new int[N_ITEMS]  { 1101,1201,1601,1701,2001,2101,1801,1901 };
-    public int[] War_Lvl_10 = new int[N_ITEMS] { 1102,1202,1604,1702,2002,2102,1802,1902 };
-    public int[] War_Lvl_20 = new int[N_ITEMS] { 1103,1203,1611,1715,2009,2108,1808,1911 };
-    public int[] War_Lvl_30 = new int[N_ITEMS] { 1104,1204,1612,1716,2010,2109,1809,1912 };
-    public int[] War_Lvl_40 = new int[N_ITEMS] { 1105,1205,1613,1717,2011,2110,1810,1913 };
-    public int[] War_Lvl_50 = new int[N_ITEMS] { 1106,1206,1614,1718,2012,2111,1811,1914 };
-    public int[] War_Lvl_60 = new int[N_ITEMS] { 1107,1207,1615,1719,2013,2112,1812,1915 };
-    public int[] War_Lvl_70 = new int[N_ITEMS] { 1108,1208,1616,1720,2014,2113,1813,1916 };
-    public int[] War_Lvl_80 = new int[N_ITEMS] { 1109,1209,1617,1721,2015,2114,1814,1917 };
-    public int[] War_Lvl_90 = new int[N_ITEMS] { 1110,1210,1643,1748,2042,2140,1840,1943 };
-    public int[] War_Items = new int[N_TIERS][N_ITEMS] = {War_Lvl_1, War_Lvl_10, War_Lvl_20, War_Lvl_30, War_Lvl_40, 
+    public static int[] War_Lvl_1 =  { 1101,1201,1601,1701,2001,2101,1801,1901 };
+    public static int[] War_Lvl_10 = { 1102,1202,1604,1702,2002,2102,1802,1902 };
+    public static int[] War_Lvl_20 = { 1103,1203,1611,1715,2009,2108,1808,1911 };
+    public static int[] War_Lvl_30 = { 1104,1204,1612,1716,2010,2109,1809,1912 };
+    public static int[] War_Lvl_40 = { 1105,1205,1613,1717,2011,2110,1810,1913 };
+    public static int[] War_Lvl_50 = { 1106,1206,1614,1718,2012,2111,1811,1914 };
+    public static int[] War_Lvl_60 = { 1107,1207,1615,1719,2013,2112,1812,1915 };
+    public static int[] War_Lvl_70 = { 1108,1208,1616,1720,2014,2113,1813,1916 };
+    public static int[] War_Lvl_80 = { 1109,1209,1617,1721,2015,2114,1814,1917 };
+    public static int[] War_Lvl_90 = { 1110,1210,1643,1748,2042,2140,1840,1943 };
+    public static int[][] War_Items = {War_Lvl_1, War_Lvl_10, War_Lvl_20, War_Lvl_30, War_Lvl_40, 
                                             War_Lvl_50,War_Lvl_60, War_Lvl_70, War_Lvl_80, War_Lvl_90};
 
     //Wizard
-    public int[] Wiz_Lvl_1 = new int[N_ITEMS]  { 1401,12021,1603,1709,2006,2105,1806,1908 };
-    public int[] Wiz_Lvl_10 = new int[N_ITEMS] { 1402,12022,1609,1714,2007,2106,1807,1909 };
-    public int[] Wiz_Lvl_20 = new int[N_ITEMS] { 1403,12023,1618,1722,2016,2115,1815,1918 };
-    public int[] Wiz_Lvl_30 = new int[N_ITEMS] { 1404,12024,1619,1723,2017,2116,1816,1919 };
-    public int[] Wiz_Lvl_40 = new int[N_ITEMS] { 1405,12025,1620,1724,2018,2117,1817,1920 };
-    public int[] Wiz_Lvl_50 = new int[N_ITEMS] { 1408,12026,1621,1725,2019,2118,1818,1921 };
-    public int[] Wiz_Lvl_60 = new int[N_ITEMS] { 1409,12027,1622,1726,2021,2119,1819,1922 };
-    public int[] Wiz_Lvl_70 = new int[N_ITEMS] { 1410,12028,1623,1727,2022,2120,1820,1923 };
-    public int[] Wiz_Lvl_80 = new int[N_ITEMS] { 1411,12029,1624,1728,2023,2121,1821,1924 };
-    public int[] Wiz_Lvl_90 = new int[N_ITEMS] { 1412,12030,1645,1747,2043,2141,1841,1944 };
-    public int[] Wiz_Items = new int[N_TIERS][N_ITEMS] = {Wiz_Lvl_1, Wiz_Lvl_10, Wiz_Lvl_20, Wiz_Lvl_30, Wiz_Lvl_40, 
+    public static int[] Wiz_Lvl_1 =  { 1401,12021,1603,1709,2006,2105,1806,1908 };
+    public static int[] Wiz_Lvl_10 = { 1402,12022,1609,1714,2007,2106,1807,1909 };
+    public static int[] Wiz_Lvl_20 = { 1403,12023,1618,1722,2016,2115,1815,1918 };
+    public static int[] Wiz_Lvl_30 = { 1404,12024,1619,1723,2017,2116,1816,1919 };
+    public static int[] Wiz_Lvl_40 = { 1405,12025,1620,1724,2018,2117,1817,1920 };
+    public static int[] Wiz_Lvl_50 = { 1408,12026,1621,1725,2019,2118,1818,1921 };
+    public static int[] Wiz_Lvl_60 = { 1409,12027,1622,1726,2021,2119,1819,1922 };
+    public static int[] Wiz_Lvl_70 = { 1410,12028,1623,1727,2022,2120,1820,1923 };
+    public static int[] Wiz_Lvl_80 = { 1411,12029,1624,1728,2023,2121,1821,1924 };
+    public static int[] Wiz_Lvl_90 = { 1412,12030,1645,1747,2043,2141,1841,1944 };
+    public static int[][] Wiz_Items = {Wiz_Lvl_1, Wiz_Lvl_10, Wiz_Lvl_20, Wiz_Lvl_30, Wiz_Lvl_40, 
                                             Wiz_Lvl_50,Wiz_Lvl_60, Wiz_Lvl_70, Wiz_Lvl_80, Wiz_Lvl_90};
 
     //Hunter
-    public int[] Hun_Lvl_1 = new int[N_ITEMS]  { 1301,12011,1602,1705,2003,2103,1803,1903 };
-    public int[] Hun_Lvl_10 = new int[N_ITEMS] { 1302,12012,1608,1706,2004,2104,1804,1904 };
-    public int[] Hun_Lvl_20 = new int[N_ITEMS] { 1303,12013,1625,1729,2024,2122,1822,1925 };
-    public int[] Hun_Lvl_30 = new int[N_ITEMS] { 1304,12014,1626,1730,2025,2123,1823,1926 };
-    public int[] Hun_Lvl_40 = new int[N_ITEMS] { 1305,12015,1627,1731,2026,2124,1824,1927 };
-    public int[] Hun_Lvl_50 = new int[N_ITEMS] { 1306,12016,1628,1732,2027,2125,1825,1928 };
-    public int[] Hun_Lvl_60 = new int[N_ITEMS] { 1307,12017,1629,1733,2028,2126,1826,1929 };
-    public int[] Hun_Lvl_70 = new int[N_ITEMS] { 1308,12018,1630,1734,2029,2127,1827,1930 };
-    public int[] Hun_Lvl_80 = new int[N_ITEMS] { 1309,12019,1631,1735,2030,2128,1828,1931 };
-    public int[] Hun_Lvl_90 = new int[N_ITEMS] { 1310,12020,1632,1736,2031,2129,1829,1932 };
-    public int[] Hun_Items = new int[N_TIERS][N_ITEMS] = {Hun_Lvl_1, Hun_Lvl_10, Hun_Lvl_20, Hun_Lvl_30, Hun_Lvl_40, 
+    public static int[] Hun_Lvl_1 =  { 1301,12011,1602,1705,2003,2103,1803,1903 };
+    public static int[] Hun_Lvl_10 = { 1302,12012,1608,1706,2004,2104,1804,1904 };
+    public static int[] Hun_Lvl_20 = { 1303,12013,1625,1729,2024,2122,1822,1925 };
+    public static int[] Hun_Lvl_30 = { 1304,12014,1626,1730,2025,2123,1823,1926 };
+    public static int[] Hun_Lvl_40 = { 1305,12015,1627,1731,2026,2124,1824,1927 };
+    public static int[] Hun_Lvl_50 = { 1306,12016,1628,1732,2027,2125,1825,1928 };
+    public static int[] Hun_Lvl_60 = { 1307,12017,1629,1733,2028,2126,1826,1929 };
+    public static int[] Hun_Lvl_70 = { 1308,12018,1630,1734,2029,2127,1827,1930 };
+    public static int[] Hun_Lvl_80 = { 1309,12019,1631,1735,2030,2128,1828,1931 };
+    public static int[] Hun_Lvl_90 = { 1310,12020,1632,1736,2031,2129,1829,1932 };
+    public static int[][] Hun_Items = {Hun_Lvl_1, Hun_Lvl_10, Hun_Lvl_20, Hun_Lvl_30, Hun_Lvl_40, 
                                             Hun_Lvl_50,Hun_Lvl_60, Hun_Lvl_70, Hun_Lvl_80, Hun_Lvl_90};
 
     //Paladin //We decrease by one because it doesn't declare the shield
-    public int[] Pal_Lvl_1 = new int[N_ITEMS-1]  { 1501,1633,1737,2032,2130,1830,1933 };
-    public int[] Pal_Lvl_10 = new int[N_ITEMS-1] { 1502,1634,1738,2033,2131,1831,1934 };
-    public int[] Pal_Lvl_20 = new int[N_ITEMS-1] { 1503,1635,1739,2034,2132,1832,1935 };
-    public int[] Pal_Lvl_30 = new int[N_ITEMS-1] { 1504,1636,1740,2035,2133,1833,1936 };
-    public int[] Pal_Lvl_40 = new int[N_ITEMS-1] { 1505,1637,1741,2036,2134,1834,1937 };
-    public int[] Pal_Lvl_50 = new int[N_ITEMS-1] { 1506,1638,1742,2037,2135,1835,1938 };
-    public int[] Pal_Lvl_60 = new int[N_ITEMS-1] { 1507,1639,1743,2038,2136,1836,1939 };
-    public int[] Pal_Lvl_70 = new int[N_ITEMS-1] { 1508,1640,1744,2039,2137,1837,1940 };
-    public int[] Pal_Lvl_80 = new int[N_ITEMS-1] { 1509,1641,1745,2040,2138,1838,1941 };
-    public int[] Pal_Lvl_90 = new int[N_ITEMS-1] { 1510,1642,1746,2041,2139,1839,1942 };
-    public int[] Pal_Items = new int[N_TIERS][N_ITEMS-1] = {Pal_Lvl_1, Pal_Lvl_10, Pal_Lvl_20, Pal_Lvl_30, Pal_Lvl_40, 
+    public static int[] Pal_Lvl_1 =  { 1501,1633,1737,2032,2130,1830,1933 };
+    public static int[] Pal_Lvl_10 = { 1502,1634,1738,2033,2131,1831,1934 };
+    public static int[] Pal_Lvl_20 = { 1503,1635,1739,2034,2132,1832,1935 };
+    public static int[] Pal_Lvl_30 = { 1504,1636,1740,2035,2133,1833,1936 };
+    public static int[] Pal_Lvl_40 = { 1505,1637,1741,2036,2134,1834,1937 };
+    public static int[] Pal_Lvl_50 = { 1506,1638,1742,2037,2135,1835,1938 };
+    public static int[] Pal_Lvl_60 = { 1507,1639,1743,2038,2136,1836,1939 };
+    public static int[] Pal_Lvl_70 = { 1508,1640,1744,2039,2137,1837,1940 };
+    public static int[] Pal_Lvl_80 = { 1509,1641,1745,2040,2138,1838,1941 };
+    public static int[] Pal_Lvl_90 = { 1510,1642,1746,2041,2139,1839,1942 };
+    public static int[][] Pal_Items = {Pal_Lvl_1, Pal_Lvl_10, Pal_Lvl_20, Pal_Lvl_30, Pal_Lvl_40, 
                                             Pal_Lvl_50,Pal_Lvl_60, Pal_Lvl_70, Pal_Lvl_80, Pal_Lvl_90};
     void Start()
     {
