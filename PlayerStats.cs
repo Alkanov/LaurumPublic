@@ -81,11 +81,18 @@ public class PlayerStats : NetworkBehaviour
 
     public float Defense_str = 0;
     public float Defense_int = 0;
+    
+    public float Defense_from_pdef = 0; //JWR - Added label for pdef from stats
+    public float Defense_from_mdef = 0; //JWR - Added label for mdef from stats
 
     public float Critical_chance = 0;
     public float Critical_damage = 0;
+    public float CC_soft_cap = 25f; //JWR - Added soft cap label for easier mod
+    public float CC_hard_cap = 50f; //JWR - Added hard cap label for easier mod
 
     public float Dodge_chance = 0;
+    public float Dodge_soft_cap = 25f; //JWR - Added soft cap label for easier mod
+    public float Dodge_hard_cap = 50f; //JWR - Added hard cap label for easier mod
 
     public float AutoAtk_speed = 1f;
     public float AutoAtk_range = 1f;
@@ -434,6 +441,8 @@ public class PlayerStats : NetworkBehaviour
         }
 
         //defense
+        Defense_from_pdef = Defense_str * DEF; //JWR - Assign pdef from stats
+        Defense_from_mdef = Defense_int * MDEF; //JWR - Assign mdef from stats
         Defense_str = (Defense_str * DEF) + PlayerEquipStats[5];
         Defense_int = (Defense_int * MDEF) + PlayerEquipStats[6];
         if (Conditions.increasedDEF != 0f)
@@ -455,26 +464,30 @@ public class PlayerStats : NetworkBehaviour
         //Critical chance
         Critical_chance *= DEX;
         Critical_chance += modCritChance + passive_CritChance + PlayerEquipStats[1];
-        if (Critical_chance > 50f)
+        if (Critical_chance > CC_soft_cap) //JWR changed from hard coded cap to label
         {
-            Critical_chance = (Critical_chance - 50f) / 2f;
-            Critical_chance += 50f;
+            Critical_chance = (Critical_chance - CC_soft_cap) / 2f;
+            Critical_chance += CC_soft_cap;
+        }
+        if (Critical_chance > CC_hard_cap) //JWR changed from hard coded cap to label
+        {
+            Critical_chance = CC_hard_cap;
         }
         Critical_chance += Conditions.increasedCritical;
 
         //Dodge
         Dodge_chance *= AGI;
         Dodge_chance += modDodge + PlayerEquipStats[7] + passive_dodge; //+passive_DodgeChance     
-        if (Dodge_chance > 50f)
+        if (Dodge_chance > Dodge_soft_cap)	//JWR changed from hard coded cap to label
         {
-            Dodge_chance = (Dodge_chance - 50f) / 2f;
-            Dodge_chance += 50f;
+            Dodge_chance = (Dodge_chance - Dodge_soft_cap) / 2f; 
+            Dodge_chance += Dodge_soft_cap; 
+        }
+        if (Dodge_chance > Dodge_hard_cap) //JWR changed from hard coded cap to label
+        {
+            Dodge_chance = Dodge_hard_cap;
         }
         Dodge_chance += Conditions.increasedDodge;
-        if (Dodge_chance > 90f)
-        {
-            Dodge_chance = 90f;
-        }
 
         //Regens
         HP_regen_percent += modHPRegen + passive_HPRegen;
