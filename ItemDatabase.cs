@@ -5,494 +5,205 @@ public class ItemDatabase : MonoBehaviour
 {
 
     public List<Item> items = new List<Item>();
+    
+    //Number of total item tiers
+    public int N_TIERS = 10;
+    
+    //Number of total item by tier
+    public int N_ITEMS = 8;
 
+    /*** Level 90 max stats ***/
+    public float MAX_HP = 750f;
+    public float MAX_MP = MAX_HP * 0.6f;
+    public float MAX_Def = 550f;
+    public float MAX_Crit_Dodge = 4.4f;
+    public float MAX_Damage = MAX_Def * 0.8f;
+
+    //Secondary (Quiver, Shield, Book)
+    public float Def_Secondary = MAX_Def * 0.2f;
+    public float Damage_Secondary = MAX_Damage * 0.2f;
+    public float HP_Secondary = MAX_HP * 0.2f;
+    public float MP_Secondary = MAX_MP * 0.2f;
+    public float Crit_Secondary = MAX_Crit_Dodge * 0.6f;
+
+    //Accessories(Necklace, ring)
+    public float Def_Accessory = Def_Secondary * 0.6f;    
+    public float Damage_Accessory = Damage_Secondary * 0.6f;
+    public float HP_Accessory = HP_Secondary * 0.6f;
+    public float MP_Accessory = MP_Secondary * 0.6f;
+    public float Crit_Accessory = MAX_Crit_Dodge * 0.5f;
+
+    //Declare every item class modifier based on the max item stat and the multiplier associated to that class(same as stat multipliers of each class)
+    //We divide that into the max item tiers we have in the game(current 10: 1 to 90)
+
+    //Warrior
+    public float War_Weapon = (MAX_Damage * 1f) / N_TIERS;
+    public float War_Left_Hand = (Def_Secondary) / N_TIERS;
+    public float War_Helm = (MAX_HP * 1f) / N_TIERS;
+    public float War_Chest = (MAX_Def * 1f) / N_TIERS;
+    public float War_Gloves = (MAX_Crit_Dodge * * 0.6f) / N_TIERS;
+    public float War_Belt = (MAX_MP * 0.6f) / N_TIERS;
+    public float War_Pants = (MAX_Def * 0.6f) / N_TIERS;
+    public float War_Boots = (MAX_Crit_Dodge * 0.6f) / N_TIERS;
+
+    //Wizard
+    public float Wiz_Weapon = (MAX_Damage * 1f) / N_TIERS;
+    public float Wiz_Left_Hand_1 = (MP_Secondary) / N_TIERS;
+    public float Wiz_Left_Hand_2 = (Def_Secondary) / N_TIERS;
+    public float Wiz_Helm = (MAX_HP * 0.6f) / N_TIERS;
+    public float Wiz_Chest = (MAX_Def * 0.6f) / N_TIERS;
+    public float Wiz_Gloves = (MAX_Crit_Dodge * 0.9f) / N_TIERS;
+    public float Wiz_Belt = (MAX_MP * 1f) / N_TIERS;
+    public float Wiz_Pants = (MAX_Def * 1f) / N_TIERS;
+    public float Wiz_Boots = (MAX_Crit_Dodge * 0.9f) / N_TIERS;
+
+    //Hunter
+    public float Hun_Weapon = (MAX_Damage * 0.9f) / N_TIERS;
+    public float Hun_Left_Hand_1 = (Damage_Secondary) / N_TIERS;
+    public float Hun_Left_Hand_2 = (Crit_Secondary) / N_TIERS;
+    public float Hun_Helm = (MAX_HP * 0.75f) / N_TIERS;
+    public float Hun_Chest = (MAX_Def * 0.75f) / N_TIERS;
+    public float Hun_Gloves = (MAX_Crit_Dodge * 1f) / N_TIERS;
+    public float Hun_Belt = (MAX_MP * 0.75f) / N_TIERS;
+    public float Hun_Pants = (MAX_Def * 0.75f) / N_TIERS;
+    public float Hun_Boots = (MAX_Crit_Dodge * 1f) / N_TIERS;
+
+    //Paladin
+    public float Pal_Weapon = (MAX_Damage * 0.9f) / N_TIERS;
+    public float Pal_Helm = (MAX_HP * 0.9f) / N_TIERS;
+    public float Pal_Chest = (MAX_Def * 0.9f) / N_TIERS;
+    public float Pal_Gloves = (MAX_Crit_Dodge * 0.75f) / N_TIERS;
+    public float Pal_Belt = (MAX_MP * 0.9f) / N_TIERS;
+    public float Pal_Pants = (MAX_Def * 0.9f) / N_TIERS;
+    public float Pal_Boots = (MAX_Crit_Dodge * 0.75f) / N_TIERS;
+    
+    /***Items ids by class and tier***/
+
+    //Warrior
+    public int[] War_Lvl_1 = new int[N_ITEMS]  { 1101,1201,1601,1701,2001,2101,1801,1901 };
+    public int[] War_Lvl_10 = new int[N_ITEMS] { 1102,1202,1604,1702,2002,2102,1802,1902 };
+    public int[] War_Lvl_20 = new int[N_ITEMS] { 1103,1203,1611,1715,2009,2108,1808,1911 };
+    public int[] War_Lvl_30 = new int[N_ITEMS] { 1104,1204,1612,1716,2010,2109,1809,1912 };
+    public int[] War_Lvl_40 = new int[N_ITEMS] { 1105,1205,1613,1717,2011,2110,1810,1913 };
+    public int[] War_Lvl_50 = new int[N_ITEMS] { 1106,1206,1614,1718,2012,2111,1811,1914 };
+    public int[] War_Lvl_60 = new int[N_ITEMS] { 1107,1207,1615,1719,2013,2112,1812,1915 };
+    public int[] War_Lvl_70 = new int[N_ITEMS] { 1108,1208,1616,1720,2014,2113,1813,1916 };
+    public int[] War_Lvl_80 = new int[N_ITEMS] { 1109,1209,1617,1721,2015,2114,1814,1917 };
+    public int[] War_Lvl_90 = new int[N_ITEMS] { 1110,1210,1643,1748,2042,2140,1840,1943 };
+    public int[] War_Items = new int[N_TIERS][N_ITEMS] = {War_Lvl_1, War_Lvl_10, War_Lvl_20, War_Lvl_30, War_Lvl_40, 
+                                            War_Lvl_50,War_Lvl_60, War_Lvl_70, War_Lvl_80, War_Lvl_90};
+
+    //Wizard
+    public int[] Wiz_Lvl_1 = new int[N_ITEMS]  { 1401,12021,1603,1709,2006,2105,1806,1908 };
+    public int[] Wiz_Lvl_10 = new int[N_ITEMS] { 1402,12022,1609,1714,2007,2106,1807,1909 };
+    public int[] Wiz_Lvl_20 = new int[N_ITEMS] { 1403,12023,1618,1722,2016,2115,1815,1918 };
+    public int[] Wiz_Lvl_30 = new int[N_ITEMS] { 1404,12024,1619,1723,2017,2116,1816,1919 };
+    public int[] Wiz_Lvl_40 = new int[N_ITEMS] { 1405,12025,1620,1724,2018,2117,1817,1920 };
+    public int[] Wiz_Lvl_50 = new int[N_ITEMS] { 1408,12026,1621,1725,2019,2118,1818,1921 };
+    public int[] Wiz_Lvl_60 = new int[N_ITEMS] { 1409,12027,1622,1726,2021,2119,1819,1922 };
+    public int[] Wiz_Lvl_70 = new int[N_ITEMS] { 1410,12028,1623,1727,2022,2120,1820,1923 };
+    public int[] Wiz_Lvl_80 = new int[N_ITEMS] { 1411,12029,1624,1728,2023,2121,1821,1924 };
+    public int[] Wiz_Lvl_90 = new int[N_ITEMS] { 1412,12030,1645,1747,2043,2141,1841,1944 };
+    public int[] Wiz_Items = new int[N_TIERS][N_ITEMS] = {Wiz_Lvl_1, Wiz_Lvl_10, Wiz_Lvl_20, Wiz_Lvl_30, Wiz_Lvl_40, 
+                                            Wiz_Lvl_50,Wiz_Lvl_60, Wiz_Lvl_70, Wiz_Lvl_80, Wiz_Lvl_90};
+
+    //Hunter
+    public int[] Hun_Lvl_1 = new int[N_ITEMS]  { 1301,12011,1602,1705,2003,2103,1803,1903 };
+    public int[] Hun_Lvl_10 = new int[N_ITEMS] { 1302,12012,1608,1706,2004,2104,1804,1904 };
+    public int[] Hun_Lvl_20 = new int[N_ITEMS] { 1303,12013,1625,1729,2024,2122,1822,1925 };
+    public int[] Hun_Lvl_30 = new int[N_ITEMS] { 1304,12014,1626,1730,2025,2123,1823,1926 };
+    public int[] Hun_Lvl_40 = new int[N_ITEMS] { 1305,12015,1627,1731,2026,2124,1824,1927 };
+    public int[] Hun_Lvl_50 = new int[N_ITEMS] { 1306,12016,1628,1732,2027,2125,1825,1928 };
+    public int[] Hun_Lvl_60 = new int[N_ITEMS] { 1307,12017,1629,1733,2028,2126,1826,1929 };
+    public int[] Hun_Lvl_70 = new int[N_ITEMS] { 1308,12018,1630,1734,2029,2127,1827,1930 };
+    public int[] Hun_Lvl_80 = new int[N_ITEMS] { 1309,12019,1631,1735,2030,2128,1828,1931 };
+    public int[] Hun_Lvl_90 = new int[N_ITEMS] { 1310,12020,1632,1736,2031,2129,1829,1932 };
+    public int[] Hun_Items = new int[N_TIERS][N_ITEMS] = {Hun_Lvl_1, Hun_Lvl_10, Hun_Lvl_20, Hun_Lvl_30, Hun_Lvl_40, 
+                                            Hun_Lvl_50,Hun_Lvl_60, Hun_Lvl_70, Hun_Lvl_80, Hun_Lvl_90};
+
+    //Paladin //We decrease by one because it doesn't declare the shield
+    public int[] Pal_Lvl_1 = new int[N_ITEMS-1]  { 1501,1633,1737,2032,2130,1830,1933 };
+    public int[] Pal_Lvl_10 = new int[N_ITEMS-1] { 1502,1634,1738,2033,2131,1831,1934 };
+    public int[] Pal_Lvl_20 = new int[N_ITEMS-1] { 1503,1635,1739,2034,2132,1832,1935 };
+    public int[] Pal_Lvl_30 = new int[N_ITEMS-1] { 1504,1636,1740,2035,2133,1833,1936 };
+    public int[] Pal_Lvl_40 = new int[N_ITEMS-1] { 1505,1637,1741,2036,2134,1834,1937 };
+    public int[] Pal_Lvl_50 = new int[N_ITEMS-1] { 1506,1638,1742,2037,2135,1835,1938 };
+    public int[] Pal_Lvl_60 = new int[N_ITEMS-1] { 1507,1639,1743,2038,2136,1836,1939 };
+    public int[] Pal_Lvl_70 = new int[N_ITEMS-1] { 1508,1640,1744,2039,2137,1837,1940 };
+    public int[] Pal_Lvl_80 = new int[N_ITEMS-1] { 1509,1641,1745,2040,2138,1838,1941 };
+    public int[] Pal_Lvl_90 = new int[N_ITEMS-1] { 1510,1642,1746,2041,2139,1839,1942 };
+    public int[] Pal_Items = new int[N_TIERS][N_ITEMS-1] = {Pal_Lvl_1, Pal_Lvl_10, Pal_Lvl_20, Pal_Lvl_30, Pal_Lvl_40, 
+                                            Pal_Lvl_50,Pal_Lvl_60, Pal_Lvl_70, Pal_Lvl_80, Pal_Lvl_90};
     void Start()
     {
-
-
         //Gold
         items.Add(new Item(7700, Item.UseAs.Currency));
         //IAP gems
         items.Add(new Item(7701, Item.UseAs.Currency));
 
         #region Equipable items
-        /*
-  CLASS: WARRIOR
-  LEVEL: 1
-  */
-        items.Add(new Item(1101, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 22f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1201, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 6f, 4f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1601, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 32f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1701, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 24f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(2001, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0.12f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(2101, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 12, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1801, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 18f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1901, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.11f, 0f }, 1, Item.Restrictions.tradeable));
-        /*
-        CLASS: WARRIOR
-        LEVEL: 10
-        */
-        items.Add(new Item(1102, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 54f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1202, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 14f, 10f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1604, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 80f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1702, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 62f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(2002, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0.30f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(2102, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 28, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1802, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 46f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1902, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.27f, 0f }, 10, Item.Restrictions.tradeable));
-        /*
-        CLASS: WARRIOR
-        LEVEL: 20
-        */
-        items.Add(new Item(1103, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 108f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1203, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 26f, 22f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1611, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 160f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1715, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 122f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(2009, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 1.60f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(2108, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 56, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1808, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 94f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1911, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1.54f, 0f }, 20, Item.Restrictions.tradeable));
-        /*
-        CLASS: WARRIOR
-        LEVEL: 30
-        */
-        items.Add(new Item(1104, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 162f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1204, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 40f, 32f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1612, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 240f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1716, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 184f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(2010, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 1.90f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(2109, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 84, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1809, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 140f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1912, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1.81f, 0f }, 30, Item.Restrictions.tradeable));
-        /*
-        CLASS: WARRIOR
-        LEVEL: 40
-        */
-        items.Add(new Item(1105, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 216f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1205, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 54f, 42f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1613, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 320f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1717, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 246f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(2011, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 2.20f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(2110, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 112, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1810, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 186f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1913, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 2.08f, 0f }, 40, Item.Restrictions.tradeable));
-        /*
-        CLASS: WARRIOR
-        LEVEL: 50
-        */
-        items.Add(new Item(1106, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 270f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1206, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 68f, 52f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1614, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 400f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1718, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 308f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(2012, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 3.50f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(2111, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 140, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1811, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 232f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1914, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 2.35f, 0f }, 50, Item.Restrictions.tradeable));
-        /*
-        CLASS: WARRIOR
-        LEVEL: 60
-        */
-        items.Add(new Item(1107, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 324f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1207, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 80f, 64f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1615, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 480f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1719, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 368f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(2013, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 3.80f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(2112, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 168, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1812, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 280f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1915, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 3.62f, 0f }, 60, Item.Restrictions.tradeable));
-        /*
-        CLASS: WARRIOR
-        LEVEL: 70
-        */
-        items.Add(new Item(1108, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 378f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1208, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 94f, 74f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1616, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 560f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1720, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 430f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(2014, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 4.10f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(2113, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 196, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1813, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 326f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1916, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 3.89f, 0f }, 70, Item.Restrictions.tradeable));
-        /*
-        CLASS: WARRIOR
-        LEVEL: 80
-        */
-        items.Add(new Item(1109, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 432f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1209, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 108f, 84f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1617, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 640f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1721, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 492f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(2015, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 4.40f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(2114, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 224, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1814, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 372f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1917, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 4.16f, 0f }, 80, Item.Restrictions.tradeable));
-        /*
-        CLASS: WARRIOR
-        LEVEL: 90
-        */
-        items.Add(new Item(1110, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 486f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1210, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 120f, 96f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1643, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 720f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1748, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 552f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(2042, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 5.70f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(2140, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 252, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1840, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 420f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1943, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 4.43f, 0f }, 90, Item.Restrictions.tradeable));
-        /*
-        CLASS: PALADIN
-        LEVEL: 1
-        */
-        items.Add(new Item(1501, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 20f, 0f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1633, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 30f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1737, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 22f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(2032, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0.10f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(2130, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 16, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1830, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 22f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1933, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.12f, 0f }, 1, Item.Restrictions.tradeable));
-        /*
-        CLASS: PALADIN
-        LEVEL: 10
-        */
-        items.Add(new Item(1502, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 48f, 0f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1634, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 76f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1738, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 54f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(2033, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0.25f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(2131, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 42, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1831, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 54f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1934, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.31f, 0f }, 10, Item.Restrictions.tradeable));
-        /*
-        CLASS: PALADIN
-        LEVEL: 20
-        */
-        items.Add(new Item(1503, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 96f, 0f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1635, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 152f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1739, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 106f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(2034, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0.50f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(2132, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 84, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1832, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 110f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1935, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1.62f, 0f }, 20, Item.Restrictions.tradeable));
-        /*
-        CLASS: PALADIN
-        LEVEL: 30
-        */
-        items.Add(new Item(1504, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 144f, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1636, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 228f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1740, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 160f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(2035, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 1.75f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(2133, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 126, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1833, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 164f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1936, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1.93f, 0f }, 30, Item.Restrictions.tradeable));
-        /*
-        CLASS: PALADIN
-        LEVEL: 40
-        */
-        items.Add(new Item(1505, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 192f, 0f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1637, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 304f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1741, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 214f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(2036, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 2.00f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(2134, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 168, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1834, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 218f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1937, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 2.24f, 0f }, 40, Item.Restrictions.tradeable));
-        /*
-        CLASS: PALADIN
-        LEVEL: 50
-        */
-        items.Add(new Item(1506, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 240f, 0f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1638, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 380f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1742, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 268f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(2037, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 2.25f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(2135, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 210, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1835, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 272f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1938, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 3.55f, 0f }, 50, Item.Restrictions.tradeable));
-        /*
-        CLASS: PALADIN
-        LEVEL: 60
-        */
-        items.Add(new Item(1507, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 288f, 0f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1639, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 456f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1743, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 320f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(2038, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 3.50f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(2136, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 252, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1836, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 328f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1939, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 3.86f, 0f }, 60, Item.Restrictions.tradeable));
-        /*
-        CLASS: PALADIN
-        LEVEL: 70
-        */
-        items.Add(new Item(1508, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 336f, 0f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1640, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 532f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1744, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 374f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(2039, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 3.75f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(2137, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 294, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1837, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 382f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1940, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 4.17f, 0f }, 70, Item.Restrictions.tradeable));
-        /*
-        CLASS: PALADIN
-        LEVEL: 80
-        */
-        items.Add(new Item(1509, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 384f, 0f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1641, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 608f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1745, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 428f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(2040, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 4.00f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(2138, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 336, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1838, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 436f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1941, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 4.48f, 0f }, 80, Item.Restrictions.tradeable));
-        /*
-        CLASS: PALADIN
-        LEVEL: 90
-        */
-        items.Add(new Item(1510, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 432f, 0f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1642, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 684f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1746, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 480f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(2041, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 4.25f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(2139, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 378, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1839, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 492f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1942, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 5.79f, 0f }, 90, Item.Restrictions.tradeable));
-        /*
-        CLASS: HUNTER
-        LEVEL: 1
-        */
-        items.Add(new Item(1301, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 20f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(12011, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 4f, 0.06f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1602, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 26f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1705, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 18f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(2003, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0.17f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(2103, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 14, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1803, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 16f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1903, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.15f, 0f }, 1, Item.Restrictions.tradeable));
-        /*
-        CLASS: HUNTER
-        LEVEL: 10
-        */
-        items.Add(new Item(1302, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 52f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(12012, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 8f, 0.14f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1608, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 64f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1706, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 44f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(2004, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0.42f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(2104, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 36, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1804, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 38f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1904, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.38f, 0f }, 10, Item.Restrictions.tradeable));
-        /*
-        CLASS: HUNTER
-        LEVEL: 20
-        */
-        items.Add(new Item(1303, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 102f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(12013, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 16f, 0.28f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1625, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 128f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1729, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 86f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(2024, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 1.84f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(2122, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 72, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1822, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 76f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1925, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1.76f, 0f }, 20, Item.Restrictions.tradeable));
-        /*
-        CLASS: HUNTER
-        LEVEL: 30
-        */
-        items.Add(new Item(1304, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 152f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(12014, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 24f, 0.42f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1626, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 192f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1730, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 128f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(2025, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 2.26f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(2123, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 108, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1823, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 114f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1926, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 2.14f, 0f }, 30, Item.Restrictions.tradeable));
-        /*
-        CLASS: HUNTER
-        LEVEL: 40
-        */
-        items.Add(new Item(1305, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 204f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(12015, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 32f, 1.56f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1627, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 256f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1731, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 172f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(2026, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 3.68f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(2124, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 144, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1824, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 152f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1927, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 3.52f, 0f }, 40, Item.Restrictions.tradeable));
-        /*
-        CLASS: HUNTER
-        LEVEL: 50
-        */
-        items.Add(new Item(1306, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 256f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(12016, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 40f, 1.70f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1628, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 320f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1732, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 216f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(2027, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 4.10f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(2125, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 180, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1825, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 190f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1928, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 3.90f, 0f }, 50, Item.Restrictions.tradeable));
-        /*
-        CLASS: HUNTER
-        LEVEL: 60
-        */
-        items.Add(new Item(1307, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 306f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(12017, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 50f, 1.84f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1629, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 384f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1733, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 258f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(2028, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 5.52f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(2126, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 216, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1826, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 228f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1929, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 4.28f, 0f }, 60, Item.Restrictions.tradeable));
-        /*
-        CLASS: HUNTER
-        LEVEL: 70
-        */
-        items.Add(new Item(1308, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 356f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(12018, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 58f, 1.98f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1630, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 448f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1734, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 300f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(2029, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 5.94f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(2127, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 252, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1827, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 266f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1930, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 5.66f, 0f }, 70, Item.Restrictions.tradeable));
-        /*
-        CLASS: HUNTER
-        LEVEL: 80
-        */
-        items.Add(new Item(1309, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 408f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(12019, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 66f, 2.12f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1631, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 512f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1735, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 344f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(2030, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 6.36f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(2128, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 288, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1828, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 304f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1931, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 6.04f, 0f }, 80, Item.Restrictions.tradeable));
-        /*
-        CLASS: HUNTER
-        LEVEL: 90
-        */
-        items.Add(new Item(1310, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 460f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(12020, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 74f, 2.26f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1632, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 576f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1736, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 388f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(2031, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 7.78f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(2129, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 324, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1829, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 342f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1932, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 6.42f, 0f }, 90, Item.Restrictions.tradeable));
-        /*
-        CLASS: WIZARD
-        LEVEL: 1
-        */
-        items.Add(new Item(1401, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 24f, 0f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(12021, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 8f, 0f, 2f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1603, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 22f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1709, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 14f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(2006, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0.11f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(2105, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 20, 0f, 0f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1806, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 20f, 0f, 0f }, 1, Item.Restrictions.tradeable));
-        items.Add(new Item(1908, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.12f, 0f }, 1, Item.Restrictions.tradeable));
-        /*
-        CLASS: WIZARD
-        LEVEL: 10
-        */
-        items.Add(new Item(1402, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 60f, 0f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(12022, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 18f, 0f, 8f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1609, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 56f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1714, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 36f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(2007, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0.27f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(2106, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 50, 0f, 0f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1807, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 50f, 0f, 0f }, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(1909, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0.30f, 0f }, 10, Item.Restrictions.tradeable));
-        /*
-        CLASS: WIZARD
-        LEVEL: 20
-        */
-        items.Add(new Item(1403, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 120f, 0f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(12023, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 36f, 0f, 14f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1618, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 112f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1722, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 74f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(2016, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 1.54f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(2115, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 100, 0f, 0f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1815, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 100f, 0f, 0f }, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(1918, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1.60f, 0f }, 20, Item.Restrictions.tradeable));
-        /*
-        CLASS: WIZARD
-        LEVEL: 30
-        */
-        items.Add(new Item(1404, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 180f, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(12024, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 52f, 0f, 22f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1619, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 168f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1723, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 112f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(2017, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 1.81f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(2116, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 150, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1816, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 150f, 0f, 0f }, 30, Item.Restrictions.tradeable));
-        items.Add(new Item(1919, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 1.90f, 0f }, 30, Item.Restrictions.tradeable));
-        /*
-        CLASS: WIZARD
-        LEVEL: 40
-        */
-        items.Add(new Item(1405, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 240f, 0f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(12025, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 70f, 0f, 28f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1620, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 224f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1724, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 148f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(2018, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 2.08f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(2117, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 200, 0f, 0f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1817, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 200f, 0f, 0f }, 40, Item.Restrictions.tradeable));
-        items.Add(new Item(1920, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 2.20f, 0f }, 40, Item.Restrictions.tradeable));
-        /*
-        CLASS: WIZARD
-        LEVEL: 50
-        */
-        items.Add(new Item(1408, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 300f, 0f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(12026, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 88f, 0f, 36f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1621, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 280f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1725, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 184f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(2019, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 2.35f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(2118, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 250, 0f, 0f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1818, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 250f, 0f, 0f }, 50, Item.Restrictions.tradeable));
-        items.Add(new Item(1921, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 3.50f, 0f }, 50, Item.Restrictions.tradeable));
-        /*
-        CLASS: WIZARD
-        LEVEL: 60
-        */
-        items.Add(new Item(1409, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 360f, 0f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(12027, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 106f, 0f, 44f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1622, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 336f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1726, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 222f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(2021, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 3.62f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(2119, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 300, 0f, 0f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1819, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 300f, 0f, 0f }, 60, Item.Restrictions.tradeable));
-        items.Add(new Item(1922, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 3.80f, 0f }, 60, Item.Restrictions.tradeable));
-        /*
-        CLASS: WIZARD
-        LEVEL: 70
-        */
-        items.Add(new Item(1410, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 420f, 0f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(12028, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 124f, 0f, 50f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1623, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 392f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1727, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 260f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(2022, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 3.89f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(2120, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 350, 0f, 0f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1820, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 350f, 0f, 0f }, 70, Item.Restrictions.tradeable));
-        items.Add(new Item(1923, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 4.10f, 0f }, 70, Item.Restrictions.tradeable));
-        /*
-        CLASS: WIZARD
-        LEVEL: 80
-        */
-        items.Add(new Item(1411, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 480f, 0f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(12029, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 140f, 0f, 58f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1624, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 448f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1728, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 296f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(2023, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 4.16f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(2121, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 400, 0f, 0f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1821, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 400f, 0f, 0f }, 80, Item.Restrictions.tradeable));
-        items.Add(new Item(1924, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 4.40f, 0f }, 80, Item.Restrictions.tradeable));
-        /*
-        CLASS: WIZARD
-        LEVEL: 90
-        */
-        items.Add(new Item(1412, Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 540f, 0f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(12030, Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 158f, 0f, 64f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1645, Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 504f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1747, Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 332f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(2043, Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 4.43f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(2141, Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 450, 0f, 0f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1841, Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 450f, 0f, 0f }, 90, Item.Restrictions.tradeable));
-        items.Add(new Item(1944, Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, 5.70f, 0f }, 90, Item.Restrictions.tradeable));
+
+        //CLASS: WARRIOR
+        for(int tier = 0; tier < N_TIERS; tier++){
+            int lvl = tier == 0 ? 1 : tier * 10;
+            float multiplier = (float) (tier+1);
+            items.Add(new Item(War_Items[tier, 0], Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { War_Weapon*multiplier, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(War_Items[tier, 1], Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior, PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, War_Left_Hand*multiplier, War_Left_Hand*multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(War_Items[tier, 2], Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, War_Helm*multiplier, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(War_Items[tier, 3], Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, War_Chest*multiplier, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(War_Items[tier, 4], Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, War_Gloves*multiplier, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(War_Items[tier, 5], Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, War_Belt*multiplier, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(War_Items[tier, 6], Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, War_Pants*multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(War_Items[tier, 7], Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Warrior }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, War_Boots*multiplier, 0f }, lvl, Item.Restrictions.tradeable));
+        }
+
+        //CLASS: HUNTER
+        for(int tier = 0; tier < N_TIERS; tier++){
+            int lvl = tier == 0 ? 1 : tier * 10;
+            float multiplier = (float) (tier+1);
+            items.Add(new Item(Hun_Items[tier, 0], Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { Hun_Weapon*multiplier, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Hun_Items[tier, 1], Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter, PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, Hun_Left_Hand_1*multiplier, Hun_Left_Hand_2*multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Hun_Items[tier, 2], Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, Hun_Helm*multiplier, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Hun_Items[tier, 3], Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, Hun_Chest*multiplier, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Hun_Items[tier, 4], Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, Hun_Gloves*multiplier, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Hun_Items[tier, 5], Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, Hun_Belt*multiplier, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Hun_Items[tier, 6], Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, Hun_Pants*multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Hun_Items[tier, 7], Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, Hun_Boots*multiplier, 0f }, lvl, Item.Restrictions.tradeable));
+        }    
+
+        //CLASS: WIZARD
+        for(int tier = 0; tier < N_TIERS; tier++){
+            int lvl = tier == 0 ? 1 : tier * 10;
+            float multiplier = (float) (tier+1);
+            items.Add(new Item(Wiz_Items[tier, 0], Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] {0f, 0f,  Wiz_Weapon*multiplier, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Wiz_Items[tier, 1], Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard, PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, Wiz_Left_Hand_1*multiplier, Wiz_Left_Hand_2*multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Wiz_Items[tier, 2], Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, Wiz_Helm*multiplier, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Wiz_Items[tier, 3], Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, Wiz_Chest*multiplier, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Wiz_Items[tier, 4], Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, Wiz_Gloves*multiplier, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Wiz_Items[tier, 5], Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, Wiz_Belt*multiplier, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Wiz_Items[tier, 6], Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, Wiz_Pants*multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Wiz_Items[tier, 7], Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, Wiz_Boots*multiplier, 0f }, lvl, Item.Restrictions.tradeable));
+        }    
+
+        //CLASS: PALADIN
+        for(int tier = 0; tier < N_TIERS; tier++){
+            int lvl = tier == 0 ? 1 : tier * 10;
+            float multiplier = (float) (tier+1);
+            items.Add(new Item(Pal_Items[tier, 0], Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, Pal_Weapon*multiplier, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Pal_Items[tier, 1], Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, Pal_Helm*multiplier, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Pal_Items[tier, 2], Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, Pal_Chest*multiplier, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Pal_Items[tier, 3], Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, Pal_Gloves*multiplier, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Pal_Items[tier, 4], Item.UseAs.Belt, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, Pal_Belt*multiplier, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Pal_Items[tier, 5], Item.UseAs.Pants, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, Pal_Pants*multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Pal_Items[tier, 6], Item.UseAs.Boots, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Paladin }, new float[] { 0f, 0f, 0f, 0f, 0f, 0f, 0f, Pal_Boots*multiplier, 0f }, lvl, Item.Restrictions.tradeable));
+        }          
 
         //NECKLACE
-        items.Add(new Item(2302, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 10f, 0f, 10f, 80f, 60f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //STR+INT+STA+WIS
-        items.Add(new Item(2303, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 40f, 0f, 60f, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //STR+STA
-        items.Add(new Item(2304, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 40f, 20f, 40f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //INT+STA+WIS
-        items.Add(new Item(2305, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 2f, 0f, 0f, 0f, 0f, 40f, 2f, 0f }, 30, Item.Restrictions.tradeable)); //DEX+DEF+MDEF
-        items.Add(new Item(2306, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, 0f, 0f, 40f, 20f, 2f, 0f }, 45, Item.Restrictions.tradeable)); //DEF+MDEF+AGI
+        items.Add(new Item(2302, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { Damage_Accessory, 0f, Damage_Accessory, HP_Accessory, MP_Accessory, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //STR+INT+STA+WIS
+        items.Add(new Item(2303, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { Damage_Accessory, 0f, Damage_Accessory, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //STR+STA
+        items.Add(new Item(2304, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, Damage_Accessory, HP_Accessory, MP_Accessory, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //INT+STA+WIS
+        items.Add(new Item(2305, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, Crit_Accessory, 0f, 0f, 0f, 0f, MP_Accessory, Crit_Accessory, 0f }, 30, Item.Restrictions.tradeable)); //DEX+DEF+MDEF
+        items.Add(new Item(2306, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, 0f, 0f, Def_Accessory, Def_Accessory, Crit_Accessory, 0f }, 45, Item.Restrictions.tradeable)); //DEF+MDEF+AGI
 
         /* items.Add(new Item(2307, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, 0f, 110f, 0f, 0f, 0f, 0f }, 45, Item.Restrictions.tradeable)); //MP
         items.Add(new Item(2308, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 75f, 0f, 0f, 0f, 0f, 25f, 0f }, 60, Item.Restrictions.tradeable)); //INT
@@ -503,11 +214,11 @@ public class ItemDatabase : MonoBehaviour
 
 
         //RING             
-        items.Add(new Item(2201, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 5f, 0f, 5f, 90f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //STR+INT+STA
-        items.Add(new Item(2202, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 30f, 0f, 0f, 60f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //STR+STA
-        items.Add(new Item(2203, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 2f, 0f, 0f, 0f, 20f, 30f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //CRIT+DEF+MDEF
-        items.Add(new Item(2204, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 30f, 30f, 30f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //INT+STA+WIS
-        items.Add(new Item(2205, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, 50f, 50f, 0f, 0f, 2f, 0f }, 30, Item.Restrictions.tradeable)); //STA+WIS+AGI
+        items.Add(new Item(2201, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { Damage_Accessory, 0f, Damage_Accessory, HP_Accessory, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //STR+INT+STA
+        items.Add(new Item(2202, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { Damage_Accessory, 0f, 0f, HP_Accessory, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //STR+STA
+        items.Add(new Item(2203, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, Crit_Accessory, 0f, 0f, 0f, Def_Accessory, Def_Accessory, 0f, 0f }, 30, Item.Restrictions.tradeable)); //CRIT+DEF+MDEF
+        items.Add(new Item(2204, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, Damage_Accessory, HP_Accessory, MP_Accessory, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //INT+STA+WIS
+        items.Add(new Item(2205, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, HP_Accessory, MP_Accessory, 0f, 0f, Crit_Accessory, 0f }, 30, Item.Restrictions.tradeable)); //STA+WIS+AGI
 
         /* items.Add(new Item(2206, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, 90f, 0f, 0f, 0f, 0f, 0f }, 45, Item.Restrictions.tradeable)); //HP
       items.Add(new Item(2207, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, 0f, 90f, 0f, 0f, 0f, 0f }, 45, Item.Restrictions.tradeable)); //MP
