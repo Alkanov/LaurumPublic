@@ -26,7 +26,7 @@ public class PlayerPVPDamage : NetworkBehaviour
     //Used to apply an extra defense bonus for pvp balance
     public float pvp_defense_bonus_modifier = 0f;
     //Used to apply an extra defense bonuns while stationary
-    public float pvp_stationary_defense_bonus_modifier = 0.5f;
+    public float pvp_stationary_defense_bonus_modifier = 0.15f;
     #endregion
 
     [HideInInspector]
