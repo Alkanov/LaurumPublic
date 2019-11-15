@@ -24,9 +24,9 @@ public class PlayerPVPDamage : NetworkBehaviour
     //Used to apply an extra defense bonus using the other type of defense
     public float extra_pvp_bonus_from_other_def = 0.2f;
     //Used to apply an extra defense bonus for pvp balance
-    public float pvp_defense_bonus_modifier = 0.5f;
+    public float pvp_defense_bonus_modifier = 0f;
     //Used to apply an extra defense bonuns while stationary
-    public float pvp_stationary_defense_bonus_modifier = 0f;
+    public float pvp_stationary_defense_bonus_modifier = 0.5f;
     #endregion
 
     [HideInInspector]
@@ -292,13 +292,13 @@ public class PlayerPVPDamage : NetworkBehaviour
         switch (fromPlayerStats.DamageType_now)
         {
             case PlayerStats.DamageType.magical:
-                playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * 0.2f);
+                playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * extra_pvp_bonus_from_other_def);
                 playerTotalDef += pvpMdefBonus; //JWR - Add def bonus (general bonus for PvP balance)
                 if (PlayerMPSync.stationary) { playerTotalDef += stationaryPvpMdefBonus; } //JWR - If stationary, double the defense bonus
                 fromPlayerDamage = fromPlayerStats.Damage_int;
                 break;
             case PlayerStats.DamageType.physical:
-                playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * 0.2f);
+                playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * extra_pvp_bonus_from_other_def);
                 playerTotalDef += pvpPdefBonus; //JWR Add def bonus
                 if (PlayerMPSync.stationary) { playerTotalDef += stationaryPvpPdefBonus; } //JWR - If stationary, double the defense bonus
                 fromPlayerDamage = fromPlayerStats.Damage_str;
@@ -604,13 +604,13 @@ public class PlayerPVPDamage : NetworkBehaviour
         switch (fromPlayerStats.DamageType_now)
         {
             case PlayerStats.DamageType.magical:
-                playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * 0.2f);
+                playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * extra_pvp_bonus_from_other_def);
                 playerTotalDef += pvpMdefBonus; //JWR - Add def bonus (general bonus for PvP balance)
                 if (PlayerMPSync.stationary) { playerTotalDef += stationaryPvpMdefBonus; } //JWR - If stationary, double the defense bonus
                 fromPlayerDamage = fromPlayerStats.Damage_int * power_multiplier;
                 break;
             case PlayerStats.DamageType.physical:
-                playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * 0.2f);
+                playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * extra_pvp_bonus_from_other_def);
                 playerTotalDef += pvpPdefBonus; //JWR - Add def bonus (general bonus for PvP balance)
                 if (PlayerMPSync.stationary) { playerTotalDef += stationaryPvpPdefBonus; } //JWR - If stationary, double the defense bonus
                 fromPlayerDamage = fromPlayerStats.Damage_str * power_multiplier;
