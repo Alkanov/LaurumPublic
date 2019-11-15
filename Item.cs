@@ -76,15 +76,16 @@ public class Item
     }
 
     /// <summary>
-    /// Used for infinite USABLE items that require class and level check, they stay on your inventory after usage
+    /// Used for TELEPORTS
     /// </summary>
-    public Item(int itemID, UseAs useAs, PlayerStats.PlayerClass[] requiredClass, int itemLevel, Restrictions restrictions)
+    public Item(int itemID, UseAs useAs, PlayerStats.PlayerClass[] requiredClass, int itemLevel, Restrictions restrictions, int consumibleCharges)
     {
         ItemID = itemID;
         this.useAs = useAs;
         this.requiredClass = requiredClass;
         ItemLevel = itemLevel;
         this.restrictions = restrictions;
+        ConsumibleCharges = consumibleCharges;
     }
 
     /// <summary>

@@ -1408,11 +1408,15 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[251028] = "Description";
             itemNamesTranslation[251029] = "Venom Warrior Female";
             itemDescrTranslation[251029] = "Description";
-
             itemNamesTranslation[251030] = "Celestial Warrior Male";
             itemDescrTranslation[251030] = "Description";
             itemNamesTranslation[251031] = "Celestial Warrior Female";
             itemDescrTranslation[251031] = "Description";
+
+            itemNamesTranslation[251032] = "2019 Xmas Warrior Male";
+            itemDescrTranslation[251032] = "First introduced in 2019 - Only available in November and December";
+            itemNamesTranslation[251033] = "2019 Xmas Warrior Female";
+            itemDescrTranslation[251033] = "First introduced in 2019 -  Only available in November and December";
 
             itemNamesTranslation[25201] = "Male Hunter";
             itemDescrTranslation[25201] = "Description";
@@ -1472,11 +1476,15 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[252028] = "Description";
             itemNamesTranslation[252029] = "Venom Hunter Female";
             itemDescrTranslation[252029] = "Description";
-
             itemNamesTranslation[252030] = "Celestial Hunter Male";
             itemDescrTranslation[252030] = "Description";
             itemNamesTranslation[252031] = "Celestial Hunter Female";
             itemDescrTranslation[252031] = "Description";
+
+            itemNamesTranslation[252032] = "2019 Xmas Hunter Male";
+            itemDescrTranslation[252032] = "First introduced in 2019 - Only available in November and December";
+            itemNamesTranslation[252033] = "2019 Xmas Hunter Female";
+            itemDescrTranslation[252033] = "First introduced in 2019 - Only available in November and December";
 
             itemNamesTranslation[25301] = "Male Wizard";
             itemDescrTranslation[25301] = "Description";
@@ -1536,11 +1544,15 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[253028] = "Description";
             itemNamesTranslation[253029] = "Venom Wizard Female";
             itemDescrTranslation[253029] = "Description";
-
             itemNamesTranslation[253030] = "Celestial Wizard Male";
             itemDescrTranslation[253030] = "Description";
             itemNamesTranslation[253031] = "Celestial Wizard Female";
             itemDescrTranslation[253031] = "Description";
+
+            itemNamesTranslation[253032] = "2019 Xmas Wizard Male";
+            itemDescrTranslation[253032] = "First introduced in 2019 - Only available in November and December";
+            itemNamesTranslation[253033] = "2019 Xmas Wizard Female";
+            itemDescrTranslation[253033] = "First introduced in 2019 - Only available in November and December";
 
             itemNamesTranslation[25401] = "Female Paladin";
             itemDescrTranslation[25401] = "Description";
@@ -1600,11 +1612,15 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[254028] = "Description";
             itemNamesTranslation[254029] = "Venom Paladin Female";
             itemDescrTranslation[254029] = "Description";
-
             itemNamesTranslation[254030] = "Celestial Paladin Male";
             itemDescrTranslation[254030] = "Description";
             itemNamesTranslation[254031] = "Celestial Paladin Female";
             itemDescrTranslation[254031] = "Description";
+
+            itemNamesTranslation[254032] = "2019 Xmas Paladin Male";
+            itemDescrTranslation[254032] = "First introduced in 2019 - Only available in November and December";
+            itemNamesTranslation[254033] = "2019 Xmas Paladin Female";
+            itemDescrTranslation[254033] = "First introduced in 2019 - Only available in November and December";
 
 
             itemNamesTranslation[26101] = "Green Set";
@@ -1639,9 +1655,12 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26115] = "Description";
             itemNamesTranslation[26116] = "Venom Warrior Set";
             itemDescrTranslation[26116] = "Description";
-
             itemNamesTranslation[26117] = "Celestial Warrior Set";
             itemDescrTranslation[26117] = "Description";
+
+            itemNamesTranslation[26118] = "2019 Xmas Warrior Set";
+            itemDescrTranslation[26118] = "First introduced in 2019 - Only available in November and December";
+         
 
             itemNamesTranslation[26201] = "Red Set";
             itemDescrTranslation[26201] = "Hunters Red Basic Set";
@@ -1675,9 +1694,11 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26215] = "Description";
             itemNamesTranslation[26216] = "Venom Hunter Set";
             itemDescrTranslation[26216] = "Description";
-
             itemNamesTranslation[26217] = "Celestial Hunter Set";
             itemDescrTranslation[26217] = "Description";
+
+            itemNamesTranslation[26218] = "2019 Xmas Hunter Set";
+            itemDescrTranslation[26218] = "First introduced in 2019 - Only available in November and December";
 
             itemNamesTranslation[26301] = "Red Staff";
             itemDescrTranslation[26301] = "Wizards Red Basic Set";
@@ -1711,9 +1732,11 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26315] = "Description";
             itemNamesTranslation[26316] = "Venom Wizard Set";
             itemDescrTranslation[26316] = "Description";
-
             itemNamesTranslation[26317] = "Celestial Wizard Set";
             itemDescrTranslation[26317] = "Description";
+
+            itemNamesTranslation[26318] = "2019 Xmas Wizard Set";
+            itemDescrTranslation[26318] = "First introduced in 2019 - Only available in November and December";
 
             itemNamesTranslation[26401] = "Green Set";
             itemDescrTranslation[26401] = "Paladins Green Basic Set";
@@ -1747,10 +1770,11 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26415] = "Description";
             itemNamesTranslation[26416] = "Venom Paladin Set";
             itemDescrTranslation[26416] = "Description";
-
             itemNamesTranslation[26417] = "Celestial Paladin Set";
-            itemDescrTranslation[26417] = "Description";
+            itemDescrTranslation[26417] = "Description";        
 
+            itemNamesTranslation[26418] = "2019 Xmas Paladin Set";
+            itemDescrTranslation[26418] = "First introduced in 2019 - Only available in November and December";
 
             #endregion
 
