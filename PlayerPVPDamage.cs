@@ -20,7 +20,7 @@ public class PlayerPVPDamage : NetworkBehaviour
     
     #region NerfBalance
     //Nerf damage to apply pvp balance
-    public float nerfDamage = 0.2f;
+    public float nerfDamage = 0.35f;
     //Used to apply an extra defense bonus using the other type of defense
     public float extra_pvp_bonus_from_other_def = 0.2f;
     //Used to apply an extra defense bonus for pvp balance
