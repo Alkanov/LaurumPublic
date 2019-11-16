@@ -21,6 +21,11 @@ public class ServerUniversalSettings : MonoBehaviour
     public enum var_names
     {
         /// <summary>
+        /// nothing... never used... don't delete	     
+        /// </summary>
+        none,
+        
+        /// <summary>
         /// Nerf Damage % Applied in PVP
         /// </summary>
         PVP_Damage_Nerf,
