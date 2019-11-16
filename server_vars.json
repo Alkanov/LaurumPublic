@@ -2,33 +2,28 @@
    "Items":[
       {
          "ID":1,
-         "value":11.0,
-         "description":"description_a"
+         "value":0.35,
+         "description":"Nerf Damage % Applied in PVP"
       },
       {
          "ID":2,
-         "value":22.0,
-         "description":"description_b"
+         "value":0,
+         "description":"Defense % you get from defense stat points in PVP"
       },
       {
          "ID":3,
-         "value":33.0,
-         "description":"description_c"
+         "value":0.5,
+         "description":"Defense % you get from defense stat points while being stationary in PVP"
       },
       {
          "ID":4,
-         "value":44.0,
-         "description":"description_d"
+         "value":0.2,
+         "description":"Defense % you get from the other type of defense (PVP and PVE)"
       },
       {
          "ID":5,
-         "value":55.0,
-         "description":"description_e"
-      },
-      {
-         "ID":6,
-         "value":66.0,
-         "description":"description_f"
+         "value":5,
+         "description":"Dodge % you get while being in movement (PVP and PVE)"
       }
    ]
 }

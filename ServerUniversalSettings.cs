@@ -21,39 +21,34 @@ public class ServerUniversalSettings : MonoBehaviour
     public enum var_names
     {
         /// <summary>
-        /// nothing... never used
+        /// nothing... never used... don't delete	     
         /// </summary>
         none,
+        
+        /// <summary>
+        /// Nerf Damage % Applied in PVP
+        /// </summary>
+        PVP_Damage_Nerf,
+        
+        /// <summary>
+        /// Defense % you get from defense stat points in PVP
+        /// </summary>
+        PVP_Defense_Bonus,
 
         /// <summary>
-        /// variable a
+        /// Defense % you get from defense stat points while being stationary in PVP
         /// </summary>
-        f_a,
+        PVP_Stationary_Defense_Bonus,
 
         /// <summary>
-        /// variable b
+        /// Defense % you get from the other type of defense (PVP and PVE)
         /// </summary>
-        f_b,
+        Other_Defense_Bonus,
 
         /// <summary>
-        /// variable c... etc
+        /// Dodge % you get while being in movement (PVP and PVE)
         /// </summary>
-        f_c,
-
-        /// <summary>
-        /// Defines the f_d
-        /// </summary>
-        f_d,
-
-        /// <summary>
-        /// Defines the f_x
-        /// </summary>
-        f_x,
-
-        /// <summary>
-        /// Defines the f_m
-        /// </summary>
-        f_m
+        Movement_Dodge_Bonus
     }
 
     /// <summary>
