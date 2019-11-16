@@ -117,11 +117,15 @@ public class EnemyAttack : MonoBehaviour
                         Critico = true;
                         DamageTX = Mathf.RoundToInt(DamageTX * 2);
                     }
-                    float Adj_dodge_chance = 5; //JWR - Moving dodge bonus
+                    float Adj_dodge_chance = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Movement_Dodge_Bonus].value;
                     float Player_dodge_chance = PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance;
                     float Dodge_hard_cap = PlayerToAttack.GetComponent<PlayerStats>().Dodge_hard_cap;
-	                if (Player_dodge_chance > (Dodge_hard_cap - 5)) { Adj_dodge_chance = Player_dodge_chance - (Dodge_hard_cap - 5); }
-	                if (Player_dodge_chance >= Dodge_hard_cap) { Adj_dodge_chance = 0; }
+	                if (Player_dodge_chance > (Dodge_hard_cap - Adj_dodge_chance)) { 
+                        Adj_dodge_chance = Player_dodge_chance - (Dodge_hard_cap - Adj_dodge_chance); 
+                    }
+	                if (Player_dodge_chance >= Dodge_hard_cap) { 
+                        Adj_dodge_chance = 0; 
+                    }
                     if (!PlayerToAttack.GetComponent<PlayerMPSync>().stationary) // JWR
                     {
 	    	            Adj_dodge_chance += PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance; // JWR - Add bonus if moving
@@ -210,16 +214,16 @@ public class EnemyAttack : MonoBehaviour
         float DamageTx = 0;
         float playerTotalDef = 0;
         float monsterFinalDamage = 0;
-
+        float OTHER_DEF_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus].value;
 
         if (EnemyStats.DamageType_now == EnemyStats.DamageType.physical) // Physical
         {
-            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str + (toPlayer.GetComponent<PlayerStats>().Defense_int * 0.2f);
+            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str + (toPlayer.GetComponent<PlayerStats>().Defense_int * OTHER_DEF_BONUS);
             monsterFinalDamage = EnemyStats.Damage_str;
         }
         else // Magical
         {
-            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int + (toPlayer.GetComponent<PlayerStats>().Defense_str * 0.2f);
+            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int + (toPlayer.GetComponent<PlayerStats>().Defense_str * OTHER_DEF_BONUS);
             monsterFinalDamage = EnemyStats.Damage_int;
         }
         //.LogError("playerTotalDef=" + playerTotalDef + " monsterFinalDamage="+ monsterFinalDamage);
