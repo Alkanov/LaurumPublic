@@ -117,7 +117,7 @@ public class EnemyAttack : MonoBehaviour
                         Critico = true;
                         DamageTX = Mathf.RoundToInt(DamageTX * 2);
                     }
-                    float Adj_dodge_chance = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Movement_Dodge_Bonus].value;
+                    float Adj_dodge_chance = EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Movement_Dodge_Bonus].value;
                     float Player_dodge_chance = PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance;
                     float Dodge_hard_cap = PlayerToAttack.GetComponent<PlayerStats>().Dodge_hard_cap;
 	                if (Player_dodge_chance > (Dodge_hard_cap - Adj_dodge_chance)) { 
@@ -214,7 +214,7 @@ public class EnemyAttack : MonoBehaviour
         float DamageTx = 0;
         float playerTotalDef = 0;
         float monsterFinalDamage = 0;
-        float OTHER_DEF_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus].value;
+        float OTHER_DEF_BONUS = EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus].value;
 
         if (EnemyStats.DamageType_now == EnemyStats.DamageType.physical) // Physical
         {

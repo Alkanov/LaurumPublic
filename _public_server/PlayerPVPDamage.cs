@@ -281,11 +281,15 @@ public class PlayerPVPDamage : NetworkBehaviour
         float NERF_DAMAGE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Damage_Nerf].value;
         float OTHER_DEF_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus].value;
 
+        //used below
+        float pvpBonus = 0;
+        float stationaryBonus = 0;
+
         switch (fromPlayerStats.DamageType_now)
         {
             case PlayerStats.DamageType.magical:
-                float pvpBonus = PlayerStats.Defense_from_mdef * PVP_BONUS; //JWR - Mdef bonus using base defense before armor/buff
-                float stationaryBonus = PlayerStats.Defense_from_mdef * STATIONARY_BONUS;
+                pvpBonus = PlayerStats.Defense_from_mdef * PVP_BONUS; //JWR - Mdef bonus using base defense before armor/buff
+                stationaryBonus = PlayerStats.Defense_from_mdef * STATIONARY_BONUS;
                 playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * OTHER_DEF_BONUS);
                 playerTotalDef += pvpBonus; //JWR - Add def bonus (general bonus for PvP balance)
                 if (PlayerMPSync.stationary) { 
@@ -294,8 +298,8 @@ public class PlayerPVPDamage : NetworkBehaviour
                 fromPlayerDamage = fromPlayerStats.Damage_int;
                 break;
             case PlayerStats.DamageType.physical:
-                float pvpBonus = PlayerStats.Defense_from_pdef * PVP_BONUS; //JWR - Pdef bonus using base defense before armor/buff
-                float stationaryBonus = PlayerStats.Defense_from_pdef * STATIONARY_BONUS;
+                pvpBonus = PlayerStats.Defense_from_pdef * PVP_BONUS; //JWR - Pdef bonus using base defense before armor/buff
+                stationaryBonus = PlayerStats.Defense_from_pdef * STATIONARY_BONUS;
                 playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * OTHER_DEF_BONUS);
                 playerTotalDef += pvpBonus; //JWR Add def bonus
                 if (PlayerMPSync.stationary) { 
@@ -607,12 +611,15 @@ public class PlayerPVPDamage : NetworkBehaviour
         float STATIONARY_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Stationary_Defense_Bonus].value;
         float NERF_DAMAGE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Damage_Nerf].value;
         float OTHER_DEF_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus].value;
-
+        
+        //used below
+        float pvpBonus = 0;
+        float stationaryBonus = 0;
         switch (fromPlayerStats.DamageType_now)
         {
             case PlayerStats.DamageType.magical:
-                float pvpBonus = PlayerStats.Defense_from_mdef * PVP_BONUS; //JWR - Mdef bonus using base defense before armor/buff
-                float stationaryBonus = PlayerStats.Defense_from_mdef * STATIONARY_BONUS;
+                pvpBonus = PlayerStats.Defense_from_mdef * PVP_BONUS; //JWR - Mdef bonus using base defense before armor/buff
+                stationaryBonus = PlayerStats.Defense_from_mdef * STATIONARY_BONUS;
                 playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * OTHER_DEF_BONUS);
                 playerTotalDef += pvpBonus; //JWR - Add def bonus (general bonus for PvP balance)
                 if (PlayerMPSync.stationary) { 
@@ -621,8 +628,8 @@ public class PlayerPVPDamage : NetworkBehaviour
                 fromPlayerDamage = fromPlayerStats.Damage_int;
                 break;
             case PlayerStats.DamageType.physical:
-                float pvpBonus = PlayerStats.Defense_from_pdef * PVP_BONUS; //JWR - Pdef bonus using base defense before armor/buff
-                float stationaryBonus = PlayerStats.Defense_from_pdef * STATIONARY_BONUS;
+                pvpBonus = PlayerStats.Defense_from_pdef * PVP_BONUS; //JWR - Pdef bonus using base defense before armor/buff
+                stationaryBonus = PlayerStats.Defense_from_pdef * STATIONARY_BONUS;
                 playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * OTHER_DEF_BONUS);
                 playerTotalDef += pvpBonus; //JWR Add def bonus
                 if (PlayerMPSync.stationary) { 
