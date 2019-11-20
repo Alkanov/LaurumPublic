@@ -235,7 +235,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         {
             EnemyConditions.slowed = true;
             EnemyConditions.EnemyControllerAI.maxSpeed *= 0.80f;
-            EnemyConditions.add_buff_debuff(2, null, false, 0.8f, fromPlayer, EnemyConditions.type.debuff, true);
+            EnemyConditions.add_buff_debuff(2, null, false, 3f, fromPlayer, EnemyConditions.type.debuff, true);
         }
 
         //Show hit numbers on top of this enemy

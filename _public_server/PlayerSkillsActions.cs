@@ -189,8 +189,8 @@ public class PlayerSkillsActions : MonoBehaviour
                         PlayerConditions.stunned = true;
                         PlayerConditions.immortal = true;
                         PlayerMPSync.PlayerCanMove = false;
-                        PlayerConditions.add_buff_debuff(1, skillRequested, false, 8f, gameObject, PlayerConditions.type.debuff, false);
-                        PlayerConditions.add_buff_debuff(10, skillRequested, false, 8f, gameObject, PlayerConditions.type.buff, true);
+                        PlayerConditions.add_buff_debuff(1, skillRequested, false, 5f, gameObject, PlayerConditions.type.debuff, false);
+                        PlayerConditions.add_buff_debuff(10, skillRequested, false, 5f, gameObject, PlayerConditions.type.buff, true);
                     }
                     if (skillRequested.SkillID == 64004)//linked hearts - party only
                     {
@@ -449,14 +449,14 @@ public class PlayerSkillsActions : MonoBehaviour
                 {
                     trap_deployed.transform.position = new Vector3(transform.position.x, transform.position.y - offset, 0);
                 }
-                trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 10;
+                trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 1;
                 DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
                 trap_details.vanish_timer = 15f;
                 trap_details.owner = gameObject;
                 trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
                 trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
                 trap_details.skillRequested = skillRequested;
-                trap_details.trap_effect = DOT_effect.effect_type.apply_slow_debuff;
+                trap_details.trap_effect = DOT_effect.effect_type.bleed_and_apply_slow_debuff;
                 trap_details.trap_sprite = 1;
                 trap_details.spawnShape = DOT_effect.spawn_shape.trap;
                 trap_details.trap_destroy_on_trigger = true;
@@ -467,7 +467,7 @@ public class PlayerSkillsActions : MonoBehaviour
         else if (skillRequested.SkillID == 63008)//posion trap
         {
             GameObject trap_deployed = Instantiate(trap_prefab, transform.position, new Quaternion(0f, 0f, 0f, 0f));
-            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 2;
+            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 1;
             trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 0.5f;
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
@@ -485,7 +485,7 @@ public class PlayerSkillsActions : MonoBehaviour
         else if (skillRequested.SkillID == 63009)//steel trap
         {
             GameObject trap_deployed = Instantiate(trap_prefab, transform.position, new Quaternion(0f, 0f, 0f, 0f));
-            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 2;
+            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 1;
             trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 0.5f;
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
@@ -504,7 +504,7 @@ public class PlayerSkillsActions : MonoBehaviour
         else if (skillRequested.SkillID == 63010)//bomb trap
         {
             GameObject trap_deployed = Instantiate(trap_prefab, transform.position, new Quaternion(0f, 0f, 0f, 0f));
-            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 5;
+            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 1;
             trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 1f;
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
