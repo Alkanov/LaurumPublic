@@ -162,7 +162,7 @@ public class skillDB : MonoBehaviour
         //Buff remover
         Skills.Add(new skill(64014, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 6f, 0.3f, 100f, 18));//chance
         //Remember me->changed to Consecration
-        Skills.Add(new skill(64015, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Paladin, 4f, 0.4f, 1.8f, 35));
+        Skills.Add(new skill(64015, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Paladin, 4f, 0.4f, 1.7f, 35));
 
     }
 
