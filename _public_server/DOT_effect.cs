@@ -37,8 +37,7 @@ public class DOT_effect : NetworkBehaviour
         apply_stun_debuff,
         apply_bomb_debuff,
         true_damage_poison,
-        true_damage_poison_lesser,
-        bleed_and_apply_slow_debuff
+        true_damage_poison_lesser
 
     }
     public string trap_pvp_status;
@@ -209,7 +208,7 @@ public class DOT_effect : NetworkBehaviour
                         var chance = 100;
                         if (Random.Range(1, 100) <= chance)
                         {
-                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(2, skillRequested, false, 3f, owner, EnemyConditions.type.debuff, true);
+                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(2, skillRequested, false, 2f, owner, EnemyConditions.type.debuff, true);
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().slowed = true;
                             triggeredBy.gameObject.GetComponent<Pathfinding.EnemyControllerAI>().maxSpeed *= 0.80f;
                            
@@ -239,28 +238,13 @@ public class DOT_effect : NetworkBehaviour
                         var chance = 100;
                         if (Random.Range(1, 100) <= chance)
                         {
-                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(3, skillRequested, false, 1f, owner, EnemyConditions.type.debuff, true);
+                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(3, skillRequested, false, 2f, owner, EnemyConditions.type.debuff, true);
                         }
                         else
                         {
                             owner.GetComponent<PlayerGeneral>().showCBT(triggeredBy.gameObject, false, false, 0, "Trap fail");
                         }
 
-                    }
-                    else if (trap_effect == effect_type.bleed_and_apply_slow_debuff){
-                        var chance = 100;
-                        if (Random.Range(1, 100) <= chance)
-                        {
-                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(2, skillRequested, false, 3f, owner, EnemyConditions.type.debuff, true);
-                            triggeredBy.gameObject.GetComponent<EnemyConditions>().slowed = true;
-                            triggeredBy.gameObject.GetComponent<Pathfinding.EnemyControllerAI>().maxSpeed *= 0.80f;
-                            //We also apply bleed
-                            triggeredBy.gameObject.GetComponent<EnemyConditions>().handle_effect(effect_type.bleed, trap_effect_power, owner);
-                        }
-                        else
-                        {
-                            owner.GetComponent<PlayerGeneral>().showCBT(triggeredBy.gameObject, false, false, 0, "Trap fail");
-                        }
                     }
                     else
                     {
@@ -296,7 +280,7 @@ public class DOT_effect : NetworkBehaviour
             var chance = 100;
             if (Random.Range(1, 100) <= chance)
             {
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(2, skillRequested, false, 3f, owner, PlayerConditions.type.debuff, true);
+                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(2, skillRequested, false, 2f, owner, PlayerConditions.type.debuff, true);
                 triggeredBy.gameObject.GetComponent<PlayerConditions>().decreasedWalkingSpeed = -20f;
                 triggeredBy.gameObject.GetComponent<PlayerStats>().RefreshStats();
             }
@@ -326,28 +310,13 @@ public class DOT_effect : NetworkBehaviour
             var chance = 100;
             if (Random.Range(1, 100) <= chance)
             {
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(3, skillRequested, false, 1f, owner, PlayerConditions.type.debuff, true);
+                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(3, skillRequested, false, 2f, owner, PlayerConditions.type.debuff, true);
             }
             else
             {
                 trap_fail = true;
             }
 
-        }
-         else if (trap_effect == effect_type.bleed_and_apply_slow_debuff){
-            var chance = 100;
-            if (Random.Range(1, 100) <= chance)
-            {
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(2, skillRequested, false, 3f, owner, PlayerConditions.type.debuff, true);
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().decreasedWalkingSpeed = -20f;
-                triggeredBy.gameObject.GetComponent<PlayerStats>().RefreshStats();
-                //We also apply bleed
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().handle_effect(effect_type.bleed, trap_effect_power, owner, 0);
-            }
-            else
-            {
-                trap_fail = true;
-            }
         }
         else
         {
