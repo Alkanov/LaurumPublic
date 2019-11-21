@@ -165,12 +165,12 @@ public class EnemyAttack : MonoBehaviour
                             }
                         }
                         //Burn on touch
-                        buff_info = PlayerToAttack.GetComponent<PlayerConditions>().get_buff_information(PlayerConditions.type.buff, 21);
+                        /*buff_info = PlayerToAttack.GetComponent<PlayerConditions>().get_buff_information(PlayerConditions.type.buff, 21);
                         if (buff_info != null)
                         {
                             PlayerToAttack.GetComponent<PlayerConditions>().remove_buff_debuff(PlayerConditions.type.buff, 21);
                             EnemyConditions.handle_effect(DOT_effect.effect_type.fire, buff_info.skill_requested.multipliers[0], PlayerToAttack);
-                        }
+                        }*/
 
                         var reflectSTR = PlayerToAttack.GetComponent<PlayerStats>().modReflectSTR * DamageTX / 100;
                         if (reflectSTR > 0)

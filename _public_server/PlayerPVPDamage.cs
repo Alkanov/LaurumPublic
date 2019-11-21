@@ -222,7 +222,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                 {
                     PlayerConditions.decreasedWalkingSpeed = -20f;//-20% walking speed
                     PlayerStats.RefreshStats();
-                    PlayerConditions.add_buff_debuff(2, null, false, 0.8f, fromPlayer, PlayerConditions.type.debuff, true);
+                    PlayerConditions.add_buff_debuff(2, null, false, 3f, fromPlayer, PlayerConditions.type.debuff, true);
                 }
                 //Linked hearts
                 var buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 20);
@@ -243,12 +243,12 @@ public class PlayerPVPDamage : NetworkBehaviour
                     }
                 }
                 //Burn on touch
-                buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 21);
+                /*buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 21);
                 if (buff_info != null)
                 {
                     PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 21);
                     fromPlayer.GetComponent<PlayerConditions>().handle_effect(DOT_effect.effect_type.fire, buff_info.skill_requested.multipliers[0], buff_info.skill_owner, 0);
-                }
+                }*/
             }
 
 
@@ -545,12 +545,12 @@ public class PlayerPVPDamage : NetworkBehaviour
                                 }
                             }
                             //Burn on touch
-                            buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 21);
+                            /*buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 21);
                             if (buff_info != null)
                             {
                                 PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 21);
                                 fromPlayer.GetComponent<PlayerConditions>().handle_effect(DOT_effect.effect_type.fire, buff_info.skill_requested.multipliers[0], buff_info.skill_owner, 0);
-                            }
+                            }*/
                             if (skillRequested.SkillID == 61008)//provoke
                             {
                                 if (Random.Range(0, 100) <= skillRequested.multipliers[1])
