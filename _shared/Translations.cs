@@ -1278,7 +1278,7 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[3113] = "Used to train\n(%5%)Stamina\n(%8%)Strength";
             itemNamesTranslation[3113] = "Stone of Procyon";
 
-            itemDescrTranslation[3114] = "Used to train\n(%8%)Stamina\n(%5%)Intelligence";
+            itemDescrTranslation[3114] = "Used to train\n(%5%)Stamina\n(%8%)Intelligence";
             itemNamesTranslation[3114] = "Stone of Centauri";
 
             itemDescrTranslation[3115] = "Used to train\n(%8%)Stamina\n(%5%)Wisdom";
