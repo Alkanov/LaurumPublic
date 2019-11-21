@@ -119,10 +119,6 @@ public class PlayerConditions : NetworkBehaviour
     public float increasedMaxMana;
     [HideInInspector]
     public float increasedWalkingSpeed;
-    [HideInInspector]
-    public float increasedCooldownReduction;
-    [HideInInspector]
-    public float increasedCastingSpeed;
 
     //debuffs
     [HideInInspector]
@@ -417,7 +413,7 @@ public class PlayerConditions : NetworkBehaviour
         //buffid[0] = 20; linked heart
         //buffid[0] = 21; burn when damaged
         //buffid[0] = 22; concentration
-       //buffid[0] = 23; speed banner
+
 
         switch (skill.SkillID)
         {
@@ -525,13 +521,10 @@ public class PlayerConditions : NetworkBehaviour
                  buff_data.buff_debuff_ID.Add(21);
                  buff_data.time = skill.multipliers[1];
                  break;
-            case 64013: //speed banner
-                buff_data.buff_debuff_ID.Add(23);
-                buff_data.time = skill.multipliers[4];
+            case 64013:
+                buff_data.buff_debuff_ID.Add(1);
+                buff_data.time = skill.multipliers[1];
                 increasedWalkingSpeed = skill.multipliers[0];
-                increasedAtkSpeed = skill.multipliers[1];
-                increasedCastingSpeed = skill.multipliers[2];
-                increasedCooldownReduction = skill.multipliers[3];
                 break;          
                     
                 
@@ -900,12 +893,6 @@ public class PlayerConditions : NetworkBehaviour
             case 22://Concentration              
                 concentrated = false;
                 break;
-            case 23:
-                increasedWalkingSpeed = 0f:
-                increasedAtkSpeed = 0f;
-                increasedCastingSpeed = 0f;
-                increasedCooldownReduction = 0f;
-                break;
             default:
                 break;
         }
@@ -926,7 +913,7 @@ public class PlayerConditions : NetworkBehaviour
    
     public void handle_effect(DOT_effect.effect_type effect, float effect_power, GameObject effect_dealer, float pve_damage)
     {
-        var total_time = 7f;
+        var total_time = 8f;
         var effectid = -1;
         var effect_every = 1f;
         switch (effect)
@@ -934,7 +921,6 @@ public class PlayerConditions : NetworkBehaviour
             case DOT_effect.effect_type.poison:
                 effectid = 9010;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 7f;
                 break;
             case DOT_effect.effect_type.fire:
                 effectid = 9020;
@@ -954,13 +940,13 @@ public class PlayerConditions : NetworkBehaviour
             case DOT_effect.effect_type.true_damage_poison:
                 effectid = 9011;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 29f;
+                total_time = 30f;
                 //effect_power in this case has a % of the maxhealth to take since its true damage, example: 2f = 2% in total_time
                 break;
             case DOT_effect.effect_type.true_damage_poison_lesser:
                 effectid = 9012;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 9f;
+                total_time = 10f;
                 //effect_power in this case has a % of the maxhealth to take since its true damage, example: 2f = 2% in total_time
                 break;
             default:

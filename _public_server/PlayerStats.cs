@@ -598,7 +598,7 @@ public class PlayerStats : NetworkBehaviour
         MaxMana = Mathf.Round(MaxMana * PlayerGeneral.x_ObjectHelper.game_event_manager.is_event_on(game_event_manager.game_event.extra_mp));
 
         //Casting
-        Casting_speed_reduction = passive_Casting + modCastingSpeed + Conditions.increasedCastingSpeed;
+        Casting_speed_reduction = passive_Casting + modCastingSpeed;
         if (Casting_speed_reduction > 50f)
         {
             Casting_speed_reduction = 50f;
@@ -613,7 +613,7 @@ public class PlayerStats : NetworkBehaviour
         ExtraExp = modExpRate;
 
         //Cool down reduction
-        CD_reduction = modCDReduction + passive_CD_redux + Conditions.increasedCooldownReduction;
+        CD_reduction = modCDReduction + passive_CD_redux;
         if (CD_reduction > 30f)
         {
             CD_reduction = 30f;
