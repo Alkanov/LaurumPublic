@@ -180,9 +180,11 @@ public class PlayerPVPDamage : NetworkBehaviour
             if (Random.Range(1f, 100f) <= fromPlayer.GetComponent<PlayerStats>().Critical_chance)
             {
                 Critico = true;
-                //damage is multiplied by 2 and by 1.X again
-                DamageRX = Mathf.RoundToInt(DamageRX * fromPlayer.GetComponent<PlayerStats>().Critical_damage);
+                float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Multiplier].value;
+                DamageRX = Mathf.RoundToInt((DamageRX * critMultiplier) * (1f + fromPlayer.GetComponent<PlayerStats>().Critical_damage));
             }
+
+                            
 
             //dodge chance lottery
             float Adj_dodge_chance = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Movement_Dodge_Bonus].value;
@@ -243,12 +245,12 @@ public class PlayerPVPDamage : NetworkBehaviour
                     }
                 }
                 //Burn on touch
-                /*buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 21);
+                buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 21);
                 if (buff_info != null)
                 {
-                    PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 21);
+                    //PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 21);
                     fromPlayer.GetComponent<PlayerConditions>().handle_effect(DOT_effect.effect_type.fire, buff_info.skill_requested.multipliers[0], buff_info.skill_owner, 0);
-                }*/
+                }
             }
 
 
@@ -438,12 +440,10 @@ public class PlayerPVPDamage : NetworkBehaviour
                         //////////.LogError("DamageSkill");
                         damageType = "damage";
                         int DamageRX = Mathf.RoundToInt(CalculateSkillDamageRx(fromPlayer, skillRequested.multipliers[0]));
-                        float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().DEX * 0.05f;
-                        playerCriticalChance = playerCriticalChance + fromPlayer.GetComponent<PlayerStats>().modCritChance + fromPlayer.GetComponent<PlayerStats>().passive_CritChance;
-                        if (playerCriticalChance >= 45f)
-                        {
-                            playerCriticalChance = 45f;
-                        }
+                        float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().Critical_chance;
+                        float critAndDodgeChanceNerfPercentage = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_And_Dodge_Chance_Nerf].value;
+                        playerCriticalChance *= critAndDodgeChanceNerfPercentage; //Nerf for skills
+
                         if (Random.Range(1f, 100f) <= playerCriticalChance)
                         {
                             Critico = true;
@@ -457,8 +457,9 @@ public class PlayerPVPDamage : NetworkBehaviour
                             }
                         }
                         if (Critico)
-                        {
-                            DamageRX = Mathf.RoundToInt((DamageRX * 1.35f) * (1f + ((fromPlayer.GetComponent<PlayerStats>().modCritDmg + fromPlayer.GetComponent<PlayerStats>().passive_CritDmg) / 100f)));
+                        {  
+                            float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Multiplier].value;
+                            DamageRX = Mathf.RoundToInt((DamageRX * critMultiplier) * (1f + fromPlayer.GetComponent<PlayerStats>().Critical_damage));
                         }
 
                         //dodge chance lottery
@@ -478,6 +479,8 @@ public class PlayerPVPDamage : NetworkBehaviour
 	    		        {
 	    			        Adj_dodge_chance = PlayerStats.Dodge_chance; // JWR - No bonus if stationary
 	    		        }
+
+                        Adj_dodge_chance *= critAndDodgeChanceNerfPercentage; //Nerf for skills
 	                    if (Random.Range(1, 100) <= Adj_dodge_chance) //JWR - Use adjusted dodge chance
                         {
                             DamageRX = 0;
@@ -545,12 +548,12 @@ public class PlayerPVPDamage : NetworkBehaviour
                                 }
                             }
                             //Burn on touch
-                            /*buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 21);
+                            buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 21);
                             if (buff_info != null)
                             {
-                                PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 21);
+                                //PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 21);
                                 fromPlayer.GetComponent<PlayerConditions>().handle_effect(DOT_effect.effect_type.fire, buff_info.skill_requested.multipliers[0], buff_info.skill_owner, 0);
-                            }*/
+                            }
                             if (skillRequested.SkillID == 61008)//provoke
                             {
                                 if (Random.Range(0, 100) <= skillRequested.multipliers[1])

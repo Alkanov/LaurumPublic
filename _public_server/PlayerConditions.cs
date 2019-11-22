@@ -411,7 +411,7 @@ public class PlayerConditions : NetworkBehaviour
         // buffid[0] = 14; invisible
         // buffid[0] = 15; arrow deflect - % of damage vs ranged physical is absorbed
         // buffid[0] = 16; shields up - next hit does 0 and takes the buff off
-        // buffid[0] = 17; Frozen hands
+        // buffid[0] = 17; Frozen hands speed and debuff speed
         // buffid[0] = 18; Next spell is instant
         //buffid[0] = 19; Remember me--->deprecated
         //buffid[0] = 20; linked heart
@@ -450,7 +450,8 @@ public class PlayerConditions : NetworkBehaviour
             #region Wizard
             case 62008://frozen hands               
                 buff_data.buff_debuff_ID.Add(17);
-                buff_data.time = 10f;
+                buff_data.time = skill.multipliers[0];
+                increasedWalkingSpeed = skill.multipliers[1]; 
                 break;
             case 62012://mana shield
                 mana_shield = true;
@@ -508,14 +509,14 @@ public class PlayerConditions : NetworkBehaviour
                 increasedDodge = skill.multipliers[0];
                 break;
             case 64002:
-                increasedMDEF = skill.multipliers[0];
+                increasedMDEF = skill.multipliers[1];
                 buff_data.buff_debuff_ID.Add(8);
-                buff_data.time = 1;
+                buff_data.time = skill.multipliers[0];
                 break;
             case 64003:
-                increasedDEF = skill.multipliers[0];
+                increasedDEF = skill.multipliers[1];
                 buff_data.buff_debuff_ID.Add(7);
-                buff_data.time = 1;
+                buff_data.time = skill.multipliers[0];
                 break;
             case 64004://linked heart
                 buff_data.buff_debuff_ID.Add(20);
@@ -879,6 +880,9 @@ public class PlayerConditions : NetworkBehaviour
             case 16://shields up
 
                 break;
+            case 17://frozen hands
+                increasedWalkingSpeed = 0f;
+                break;
             case 19://remember me - when player dies all buffs are removed too---->deprecated
                 if (PlayerStats.CurrentHP <= 0)
                 {
@@ -926,7 +930,7 @@ public class PlayerConditions : NetworkBehaviour
    
     public void handle_effect(DOT_effect.effect_type effect, float effect_power, GameObject effect_dealer, float pve_damage)
     {
-        var total_time = 7f;
+        var total_time = 6f;
         var effectid = -1;
         var effect_every = 1f;
         switch (effect)
@@ -934,7 +938,7 @@ public class PlayerConditions : NetworkBehaviour
             case DOT_effect.effect_type.poison:
                 effectid = 9010;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 7f;
+                total_time = 5f;
                 break;
             case DOT_effect.effect_type.fire:
                 effectid = 9020;

@@ -1278,7 +1278,7 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[3113] = "Used to train\n(%5%)Stamina\n(%8%)Strength";
             itemNamesTranslation[3113] = "Stone of Procyon";
 
-            itemDescrTranslation[3114] = "Used to train\n(%8%)Stamina\n(%5%)Intelligence";
+            itemDescrTranslation[3114] = "Used to train\n(%5%)Stamina\n(%8%)Intelligence";
             itemNamesTranslation[3114] = "Stone of Centauri";
 
             itemDescrTranslation[3115] = "Used to train\n(%8%)Stamina\n(%5%)Wisdom";
@@ -1868,7 +1868,7 @@ public class Translations : MonoBehaviour
             skillTitles[62007] = "Frost Blade";
             skillDescriptions[62007] = "Hit your target with less power and has a {1}% chance to freeze it for 2 seconds";
             skillTitles[62008] = "Frozen Hands";
-            skillDescriptions[62008] = "Buffs yourself for {0} seconds, during this time your basic attack slows your target by -20% for 3 seconds";
+            skillDescriptions[62008] = "Buffs yourself for {0} seconds, during this time increases your movement speed by {1}% and your basic attack slows your target by -20% for 3 seconds";
             skillTitles[62009] = "Blizzard";
             skillDescriptions[62009] = "Low damage ability with a {1}% chance to freeze for 2 seconds. If freeze fails there is an extra {2}% chance to slow it by -20% for 3 seconds";
             skillTitles[62010] = "Frost Bomb";
@@ -1895,7 +1895,7 @@ public class Translations : MonoBehaviour
             skillTitles[63005] = "Hamstring Shot";
             skillDescriptions[63005] = "Damages your target and slows it by -{2}% for 3 seconds";
             skillTitles[63006] = "Poison Arrow";
-            skillDescriptions[63006] = "Damages your target and applies poison on it. Lasts for 8 seconds";
+            skillDescriptions[63006] = "Damages your target and has a {1}% chance to apply poison on it for 6 seconds";
             skillTitles[63007] = "Multi Trap";
             skillDescriptions[63007] = "Deploys 4 hidden traps in 4 directions. Traps cause bleed for 5 seconds and slow for 3 seconds when triggered";
             skillTitles[63008] = "Poison Trap";
@@ -1913,7 +1913,7 @@ public class Translations : MonoBehaviour
             skillTitles[63014] = "Soul Sacrifice";
             skillDescriptions[63014] = "Burns -{0}% of your max mana and gains {1}% of it as HP";
             skillTitles[63015] = "Acrobatics";
-            skillDescriptions[63015] = "Dodges all attacks (and skills) for {1} seconds";
+            skillDescriptions[63015] = "Increases dodge change by {0}% for {1} seconds";
             //Paladin
             skillTitles[64001] = "Final Protection";
             skillDescriptions[64001] = "Increases dodge chance of nearby players by {0}%, makes you immortal and stuns you for 5 seconds";

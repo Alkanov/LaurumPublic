@@ -222,7 +222,7 @@ public class PlayerInventory : NetworkBehaviour
                     //Item upgrade operation
                     if (ItemData.ItemStats[i] > 0)//if this stat is above 0 - we check this because each item has an float[8] of stats and we dont want to upgrade stats that are 0
                     {
-                        var final_stat = ItemData.ItemStats[i] + (float)Math.Round(ItemData.ItemStats[i] * PlayerGeneral.x_ObjectHelper.item_upgrade_stat_increase(equippedItem.itemUpgrade) / 100f, 2);
+                        var final_stat = ItemData.ItemStats[i] + (float)Math.Round((Decimal)(ItemData.ItemStats[i] * PlayerGeneral.x_ObjectHelper.item_upgrade_stat_increase(equippedItem.itemUpgrade) / 100f), 2, MidpointRounding.AwayFromZero);
                         if (ItemData.useAs == Item.UseAs.LeftHand && PlayerStats.passive_off_hand_mastery > 0)
                         {
                             final_stat *= (1f + (PlayerStats.passive_off_hand_mastery / 100f));
