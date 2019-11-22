@@ -146,7 +146,7 @@ public class skillDB : MonoBehaviour
         //Holy Light
         Skills.Add(new skill(64006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Paladin, 3f, 0.5f, 1.8f, 30));
         //Self Heal
-        Skills.Add(new skill(64007, skill.SAction.active, skill.Stype.selfHeal_over_time, PlayerStats.PlayerClass.Paladin, 5f, 0.8f, 0.5f, 18));
+        Skills.Add(new skill(64007, skill.SAction.active, skill.Stype.selfHeal_over_time, PlayerStats.PlayerClass.Paladin, 5f, 0.4f, 0.5f, 18));
         //Heal totem
         Skills.Add(new skill(64008, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 10f, 0.4f, 75f, 18));
         //Resurrection
