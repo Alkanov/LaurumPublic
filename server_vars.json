@@ -22,7 +22,7 @@
       },
       {
          "ID":5,
-         "value":5,
+         "value":100,
          "description":"Dodge % you get while being in movement (PVP and PVE)"
       },
       {
