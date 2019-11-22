@@ -22,7 +22,7 @@
       },
       {
          "ID":5,
-         "value":100,
+         "value":5,
          "description":"Dodge % you get while being in movement (PVP and PVE)"
       },
       {
@@ -32,7 +32,7 @@
       },
       {
          "ID":7,
-         "value":1.0,
+         "value":1.25,
          "description":"Crit damage % (PVP)"
       }
    ]
