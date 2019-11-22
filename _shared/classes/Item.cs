@@ -74,8 +74,8 @@ public class Item
         for (int i = 0; i < itemStats.Length; i++)
         {
             float currentValue = itemStats[i];
-            float roundedValue = (float)Math.Round((Decimal)currentValue, 2, MidpointRounding.AwayFromZero);
-            itemStats[i] = currentValue;
+            float roundedValue = (float)System.Math.Round((decimal)currentValue, 2, System.MidpointRounding.AwayFromZero);
+            itemStats[i] = roundedValue;
         }
         ItemStats = itemStats;
         ItemLevel = itemLevel;
