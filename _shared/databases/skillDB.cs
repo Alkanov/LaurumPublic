@@ -99,7 +99,7 @@ public class skillDB : MonoBehaviour
         //-----Hunter            
         //---------------Marskman
         //Snipe
-        Skills.Add(new skill(63001, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 5f, 0.5f, 1.8f, 25));
+        Skills.Add(new skill(63001, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 5f, 0.8f, 1.8f, 25));
         //Hawkeye
         Skills.Add(new skill(63002, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.2f, new float[2] { 25f, 10f }, 15));//buff/time
         //Multishot
@@ -110,7 +110,7 @@ public class skillDB : MonoBehaviour
         Skills.Add(new skill(63005, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 6f, 0.3f, new float[3] { 1.5f, 100f, 20f }, 20));//damage/chance/effect
         //---------------Survival
         //Poison Arrow
-        Skills.Add(new skill(63006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 6f, 0.4f, new float[2] { 1.5f, 75f }, 20));//damage/chance
+        Skills.Add(new skill(63006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 6f, 0.6f, new float[2] { 1.5f, 75f }, 20));//damage/chance
         //Multi trap
         Skills.Add(new skill(63007, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 8f, 1f, 1.6f, 28));
         //Posion Trap
