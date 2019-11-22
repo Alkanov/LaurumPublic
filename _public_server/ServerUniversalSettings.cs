@@ -21,7 +21,7 @@ public class ServerUniversalSettings : MonoBehaviour
     public enum var_names
     {
         /// <summary>
-        /// nothing... never used... don't delete	     
+        /// nothing... never used... don't delete... this is position/id 0
         /// </summary>
         none,
         
@@ -48,7 +48,17 @@ public class ServerUniversalSettings : MonoBehaviour
         /// <summary>
         /// Dodge % you get while being in movement (PVP and PVE)
         /// </summary>
-        Movement_Dodge_Bonus
+        Movement_Dodge_Bonus,
+
+        /// <summary>
+        /// Nerf crit and dodge % chance while using skills (PVP)
+        /// </summary>
+        PVP_Crit_And_Dodge_Chance_Nerf,
+
+        /// <summary>
+        /// Crit damage % (PVP)
+        /// </summary>
+        PVP_Crit_Multiplier
     }
 
     /// <summary>

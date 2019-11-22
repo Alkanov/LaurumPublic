@@ -164,7 +164,7 @@ public class ItemDatabase : MonoBehaviour
             int lvl = tier == 0 ? 1 : tier * 10;
             float multiplier = (float)(tier + 1);
             items.Add(new Item(Hun_Items[tier][0], Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { Hun_Weapon * multiplier, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
-            items.Add(new Item(Hun_Items[tier][1], Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter, PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, Hun_Left_Hand_1 * multiplier, Hun_Left_Hand_2 * multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Hun_Items[tier][1], Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, Hun_Left_Hand_1 * multiplier, Hun_Left_Hand_2 * multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
             items.Add(new Item(Hun_Items[tier][2], Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, Hun_Helm * multiplier, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
             items.Add(new Item(Hun_Items[tier][3], Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, 0f, 0f, 0f, 0f, Hun_Chest * multiplier, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
             items.Add(new Item(Hun_Items[tier][4], Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, new float[] { 0f, Hun_Gloves * multiplier, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
@@ -179,7 +179,7 @@ public class ItemDatabase : MonoBehaviour
             int lvl = tier == 0 ? 1 : tier * 10;
             float multiplier = (float)(tier + 1);
             items.Add(new Item(Wiz_Items[tier][0], Item.UseAs.RightHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, Wiz_Weapon * multiplier, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
-            items.Add(new Item(Wiz_Items[tier][1], Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard, PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, Wiz_Left_Hand_1 * multiplier, Wiz_Left_Hand_2 * multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
+            items.Add(new Item(Wiz_Items[tier][1], Item.UseAs.LeftHand, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, Wiz_Left_Hand_1 * multiplier, 0f, Wiz_Left_Hand_2 * multiplier, 0f, 0f }, lvl, Item.Restrictions.tradeable));
             items.Add(new Item(Wiz_Items[tier][2], Item.UseAs.Helmet, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, Wiz_Helm * multiplier, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
             items.Add(new Item(Wiz_Items[tier][3], Item.UseAs.Chest, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, 0f, 0f, 0f, 0f, Wiz_Chest * multiplier, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));
             items.Add(new Item(Wiz_Items[tier][4], Item.UseAs.Gloves, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Wizard }, new float[] { 0f, Wiz_Gloves * multiplier, 0f, 0f, 0f, 0f, 0f, 0f, 0f }, lvl, Item.Restrictions.tradeable));

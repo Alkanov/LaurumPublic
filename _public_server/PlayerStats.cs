@@ -2144,7 +2144,7 @@ public class PlayerStats : NetworkBehaviour
                 starter_min_int = 3;
                 break;
             case PlayerClass.Paladin:
-                starter_min_int = 1;
+                starter_min_int = 2;
                 break;
             case PlayerClass.Warrior:
                 starter_min_str = 3;
@@ -2154,19 +2154,19 @@ public class PlayerStats : NetworkBehaviour
         }
 
         STR = Mathf.Round(((starter_min_str + PlayerCustomStats_lvl[0] + PlayerCustomStats_reb[0]) * get_training_multiplier(0)) + modSTR);
-        DEX = Mathf.Round(((1 + PlayerCustomStats_lvl[1] + PlayerCustomStats_reb[1]) * get_training_multiplier(1)) + modDEX);
+        DEX = ((1 + PlayerCustomStats_lvl[1] + PlayerCustomStats_reb[1]) * get_training_multiplier(1)) + modDEX;
         INT = Mathf.Round(((starter_min_int + PlayerCustomStats_lvl[2] + PlayerCustomStats_reb[2]) * get_training_multiplier(2)) + modINT);
         STA = Mathf.Round(((1 + PlayerCustomStats_lvl[3] + PlayerCustomStats_reb[3]) * get_training_multiplier(3)) + modSTA);
         WIS = Mathf.Round(((1 + PlayerCustomStats_lvl[4] + PlayerCustomStats_reb[4]) * get_training_multiplier(4)) + modWIS);
         DEF = Mathf.Round(((1 + PlayerCustomStats_lvl[5] + PlayerCustomStats_reb[5]) * get_training_multiplier(5)) + modDEF);
         MDEF = Mathf.Round(((1 + PlayerCustomStats_lvl[6] + PlayerCustomStats_reb[6]) * get_training_multiplier(6)) + modMDEF);
-        AGI = Mathf.Round(((1 + PlayerCustomStats_lvl[7] + PlayerCustomStats_reb[7]) * get_training_multiplier(7)) + modAGI);
-        LCK = Mathf.Round((1 + PlayerEquipStats[8] + PlayerCustomStats_lvl[8] + PlayerCustomStats_reb[8]));
+        AGI = ((1 + PlayerCustomStats_lvl[7] + PlayerCustomStats_reb[7]) * get_training_multiplier(7)) + modAGI;
+        LCK = (1 + PlayerEquipStats[8] + PlayerCustomStats_lvl[8] + PlayerCustomStats_reb[8]);
 
 
-        DEX = (float)(Math.Round(DEX, 2)); //round to 2 decimal places
-        AGI = (float)(Math.Round(AGI, 2)); //round to 2 decimal places
-        LCK = (float)(Math.Round(LCK, 2)); //round to 2 decimal places
+        DEX = (float)(Math.Round((Decimal)DEX, 2, MidpointRounding.AwayFromZero)); //round to 2 decimal places
+        AGI = (float)(Math.Round((Decimal)AGI, 2, MidpointRounding.AwayFromZero)); //round to 2 decimal places
+        LCK = (float)(Math.Round((Decimal)LCK, 2, MidpointRounding.AwayFromZero)); //round to 2 decimal places
 
         RefreshStats();
 

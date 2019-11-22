@@ -2,18 +2,18 @@
    "Items":[
       {
          "ID":1,
-         "value":0.15,
-         "description":"Nerf Damage % Applied in PVP"
+         "value":0.30,
+         "description":"Nerf Damage % applied (PVP)"
       },
       {
          "ID":2,
          "value":0,
-         "description":"Defense % you get from defense stat points in PVP"
+         "description":"Defense % you get from defense stat points (PVP)"
       },
       {
          "ID":3,
          "value":0.5,
-         "description":"Defense % you get from defense stat points while being stationary in PVP"
+         "description":"Defense % you get from defense stat points while being stationary (PVP))"
       },
       {
          "ID":4,
@@ -24,6 +24,16 @@
          "ID":5,
          "value":5,
          "description":"Dodge % you get while being in movement (PVP and PVE)"
+      },
+      {
+         "ID":6,
+         "value":0.7,
+         "description":"Nerf crit and dodge % chance while using skills (PVP)"
+      },
+      {
+         "ID":7,
+         "value":1.30,
+         "description":"Crit damage % (PVP)"
       }
    ]
 }

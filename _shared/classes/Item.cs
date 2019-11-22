@@ -70,6 +70,13 @@ public class Item
         ItemID = itemID;
         this.useAs = useAs;
         this.requiredClass = requiredClass;
+        //Decimals round
+        for (int i = 0; i < itemStats.Length; i++)
+        {
+            float currentValue = itemStats[i];
+            float roundedValue = (float)Math.Round((Decimal)currentValue, 2, MidpointRounding.AwayFromZero);
+            itemStats[i] = currentValue;
+        }
         ItemStats = itemStats;
         ItemLevel = itemLevel;
         this.restrictions = restrictions;
