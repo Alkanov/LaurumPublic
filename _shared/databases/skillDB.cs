@@ -105,9 +105,9 @@ public class skillDB : MonoBehaviour
         //Multishot
         Skills.Add(new skill(63003, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Hunter, 8f, 2f, new float[2] { 1.7f, 5f }, 30));//damage//targets
         //Steady shot
-        Skills.Add(new skill(63004, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 1.25f, 0.2f, 1.2f, 18));
+        Skills.Add(new skill(63004, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 1.25f, 0.3f, 1.2f, 18));
         //Hamstring shot
-        Skills.Add(new skill(63005, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 6f, 0.3f, new float[3] { 1.5f, 100f, 20f }, 20));//damage/chance/effect
+        Skills.Add(new skill(63005, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 6f, 0.45f, new float[3] { 1.5f, 100f, 20f }, 20));//damage/chance/effect
         //---------------Survival
         //Poison Arrow
         Skills.Add(new skill(63006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 6f, 0.6f, new float[2] { 1.5f, 75f }, 20));//damage/chance
