@@ -152,15 +152,15 @@ public class skillDB : MonoBehaviour
         //Resurrection
         Skills.Add(new skill(64009, skill.SAction.active, skill.Stype.AOE_revive, PlayerStats.PlayerClass.Paladin, 30f, 2f, 75f, 18));
         //Cleanse
-        Skills.Add(new skill(64010, skill.SAction.active, skill.Stype.AOE_cleanse, PlayerStats.PlayerClass.Paladin, 5f, 1f, 5f, 18));
+        Skills.Add(new skill(64010, skill.SAction.active, skill.Stype.AOE_cleanse, PlayerStats.PlayerClass.Paladin, 5f, 0.2f, 5f, 18));
         //Mana totem
         Skills.Add(new skill(64011, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[1] { 45f }, 18));//value
         //Silence
-        Skills.Add(new skill(64012, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[2] { 100f, 5f }, 20));//chance/time
+        Skills.Add(new skill(64012, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 15f, 0.2f, new float[2] { 100f, 5f }, 20));//chance/time
         //Speed totem
         Skills.Add(new skill(64013, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[5] { 45f, 35f, 25f, 15f, 10f }, 20));//mov speed, attack speed, casting speed, cooldown reduction, time
         //Buff remover
-        Skills.Add(new skill(64014, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 5f, 0.3f, 100f, 18));//chance
+        Skills.Add(new skill(64014, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 5f, 0.2f, 100f, 18));//chance
         //Remember me->changed to Consecration
         Skills.Add(new skill(64015, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Paladin, 4f, 0.4f, 1.7f, 35));
 
