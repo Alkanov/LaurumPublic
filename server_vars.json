@@ -2,7 +2,7 @@
    "Items":[
       {
          "ID":1,
-         "value":0.25,
+         "value":0.35,
          "description":"Nerf Damage % applied (PVP)"
       },
       {
@@ -12,7 +12,7 @@
       },
       {
          "ID":3,
-         "value":0.5,
+         "value":0.25,
          "description":"Defense % you get from defense stat points while being stationary (PVP))"
       },
       {
@@ -27,7 +27,7 @@
       },
       {
          "ID":6,
-         "value":0.7,
+         "value":0.75,
          "description":"Nerf crit and dodge % chance while using skills (PVP)"
       },
       {
