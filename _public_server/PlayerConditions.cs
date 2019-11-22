@@ -905,7 +905,7 @@ public class PlayerConditions : NetworkBehaviour
                 concentrated = false;
                 break;
             case 23:
-                increasedWalkingSpeed = 0f:
+                increasedWalkingSpeed = 0f;
                 increasedAtkSpeed = 0f;
                 increasedCastingSpeed = 0f;
                 increasedCooldownReduction = 0f;
