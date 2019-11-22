@@ -55,7 +55,7 @@ public class skillDB : MonoBehaviour
         //Soul Cravings
         Skills.Add(new skill(61010, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Warrior, 5f, 0.3f, new float[2] { 1.7f, 30f }, 15));//damage/heal
         //Ultimate Defense
-        Skills.Add(new skill(61020, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.8f, new float[2] { 40f, 10f }, 10));//buff/time
+        Skills.Add(new skill(61020, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.4f, new float[2] { 40f, 10f }, 10));//buff/time
         //Arrow Deflect
         Skills.Add(new skill(61028, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[2] { 40f, 5f }, 12));//buff/time
         //Shields Up
@@ -88,7 +88,7 @@ public class skillDB : MonoBehaviour
         //Corpse Life Drain
         Skills.Add(new skill(62011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Wizard, 2.5f, 0.2f, new float[2] { 30f, 30f }, 28));//effect/time
         //Mana shield
-        Skills.Add(new skill(62012, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 60f, 0.2f, 45f, 25));//time
+        Skills.Add(new skill(62012, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 60f, 0.4f, 45f, 25));//time
         //Expanded Mana
         Skills.Add(new skill(62013, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 60f, 0.4f, new float[2] { 50f, 45f }, 25));//effect/time
         //Caster Contract
@@ -134,13 +134,13 @@ public class skillDB : MonoBehaviour
         //-----Paladin            
         //---------------Protection
         //Final Protection
-        Skills.Add(new skill(64001, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 1f, 25f, 18));
+        Skills.Add(new skill(64001, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, 25f, 18));
         //Magic Protection totem
-        Skills.Add(new skill(64002, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.2f, new float[2] { 40f, 15f }, 18));  //def/time
+        Skills.Add(new skill(64002, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[2] { 40f, 15f }, 18));  //def/time
         //Physical Protection totem
-        Skills.Add(new skill(64003, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.2f, new float[2] { 40f, 15f }, 18)); //def/time
+        Skills.Add(new skill(64003, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[2] { 40f, 15f }, 18)); //def/time
         //Linked Hearts
-        Skills.Add(new skill(64004, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 1f, new float[2] { 10f, 75f }, 18));//time/absorb
+        Skills.Add(new skill(64004, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 10f, 75f }, 18));//time/absorb
         //burn on touch buff
         Skills.Add(new skill(64005, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 1f, new float[2] { 1.6f, 10f }, 28));//damage/time
         //Holy Light
@@ -158,7 +158,7 @@ public class skillDB : MonoBehaviour
         //Silence
         Skills.Add(new skill(64012, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 15f, 0.2f, new float[2] { 100f, 5f }, 20));//chance/time
         //Speed totem
-        Skills.Add(new skill(64013, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[5] { 45f, 35f, 25f, 15f, 10f }, 20));//mov speed, attack speed, casting speed, cooldown reduction, time
+        Skills.Add(new skill(64013, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[5] { 45f, 35f, 25f, 15f, 10f }, 20));//mov speed, attack speed, casting speed, cooldown reduction, time
         //Buff remover
         Skills.Add(new skill(64014, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 5f, 0.2f, 100f, 18));//chance
         //Remember me->changed to Consecration
