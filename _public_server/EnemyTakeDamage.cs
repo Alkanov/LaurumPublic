@@ -132,7 +132,7 @@ public class EnemyTakeDamage : NetworkBehaviour
     bool isCritical(GameObject fromPlayer)
     {
         //Critical lottery
-        var roll = Random.Range(1, 100);
+        var roll = Random.Range(1f, 100f);
         if (roll <= fromPlayer.GetComponent<PlayerStats>().Critical_chance)
         {
             return true;
@@ -348,7 +348,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     //flame missile
                     if (skillRequested.SkillID == 62002)
                     {
-                        if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                        if (Random.Range(1, 100) <= (int)skillRequested.multipliers[1])
                         {
                             EnemyConditions.handle_effect(DOT_effect.effect_type.fire, skillRequested.multipliers[0], fromPlayer);
                         }
@@ -356,7 +356,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     //posion arrow
                     if (skillRequested.SkillID == 63006)
                     {
-                        if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                        if (Random.Range(1, 100) <= (int)skillRequested.multipliers[1])
                         {
                             EnemyConditions.handle_effect(DOT_effect.effect_type.poison, skillRequested.multipliers[0], fromPlayer);
                         }

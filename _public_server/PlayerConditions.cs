@@ -227,7 +227,7 @@ public class PlayerConditions : NetworkBehaviour
             //14 Skills hit harder if under x hp
             #region Warrior
             case 61003://shield stun              
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(1, 100) <= (int)skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(1);
                     stunned = true;
@@ -284,14 +284,14 @@ public class PlayerConditions : NetworkBehaviour
                 }
                 break;
                 */
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(1, 100) <= (int)skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(1);
                     debuff_data.time = 2.5f;
                     stunned = true;
                     PlayerMPSync.PlayerCanMove = false;
                 }
-                else if (Random.Range(1, 100) <= skillRequested.multipliers[2])
+                else if (Random.Range(1, 100) <= (int)skillRequested.multipliers[2])
                 {
                     debuff_data.buff_debuff_ID.Add(2);
                     debuff_data.time = 2.5f;
@@ -302,7 +302,7 @@ public class PlayerConditions : NetworkBehaviour
 
             #region Wizard
             case 62007:  //frost blade           
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(1, 100) <= (int)skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(13);
                     debuff_data.time = 2.5f;
@@ -311,14 +311,14 @@ public class PlayerConditions : NetworkBehaviour
                 }
                 break;
             case 62009:
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(1, 100) <= (int)skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(13);
                     debuff_data.time = 2.5f;
                     stunned = true;
                     PlayerMPSync.PlayerCanMove = false;
                 }
-                else if (Random.Range(1, 100) <= skillRequested.multipliers[2])
+                else if (Random.Range(1, 100) <= (int)skillRequested.multipliers[2])
                 {
                     debuff_data.buff_debuff_ID.Add(2);
                     debuff_data.time = 2.5f;
@@ -326,7 +326,7 @@ public class PlayerConditions : NetworkBehaviour
                 }
                 break;
             case 62010:
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(1, 100) <= (int)skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(2);
                     debuff_data.time = 2.5f;
@@ -341,7 +341,7 @@ public class PlayerConditions : NetworkBehaviour
 
             #region Hunter
             case 63005://Hamstring Shot                
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1] )
+                if (Random.Range(1, 100) <= (int)skillRequested.multipliers[1] )
                 {
                     debuff_data.buff_debuff_ID.Add(2);
                     debuff_data.time = 2.5f;
