@@ -450,6 +450,7 @@ public class PlayerSkillsActions : MonoBehaviour
                     trap_deployed.transform.position = new Vector3(transform.position.x, transform.position.y - offset, 0);
                 }
                 trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 1;
+                trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 1f;
                 DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
                 trap_details.vanish_timer = 15f;
                 trap_details.owner = gameObject;
@@ -468,7 +469,7 @@ public class PlayerSkillsActions : MonoBehaviour
         {
             GameObject trap_deployed = Instantiate(trap_prefab, transform.position, new Quaternion(0f, 0f, 0f, 0f));
             trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 1;
-            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 0.5f;
+            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 1f;
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
             trap_details.owner = gameObject;
@@ -486,7 +487,7 @@ public class PlayerSkillsActions : MonoBehaviour
         {
             GameObject trap_deployed = Instantiate(trap_prefab, transform.position, new Quaternion(0f, 0f, 0f, 0f));
             trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 1;
-            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 0.5f;
+            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 1f;
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
             trap_details.owner = gameObject;

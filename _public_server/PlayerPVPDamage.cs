@@ -181,7 +181,7 @@ public class PlayerPVPDamage : NetworkBehaviour
             {
                 Critico = true;
                 float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Multiplier].value;
-                DamageRX = Mathf.RoundToInt((DamageRX * critMultiplier) * (1f + fromPlayer.GetComponent<PlayerStats>().Critical_damage));
+                DamageRX = Mathf.RoundToInt(DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage));
             }
 
                             
@@ -273,7 +273,7 @@ public class PlayerPVPDamage : NetworkBehaviour
     }
     int CalculateDamageRx(GameObject fromPlayer)
     {
-        int DamageRX;
+        float DamageRX;
         PlayerStats fromPlayerStats = fromPlayer.GetComponent<PlayerStats>();
         float playerTotalDef = 0;
         float fromPlayerDamage = 0;
@@ -313,27 +313,27 @@ public class PlayerPVPDamage : NetworkBehaviour
                 break;
         }
         
-        DamageRX = Mathf.RoundToInt((fromPlayerDamage - playerTotalDef) * NERF_DAMAGE);
+        DamageRX = (fromPlayerDamage - playerTotalDef) * NERF_DAMAGE;
 
         //if damage is below 0 make sure to return 0, a negative number here would heal the player instead (100HP-(-100 damage)=200)
-        if (DamageRX < 0)
+        if (DamageRX < 0f)
         {
-            DamageRX = 0;
+            DamageRX = 0f;
         }
 
         //random a number between -10%/+10% from damage received to keep number aleatory
-        DamageRX = Mathf.RoundToInt(Random.Range(DamageRX * 0.9f, DamageRX * 1.1f));
+        DamageRX = Random.Range(DamageRX * 0.9f, DamageRX * 1.1f);
 
         //arrow deflect
         if (PlayerConditions.buffs.Contains(15) && fromPlayer.GetComponent<PlayerStats>().PlayerClass_now == PlayerStats.PlayerClass.Hunter)//arrow deflect buff
         {
-            DamageRX = Mathf.RoundToInt(DamageRX * (1f - (PlayerConditions.get_buff_information(PlayerConditions.type.buff, 15).skill_requested.multipliers[0] / 100f)));
+            DamageRX = DamageRX * (1f - (PlayerConditions.get_buff_information(PlayerConditions.type.buff, 15).skill_requested.multipliers[0] / 100f));
         }
         //shields up
         if (PlayerConditions.buffs.Contains(16) && (fromPlayer.GetComponent<PlayerStats>().PlayerClass_now == PlayerStats.PlayerClass.Hunter || fromPlayer.GetComponent<PlayerStats>().PlayerClass_now == PlayerStats.PlayerClass.Warrior))
         {
             PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 16);
-            DamageRX = 0;
+            DamageRX = 0f;
         }
         /*
          * Deprecated: Hunters Mark only affects skills
@@ -347,7 +347,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                 DamageRX = Mathf.RoundToInt(DamageRX * (1f + (buff_info.skill_requested.multipliers[2] / 100f)));
             }
         }*/
-        return DamageRX;
+        return Mathf.roundToInt(DamageRX);
     }
     #endregion
 
@@ -459,7 +459,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                         if (Critico)
                         {  
                             float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Multiplier].value;
-                            DamageRX = Mathf.RoundToInt((DamageRX * critMultiplier) * (1f + fromPlayer.GetComponent<PlayerStats>().Critical_damage));
+                            DamageRX = Mathf.RoundToInt(DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage));
                         }
 
                         //dodge chance lottery
@@ -628,7 +628,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                 if (PlayerMPSync.stationary) { 
                     playerTotalDef += stationaryBonus; //JWR - If stationary, double the defense bonus
                 } 
-                fromPlayerDamage = fromPlayerStats.Damage_int;
+                fromPlayerDamage = fromPlayerStats.Damage_int * power_multiplier;
                 break;
             case PlayerStats.DamageType.physical:
                 pvpBonus = PlayerStats.Defense_from_pdef * PVP_BONUS; //JWR - Pdef bonus using base defense before armor/buff
@@ -638,7 +638,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                 if (PlayerMPSync.stationary) { 
                     playerTotalDef += stationaryBonus; //JWR - If stationary, double the defense bonus
                 } 
-                fromPlayerDamage = fromPlayerStats.Damage_str;
+                fromPlayerDamage = fromPlayerStats.Damage_str * power_multiplier;
                 break;
             default:
                 break;

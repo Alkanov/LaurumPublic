@@ -212,7 +212,8 @@ public class EnemyTakeDamage : NetworkBehaviour
         //Critical lottery      
         if (Critico)
         {
-            DamageRX = Mathf.RoundToInt(DamageRX * fromPlayer.GetComponent<PlayerStats>().Critical_damage);
+            float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVE_Crit_Multiplier].value;
+            DamageRX = Mathf.RoundToInt(DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage));
         }
 
         //Enemy dodge lottery       
@@ -234,8 +235,8 @@ public class EnemyTakeDamage : NetworkBehaviour
         if (fromPlayer.GetComponent<PlayerConditions>().has_buff_debuff(PlayerConditions.type.buff, 17))//if attacker has frozen hands
         {
             EnemyConditions.slowed = true;
-            EnemyConditions.EnemyControllerAI.maxSpeed *= 0.80f;
-            EnemyConditions.add_buff_debuff(2, null, false, 3f, fromPlayer, EnemyConditions.type.debuff, true);
+            EnemyConditions.EnemyControllerAI.maxSpeed *= 0.75f;
+            EnemyConditions.add_buff_debuff(2, null, false, 2.5f, fromPlayer, EnemyConditions.type.debuff, true);
         }
 
         //Show hit numbers on top of this enemy
@@ -323,7 +324,8 @@ public class EnemyTakeDamage : NetworkBehaviour
                 //critical lottery
                 if (Critico)
                 {
-                    DamageRX = Mathf.RoundToInt((DamageRX * 1.35f) * fromPlayer.GetComponent<PlayerStats>().Critical_damage);
+                    float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVE_Crit_Multiplier].value;
+                    DamageRX = Mathf.RoundToInt(DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage));
                 }
                 //dodge lottery
                 if (dodged)

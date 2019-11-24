@@ -296,8 +296,8 @@ public class DOT_effect : NetworkBehaviour
             var chance = 100;
             if (Random.Range(1, 100) <= chance)
             {
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(2, skillRequested, false, 3f, owner, PlayerConditions.type.debuff, true);
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().decreasedWalkingSpeed = -20f;
+                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(2, skillRequested, false, 2.5f, owner, PlayerConditions.type.debuff, true);
+                triggeredBy.gameObject.GetComponent<PlayerConditions>().decreasedWalkingSpeed = -25f;
                 triggeredBy.gameObject.GetComponent<PlayerStats>().RefreshStats();
             }
             else
@@ -311,7 +311,7 @@ public class DOT_effect : NetworkBehaviour
             var chance = 100;
             if (Random.Range(1, 100) <= chance)
             {
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(1, skillRequested, false, 2f, owner, PlayerConditions.type.debuff, true);
+                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(1, skillRequested, false, 2.5f, owner, PlayerConditions.type.debuff, true);
                 triggeredBy.gameObject.GetComponent<PlayerConditions>().stunned = true;
                 triggeredBy.gameObject.GetComponent<PlayerMPSync>().PlayerCanMove = false;
             }
@@ -338,8 +338,8 @@ public class DOT_effect : NetworkBehaviour
             var chance = 100;
             if (Random.Range(1, 100) <= chance)
             {
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(2, skillRequested, false, 3f, owner, PlayerConditions.type.debuff, true);
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().decreasedWalkingSpeed = -20f;
+                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(2, skillRequested, false, 2.5f, owner, PlayerConditions.type.debuff, true);
+                triggeredBy.gameObject.GetComponent<PlayerConditions>().decreasedWalkingSpeed = -25f;
                 triggeredBy.gameObject.GetComponent<PlayerStats>().RefreshStats();
                 //We also apply bleed
                 triggeredBy.gameObject.GetComponent<PlayerConditions>().handle_effect(effect_type.bleed, trap_effect_power, owner, 0);
