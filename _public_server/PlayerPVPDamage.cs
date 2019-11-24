@@ -451,7 +451,7 @@ public class PlayerPVPDamage : NetworkBehaviour
 
                         if (skillRequested.SkillID == 61016)//execution
                         {
-                            if (PlayerStats.CurrentHP / PlayerStats.MaxHealth <= skillRequested.multipliers[1] / 100f)
+                            if (PlayerStats.CurrentHP / PlayerStats.MaxHealth <= (float)skillRequested.multipliers[1] / 100f)
                             {
                                 Critico = true;
                             }

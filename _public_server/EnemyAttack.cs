@@ -112,7 +112,7 @@ public class EnemyAttack : MonoBehaviour
                     float DamageTX = CalculateDamageTx(PlayerToAttack);
 
                     //calculamos el critico
-                    if (Random.Range(0, 100) <= EnemyStats.Critical_percent_agi)
+                    if (Random.Range(0f, 100f) <= EnemyStats.Critical_percent_agi)
                     {
                         Critico = true;
                         DamageTX = Mathf.RoundToInt(DamageTX * 2);
