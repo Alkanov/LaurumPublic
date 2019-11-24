@@ -832,6 +832,9 @@ public class PlayerSkillsActions : MonoBehaviour
                             case skill.Stype.totem_spawn:
                                 mode = target_modes.my_team_only;
                                 break;
+                            case skill.Stype.trap:
+                                mode = target_modes.outside_my_team_only;
+                                break;
                             default:
                                 break;
                         }
