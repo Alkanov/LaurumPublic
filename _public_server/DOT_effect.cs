@@ -209,7 +209,7 @@ public class DOT_effect : NetworkBehaviour
                         var chance = 100;
                         if (Random.Range(1, 100) <= chance)
                         {
-                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(2, skillRequested, false, 3f, owner, EnemyConditions.type.debuff, true);
+                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(2, skillRequested, false, 2.5f, owner, EnemyConditions.type.debuff, true);
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().slowed = true;
                             triggeredBy.gameObject.GetComponent<Pathfinding.EnemyControllerAI>().maxSpeed *= 0.80f;
                            
@@ -224,7 +224,7 @@ public class DOT_effect : NetworkBehaviour
                         var chance = 100;
                         if (Random.Range(1, 100) <= chance)
                         {
-                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(1, skillRequested, false, 2f, owner, EnemyConditions.type.debuff, true);
+                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(1, skillRequested, false, 2.5f, owner, EnemyConditions.type.debuff, true);
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().stunned = true;
                             triggeredBy.gameObject.GetComponent<Pathfinding.EnemyControllerAI>().canMove = false;
                         }
@@ -251,7 +251,7 @@ public class DOT_effect : NetworkBehaviour
                         var chance = 100;
                         if (Random.Range(1, 100) <= chance)
                         {
-                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(2, skillRequested, false, 3f, owner, EnemyConditions.type.debuff, true);
+                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(2, skillRequested, false, 2.5f, owner, EnemyConditions.type.debuff, true);
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().slowed = true;
                             triggeredBy.gameObject.GetComponent<Pathfinding.EnemyControllerAI>().maxSpeed *= 0.80f;
                             //We also apply bleed

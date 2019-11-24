@@ -454,7 +454,7 @@ public class PlayerSkillsActions : MonoBehaviour
                 DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
                 trap_details.vanish_timer = 15f;
                 trap_details.owner = gameObject;
-                trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
+                trap_details.trap_effect_power = skillRequested.multipliers[0];
                 trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
                 trap_details.skillRequested = skillRequested;
                 trap_details.trap_effect = DOT_effect.effect_type.bleed_and_apply_slow_debuff;
@@ -473,7 +473,7 @@ public class PlayerSkillsActions : MonoBehaviour
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
             trap_details.owner = gameObject;
-            trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
+            trap_details.trap_effect_power = skillRequested.multipliers[0];
             trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
             trap_details.skillRequested = skillRequested;
             trap_details.trap_effect = DOT_effect.effect_type.poison;
@@ -491,7 +491,6 @@ public class PlayerSkillsActions : MonoBehaviour
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
             trap_details.owner = gameObject;
-            trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
             trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
             trap_details.skillRequested = skillRequested;
             trap_details.trap_effect = DOT_effect.effect_type.apply_stun_debuff;
@@ -510,7 +509,7 @@ public class PlayerSkillsActions : MonoBehaviour
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
             trap_details.owner = gameObject;
-            trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
+            trap_details.trap_effect_power = skillRequested.multipliers[0];
             trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
             trap_details.skillRequested = skillRequested;
             trap_details.trap_effect = DOT_effect.effect_type.apply_bomb_debuff;
@@ -527,7 +526,7 @@ public class PlayerSkillsActions : MonoBehaviour
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 10f;
             trap_details.owner = gameObject;
-            trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
+            trap_details.trap_effect_power = skillRequested.multipliers[0];
             trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
             trap_details.trap_effect = DOT_effect.effect_type.fire;
             trap_details.trap_sprite = 2;

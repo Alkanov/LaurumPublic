@@ -116,7 +116,7 @@ public class skillDB : MonoBehaviour
         //Posion Trap
         Skills.Add(new skill(63008, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.2f, 1.62f, 22));//damage
         //Steel trap
-        Skills.Add(new skill(63009, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 13.5f, 0.2f, 1.53f, 20));
+        Skills.Add(new skill(63009, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 13.5f, 0.2f, 0f, 20));
         //Booby Trap
         Skills.Add(new skill(63010, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.2f, 1.62f, 22));
         //---------------Util
