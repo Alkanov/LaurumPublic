@@ -2006,7 +2006,7 @@ public class PlayerStats : NetworkBehaviour
                         //show text
                         PlayerGeneral.showCBT(gameObject, false, false, hpaffected * -1, "damage");
 
-                        if (UnityEngine.Random.Range(0, 100) <= 20)
+                        if (UnityEngine.Random.Range(1, 100) <= 20)
                         {
                             //spawn blood animation
                             PlayerGeneral.x_ObjectHelper.spawn_sync_object(1, 5f, transform.position);
@@ -2020,7 +2020,7 @@ public class PlayerStats : NetworkBehaviour
                 else
                 {
                     CurrentHP += hpaffected;
-                    if (UnityEngine.Random.Range(0, 100) <= 20)
+                    if (UnityEngine.Random.Range(1, 100) <= 20)
                     {
                         //spawn blood animation
                         PlayerGeneral.x_ObjectHelper.spawn_sync_object(1, 5f, transform.position);

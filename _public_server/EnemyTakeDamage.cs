@@ -132,7 +132,7 @@ public class EnemyTakeDamage : NetworkBehaviour
     bool isCritical(GameObject fromPlayer)
     {
         //Critical lottery
-        var roll = Random.Range(1f, 100f);
+        var roll = Random.Range(1, 100);
         if (roll <= fromPlayer.GetComponent<PlayerStats>().Critical_chance)
         {
             return true;
@@ -145,7 +145,7 @@ public class EnemyTakeDamage : NetworkBehaviour
     }
     bool did_I_Dodged()
     {
-        if (Random.Range(1f, 100f) <= EnemyStats.Dodge_percent_dex)
+        if (Random.Range(1, 100) <= EnemyStats.Dodge_percent_dex)
         {
             return true;
         }
@@ -371,7 +371,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     }
                     if (skillRequested.SkillID == 61008)//provoke
                     {
-                        if (Random.Range(0, 100) <= skillRequested.multipliers[1])
+                        if (Random.Range(1, 100) <= skillRequested.multipliers[1])
                         {
                             damageType = "Provoked!";
                             EnemyAggro.AggroChange(fromPlayer);

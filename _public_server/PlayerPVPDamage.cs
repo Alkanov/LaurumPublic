@@ -177,7 +177,7 @@ public class PlayerPVPDamage : NetworkBehaviour
             int DamageRX = CalculateDamageRx(fromPlayer);
 
             //critical chance lottery
-            if (Random.Range(1f, 100f) <= fromPlayer.GetComponent<PlayerStats>().Critical_chance)
+            if (Random.Range(1, 100) <= fromPlayer.GetComponent<PlayerStats>().Critical_chance)
             {
                 Critico = true;
                 float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Multiplier].value;
@@ -200,7 +200,7 @@ public class PlayerPVPDamage : NetworkBehaviour
 	        }else{
 	    	    Adj_dodge_chance = PlayerStats.Dodge_chance; // JWR - No bonus if stationary
 	        }
-            if (Random.Range(1f, 100f) <= Adj_dodge_chance) //JWR - Use adjusted dodge chance
+            if (Random.Range(1, 100) <= Adj_dodge_chance) //JWR - Use adjusted dodge chance
             {
                 DamageRX = 0;
                 dodged = true;
@@ -380,7 +380,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                         playerCriticalChance = 45f;
                     }
                     playerCriticalChance = playerCriticalChance + PlayerConditions.increasedCritical;
-                    if (Random.Range(1f, 100f) <= playerCriticalChance)
+                    if (Random.Range(1, 100) <= playerCriticalChance)
                     {
                         Critico = true;
                         healRX = Mathf.RoundToInt((healRX * 1.35f) * (1f + ((fromPlayer.GetComponent<PlayerStats>().modCritDmg + fromPlayer.GetComponent<PlayerStats>().passive_CritDmg) / 100f)));
@@ -444,7 +444,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                         float critAndDodgeChanceNerfPercentage = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_And_Dodge_Chance_Nerf].value;
                         playerCriticalChance *= critAndDodgeChanceNerfPercentage; //Nerf for skills
 
-                        if (Random.Range(1f, 100f) <= playerCriticalChance)
+                        if (Random.Range(1, 100) <= playerCriticalChance)
                         {
                             Critico = true;
                         }
@@ -481,7 +481,7 @@ public class PlayerPVPDamage : NetworkBehaviour
 	    		        }
 
                         Adj_dodge_chance *= critAndDodgeChanceNerfPercentage; //Nerf for skills
-	                    if (Random.Range(1f, 100f) <= Adj_dodge_chance) //JWR - Use adjusted dodge chance
+	                    if (Random.Range(1, 100) <= Adj_dodge_chance) //JWR - Use adjusted dodge chance
                         {
                             DamageRX = 0;
                             dodged = true;
@@ -556,7 +556,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                             }
                             if (skillRequested.SkillID == 61008)//provoke
                             {
-                                if (Random.Range(0, 100) <= skillRequested.multipliers[1])
+                                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
                                 {
                                     damageType = "Provoked!";
                                     PlayerGeneral.TargetUntargetMe(connectionToClient, fromPlayer, 0);//time not used

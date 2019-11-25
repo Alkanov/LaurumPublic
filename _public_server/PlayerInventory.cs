@@ -3095,7 +3095,7 @@ public class PlayerInventory : NetworkBehaviour
                         chance_succeed = 36f;
                     }
 
-                    if (UnityEngine.Random.Range(0, 100) <= chance_succeed)
+                    if (UnityEngine.Random.Range(1, 100) <= chance_succeed)
                     {
                         //change it      
                         to_item.enchants = from_item.enchants;

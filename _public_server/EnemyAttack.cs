@@ -112,7 +112,7 @@ public class EnemyAttack : MonoBehaviour
                     float DamageTX = CalculateDamageTx(PlayerToAttack);
 
                     //calculamos el critico
-                    if (Random.Range(0f, 100f) <= EnemyStats.Critical_percent_agi)
+                    if (Random.Range(1, 100) <= EnemyStats.Critical_percent_agi)
                     {
                         Critico = true;
                         DamageTX = Mathf.RoundToInt(DamageTX * 2);
@@ -134,7 +134,7 @@ public class EnemyAttack : MonoBehaviour
 	                {
 	    	            Adj_dodge_chance = PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance; // JWR - No bonus if stationary
 	                }
-                    if (Random.Range(0f, 100f) <= Adj_dodge_chance)
+                    if (Random.Range(1, 100) <= Adj_dodge_chance)
                     {
                         dodged = true;
                         DamageTX = 0;
