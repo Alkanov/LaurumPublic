@@ -569,13 +569,13 @@ public class PlayerStats : NetworkBehaviour
         }
         if (PlayerSkillsActions.is_casting)
         {
-            PlayerMPSync.PlayerSpeed = Walking_spd*0.5f;
+            PlayerMPSync.PlayerSpeed = Walking_spd * 0.5f;
         }
         else
         {
             PlayerMPSync.PlayerSpeed = Walking_spd;
         }
-        
+
 
 
         //HP
@@ -593,7 +593,7 @@ public class PlayerStats : NetworkBehaviour
         }
 
         //Event Max HP
-        MaxHealth = Mathf.Round(MaxHealth *PlayerGeneral.x_ObjectHelper.game_event_manager.is_event_on(game_event_manager.game_event.extra_hp));
+        MaxHealth = Mathf.Round(MaxHealth * PlayerGeneral.x_ObjectHelper.game_event_manager.is_event_on(game_event_manager.game_event.extra_hp));
         //Event Max MP
         MaxMana = Mathf.Round(MaxMana * PlayerGeneral.x_ObjectHelper.game_event_manager.is_event_on(game_event_manager.game_event.extra_mp));
 
@@ -844,6 +844,10 @@ public class PlayerStats : NetworkBehaviour
     public float Exp100;
     public float nextLevelExp;
     public int Total_rebirths = 0;
+
+    float[] train_exp_buffer;
+    float player_exp_buffer = 0f;
+    bool allowed_to_save_exp;
     #endregion
 
     #region Others      
@@ -859,8 +863,10 @@ public class PlayerStats : NetworkBehaviour
     public int herbalism_exp;
     #endregion
 
+    #region Unity event   
     private void Awake()
     {
+        train_exp_buffer = new float[8];
         PlayerQuestInfo = GetComponent<PlayerQuestInfo>();
         PlayerStatistics = GetComponent<PlayerStatistics>();
         PlayerGeneral = GetComponent<PlayerGeneral>();
@@ -874,15 +880,20 @@ public class PlayerStats : NetworkBehaviour
         PlayerAccountInfo = GetComponent<PlayerAccountInfo>();
 
     }
-
     void Start()
     {
         setCustomStats_lvl();
         setCustomStats_reb();
         HPandMPRegen();
         StartCoroutine(waitsecodsafterstart());
+        StartCoroutine(save_exp_cooldown());
     }
-
+    private void OnDestroy()
+    {
+        //save exp when player logsout
+        save_exp_changes(true);
+    }
+    #endregion
     private void setCustomStats_reb()
     {
         PlayerCustomStats_reb = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -912,13 +923,10 @@ public class PlayerStats : NetworkBehaviour
                         var tempExp = CurrentEXP;
                         var tempClass = PlayerSelectedClass;
                         var tempGold = PlayerInventory.Gold;
-                        PlayerInventory.Gold = PlayerInventory.Gold - goldpen;
-
-
 
                         player_exp_change(Mathf.RoundToInt(-ExpPayed), PlayerStats.exp_source.config);
-
-                        StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(PlayerGeneral.ServerDBHandler.addGold(PlayerAccountInfo.PlayerAccount, -goldpen)));
+                        PlayerInventory.ChangeGold_NEGATIVE_or_POSITIVE_gold(-goldpen, string.Empty,false);
+                        //StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(PlayerGeneral.ServerDBHandler.addGold(PlayerAccountInfo.PlayerAccount, -goldpen)));
                         StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(PlayerGeneral.ServerDBHandler.SaveChangedClass(PlayerAccountInfo.PlayerAccount, PlayerSelectedClassCmd)));
 
 
@@ -1050,7 +1058,7 @@ public class PlayerStats : NetworkBehaviour
                     case 0://Gemas random
                         SavePreRebirthLog();
                         //Quitar gold
-                        PlayerInventory.Gold_changeAndSave(-goldrequired);
+                        PlayerInventory.ChangeGold_NEGATIVE_or_POSITIVE_gold(-goldrequired,"rebirth",true);
                         //Aumentar rebirth y borrar exp en base de datos
                         string query = PlayerGeneral.ServerDBHandler.rebirthOperations(PlayerAccountInfo.PlayerAccount, "rebirth", CurrentEXP);
                         // .LogError("Rebirth: " + query);
@@ -1276,7 +1284,7 @@ public class PlayerStats : NetworkBehaviour
         return Mathf.Floor(baseXP * (Mathf.Pow(level, (exponent + (rebirths * 0.03f)))));
     }
     public int getLevelfromExp(float current, int rebirths)
-    {       
+    {
         return (int)Mathf.Floor(Mathf.Pow((current / baseXP), 1f / (exponent + (rebirths * 0.03f))));
     }
     public void NudeMode()
@@ -1326,23 +1334,23 @@ public class PlayerStats : NetworkBehaviour
                 case exp_source.quest:
                     exp_multiplier = PlayerGeneral.x_ObjectHelper.game_event_manager.is_event_on(game_event_manager.game_event.quest_exp);
                     exp_to_change = Mathf.RoundToInt(exp_multiplier * exp_to_change);
-                    break; 
+                    break;
                 default:
                     break;
             }
-           
+
 
             if (stat_training_exp_change(exp_to_change))
             {
                 CurrentEXP += exp_to_change;
                 PlayerGeneral.showCBT(gameObject, false, false, exp_to_change, "exp");
-            }   
+            }
         }
         else if (exp_to_change < 0)
         {
             CurrentEXP += exp_to_change;
             PlayerGeneral.showCBT(gameObject, false, false, exp_to_change, "exp");
-            save_exp_changes(exp_to_change, 0, 0, 0, 0, 0, 0, 0, 0);
+            player_exp_buffer += exp_to_change;
         }
 
 
@@ -1433,63 +1441,63 @@ public class PlayerStats : NetworkBehaviour
                  * */
                 case 3100:
                     stat_training_exp[3] += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));//round to keep it clean
-                    total_train_exp+= Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3101:
                     stat_training_exp[4] += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3102:
                     stat_training_exp[0] += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3103:
                     stat_training_exp[2] += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3104:
                     stat_training_exp[5] += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3105:
                     stat_training_exp[6] += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3106:
                     stat_training_exp[7] += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3107:
                     stat_training_exp[1] += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.1f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3108:
                     stat_training_exp[3] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
                     stat_training_exp[4] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3109:
                     stat_training_exp[0] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
                     stat_training_exp[5] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3110:
                     stat_training_exp[2] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
                     stat_training_exp[6] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3111:
@@ -1519,18 +1527,18 @@ public class PlayerStats : NetworkBehaviour
                     total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
                     total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade)); 
                     allowed_to_gain_character_exp = false;
-                    break;                
+                    break;
                 case 3115:
                     stat_training_exp[3] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
                     stat_training_exp[4] += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3116:
                     stat_training_exp[0] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
                     stat_training_exp[5] += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
                     total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade));
                     allowed_to_gain_character_exp = false;
                     break;
@@ -1622,15 +1630,28 @@ public class PlayerStats : NetworkBehaviour
         {
             WARNING_full_exp = 0f;
         }
-        //.LogError(WARNING_full_exp + " " + str_exp + " " + dex_exp + " " + int_exp + " " + sta_exp + " " + wis_exp + " " + def_exp + " " + mdef_exp + " " + agi_exp);
-        save_exp_changes(WARNING_full_exp, str_exp, dex_exp, int_exp, sta_exp, wis_exp, def_exp, mdef_exp, agi_exp);
+
+        //add exp we gonna save    
+        //--training
+        train_exp_buffer[0] += str_exp;
+        train_exp_buffer[1] += dex_exp;
+        train_exp_buffer[2] += int_exp;
+        train_exp_buffer[3] += sta_exp;
+        train_exp_buffer[4] += wis_exp;
+        train_exp_buffer[5] += def_exp;
+        train_exp_buffer[6] += mdef_exp;
+        train_exp_buffer[7] += agi_exp;
+        //--player exp
+        player_exp_buffer += WARNING_full_exp;
+
+        save_exp_changes(false);
         refresh_stat_training_on_client();
 
         if (total_train_exp > 0)
         {
             PlayerGeneral.showCBT(gameObject, false, false, total_train_exp, "t_exp");
         }
-        
+
         return allowed_to_gain_character_exp;
     }
 
@@ -1653,11 +1674,37 @@ public class PlayerStats : NetworkBehaviour
         }
     }
 
-
-    void save_exp_changes(float exp_change, float str_exp, float dex_exp, float int_exp, float sta_exp, float wis_exp, float def_exp, float mdef_exp, float agi_exp)
+    void save_exp_changes(bool force)
     {
-        var urlServer = PlayerGeneral.ServerDBHandler.SaveExp(PlayerAccountInfo.PlayerAccount, exp_change, str_exp, dex_exp, int_exp, sta_exp, wis_exp, def_exp, mdef_exp, agi_exp);
-        PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(urlServer));
+        //if allowed to save now
+        if (allowed_to_save_exp || force)
+        {
+            //if there is any change negative or positive
+            if (train_exp_buffer.Sum() != 0 || player_exp_buffer != 0)
+            {
+                var urlServer = PlayerGeneral.ServerDBHandler.SaveExp(PlayerAccountInfo.PlayerAccount, player_exp_buffer, train_exp_buffer);
+                PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(urlServer));
+                //all saved (hopefully) so clear the buffer
+                Array.Clear(train_exp_buffer, 0, train_exp_buffer.Length);
+                player_exp_buffer = 0f;
+                allowed_to_save_exp = false;
+            }
+        }
+    }
+    IEnumerator save_exp_cooldown()
+    {
+        yield return new WaitForSeconds(60f);
+        //please dont break, if this breaks then exp on this session wont be saved
+        try
+        {
+            allowed_to_save_exp = true;
+            StartCoroutine(save_exp_cooldown());
+        }
+        catch (Exception ex)
+        {
+            StartCoroutine(save_exp_cooldown());
+            Debug.LogError(ex.ToString());
+        }        
     }
     #endregion
 
@@ -1787,7 +1834,7 @@ public class PlayerStats : NetworkBehaviour
                     StartCoroutine(PlayerAccountInfo.dcInSecs(5f));
                 }
                 else
-                {                    
+                {
                     char delimiter = ',';
                     string[] substrings = urlServerReply.Split(delimiter);
 
@@ -1796,15 +1843,15 @@ public class PlayerStats : NetworkBehaviour
 
                     PlayerAccountInfo.PlayerNickname = substrings[0];
                     //admin
-                    if (PlayerAccountInfo.PlayerNickname == "Alkanov" ||                         
-                        PlayerAccountInfo.PlayerNickname == "Celmi" || 
+                    if (PlayerAccountInfo.PlayerNickname == "Alkanov" ||
+                        PlayerAccountInfo.PlayerNickname == "Celmi" ||
                         PlayerAccountInfo.PlayerNickname == "Zelp")
                     {
                         PlayerAccountInfo.isAdmin = true;
                         this.GetComponent<NetworkProximityChecker>().forceHidden = true;
 
                     }
-                        PlayerAccountInfo.PlayerAccount = substrings[23];
+                    PlayerAccountInfo.PlayerAccount = substrings[23];
 
                     CurrentHP = float.Parse(substrings[1]);
 
@@ -1818,7 +1865,7 @@ public class PlayerStats : NetworkBehaviour
                     PlayerAccountInfo.TargetNickChangesAvail(connectionToClient, PlayerAccountInfo.PlayerNickChangesAvail);
 
                     PlayerSelectedClass = substrings[5];
-                    ClassChange();                    
+                    ClassChange();
                     PlayerAccountInfo.ModifyKarma(int.Parse(substrings[6]), true);//set player karma
 
                     parseGuildData(substrings);
@@ -1860,7 +1907,7 @@ public class PlayerStats : NetworkBehaviour
                     //online status
                     if (substrings[22] == "0" || substrings[22] == PlayerGeneral.x_ObjectHelper.IRCchat.nickName)
                     {
-                        
+
                         GameObject alreadyConnected = PlayerGeneral.PlayersConnected.getPlayerObject_byAccount(PlayerAccountInfo.PlayerAccount);
                         if (alreadyConnected == null)
                         {
@@ -1881,7 +1928,7 @@ public class PlayerStats : NetworkBehaviour
                     }
                     else
                     {
-                       
+
                         PlayerMPSync.TargetDCbyServer(connectionToClient, "0");
                         StartCoroutine(PlayerAccountInfo.dcInSecs(5f));
                     }
@@ -2180,7 +2227,7 @@ public class PlayerStats : NetworkBehaviour
         for (int i = 0; i < PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list.Count; i++)
         {
             if (stat_training_levels[stat_index] >= PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].level_min && stat_training_levels[stat_index] <= PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].level_max)
-            {               
+            {
                 return 1f + (stat_training_levels[stat_index] * PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].multiplier / 100f);
             }
         }
