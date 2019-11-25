@@ -33,7 +33,7 @@ public class skillDB : MonoBehaviour
         //Bleed
         Skills.Add(new skill(61004, skill.SAction.active, skill.Stype.target_DOT, PlayerStats.PlayerClass.Warrior, 9f, 0.3f, new float[2] { 1.8f, 5f }, 18));//value//time(not in use)
         //Execution
-        Skills.Add(new skill(61016, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Warrior, 5.4f, 0.3f, new float[2] { 1.7f, 40f }, 15));//damage/% requirement
+        Skills.Add(new skill(61016, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Warrior, 5.4f, 0.3f, new float[2] { 2f, 35f }, 15));//damage/% requirement
         //Armor Crusher
         Skills.Add(new skill(61024, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[3] { -35f, 100f, 5f }, 12));//decreased def/chance/time
         //Dismember
@@ -55,9 +55,9 @@ public class skillDB : MonoBehaviour
         //Soul Cravings
         Skills.Add(new skill(61010, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Warrior, 5.4f, 0.3f, new float[2] { 1.7f, 30f }, 15));//damage/heal
         //Ultimate Defense
-        Skills.Add(new skill(61020, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.4f, new float[2] { 40f, 10f }, 10));//buff/time
+        Skills.Add(new skill(61020, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.4f, new float[2] { 35f, 10f }, 10));//buff/time
         //Arrow Deflect
-        Skills.Add(new skill(61028, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[2] { 40f, 5f }, 12));//buff/time
+        Skills.Add(new skill(61028, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[2] { 35f, 5f }, 12));//buff/time
         //Shields Up
         Skills.Add(new skill(61029, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 5f, 0.2f, new float[1] { 10f }, 10));//time
 
