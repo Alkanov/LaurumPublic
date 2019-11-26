@@ -212,7 +212,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         //Critical lottery      
         if (Critico)
         {
-            float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVE_Crit_Multiplier].value;
+            float critMultiplier = EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVE_Crit_Multiplier].value;
             DamageRX = DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage);
         }
 
@@ -324,7 +324,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                 //critical lottery
                 if (Critico)
                 {
-                    float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVE_Crit_Multiplier].value;
+                    float critMultiplier = EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVE_Crit_Multiplier].value;
                     DamageRX = DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage);
                 }
                 //dodge lottery
@@ -348,7 +348,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     //flame missile
                     if (skillRequested.SkillID == 62002)
                     {
-                        if (Random.Range(0f, 100f) <= (skillRequested.multipliers[1])
+                        if (Random.Range(0f, 100f) <= (skillRequested.multipliers[1]))
                         {
                             EnemyConditions.handle_effect(DOT_effect.effect_type.fire, skillRequested.multipliers[0], fromPlayer);
                         }
@@ -386,7 +386,7 @@ public class EnemyTakeDamage : NetworkBehaviour
 
 
                 //take the damage
-                finalNumber = Mathf.roundToInt(CentralEnemyTakeDamage(DamageRX, fromPlayer));
+                finalNumber = Mathf.RoundToInt(CentralEnemyTakeDamage(DamageRX, fromPlayer));
             }
 
 

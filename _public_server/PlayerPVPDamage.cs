@@ -213,7 +213,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                 var reflectSTR = (float) PlayerStats.modReflectSTR * DamageRX / 100f;
                 if (reflectSTR > 0f)
                 {
-                    int toReflect = Mathf.roundToInt(reflectSTR)
+                    int toReflect = Mathf.RoundToInt(reflectSTR);
                     //reflect the damage straight away - player attacking cannot dodge/defend himself from this damage
                     fromPlayer.GetComponent<PlayerStats>().CurrentHP -= toReflect;
                     //send animation to client (damage numbers)
@@ -254,7 +254,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                 }
             }
 
-            int damageToTake = Mathf.roundToInt(DamageRX);
+            int damageToTake = Mathf.RoundToInt(DamageRX);
             //take the damage
             takeDamageinPVPNow(damageToTake, fromPlayer, Critico);
 
@@ -571,7 +571,7 @@ public class PlayerPVPDamage : NetworkBehaviour
 
                         }
 
-                        int damageToTake = Mathf.roundToInt(DamageRX);
+                        int damageToTake = Mathf.RoundToInt(DamageRX);
                         takeDamageinPVPNow(damageToTake, fromPlayer, Critico);
                         finalNumber = damageToTake;
                     }

@@ -48,7 +48,7 @@ public class skillDB : MonoBehaviour
         //Slow down!
         Skills.Add(new skill(61026, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[2] { 25f, 5f }, 12));//debuff/time
         //On your knees!
-        Skills.Add(new skill(61027, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Warrior, 13.5f, 0.5f, new float[2] { 1.25f, 50f, 75f }, 18));//damage//chance stun/chance slow        
+        Skills.Add(new skill(61027, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Warrior, 13.5f, 0.5f, new float[3] { 1.25f, 50f, 75f }, 18));//damage//chance stun/chance slow        
         //---------------Champion     
         //Shield Stun
         Skills.Add(new skill(61003, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Warrior, 6.3f, 0.4f, new float[2] { 1.6f, 50f }, 15));//damage/chance
