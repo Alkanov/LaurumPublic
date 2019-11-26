@@ -249,7 +249,7 @@ public class PlayerConditions : NetworkBehaviour
                 break;
             case 61024://Armor Crusher
                 chance = skillRequested.multipliers[1];
-                if (Random.Range(0, 100) <= chance)
+                if (Random.Range(0f, 100f) <= chance)
                 {
                     debuff_data.buff_debuff_ID.Add(11);
                     debuff_data.time = skillRequested.multipliers[2];
@@ -326,7 +326,7 @@ public class PlayerConditions : NetworkBehaviour
                 }
                 break;
             case 62010:
-                if (Random.Range(0f, 100f) < skillRequested.multipliers[1])
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(2);
                     debuff_data.time = 2.5f;
