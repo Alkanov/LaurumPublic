@@ -1858,7 +1858,7 @@ public class Translations : MonoBehaviour
             skillTitles[62002] = "Flame Missile";
             skillDescriptions[62002] = "Damages your target and has a {1}% chance to apply burn for 5 seconds";
             skillTitles[62003] = "Burn";
-            skillDescriptions[62003] = "Applies burn on your target. Lasts for 5 seconds";
+            skillDescriptions[62003] = "Applies burn on your target for 5 seconds";
             skillTitles[62004] = "Meteor Rain";
             skillDescriptions[62004] = "Summons a rain of meteors that hits everything around you";
             skillTitles[62005] = "Lava Barrier";
@@ -1878,7 +1878,7 @@ public class Translations : MonoBehaviour
             skillTitles[62012] = "Mana shield";
             skillDescriptions[62012] = "Incoming damage will be taken out of your mana untill effect wears out ({0} seconds) or mana is empty";
             skillTitles[62013] = "Expanded Mana";
-            skillDescriptions[62013] = "Increases your max mana by {0}% and lasts for {1} seconds";
+            skillDescriptions[62013] = "Increases your max mana by {0}% for {1} seconds";
             skillTitles[62014] = "Quick Cast";//Caster Contract
             skillDescriptions[62014] = "Next spell is instant. Lasts for {0} seconds";
             skillTitles[62015] = "Concentration";
@@ -1896,7 +1896,7 @@ public class Translations : MonoBehaviour
             skillDescriptions[63005] = "Damages your target and slows it by -{2}% for 2.5 seconds";
             skillTitles[63006] = "Poison Arrow";
             skillDescriptions[63006] = "Damages your target and has a {1}% chance to apply poison on it for 5 seconds";
-            skillTitles[63007] = "Multi Trap";
+            skillTitles[63007] = "Multitrap";
             skillDescriptions[63007] = "Deploys 4 traps in 4 directions. Traps cause bleed for 5 seconds and slow by -25% for 2.5 seconds when triggered";
             skillTitles[63008] = "Poison Trap";
             skillDescriptions[63008] = "Deploys a trap that applies poison for 5 seconds when triggered";
@@ -1904,9 +1904,9 @@ public class Translations : MonoBehaviour
             skillDescriptions[63009] = "Deploys a trap that stuns on touch for 2.5 seconds";
             skillTitles[63010] = "Booby Trap";
             skillDescriptions[63010] = "Deploys a trap that applies a bomb on touch. Bomb explodes after 1 second applying burn around it for 5 seconds";
-            skillTitles[63011] = "Hunters Mark";
-            skillDescriptions[63011] = "Debuffs your target to take {2}% more skill damage if it has less than {1}% HP. Lasts for {0} seconds";
-            skillTitles[63012] = "Hunters Ritual";
+            skillTitles[63011] = "Hunter's Mark";
+            skillDescriptions[63011] = "Debuffs your target to take {2}% more skill damage for {0} seconds";
+            skillTitles[63012] = "Hunter's Ritual";
             skillDescriptions[63012] = "AoE buff that increases movement speed by {0}% for {1} seconds";
             skillTitles[63013] = "Camouflage";
             skillDescriptions[63013] = "Becomes invisible for {0} seconds (or until skill/auto-attack is used)";
