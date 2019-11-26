@@ -103,7 +103,7 @@ public class PlayerSkillsActions : MonoBehaviour
         //burn mana
         if (PlayerStats.ench_chance_to_free_cast > 0)
         {
-            if (Random.Range(0f, 100f) < PlayerStats.ench_chance_to_free_cast)
+            if (Random.Range(0f, 100f) <= PlayerStats.ench_chance_to_free_cast)
             {
                 PlayerGeneral.showCBT(gameObject, false, false, 0, "+Corrupted Gypsum");
                 PlayerStats.CurrentMP -= mana_usage / 2f;
