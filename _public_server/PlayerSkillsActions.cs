@@ -103,7 +103,7 @@ public class PlayerSkillsActions : MonoBehaviour
         //burn mana
         if (PlayerStats.ench_chance_to_free_cast > 0)
         {
-            if (Random.Range(1, 100) <= PlayerStats.ench_chance_to_free_cast)
+            if (Random.Range(0f, 100f) <= PlayerStats.ench_chance_to_free_cast)
             {
                 PlayerGeneral.showCBT(gameObject, false, false, 0, "+Corrupted Gypsum");
                 PlayerStats.CurrentMP -= mana_usage / 2f;
@@ -151,7 +151,7 @@ public class PlayerSkillsActions : MonoBehaviour
         {
             if (PlayerStats.ench_chance_to_fail_casting > 0)
             {
-                if (Random.Range(1, 100) <= PlayerStats.ench_chance_to_fail_casting)
+                if (Random.Range(0f, 100f) <= PlayerStats.ench_chance_to_fail_casting)
                 {
                     PlayerGeneral.showCBT(gameObject, false, false, 0, "Failed");
                     yield break;
@@ -450,10 +450,11 @@ public class PlayerSkillsActions : MonoBehaviour
                     trap_deployed.transform.position = new Vector3(transform.position.x, transform.position.y - offset, 0);
                 }
                 trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 1;
+                trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 1f;
                 DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
                 trap_details.vanish_timer = 15f;
                 trap_details.owner = gameObject;
-                trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
+                trap_details.trap_effect_power = skillRequested.multipliers[0];
                 trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
                 trap_details.skillRequested = skillRequested;
                 trap_details.trap_effect = DOT_effect.effect_type.bleed_and_apply_slow_debuff;
@@ -468,11 +469,11 @@ public class PlayerSkillsActions : MonoBehaviour
         {
             GameObject trap_deployed = Instantiate(trap_prefab, transform.position, new Quaternion(0f, 0f, 0f, 0f));
             trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 1;
-            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 0.5f;
+            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 1f;
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
             trap_details.owner = gameObject;
-            trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
+            trap_details.trap_effect_power = skillRequested.multipliers[0];
             trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
             trap_details.skillRequested = skillRequested;
             trap_details.trap_effect = DOT_effect.effect_type.poison;
@@ -486,11 +487,10 @@ public class PlayerSkillsActions : MonoBehaviour
         {
             GameObject trap_deployed = Instantiate(trap_prefab, transform.position, new Quaternion(0f, 0f, 0f, 0f));
             trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visRange = 1;
-            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 0.5f;
+            trap_deployed.GetComponent<Mirror.NetworkProximityChecker>().visUpdateInterval = 1f;
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
             trap_details.owner = gameObject;
-            trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
             trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
             trap_details.skillRequested = skillRequested;
             trap_details.trap_effect = DOT_effect.effect_type.apply_stun_debuff;
@@ -509,7 +509,7 @@ public class PlayerSkillsActions : MonoBehaviour
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 15f;
             trap_details.owner = gameObject;
-            trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
+            trap_details.trap_effect_power = skillRequested.multipliers[0];
             trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
             trap_details.skillRequested = skillRequested;
             trap_details.trap_effect = DOT_effect.effect_type.apply_bomb_debuff;
@@ -526,7 +526,7 @@ public class PlayerSkillsActions : MonoBehaviour
             DOT_effect trap_details = trap_deployed.GetComponent<DOT_effect>();
             trap_details.vanish_timer = 10f;
             trap_details.owner = gameObject;
-            trap_details.trap_effect_power = (int)skillRequested.multipliers[0];
+            trap_details.trap_effect_power = skillRequested.multipliers[0];
             trap_details.trap_pvp_status = PlayerPVPDamage.PVPmodeOn;
             trap_details.trap_effect = DOT_effect.effect_type.fire;
             trap_details.trap_sprite = 2;
@@ -617,7 +617,7 @@ public class PlayerSkillsActions : MonoBehaviour
     }
     Vector3 RandomDirection(int variable)
     {
-        Vector3 randomDirection = new Vector3(Random.Range(-5.0f * variable * Random.Range(-1, 1), 5.0f * variable * Random.Range(-1, 1)), Random.Range(-5.0f * variable * Random.Range(-1, 1), 5.0f * variable * Random.Range(-1, 1)), 0);
+        Vector3 randomDirection = new Vector3(Random.Range(-5.0f * variable * Random.Range(-1, 2), 5.0f * variable * Random.Range(-1, 2)), Random.Range(-5.0f * variable * Random.Range(-1, 2), 5.0f * variable * Random.Range(-1, 2)), 0);
         return randomDirection;
     }
     Vector3 RandomPosition(int variable)

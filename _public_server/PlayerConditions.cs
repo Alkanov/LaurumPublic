@@ -208,7 +208,7 @@ public class PlayerConditions : NetworkBehaviour
         var debuff_data = new buff_debuff_data();
         debuff_data.buff_debuff_ID = new List<int>();
         debuff_data.time = 2f;
-        var chance = 0;
+        var chance = 0f;
         switch (skillRequested.SkillID)
         {
             // de_buffid[0] = 1; stun
@@ -227,10 +227,11 @@ public class PlayerConditions : NetworkBehaviour
             //14 Skills hit harder if under x hp
             #region Warrior
             case 61003://shield stun              
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(1);
                     stunned = true;
+                    debuff_data.time = 2.5f;
                     PlayerMPSync.PlayerCanMove = false;
                 }
                 break;
@@ -238,17 +239,17 @@ public class PlayerConditions : NetworkBehaviour
                 //handled on PlayerPVP and EnemyTakeDamage
                 break;
             case 61020://Ultimate Defense
-                chance = 50;
-                if (Random.Range(1, 100) <= chance)
+                chance = 50f;
+                if (Random.Range(0f, 100f) <= chance)
                 {
                     debuff_data.buff_debuff_ID.Add(2);
                     debuff_data.time = skillRequested.multipliers[1];                  
-                    decreasedWalkingSpeed = -20f;
+                    decreasedWalkingSpeed = -25f;
                 }
                 break;
             case 61024://Armor Crusher
-                chance = (int)skillRequested.multipliers[1];
-                if (Random.Range(1, 100) <= chance)
+                chance = skillRequested.multipliers[1];
+                if (Random.Range(0f, 100f) <= chance)
                 {
                     debuff_data.buff_debuff_ID.Add(11);
                     debuff_data.time = skillRequested.multipliers[2];
@@ -265,16 +266,16 @@ public class PlayerConditions : NetworkBehaviour
                     decreasedDamage = skillRequested.multipliers[2];
                 }
                 break;
-            case 61026:
+            case 61026: //Slow down
                 debuff_data.buff_debuff_ID.Add(2);
                 debuff_data.time = skillRequested.multipliers[1];
                 decreasedWalkingSpeed = -skillRequested.multipliers[0];
                 break;
             case 61027://on your knees
-                if (PlayerStats.CurrentHP / PlayerStats.MaxHealth <= skillRequested.multipliers[1])
+                /*if (PlayerStats.CurrentHP / PlayerStats.MaxHealth <= skillRequested.multipliers[1])
                 {
                     chance = (int)skillRequested.multipliers[0];
-                    if (Random.Range(1, 100) <= chance)
+                    if (Random.Range(0f, 100f) <= chance)
                     {
                         debuff_data.buff_debuff_ID.Add(1);
                         stunned = true;
@@ -282,37 +283,54 @@ public class PlayerConditions : NetworkBehaviour
                     }
                 }
                 break;
+                */
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
+                {
+                    debuff_data.buff_debuff_ID.Add(1);
+                    debuff_data.time = 2.5f;
+                    stunned = true;
+                    PlayerMPSync.PlayerCanMove = false;
+                }
+                else if (Random.Range(0f, 100) <= skillRequested.multipliers[2])
+                {
+                    debuff_data.buff_debuff_ID.Add(2);
+                    debuff_data.time = 2.5f;
+                    decreasedWalkingSpeed = -25f;                    
+                }
+                break;
             #endregion
 
             #region Wizard
             case 62007:  //frost blade           
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(13);
+                    debuff_data.time = 2.5f;
                     stunned = true;
                     PlayerMPSync.PlayerCanMove = false;
                 }
                 break;
             case 62009:
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(13);
-                    debuff_data.time = 3f;
+                    debuff_data.time = 2.5f;
                     stunned = true;
                     PlayerMPSync.PlayerCanMove = false;
                 }
-                else if (Random.Range(1, 100) <= skillRequested.multipliers[2])
+                else if (Random.Range(0f, 100f) <= skillRequested.multipliers[2])
                 {
                     debuff_data.buff_debuff_ID.Add(2);
-                    debuff_data.time = 5f;
-                    decreasedWalkingSpeed = -20f;                    
+                    debuff_data.time = 2.5f;
+                    decreasedWalkingSpeed = -25f;                    
                 }
                 break;
             case 62010:
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(2);
-                    decreasedWalkingSpeed = -20f;
+                    debuff_data.time = 2.5f;
+                    decreasedWalkingSpeed = -25f;
                 }
                 break;
             case 62011://Corpse Life Drain
@@ -323,9 +341,10 @@ public class PlayerConditions : NetworkBehaviour
 
             #region Hunter
             case 63005://Hamstring Shot                
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1] )
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1] )
                 {
                     debuff_data.buff_debuff_ID.Add(2);
+                    debuff_data.time = 2.5f;
                     decreasedWalkingSpeed = -skillRequested.multipliers[2];
                 }
                 break;
@@ -336,8 +355,8 @@ public class PlayerConditions : NetworkBehaviour
             #endregion
             #region Paladin
             case 64012:
-                chance = (int)skillRequested.multipliers[0];
-                if (Random.Range(1, 100) <= chance)
+                chance = skillRequested.multipliers[0];
+                if (Random.Range(0f, 100f) <= chance)
                 {
                     debuff_data.buff_debuff_ID.Add(10);
                     debuff_data.time = skillRequested.multipliers[1];
@@ -345,8 +364,8 @@ public class PlayerConditions : NetworkBehaviour
                 }
                 break;
             case 64014://buff remover
-                chance = (int)skillRequested.multipliers[0];
-                if (Random.Range(1, 100) <= chance && buffs.Count > 0)
+                chance = skillRequested.multipliers[0];
+                if (Random.Range(0f, 100f) <= chance && buffs.Count > 0)
                 {
                     reset_buffs_or_debuffs(type.buff);
                 }
@@ -356,7 +375,7 @@ public class PlayerConditions : NetworkBehaviour
 
             /* case 2020://Hamstring Shot
                   chance = 60;
-                  if (Random.Range(1, 100) <= chance)
+                  if (Random.Range(0f, 100f) <= chance)
                   {
                       de_buffid[0] = 2;
                       slowed = true;
@@ -556,7 +575,7 @@ public class PlayerConditions : NetworkBehaviour
                             if (!buffs.Contains(1))
                             {
                                 chance = 40;
-                                if (Random.Range(1, 100) <= chance)
+                                if (Random.Range(0f, 100f) <= chance)
                                 {
                                     buffid[0] = 1;
                                     PlayerMPSync.PlayerSpeed *= 1.20f;
@@ -930,7 +949,7 @@ public class PlayerConditions : NetworkBehaviour
    
     public void handle_effect(DOT_effect.effect_type effect, float effect_power, GameObject effect_dealer, float pve_damage)
     {
-        var total_time = 6f;
+        var total_time = 4f;
         var effectid = -1;
         var effect_every = 1f;
         switch (effect)
@@ -938,7 +957,7 @@ public class PlayerConditions : NetworkBehaviour
             case DOT_effect.effect_type.poison:
                 effectid = 9010;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 5f;
+                total_time = 4f;
                 break;
             case DOT_effect.effect_type.fire:
                 effectid = 9020;

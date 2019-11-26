@@ -165,7 +165,7 @@ public class PlayerStats : NetworkBehaviour
         public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
 
         public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
-        public static float Critical_damage_percent_base = 2.0f;
+        public static float Critical_damage_percent_base = 0f;
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
@@ -207,7 +207,7 @@ public class PlayerStats : NetworkBehaviour
         public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
 
         public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
-        public static float Critical_damage_percent_base = 2.0f;
+        public static float Critical_damage_percent_base = 0f;
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
@@ -249,7 +249,7 @@ public class PlayerStats : NetworkBehaviour
         public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
 
         public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
-        public static float Critical_damage_percent_base = 2.0f;
+        public static float Critical_damage_percent_base = 0f;
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
@@ -291,7 +291,7 @@ public class PlayerStats : NetworkBehaviour
         public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
 
         public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
-        public static float Critical_damage_percent_base = 2.0f;
+        public static float Critical_damage_percent_base = 0f;
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
@@ -1076,7 +1076,7 @@ public class PlayerStats : NetworkBehaviour
                         PlayerSkills.SP += 4;
                         PlayerSkills.total_PSP += 1;
                         PlayerSkills.PSP += 1;*/
-                        gemsaward = UnityEngine.Random.Range(100, 220);
+                        gemsaward = UnityEngine.Random.Range(100, 220 + 1);
                         var had_gems = PlayerAccountInfo.PlayerIAPcurrency;
                         PlayerAccountInfo.PlayerIAPcurrency += gemsaward;
                         StartCoroutine(PlayerGeneral.x_ObjectHelper.IAPmanager.changeIAPcurrency(had_gems, PlayerAccountInfo.PlayerIAPcurrency, gemsaward, gameObject));
@@ -2053,7 +2053,7 @@ public class PlayerStats : NetworkBehaviour
                         //show text
                         PlayerGeneral.showCBT(gameObject, false, false, hpaffected * -1, "damage");
 
-                        if (UnityEngine.Random.Range(0, 100) <= 20)
+                        if (UnityEngine.Random.Range(0f, 100f) <= 20f)
                         {
                             //spawn blood animation
                             PlayerGeneral.x_ObjectHelper.spawn_sync_object(1, 5f, transform.position);
@@ -2067,7 +2067,7 @@ public class PlayerStats : NetworkBehaviour
                 else
                 {
                     CurrentHP += hpaffected;
-                    if (UnityEngine.Random.Range(0, 100) <= 20)
+                    if (UnityEngine.Random.Range(0f, 100f) <= 20f)
                     {
                         //spawn blood animation
                         PlayerGeneral.x_ObjectHelper.spawn_sync_object(1, 5f, transform.position);

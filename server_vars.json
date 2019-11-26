@@ -32,8 +32,13 @@
       },
       {
          "ID":7,
-         "value":0.75,
+         "value":1.25,
          "description":"Crit damage % (PVP)"
+      },
+      {
+         "ID":8,
+         "value":1.25,
+         "description":"Crit damage % (PVE)"
       }
    ]
 }

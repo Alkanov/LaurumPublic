@@ -58,7 +58,12 @@ public class ServerUniversalSettings : MonoBehaviour
         /// <summary>
         /// Crit damage % (PVP)
         /// </summary>
-        PVP_Crit_Multiplier
+        PVP_Crit_Multiplier,
+
+        /// <summary>
+        /// Crit damage % (PVE)
+        /// </summary>
+        PVE_Crit_Multiplier
     }
 
     /// <summary>
