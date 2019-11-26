@@ -132,7 +132,7 @@ public class EnemyTakeDamage : NetworkBehaviour
     bool isCritical(GameObject fromPlayer)
     {
         //Critical lottery
-        var roll = Random.Range(1, 100);
+        var roll = Random.Range(0f, 100f);
         if (roll <= fromPlayer.GetComponent<PlayerStats>().Critical_chance)
         {
             return true;
@@ -145,7 +145,7 @@ public class EnemyTakeDamage : NetworkBehaviour
     }
     bool did_I_Dodged()
     {
-        if (Random.Range(1, 100) <= EnemyStats.Dodge_percent_dex)
+        if (Random.Range(0f, 100f) <= EnemyStats.Dodge_percent_dex)
         {
             return true;
         }
@@ -203,7 +203,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         //used on aggro
         EnemyAggro.wasAttacked = true;
         //damage 
-        int DamageRX = CalculateDamageRx(fromPlayer, damage_multiplier);
+        float DamageRX = CalculateDamageRx(fromPlayer, damage_multiplier);
 
         //used for animations
         bool Critico = isCritical(fromPlayer);
@@ -213,23 +213,23 @@ public class EnemyTakeDamage : NetworkBehaviour
         if (Critico)
         {
             float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVE_Crit_Multiplier].value;
-            DamageRX = Mathf.RoundToInt(DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage));
+            DamageRX = DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage);
         }
 
         //Enemy dodge lottery       
         if (dodged)
         {
-            DamageRX = 0;
+            DamageRX = 0f;
         }
 
-        if (DamageRX > 0)
+        if (DamageRX > 0f)
         {
-            DamageRX = Random.Range(Mathf.RoundToInt(DamageRX * 0.95f), Mathf.RoundToInt(DamageRX * 1.05f));
+            DamageRX = Random.Range(DamageRX * 0.95f, DamageRX * 1.05f);
         }
 
 
         //take the hit
-        DamageRX = (int)CentralEnemyTakeDamage(DamageRX, fromPlayer);
+        DamageRX = CentralEnemyTakeDamage(DamageRX, fromPlayer);
 
         //skill/passives checks
         if (fromPlayer.GetComponent<PlayerConditions>().has_buff_debuff(PlayerConditions.type.buff, 17))//if attacker has frozen hands
@@ -240,7 +240,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         }
 
         //Show hit numbers on top of this enemy
-        fromPlayer.GetComponent<PlayerGeneral>().showCBT(gameObject, Critico, dodged, DamageRX, "damage");
+        fromPlayer.GetComponent<PlayerGeneral>().showCBT(gameObject, Critico, dodged, Mathf.RoundToInt(DamageRX), "damage");
         //show auto attack animation
         fromPlayer.GetComponent<PlayerGeneral>().send_autoATK_animation(fromPlayer, gameObject);
         //some skills are triggered on auto attack - we do it here
@@ -319,13 +319,13 @@ public class EnemyTakeDamage : NetworkBehaviour
                 EnemyAggro.wasAttacked = true;
 
                 //calculate skill damage
-                int DamageRX = Mathf.RoundToInt(CalculateSkillDamageRx(fromPlayer, skillRequested.multipliers[0]));
+                float DamageRX = CalculateSkillDamageRx(fromPlayer, skillRequested.multipliers[0]);
 
                 //critical lottery
                 if (Critico)
                 {
                     float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVE_Crit_Multiplier].value;
-                    DamageRX = Mathf.RoundToInt(DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage));
+                    DamageRX = DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage);
                 }
                 //dodge lottery
                 if (dodged)
@@ -348,7 +348,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     //flame missile
                     if (skillRequested.SkillID == 62002)
                     {
-                        if (Random.Range(1, 100) <= (int)skillRequested.multipliers[1])
+                        if (Random.Range(0f, 100f) <= (skillRequested.multipliers[1])
                         {
                             EnemyConditions.handle_effect(DOT_effect.effect_type.fire, skillRequested.multipliers[0], fromPlayer);
                         }
@@ -356,7 +356,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     //posion arrow
                     if (skillRequested.SkillID == 63006)
                     {
-                        if (Random.Range(1, 100) <= (int)skillRequested.multipliers[1])
+                        if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                         {
                             EnemyConditions.handle_effect(DOT_effect.effect_type.poison, skillRequested.multipliers[0], fromPlayer);
                         }
@@ -366,12 +366,12 @@ public class EnemyTakeDamage : NetworkBehaviour
                     {
                         if (EnemyStats.CurrentHP / EnemyStats.MaxHP <= buff_info.skill_requested.multipliers[1] / 100f)
                         {
-                            DamageRX *= Mathf.RoundToInt(1f + (buff_info.skill_requested.multipliers[2] / 100f));
+                            DamageRX *= 1f + (buff_info.skill_requested.multipliers[2] / 100f);
                         }
                     }
                     if (skillRequested.SkillID == 61008)//provoke
                     {
-                        if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                        if (Random.Range(0f, 100f) < skillRequested.multipliers[1])
                         {
                             damageType = "Provoked!";
                             EnemyAggro.AggroChange(fromPlayer);
@@ -386,7 +386,7 @@ public class EnemyTakeDamage : NetworkBehaviour
 
 
                 //take the damage
-                finalNumber = (int)CentralEnemyTakeDamage(DamageRX, fromPlayer);
+                finalNumber = Mathf.roundToInt(CentralEnemyTakeDamage(DamageRX, fromPlayer));
             }
 
 
@@ -409,7 +409,7 @@ public class EnemyTakeDamage : NetworkBehaviour
 
 
     }
-    public int CalculateSkillDamageRx(GameObject fromPlayer, float skillDamage_multiplier)
+    public float CalculateSkillDamageRx(GameObject fromPlayer, float skillDamage_multiplier)
     {
         float DamageRxAcc;
 
@@ -430,19 +430,19 @@ public class EnemyTakeDamage : NetworkBehaviour
         }
 
         //if player-enemy level diff is above 10 lvls then we cut divide by 5 - this is to create a quick balance must be fixed by stats
-        DamageRxAcc = LevelModifierDamage(fromPlayer, (int)DamageTx);
+        DamageRxAcc = LevelModifierDamage(fromPlayer, DamageTx);
 
         if (DamageRxAcc <= 0)
         {
             DamageRxAcc = 1;
         }
-        return Mathf.RoundToInt(DamageRxAcc);
+        return DamageRxAcc;
 
     }
     #endregion
 
     #region Damage related
-    int CalculateDamageRx(GameObject fromPlayer, float extra_dmg_multiplier)
+    float CalculateDamageRx(GameObject fromPlayer, float extra_dmg_multiplier)
     {
         //this is the final damage to return       
         float DamageRxAcc = 0;
@@ -463,7 +463,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         }
         //.LogError("Damage Player --> Enemy  " + DamageRxAcc);
         //if player-enemy level diff is above 10 lvls then we cut divide by 5 - this is to create a quick balance must be fixed by stats
-        DamageRxAcc = LevelModifierDamage(fromPlayer, (int)DamageRxAcc);
+        DamageRxAcc = LevelModifierDamage(fromPlayer, DamageRxAcc);
 
         //multiplie
         DamageRxAcc *= extra_dmg_multiplier;
@@ -473,7 +473,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         {
             DamageRxAcc = 2f;
         }
-        return Mathf.RoundToInt(DamageRxAcc);
+        return DamageRxAcc;
 
     }
     public float CentralEnemyTakeDamage(float DamageToTake, GameObject fromPlayer)
@@ -483,7 +483,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         //if enemy is already aggroed by someone else there is a 30% chance to pull that aggro to avoid super tanking
         if (EnemyAggro.isAggroed)
         {
-            if (Random.Range(1, 100) <= 30)
+            if (Random.Range(0f, 100f) <= 30f)
             {
                 EnemyAggro.AggroedByAttack(fromPlayer);
             }
@@ -500,7 +500,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         if (EnemyConditions.converting_dmg_to_hp)
         {
             EnemyStats.CurrentHP = EnemyStats.CurrentHP + DamageToTake;
-            fromPlayer.GetComponent<PlayerGeneral>().showCBT(gameObject, false, false, (int)DamageToTake, "heal");
+            fromPlayer.GetComponent<PlayerGeneral>().showCBT(gameObject, false, false, Mathf.RoundToInt(DamageToTake), "heal");
         }
         else
         {
@@ -784,9 +784,9 @@ public class EnemyTakeDamage : NetworkBehaviour
                     //modMPonKill
                     maxDMGplayer_PlayerStats.CurrentMP += (maxDMGplayer_PlayerStats.modMPonKill / 100f * maxDMGplayer_PlayerStats.MaxMana);
                     //enchant
-                    if (maxDMGplayer_PlayerStats.ench_free_hp_potion_use_on_kill > 0)
+                    if (maxDMGplayer_PlayerStats.ench_free_hp_potion_use_on_kill > 0f)
                     {
-                        if (Random.Range(1, 100) <= maxDMGplayer_PlayerStats.ench_free_hp_potion_use_on_kill)
+                        if (Random.Range(0f, 100f) <= maxDMGplayer_PlayerStats.ench_free_hp_potion_use_on_kill)
                         {
                             var item = maxDMGplayer_PlayerInventory.FetchEquippedItemByType(Item.UseAs.HPPotion);
                             if (item != null)
@@ -801,7 +801,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     }
                     if (maxDMGplayer_PlayerStats.ench_chance_to_get_free_mphp_potion_charge > 0)
                     {
-                        if (Random.Range(1, 100) <= maxDMGplayer_PlayerStats.ench_chance_to_get_free_mphp_potion_charge)
+                        if (Random.Range(0f, 100f) <= maxDMGplayer_PlayerStats.ench_chance_to_get_free_mphp_potion_charge)
                         {
                             var hp_potion = maxDMGplayer_PlayerInventory.FetchEquippedItemByType(Item.UseAs.HPPotion);
                             var mp_potion = maxDMGplayer_PlayerInventory.FetchEquippedItemByType(Item.UseAs.MPPotion);
@@ -824,7 +824,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     }
                     if (maxDMGplayer_PlayerStats.ench_free_mp_potion_use_on_kill > 0)
                     {
-                        if (Random.Range(1, 100) <= maxDMGplayer_PlayerStats.ench_free_mp_potion_use_on_kill)
+                        if (Random.Range(0f, 100f) <= maxDMGplayer_PlayerStats.ench_free_mp_potion_use_on_kill)
                         {
                             var item = maxDMGplayer_PlayerInventory.FetchEquippedItemByType(Item.UseAs.MPPotion);
                             if (item != null)
@@ -839,7 +839,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     }
                     if (maxDMGplayer_PlayerStats.ench_chance_to_get_hpandmp_on_kill > 0)
                     {
-                        if (Random.Range(1, 100) <= maxDMGplayer_PlayerStats.ench_chance_to_get_hpandmp_on_kill)
+                        if (Random.Range(0f, 100f) <= maxDMGplayer_PlayerStats.ench_chance_to_get_hpandmp_on_kill)
                         {
                             maxDMGplayer_PlayerStats.CurrentHP = maxDMGplayer_PlayerStats.CurrentHP + (maxDMGplayer_PlayerStats.MaxHealth * 0.01f);
                             maxDMGplayer_PlayerStats.CurrentMP = maxDMGplayer_PlayerStats.CurrentMP + (maxDMGplayer_PlayerStats.MaxMana * 0.01f);
@@ -848,7 +848,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     }
                     if (maxDMGplayer_PlayerStats.ench_chance_to_explode_deads > 0)
                     {
-                        if (Random.Range(1, 100) <= maxDMGplayer_PlayerStats.ench_chance_to_explode_deads)
+                        if (Random.Range(0f, 100f) <= maxDMGplayer_PlayerStats.ench_chance_to_explode_deads)
                         {
                             var enemies_around = EnemySpawnInfo.x_ObjectHelper.get_AOE_LOS_targets(gameObject, 1f, LayerMask.GetMask("Enemy"), false);
                             for (int i = 0; i < enemies_around.Count; i++)
@@ -994,7 +994,7 @@ public class EnemyTakeDamage : NetworkBehaviour
 
                 if (!EnemySpawnInfo.isInDevilSquare)
                 {
-                    EnemySpawnInfo.MasterSpawner.StartCoroutine(EnemySpawnInfo.MasterSpawner.RespawnMobIn(EnemySpawnInfo.MyHouse, Random.Range(EnemySpawnInfo.respawnInTime, EnemySpawnInfo.respawnInTime * 2f)));
+                    EnemySpawnInfo.MasterSpawner.StartCoroutine(EnemySpawnInfo.MasterSpawner.RespawnMobIn(EnemySpawnInfo.MyHouse, Random.Range(EnemySpawnInfo.respawnInTime, EnemySpawnInfo.respawnInTime * 2f + 1)));
                 }
 
                 RpcDestroyIt();
@@ -1010,7 +1010,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         }
 
     }
-    private int LevelModifierDamage(GameObject fromPlayer, int DamageRxAcc)
+    private float LevelModifierDamage(GameObject fromPlayer, float DamageRxAcc)
     {
         int levelDiff = EnemyStats.Level - fromPlayer.GetComponent<PlayerStats>().PlayerLevel;
         if (levelDiff > 5)
@@ -1022,7 +1022,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                 damageLevelPenalty = 0.05f;
 
             // //Debug.LogError(DamageRxAcc + "*" + damageLevelPenalty);
-            DamageRxAcc = Mathf.RoundToInt(DamageRxAcc * damageLevelPenalty);
+            DamageRxAcc = DamageRxAcc * damageLevelPenalty;
 
         }
         ////Debug.LogError("AFTER LevelModifierDamage Player --> Enemy: PlayerDamage=" + DamageRxAcc);

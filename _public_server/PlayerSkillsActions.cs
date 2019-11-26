@@ -103,7 +103,7 @@ public class PlayerSkillsActions : MonoBehaviour
         //burn mana
         if (PlayerStats.ench_chance_to_free_cast > 0)
         {
-            if (Random.Range(1, 100) <= PlayerStats.ench_chance_to_free_cast)
+            if (Random.Range(0f, 100f) < PlayerStats.ench_chance_to_free_cast)
             {
                 PlayerGeneral.showCBT(gameObject, false, false, 0, "+Corrupted Gypsum");
                 PlayerStats.CurrentMP -= mana_usage / 2f;
@@ -151,7 +151,7 @@ public class PlayerSkillsActions : MonoBehaviour
         {
             if (PlayerStats.ench_chance_to_fail_casting > 0)
             {
-                if (Random.Range(1, 100) <= PlayerStats.ench_chance_to_fail_casting)
+                if (Random.Range(0f, 100f) <= PlayerStats.ench_chance_to_fail_casting)
                 {
                     PlayerGeneral.showCBT(gameObject, false, false, 0, "Failed");
                     yield break;
@@ -617,7 +617,7 @@ public class PlayerSkillsActions : MonoBehaviour
     }
     Vector3 RandomDirection(int variable)
     {
-        Vector3 randomDirection = new Vector3(Random.Range(-5.0f * variable * Random.Range(-1, 1), 5.0f * variable * Random.Range(-1, 1)), Random.Range(-5.0f * variable * Random.Range(-1, 1), 5.0f * variable * Random.Range(-1, 1)), 0);
+        Vector3 randomDirection = new Vector3(Random.Range(-5.0f * variable * Random.Range(-1, 2), 5.0f * variable * Random.Range(-1, 2)), Random.Range(-5.0f * variable * Random.Range(-1, 2), 5.0f * variable * Random.Range(-1, 2)), 0);
         return randomDirection;
     }
     Vector3 RandomPosition(int variable)

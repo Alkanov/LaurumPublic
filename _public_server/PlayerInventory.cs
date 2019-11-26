@@ -1042,7 +1042,7 @@ public class PlayerInventory : NetworkBehaviour
                             case rewards.reward_type.mats_only:
                                 for (int i = 0; i < reward.mat_Amounts.Count; i++)
                                 {
-                                    var amount = UnityEngine.Random.Range(reward.mat_Amounts[i].min, reward.mat_Amounts[i].max);
+                                    var amount = UnityEngine.Random.Range(reward.mat_Amounts[i].min, reward.mat_Amounts[i].max + 1);
                                     material_add_amount_and_save(reward.mat_Amounts[i].materials_inside, amount, string.Format("UID:{0} opened", ItemReference.itemUniqueID));
                                     mats_IDs.Add((int)reward.mat_Amounts[i].materials_inside);
                                     mats_amount.Add(amount);
@@ -1053,7 +1053,7 @@ public class PlayerInventory : NetworkBehaviour
                             case rewards.reward_type.mixed:
                                 break;
                             case rewards.reward_type.iap_only:
-                                IAP_amount = UnityEngine.Random.Range(reward.IAP_gems_amounts.min, reward.IAP_gems_amounts.max);
+                                IAP_amount = UnityEngine.Random.Range(reward.IAP_gems_amounts.min, reward.IAP_gems_amounts.max + 1);
                                 var had_gems = PlayerAccountInfo.PlayerIAPcurrency;
                                 //log the action
                                 var log = string.Format("UID:{0} opened - inside:{1} gems", ItemReference.itemUniqueID, IAP_amount);
@@ -2569,7 +2569,7 @@ public class PlayerInventory : NetworkBehaviour
                         List<int> new_mods = new List<int>();//new mods
                         for (int i = 0; i < itemFound.itemMods.Count; i++)
                         {
-                            new_mods.Add(UnityEngine.Random.Range(1, 19));
+                            new_mods.Add(UnityEngine.Random.Range(1, 19 + 1));
                         }
 
                         for (int i = 0; i < Inventory.InventoryList.Count; i++)//change item mods
@@ -3095,7 +3095,7 @@ public class PlayerInventory : NetworkBehaviour
                         chance_succeed = 36f;
                     }
 
-                    if (UnityEngine.Random.Range(1, 100) <= chance_succeed)
+                    if (UnityEngine.Random.Range(0f, 100f) <= chance_succeed)
                     {
                         //change it      
                         to_item.enchants = from_item.enchants;
@@ -3272,7 +3272,7 @@ public class PlayerInventory : NetworkBehaviour
 
                     if (chance_succeed > 0)
                     {
-                        if (UnityEngine.Random.Range(1, 101) <= chance_succeed)
+                        if (UnityEngine.Random.Range(0f, 100f) <= chance_succeed)
                         {
                             //change it      
                             InventoryItem_to_change.itemUpgrade += upgrade_amount;
