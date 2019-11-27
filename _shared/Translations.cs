@@ -1827,7 +1827,7 @@ public class Translations : MonoBehaviour
             skillTitles[61004] = "Bleed";
             skillDescriptions[61004] = "Inflicts a serious wound that causes temporary bleeding for {1} seconds";
             skillTitles[61016] = "Execution";
-            skillDescriptions[61016] = "Powerful attack. Always crits if target is below {1}% HP";
+            skillDescriptions[61016] = "Does damage and always crits if target is below {1}% HP";
             skillTitles[61024] = "Armor Crusher";
             skillDescriptions[61024] = "Adds a debuff on target that reduces its total DEF by {0}% for {2} seconds";
             skillTitles[61025] = "Dismember";
@@ -1841,9 +1841,9 @@ public class Translations : MonoBehaviour
             skillTitles[61026] = "Slow Down!";
             skillDescriptions[61026] = "Has infinite range and slows your target by -{0}% for {1} seconds";
             skillTitles[61027] = "On your Knees!";
-            skillDescriptions[61027] = "Low damage ability with a {1}% chance to stun for 2.5 seconds. If stun fails there is an extra {2}% chance to slow it by -25% for 2.5 seconds";
+            skillDescriptions[61027] = "Low damage ability with a {1}% chance to stun for 2 seconds. If stun fails there is an extra {2}% chance to slow it by -25% for 2.5 seconds";
             skillTitles[61003] = "Shield Stun";
-            skillDescriptions[61003] = "Hits your target with less power but has a {1}% chance of stunning it for 2.5 seconds";
+            skillDescriptions[61003] = "Hits your target with less power but has a {1}% chance of stunning it for 1 second";
             skillTitles[61010] = "Soul Cravings";
             skillDescriptions[61010] = "Damages your target. If target is stunned it heals you for {1}% of the damage done";
             skillTitles[61020] = "Ultimate Defense";
@@ -1866,11 +1866,11 @@ public class Translations : MonoBehaviour
             skillTitles[62006] = "Ice Spear";
             skillDescriptions[62006] = "Ice attack cast faster hit less";
             skillTitles[62007] = "Frost Blade";
-            skillDescriptions[62007] = "Hit your target with less power and has a {1}% chance to freeze it for 2.5 seconds";
+            skillDescriptions[62007] = "Hit your target with less power and has a {1}% chance to freeze it for 1 second";
             skillTitles[62008] = "Frozen Hands";
             skillDescriptions[62008] = "Buffs yourself for {0} seconds, during this time increases your movement speed by {1}% and your basic attack slows your target by -25% for 2.5 seconds";
             skillTitles[62009] = "Blizzard";
-            skillDescriptions[62009] = "Low damage ability with a {1}% chance to freeze for 2.5 seconds. If freeze fails there is an extra {2}% chance to slow it by -25% for 2.5 seconds";
+            skillDescriptions[62009] = "Low damage ability with a {1}% chance to freeze for 1 second. If freeze fails there is an extra {2}% chance to slow it by -25% for 2.5 seconds";
             skillTitles[62010] = "Frost Bomb";
             skillDescriptions[62010] = "Damages your target and has a {1}% chance to slow it by -25% for 2.5 seconds";
             skillTitles[62011] = "Corpse Life Drain";
@@ -1901,7 +1901,7 @@ public class Translations : MonoBehaviour
             skillTitles[63008] = "Poison Trap";
             skillDescriptions[63008] = "Deploys a trap that applies poison for 5 seconds when triggered";
             skillTitles[63009] = "Steel Trap";
-            skillDescriptions[63009] = "Deploys a trap that stuns on touch for 2.5 seconds";
+            skillDescriptions[63009] = "Deploys a trap that stuns on touch for 2 seconds";
             skillTitles[63010] = "Booby Trap";
             skillDescriptions[63010] = "Deploys a trap that applies a bomb on touch. Bomb explodes after 1 second applying burn around it for 5 seconds";
             skillTitles[63011] = "Hunter's Mark";

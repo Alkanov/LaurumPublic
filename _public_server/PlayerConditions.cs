@@ -231,7 +231,7 @@ public class PlayerConditions : NetworkBehaviour
                 {
                     debuff_data.buff_debuff_ID.Add(1);
                     stunned = true;
-                    debuff_data.time = 2.5f;
+                    debuff_data.time = 1f;
                     PlayerMPSync.PlayerCanMove = false;
                 }
                 break;
@@ -287,7 +287,7 @@ public class PlayerConditions : NetworkBehaviour
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(1);
-                    debuff_data.time = 2.5f;
+                    debuff_data.time = 2f;
                     stunned = true;
                     PlayerMPSync.PlayerCanMove = false;
                 }
@@ -305,7 +305,7 @@ public class PlayerConditions : NetworkBehaviour
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(13);
-                    debuff_data.time = 2.5f;
+                    debuff_data.time = 1f;
                     stunned = true;
                     PlayerMPSync.PlayerCanMove = false;
                 }
@@ -314,7 +314,7 @@ public class PlayerConditions : NetworkBehaviour
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     debuff_data.buff_debuff_ID.Add(13);
-                    debuff_data.time = 2.5f;
+                    debuff_data.time = 2f;
                     stunned = true;
                     PlayerMPSync.PlayerCanMove = false;
                 }
