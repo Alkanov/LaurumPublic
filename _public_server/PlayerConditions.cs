@@ -133,6 +133,8 @@ public class PlayerConditions : NetworkBehaviour
     public float decreasedDamage;  
     [HideInInspector]
     public float decreasedWalkingSpeed;
+    [HideInInspector]
+    public float decreasedDodge;
     #endregion
 
     #region Effects Data
@@ -349,7 +351,8 @@ public class PlayerConditions : NetworkBehaviour
                 }
                 break;
             case 63011:                
-                    debuff_data.buff_debuff_ID.Add(14);
+                debuff_data.buff_debuff_ID.Add(14);
+                decreasedDodge = skillRequested.multipliers[1];
                 debuff_data.time = skillRequested.multipliers[0];              
                 break;
             #endregion
@@ -835,7 +838,7 @@ public class PlayerConditions : NetworkBehaviour
                 decreasedDEF = 0f;
                 break;
             case 12://dissarmed
-                decreasedDamage = 0;
+                decreasedDamage = 0f;
                 break;
             case 13://frozen
                 PlayerMPSync.PlayerCanMove = true;
@@ -861,19 +864,19 @@ public class PlayerConditions : NetworkBehaviour
                 increasedDamage = 0f;
                 break;   
             case 4://Hawkeye
-                increasedCritical = 0;
+                increasedCritical = 0f;
                 break;
             case 5://max hp               
-                increasedMaxHP = 0;
+                increasedMaxHP = 0f;
                 break;
             case 6://max mp               
                 increasedMaxMana = 0f;
                 break;
             case 7://Physical Protection               
-                increasedDEF = 0;
+                increasedDEF = 0f;
                 break;
             case 8://MAgical Protection               
-                increasedMDEF = 0;
+                increasedMDEF = 0f;
                 break;
             case 9://quickshot
                 increasedAtkSpeed = 1;
@@ -882,16 +885,17 @@ public class PlayerConditions : NetworkBehaviour
                 immortal = false;
                 break;
             case 11:
-                increasedDodge = 0;
+                increasedDodge = 0f;
                 break;
             case 12://ultimate defense
-                increasedDEF = 0;
+                increasedDEF = 0f;
                 break;
             case 13://manashield
                 mana_shield = false;
                 break;
             case 14://Camouflage
-                GetComponent<NetworkProximityChecker>().forceHidden = false;
+                //GetComponent<NetworkProximityChecker>().forceHidden = false;
+                decreasedDodge = 0f;
                 break;
             case 15://arrow block
 

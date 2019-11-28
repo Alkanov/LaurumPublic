@@ -120,16 +120,16 @@ public class skillDB : MonoBehaviour
         //Booby Trap
         Skills.Add(new skill(63010, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.2f, 1.62f, 22));
         //---------------Util
-        //Hunters Mark
-        Skills.Add(new skill(63011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Hunter, 15f, 0.2f, new float[3] { 5f, 100f, 25f }, 18));//time//threshold/extra damage
-        //Hunters Ritual
+        //Hunter's Mark
+        Skills.Add(new skill(63011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Hunter, 15f, 0.2f, new float[3] { 5f, -25f }, 18));//time//debuff
+        //Hunter's Ritual
         Skills.Add(new skill(63012, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Hunter, 12f, 0.2f, new float[2] { 50f, 5f }, 15));//buff/time
         //Camouflage
         Skills.Add(new skill(63013, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.8f, 5f, 15));
         //Soul Sacrifice
         Skills.Add(new skill(63014, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 10f, 0.4f, new float[2] { 30f, 90f }, 1));//mp required//% to recover from mp burned
         //Acrobatics
-        Skills.Add(new skill(63015, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 10f }, 15));//buff/time
+        Skills.Add(new skill(63015, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 5f }, 15));//buff/time
 
         //-----Paladin            
         //---------------Protection

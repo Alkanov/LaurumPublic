@@ -1829,7 +1829,7 @@ public class Translations : MonoBehaviour
             skillTitles[61016] = "Execution";
             skillDescriptions[61016] = "Does damage and always crits if target is below {1}% HP";
             skillTitles[61024] = "Armor Crusher";
-            skillDescriptions[61024] = "Adds a debuff on target that reduces its total DEF by {0}% for {2} seconds";
+            skillDescriptions[61024] = "Places a debuff on your target that reduces its total DEF by {0}% for {2} seconds";
             skillTitles[61025] = "Dismember";
             skillDescriptions[61025] = "Does damage and disarms ({2}% INT and STR damage) enemies with Armor Crusher (debuff) on for {1} seconds";
             skillTitles[61006] = "Charge";
@@ -1905,7 +1905,7 @@ public class Translations : MonoBehaviour
             skillTitles[63010] = "Booby Trap";
             skillDescriptions[63010] = "Deploys a trap that applies a bomb on touch. Bomb explodes after 1 second applying burn around it for 5 seconds";
             skillTitles[63011] = "Hunter's Mark";
-            skillDescriptions[63011] = "Debuffs your target to take {2}% more skill damage for {0} seconds";
+            skillDescriptions[63011] = "Places a debuff on your target that reduces its total dodge by {1}% for {0} seconds";
             skillTitles[63012] = "Hunter's Ritual";
             skillDescriptions[63012] = "AoE buff that increases movement speed by {0}% for {1} seconds";
             skillTitles[63013] = "Camouflage";

@@ -540,14 +540,14 @@ public class PlayerPVPDamage : NetworkBehaviour
                                     PlayerConditions.handle_effect(DOT_effect.effect_type.poison, skillRequested.multipliers[0], fromPlayer, 0);
                                 }
                             }
-                            buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.debuff, 14);
-                            if (buff_info != null)//if has Hunters Mark
+                            /*buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.debuff, 14);
+                            if (buff_info != null)//if has Hunter's Mark
                             {
                                 if ((float)PlayerStats.CurrentHP / (float)PlayerStats.MaxHealth <= buff_info.skill_requested.multipliers[1] / 100f)
                                 {
                                     DamageRX = DamageRX * (1f + (buff_info.skill_requested.multipliers[2] / 100f));
                                 }
-                            }
+                            }*/
                             //Linked hearts
                             buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.debuff, 20);
                             if (buff_info != null)

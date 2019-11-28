@@ -485,9 +485,9 @@ public class ItemDatabase : MonoBehaviour
         //Booby Trap
         items.Add(new Item(63010, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //---------------Util
-        //Hunters Mark
+        //Hunter's Mark
         items.Add(new Item(63011, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
-        //Hunters Ritual
+        //Hunter's Ritual
         items.Add(new Item(63012, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Camouflage
         items.Add(new Item(63013, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
