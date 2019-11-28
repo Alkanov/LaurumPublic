@@ -150,9 +150,9 @@ public class EnemyConditions : NetworkBehaviour
             case 61003://shield stun
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    debuff_data.time = 1f;
                     stunned = true;
                     EnemyControllerAI.canMove = false;
+                    debuff_data.time = 1f;
                     debuff_data.buff_debuff_ID.Add(1);
                 }
                 break;
@@ -181,6 +181,7 @@ public class EnemyConditions : NetworkBehaviour
             case 61026://slow down
                 slowed = true;
                 EnemyControllerAI.maxSpeed *= (1f-(skillRequested.multipliers[0] / 100f));
+                debuff_data.time = skillRequested.multipliers[1];
                 debuff_data.buff_debuff_ID.Add(2);
                 break;
             case 61027://on your knees
@@ -237,7 +238,7 @@ public class EnemyConditions : NetworkBehaviour
                     debuff_data.buff_debuff_ID.Add(2);
                 }
                 break;
-            case 62010://frostbomb
+            case 62010://frost bomb
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     slowed = true;
