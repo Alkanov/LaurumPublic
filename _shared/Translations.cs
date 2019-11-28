@@ -1913,7 +1913,7 @@ public class Translations : MonoBehaviour
             skillTitles[63014] = "Soul Sacrifice";
             skillDescriptions[63014] = "Burns -{0}% of your max mana and gains {1}% of it as HP";
             skillTitles[63015] = "Acrobatics";
-            skillDescriptions[63015] = "Increases dodge change by {0}% for {1} seconds";
+            skillDescriptions[63015] = "Increases dodge chance by {0}% for {1} seconds";
             //Paladin
             skillTitles[64001] = "Final Protection";
             skillDescriptions[64001] = "Increases dodge chance of nearby players by {0}%, makes you immortal and stuns you for 5 seconds";
