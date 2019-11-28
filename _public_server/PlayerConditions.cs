@@ -231,10 +231,10 @@ public class PlayerConditions : NetworkBehaviour
             case 61003://shield stun              
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    debuff_data.buff_debuff_ID.Add(1);
                     stunned = true;
-                    debuff_data.time = 1f;
                     PlayerMPSync.PlayerCanMove = false;
+                    debuff_data.time = 1f;
+                    debuff_data.buff_debuff_ID.Add(1);
                 }
                 break;
             case 61010: //soul cravings               
@@ -244,34 +244,33 @@ public class PlayerConditions : NetworkBehaviour
                 chance = 50f;
                 if (Random.Range(0f, 100f) <= chance)
                 {
-                    debuff_data.buff_debuff_ID.Add(2);
-                    debuff_data.time = skillRequested.multipliers[1];                  
                     decreasedWalkingSpeed = -25f;
+                    debuff_data.time = skillRequested.multipliers[1];                  
+                    debuff_data.buff_debuff_ID.Add(2);
                 }
                 break;
             case 61024://Armor Crusher
                 chance = skillRequested.multipliers[1];
                 if (Random.Range(0f, 100f) <= chance)
                 {
-                    debuff_data.buff_debuff_ID.Add(11);
-                    debuff_data.time = skillRequested.multipliers[2];
                     decreasedDEF = skillRequested.multipliers[0];
-
+                    debuff_data.time = skillRequested.multipliers[2];
+                    debuff_data.buff_debuff_ID.Add(11);
                 }
                 break;
             case 61025://dismember                
                 if (has_buff_debuff(type.debuff, 11))//armor crushed
                 {
-                    debuff_data.buff_debuff_ID.Add(12);
-                    debuff_data.time = skillRequested.multipliers[1];
                     remove_buff_debuff(type.debuff, 11);
                     decreasedDamage = skillRequested.multipliers[2];
+                    debuff_data.time = skillRequested.multipliers[1];
+                    debuff_data.buff_debuff_ID.Add(12);
                 }
                 break;
             case 61026: //Slow down
-                debuff_data.buff_debuff_ID.Add(2);
-                debuff_data.time = skillRequested.multipliers[1];
                 decreasedWalkingSpeed = -skillRequested.multipliers[0];
+                debuff_data.time = skillRequested.multipliers[1];
+                debuff_data.buff_debuff_ID.Add(2);
                 break;
             case 61027://on your knees
                 /*if (PlayerStats.CurrentHP / PlayerStats.MaxHealth <= skillRequested.multipliers[1])
@@ -288,16 +287,16 @@ public class PlayerConditions : NetworkBehaviour
                 */
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    debuff_data.buff_debuff_ID.Add(1);
-                    debuff_data.time = 2f;
                     stunned = true;
                     PlayerMPSync.PlayerCanMove = false;
+                    debuff_data.time = 2f;
+                    debuff_data.buff_debuff_ID.Add(1);
                 }
                 else if (Random.Range(0f, 100) <= skillRequested.multipliers[2])
                 {
-                    debuff_data.buff_debuff_ID.Add(2);
-                    debuff_data.time = 2.5f;
                     decreasedWalkingSpeed = -25f;                    
+                    debuff_data.time = 2.5f;
+                    debuff_data.buff_debuff_ID.Add(2);
                 }
                 break;
             #endregion
@@ -306,38 +305,38 @@ public class PlayerConditions : NetworkBehaviour
             case 62007:  //frost blade           
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    debuff_data.buff_debuff_ID.Add(13);
-                    debuff_data.time = 1f;
-                    stunned = true;
                     PlayerMPSync.PlayerCanMove = false;
+                    stunned = true;
+                    debuff_data.time = 1f;
+                    debuff_data.buff_debuff_ID.Add(13);
                 }
                 break;
-            case 62009:
+            case 62009: //blizzard
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
+                    PlayerMPSync.PlayerCanMove = false;
+                    stunned = true;
                     debuff_data.buff_debuff_ID.Add(13);
                     debuff_data.time = 2f;
-                    stunned = true;
-                    PlayerMPSync.PlayerCanMove = false;
                 }
                 else if (Random.Range(0f, 100f) <= skillRequested.multipliers[2])
                 {
-                    debuff_data.buff_debuff_ID.Add(2);
-                    debuff_data.time = 2.5f;
                     decreasedWalkingSpeed = -25f;                    
+                    debuff_data.time = 2.5f;
+                    debuff_data.buff_debuff_ID.Add(2);
                 }
                 break;
-            case 62010:
+            case 62010: //Frost bomb
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    debuff_data.buff_debuff_ID.Add(2);
-                    debuff_data.time = 2.5f;
                     decreasedWalkingSpeed = -25f;
+                    debuff_data.time = 2.5f;
+                    debuff_data.buff_debuff_ID.Add(2);
                 }
                 break;
             case 62011://Corpse Life Drain
-                debuff_data.buff_debuff_ID.Add(4);
                 debuff_data.time = skillRequested.multipliers[1];
+                debuff_data.buff_debuff_ID.Add(4);
                 break;
             #endregion
 
@@ -345,25 +344,25 @@ public class PlayerConditions : NetworkBehaviour
             case 63005://Hamstring Shot                
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1] )
                 {
-                    debuff_data.buff_debuff_ID.Add(2);
-                    debuff_data.time = 2.5f;
                     decreasedWalkingSpeed = -skillRequested.multipliers[2];
+                    debuff_data.time = 2.5f;
+                    debuff_data.buff_debuff_ID.Add(2);
                 }
                 break;
-            case 63011:                
-                debuff_data.buff_debuff_ID.Add(14);
+            case 63011:    //Hunter's mark            
                 decreasedDodge = skillRequested.multipliers[1];
                 debuff_data.time = skillRequested.multipliers[0];              
+                debuff_data.buff_debuff_ID.Add(14);
                 break;
             #endregion
             #region Paladin
-            case 64012:
+            case 64012: //Silence
                 chance = skillRequested.multipliers[0];
                 if (Random.Range(0f, 100f) <= chance)
                 {
-                    debuff_data.buff_debuff_ID.Add(10);
-                    debuff_data.time = skillRequested.multipliers[1];
                     silence = true;
+                    debuff_data.time = skillRequested.multipliers[1];
+                    debuff_data.buff_debuff_ID.Add(10);
                 }
                 break;
             case 64014://buff remover
@@ -446,39 +445,39 @@ public class PlayerConditions : NetworkBehaviour
 
             #region Warrior           
             case 61006:
-                buff_data.buff_debuff_ID.Add(1);
-                buff_data.time = skill.multipliers[1];
                 increasedWalkingSpeed = skill.multipliers[0];                                   
+                buff_data.time = skill.multipliers[1];
+                buff_data.buff_debuff_ID.Add(1);
                 break;
             case 61013://battle shout
-                buff_data.buff_debuff_ID.Add(5);
-                buff_data.time = skill.multipliers[1];
                 increasedMaxHP = skill.multipliers[0];
+                buff_data.time = skill.multipliers[1];
+                buff_data.buff_debuff_ID.Add(5);
                 break;
             case 61020://Ultimate Defense
-                buff_data.buff_debuff_ID.Add(12);
-                buff_data.time = skill.multipliers[1];
                 increasedDEF = skill.multipliers[0];
+                buff_data.time = skill.multipliers[1];
+                buff_data.buff_debuff_ID.Add(12);
                 break;
             case 61028://arrow deflect
-                buff_data.buff_debuff_ID.Add(15);
                 buff_data.time = skill.multipliers[1];
+                buff_data.buff_debuff_ID.Add(15);
                 break;
             case 61029://shields up
-                buff_data.buff_debuff_ID.Add(16);
                 buff_data.time = skill.multipliers[0];
+                buff_data.buff_debuff_ID.Add(16);
                 break;
             #endregion
             #region Wizard
             case 62008://frozen hands               
-                buff_data.buff_debuff_ID.Add(17);
-                buff_data.time = skill.multipliers[0];
                 increasedWalkingSpeed = skill.multipliers[1]; 
+                buff_data.time = skill.multipliers[0];
+                buff_data.buff_debuff_ID.Add(17);
                 break;
             case 62012://mana shield
                 mana_shield = true;
-                buff_data.buff_debuff_ID.Add(13);
                 buff_data.time = skill.multipliers[0];
+                buff_data.buff_debuff_ID.Add(13);
                 break;
             case 62013://expanded mana
                 increasedMaxMana = skill.multipliers[0];
@@ -490,11 +489,11 @@ public class PlayerConditions : NetworkBehaviour
                 buff_data.buff_debuff_ID.Add(18);
                 break;
             case 62015://concentration
+                concentrated = true;
                 increasedDamage = skill.multipliers[0];
                 buff_data.time = skill.multipliers[1];
                 buff_data.buff_debuff_ID.Add(2);
                 buff_data.buff_debuff_ID.Add(22);
-                concentrated = true;
                 break;
             #endregion
             #region Hunter
@@ -503,58 +502,58 @@ public class PlayerConditions : NetworkBehaviour
                 buff_data.time = skill.multipliers[1];
                 buff_data.buff_debuff_ID.Add(4);
                 break;
-            case 63012:
-                buff_data.buff_debuff_ID.Add(1);
-                buff_data.time = skill.multipliers[1];
+            case 63012: //Hunter's ritual
                 increasedWalkingSpeed = skill.multipliers[0];        
+                buff_data.time = skill.multipliers[1];
+                buff_data.buff_debuff_ID.Add(1);
                 break;
-            case 63013:
-                buff_data.buff_debuff_ID.Add(14);
-                buff_data.time = skill.multipliers[0];
+            case 63013: //camouflage
                 GetComponent<NetworkProximityChecker>().forceHidden = true;//
                 PlayerSkillsActions.Reset_enemies_players_aggro();
+                buff_data.time = skill.multipliers[0];
+                buff_data.buff_debuff_ID.Add(14);
                 break;
             case 63014://soul sacririce -> no buff but we handle it here
                 var to_regen = PlayerStats.MaxMana * skill.multipliers[1] / 100f;
                 PlayerStats.CurrentHP += to_regen;
                 PlayerGeneral.showCBT(gameObject, false, false, (int)to_regen, "heal");
                 break;
-            case 63015:
-                buff_data.buff_debuff_ID.Add(11);
-                buff_data.time = skill.multipliers[1];
+            case 63015: //Acrobatics
                 increasedDodge = skill.multipliers[0];
+                buff_data.time = skill.multipliers[1];
+                buff_data.buff_debuff_ID.Add(11);
                 break;
             #endregion
             #region Paladin
             case 64001://Final Protection (dodge de los players al rededor)
-                buff_data.buff_debuff_ID.Add(11);
                 increasedDodge = skill.multipliers[0];
+                buff_data.buff_debuff_ID.Add(11);
                 break;
-            case 64002:
+            case 64002: //magic protection
                 increasedMDEF = skill.multipliers[1];
+                buff_data.time = skill.multipliers[0];
                 buff_data.buff_debuff_ID.Add(8);
-                buff_data.time = skill.multipliers[0];
                 break;
-            case 64003:
+            case 64003: //physical protection
                 increasedDEF = skill.multipliers[1];
-                buff_data.buff_debuff_ID.Add(7);
                 buff_data.time = skill.multipliers[0];
+                buff_data.buff_debuff_ID.Add(7);
                 break;
             case 64004://linked heart
-                buff_data.buff_debuff_ID.Add(20);
                 buff_data.time = skill.multipliers[0];
+                buff_data.buff_debuff_ID.Add(20);
                 break;
             case 64005://burn on touch
-                 buff_data.buff_debuff_ID.Add(21);
                  buff_data.time = skill.multipliers[1];
+                 buff_data.buff_debuff_ID.Add(21);
                  break;
             case 64013: //speed banner
-                buff_data.buff_debuff_ID.Add(23);
-                buff_data.time = skill.multipliers[4];
                 increasedWalkingSpeed = skill.multipliers[0];
                 increasedAtkSpeed = skill.multipliers[1];
                 increasedCastingSpeed = skill.multipliers[2];
                 increasedCooldownReduction = skill.multipliers[3];
+                buff_data.time = skill.multipliers[4];
+                buff_data.buff_debuff_ID.Add(23);
                 break;          
                     
                 
@@ -636,7 +635,6 @@ public class PlayerConditions : NetworkBehaviour
     {
         if (GetComponent<NetworkProximityChecker>().forceHidden)
         {
-            GetComponent<NetworkProximityChecker>().forceHidden = false;
             clean_buff_debuff(type.buff, 14);
         }
 
@@ -893,9 +891,12 @@ public class PlayerConditions : NetworkBehaviour
             case 13://manashield
                 mana_shield = false;
                 break;
-            case 14://Camouflage
-                //GetComponent<NetworkProximityChecker>().forceHidden = false;
-                decreasedDodge = 0f;
+            case 14://Camouflage and Hunter's mark
+                if(GetComponent<NetworkProximityChecker>().forceHidden){
+                    GetComponent<NetworkProximityChecker>().forceHidden = false;
+                }else{
+                    decreasedDodge = 0f;
+                }
                 break;
             case 15://arrow block
 
@@ -927,7 +928,7 @@ public class PlayerConditions : NetworkBehaviour
             case 22://Concentration              
                 concentrated = false;
                 break;
-            case 23:
+            case 23: //speed banner
                 increasedWalkingSpeed = 0f;
                 increasedAtkSpeed = 0f;
                 increasedCastingSpeed = 0f;
