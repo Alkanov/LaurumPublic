@@ -795,7 +795,7 @@ public class PlayerConditions : NetworkBehaviour
                 PlayerGeneral.show_skill_casted_animation(track_buff_debuffs.skill_requested, Vector2.zero);
                 break;
             case 4://Corpse Life Drain
-                if (PlayerStats.CurrentHP <= 0 && track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP > 0)
+                if (PlayerStats.CurrentHP <= 0f && track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP > 0f)
                 {
                     var hpdrained = PlayerStats.MaxHealth * track_buff_debuffs.skill_requested.multipliers[0] / 100;
                     if (track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP + hpdrained > track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth)
@@ -842,6 +842,9 @@ public class PlayerConditions : NetworkBehaviour
                 PlayerMPSync.PlayerCanMove = true;
                 stunned = false;
                 break;
+            case 14: //Hunter's mark
+                decreasedDodge = 0f;
+                break:
             default:
                 break;
         }
@@ -891,12 +894,8 @@ public class PlayerConditions : NetworkBehaviour
             case 13://manashield
                 mana_shield = false;
                 break;
-            case 14://Camouflage and Hunter's mark
-                if(GetComponent<NetworkProximityChecker>().forceHidden){
-                    GetComponent<NetworkProximityChecker>().forceHidden = false;
-                }else{
-                    decreasedDodge = 0f;
-                }
+            case 14://Camouflage
+                GetComponent<NetworkProximityChecker>().forceHidden = false;
                 break;
             case 15://arrow block
 

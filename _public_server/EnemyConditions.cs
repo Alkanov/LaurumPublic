@@ -590,7 +590,6 @@ public class EnemyConditions : NetworkBehaviour
                     decreasedDEF = 0f;
                     EnemyStats.Defense_str = EnemyStats.temp_def;
                     EnemyStats.temp_def = 0f;
-
                     break;
                 case 12://dissarmed
                     decreasedDamage = 0f;
@@ -603,8 +602,8 @@ public class EnemyConditions : NetworkBehaviour
                     stunned = false;
                     EnemyControllerAI.canMove = true;
                     break;
-                case 14:
-                    decreasedDamage = 0f;
+                case 14: //Hunter's mark
+                    decreasedDodge = 0f;
                     EnemyStats.Dodge_percent_dex = EnemyStats.temp_dodge;
                     EnemyStats.temp_dodge = 0f;
                 default:
