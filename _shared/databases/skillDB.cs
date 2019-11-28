@@ -86,7 +86,7 @@ public class skillDB : MonoBehaviour
         Skills.Add(new skill(62010, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 6f, 0.6f, new float[2] { 1.7f, 50f }, 30));//damage//chance
         //---------------Util
         //Corpse Life Drain
-        Skills.Add(new skill(62011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Wizard, 2.5f, 0.2f, new float[2] { 30f, 5f }, 28));//effect/time
+        Skills.Add(new skill(62011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Wizard, 2.5f, 0.2f, new float[2] { 25f, 5f }, 28));//effect/time
         //Mana shield
         Skills.Add(new skill(62012, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 60f, 0.4f, 45f, 25));//time
         //Expanded Mana
@@ -127,7 +127,7 @@ public class skillDB : MonoBehaviour
         //Camouflage
         Skills.Add(new skill(63013, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.8f, 5f, 15));
         //Soul Sacrifice
-        Skills.Add(new skill(63014, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 10f, 0.4f, new float[2] { 30f, 90f }, 1));//mp required//% to recover from mp burned
+        Skills.Add(new skill(63014, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 100f }, 1));//mp required//% to recover from mp burned
         //Acrobatics
         Skills.Add(new skill(63015, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 5f }, 15));//buff/time
 
