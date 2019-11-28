@@ -631,7 +631,7 @@ public class EnemyConditions : NetworkBehaviour
      */
     public void handle_effect(DOT_effect.effect_type effect, float effect_power, GameObject effect_dealer)
     {
-        var total_time = ff;
+        var total_time = 4f;
         var effectid = -1;
         var effect_every = 1f;
         switch (effect)
