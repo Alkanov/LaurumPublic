@@ -215,7 +215,7 @@ public class EnemyAttack : MonoBehaviour
         float playerTotalDef = 0f;
         float monsterFinalDamage = 0f;
         float OTHER_DEF_BONUS = EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus].value;
-        int OTHER_DEF_BONUS_FROM_TOTAL_DEF = Mathf.RoundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus_From_Total_Def].value);
+        int OTHER_DEF_BONUS_FROM_TOTAL_DEF = Mathf.RoundToInt(EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus_From_Total_Def].value);
 
         if (EnemyStats.DamageType_now == EnemyStats.DamageType.physical) // Physical
         {             

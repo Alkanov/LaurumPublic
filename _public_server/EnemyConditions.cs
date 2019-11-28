@@ -205,7 +205,7 @@ public class EnemyConditions : NetworkBehaviour
                 else if (Random.Range(0f, 100f) <= skillRequested.multipliers[2])
                 {
                     slowed = true;
-                    EnemyControllerAI.maxSpeed *= 0.25f;
+                    EnemyControllerAI.maxSpeed *= 0.75f;
                     debuff_data.time = 2.5f;
                     debuff_data.buff_debuff_ID.Add(2);
                 }
@@ -233,7 +233,7 @@ public class EnemyConditions : NetworkBehaviour
                 else if (Random.Range(0f, 100f) <= skillRequested.multipliers[2])
                 {
                     slowed = true;
-                    EnemyControllerAI.maxSpeed *= 0.25f;
+                    EnemyControllerAI.maxSpeed *= 0.75f;
                     debuff_data.time = 2.5f;
                     debuff_data.buff_debuff_ID.Add(2);
                 }
@@ -242,7 +242,7 @@ public class EnemyConditions : NetworkBehaviour
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     slowed = true;
-                    EnemyControllerAI.maxSpeed *= 0.25f;
+                    EnemyControllerAI.maxSpeed *= 0.75f;
                     debuff_data.time = 2.5f;
                     debuff_data.buff_debuff_ID.Add(2);
                 }
