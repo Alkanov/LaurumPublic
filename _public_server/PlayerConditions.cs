@@ -292,7 +292,7 @@ public class PlayerConditions : NetworkBehaviour
                     debuff_data.time = 2f;
                     debuff_data.buff_debuff_ID.Add(1);
                 }
-                else if (Random.Range(0f, 100) <= skillRequested.multipliers[2])
+                else if (Random.Range(0f, 100f) <= skillRequested.multipliers[2])
                 {
                     decreasedWalkingSpeed = -25f;                    
                     debuff_data.time = 2.5f;

@@ -371,7 +371,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                     }*/
                     if (skillRequested.SkillID == 61008)//provoke
                     {
-                        if (Random.Range(0f, 100f) < skillRequested.multipliers[1])
+                        if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                         {
                             damageType = "Provoked!";
                             EnemyAggro.AggroChange(fromPlayer);
