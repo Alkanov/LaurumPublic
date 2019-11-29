@@ -37,7 +37,7 @@ public class skillDB : MonoBehaviour
         //Armor Crusher
         Skills.Add(new skill(61024, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[3] { -35f, 100f, 5f }, 12));//decreased def/chance/time
         //Dismember
-        Skills.Add(new skill(61025, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Warrior, 5.4f, 0.3f, new float[3] { 1.7f, 5f, -50f }, 15));//damage/time/debuff
+        Skills.Add(new skill(61025, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Warrior, 15f, 0.3f, new float[3] { 1.7f, 5f, -50f }, 15));//damage/time/debuff
         //---------------Utility
         //Charge                                                                                                                                                     
         Skills.Add(new skill(61006, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.8f, new float[2] { 45f, 5f }, 10));//buff/time
@@ -116,7 +116,7 @@ public class skillDB : MonoBehaviour
         //Posion Trap
         Skills.Add(new skill(63008, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.2f, 1.62f, 22));//damage
         //Steel trap
-        Skills.Add(new skill(63009, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 13.5f, 0.2f, 0f, 20));
+        Skills.Add(new skill(63009, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 6.3f, 0.2f, 0f, 20));
         //Booby Trap
         Skills.Add(new skill(63010, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.2f, 1.62f, 22));
         //---------------Util
