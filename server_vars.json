@@ -42,7 +42,7 @@
       },
       {
          "ID":9,
-         "value":0.00,
+         "value":1.00,
          "description":"With 0 extra defense from other defense will be applied from total def, otherwise from stats"
       }
    ]
