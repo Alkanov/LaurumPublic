@@ -297,7 +297,7 @@ public class EnemyAttack : MonoBehaviour
                             if (Random.Range(0f, 100f) <= 50f)
                             {
                                 already_happened[0] = true;
-                                EnemySpawnInfo.x_ObjectHelper.GeneralSkills.ricochet_projectile(false, gameObject, PlayerToAttack, DOT_effect.effect_type.fire, EnemyStats.Damage_int, EnemyStats.Defense_str);
+                                EnemySpawnInfo.x_ObjectHelper.GeneralSkills.ricochet_projectile(false, gameObject, PlayerToAttack, DOT_effect.effect_type.fire, (int)EnemyStats.Damage_int, (int)EnemyStats.Defense_str);
                                 EnemyAggro.Rpc_show_CBT("", true, "Fireball!");
                                 EnemyStats.RpcMakeSound("boss_fireball", transform.position);
                                 StartCoroutine(reset_action(0, 5f));
@@ -376,7 +376,7 @@ public class EnemyAttack : MonoBehaviour
                             if (Random.Range(0f, 100f) <= 50f)
                             {
                                 already_happened[0] = true;
-                                EnemySpawnInfo.x_ObjectHelper.GeneralSkills.multiple_projectiles(1.1f, transform.position, Random.Range(4, 8+1), DOT_effect.effect_type.bleed, Mathf.RoundToInt(EnemyStats.Damage_int * 0.8f), EnemyStats.Defense_str, false, 4f);
+                                EnemySpawnInfo.x_ObjectHelper.GeneralSkills.multiple_projectiles(1.1f, transform.position, Random.Range(4, 8+1), DOT_effect.effect_type.bleed, Mathf.RoundToInt(EnemyStats.Damage_int * 0.8f), (int)EnemyStats.Defense_str, false, 4f);
                                 EnemyAggro.Rpc_show_CBT("", true, "Multi Axe");
                                 EnemyStats.RpcMakeSound("boss_multi_axe", transform.position);
                                 StartCoroutine(reset_action(0, 6f));

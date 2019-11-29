@@ -63,13 +63,13 @@ public class EnemyStats : NetworkBehaviour
     public float hp_regen_time = 10f;
     public float MP_regen = 0.025f;//2.5% regen
 
-    public int Damage_str;
-    public int Damage_int;
+    public float Damage_str;
+    public float Damage_int;
 
     public int MaxMP;
 
-    public int Defense_str;
-    public int Defense_int;
+    public float Defense_str;
+    public float Defense_int;
 
     public float Dodge_percent_dex;
     public float Critical_percent_agi;

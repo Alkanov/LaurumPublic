@@ -844,7 +844,7 @@ public class PlayerConditions : NetworkBehaviour
                 break;
             case 14: //Hunter's mark
                 decreasedDodge = 0f;
-                break:
+                break;
             default:
                 break;
         }

@@ -480,7 +480,7 @@ public class EnemyConditions : NetworkBehaviour
                     break;
                 case 3://Concentration
                     EnemyStats.Damage_int = EnemyStats.Damage_int * 0.8f;
-                    EnemyStats.Damage_str = (EnemyStats.Damage_str * 0.8f;
+                    EnemyStats.Damage_str = EnemyStats.Damage_str * 0.8f;
                     break;
                 case 4://Hawkeye
                     EnemyStats.Critical_percent_agi = 10f;
@@ -606,6 +606,7 @@ public class EnemyConditions : NetworkBehaviour
                     decreasedDodge = 0f;
                     EnemyStats.Dodge_percent_dex = EnemyStats.temp_dodge;
                     EnemyStats.temp_dodge = 0f;
+                    break;
                 default:
                     break;
 

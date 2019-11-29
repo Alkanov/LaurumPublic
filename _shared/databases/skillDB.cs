@@ -121,7 +121,7 @@ public class skillDB : MonoBehaviour
         Skills.Add(new skill(63010, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.2f, 1.62f, 22));
         //---------------Util
         //Hunter's Mark
-        Skills.Add(new skill(63011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Hunter, 15f, 0.2f, new float[3] { 5f, -25f }, 18));//time//debuff
+        Skills.Add(new skill(63011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Hunter, 15f, 0.2f, new float[2] { 5f, -25f }, 18));//time//debuff
         //Hunter's Ritual
         Skills.Add(new skill(63012, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Hunter, 12f, 0.2f, new float[2] { 50f, 5f }, 15));//buff/time
         //Camouflage
