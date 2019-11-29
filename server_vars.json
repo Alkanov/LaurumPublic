@@ -37,12 +37,12 @@
       },
       {
          "ID":8,
-         "value":0.65,
+         "value":0.75,
          "description":"Nerf crit and dodge % chance (PVP)"
       },
       {
          "ID":9,
-         "value":1.00,
+         "value":0.00,
          "description":"With 0 extra defense from other defense will be applied from total def, otherwise from stats"
       }
    ]
