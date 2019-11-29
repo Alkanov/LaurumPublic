@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using Pathfinding;
 using Mirror;
@@ -163,7 +163,7 @@ public class EnemyAggro : NetworkBehaviour
         }
         else
         {
-            if (Random.Range(0, 100) < 30)
+            if (Random.Range(0f, 100f) <= 30f)
             {
                 AggroChange(AttackedByThisPlayer);
             }
@@ -180,7 +180,7 @@ public class EnemyAggro : NetworkBehaviour
         }
         else
         {
-            if (Random.Range(0, 100) < 10)
+            if (Random.Range(0f, 100f) <= 10f)
             {
                 AggroChange(PlayerCollider.gameObject);
             }
@@ -348,28 +348,5 @@ public class EnemyAggro : NetworkBehaviour
         AggroNow(new_player);
     }
     #endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

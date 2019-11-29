@@ -489,6 +489,11 @@ public class PlayerStats : NetworkBehaviour
         }
         Dodge_chance += Conditions.increasedDodge;
 
+        if (Conditions.decreasedDodge < 0)
+        {
+            Dodge_chance *= (1f + (Conditions.decreasedDodge / 100f));
+        }
+
         //Regens
         HP_regen_percent += modHPRegen + passive_HPRegen;
         MP_regen_percent += passive_MPRegen;

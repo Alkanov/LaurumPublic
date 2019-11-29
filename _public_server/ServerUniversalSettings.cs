@@ -31,7 +31,7 @@ public class ServerUniversalSettings : MonoBehaviour
         PVP_Damage_Nerf,
         
         /// <summary>
-        /// Defense % you get from defense stat points in PVP
+        /// Extra defense % you gain from defense stat points in PVP
         /// </summary>
         PVP_Defense_Bonus,
 
@@ -51,11 +51,6 @@ public class ServerUniversalSettings : MonoBehaviour
         Movement_Dodge_Bonus,
 
         /// <summary>
-        /// Nerf crit and dodge % chance while using skills (PVP)
-        /// </summary>
-        PVP_Crit_And_Dodge_Chance_Nerf,
-
-        /// <summary>
         /// Crit damage % (PVP)
         /// </summary>
         PVP_Crit_Multiplier,
@@ -63,7 +58,17 @@ public class ServerUniversalSettings : MonoBehaviour
         /// <summary>
         /// Crit damage % (PVE)
         /// </summary>
-        PVE_Crit_Multiplier
+        PVE_Crit_Multiplier,
+
+        /// <summary>
+        /// Nerf crit and dodge % chance (PVP)
+        /// </summary>
+        PVP_Crit_And_Dodge_Chance_Nerf,
+
+        /// <summary>
+        /// With 0 extra defense from other defense will be applied from total def, otherwise from stats
+        /// </summary>
+        Other_Defense_Bonus_From_Total_Def
     }
 
     /// <summary>

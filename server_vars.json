@@ -7,38 +7,43 @@
       },
       {
          "ID":2,
-         "value":0,
+         "value":0.00,
          "description":"Defense % you get from defense stat points (PVP)"
       },
       {
          "ID":3,
-         "value":0,
+         "value":0.05,
          "description":"Defense % you get from defense stat points while being stationary (PVP))"
       },
       {
          "ID":4,
-         "value":0.2,
+         "value":0.20,
          "description":"Defense % you get from the other type of defense (PVP and PVE)"
       },
       {
          "ID":5,
-         "value":5,
+         "value":5.00,
          "description":"Dodge % you get while being in movement (PVP and PVE)"
       },
       {
          "ID":6,
-         "value":0.05,
-         "description":"Nerf crit and dodge % chance while using skills (PVP)"
-      },
-      {
-         "ID":7,
          "value":1.25,
          "description":"Crit damage % (PVP)"
       },
       {
-         "ID":8,
+         "ID":7,
          "value":1.50,
          "description":"Crit damage % (PVE)"
+      },
+      {
+         "ID":8,
+         "value":0.65,
+         "description":"Nerf crit and dodge % chance (PVP)"
+      }
+      {
+         "ID":9,
+         "value":0.00,
+         "description":"With 0 extra defense from other defense will be applied from total def, otherwise from stats"
       }
    ]
 }

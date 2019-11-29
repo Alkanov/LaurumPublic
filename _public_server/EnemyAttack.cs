@@ -215,15 +215,26 @@ public class EnemyAttack : MonoBehaviour
         float playerTotalDef = 0f;
         float monsterFinalDamage = 0f;
         float OTHER_DEF_BONUS = EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus].value;
+        int OTHER_DEF_BONUS_FROM_TOTAL_DEF = Mathf.RoundToInt(EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus_From_Total_Def].value);
 
         if (EnemyStats.DamageType_now == EnemyStats.DamageType.physical) // Physical
-        {
-            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str + (toPlayer.GetComponent<PlayerStats>().Defense_int * OTHER_DEF_BONUS);
+        {             
+            //Other def bonus
+            if(OTHER_DEF_BONUS_FROM_TOTAL_DEF == 0){
+                playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str + (toPlayer.GetComponent<PlayerStats>().Defense_int * OTHER_DEF_BONUS);
+            }else{
+                playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str + (toPlayer.GetComponent<PlayerStats>().Defense_from_mdef * OTHER_DEF_BONUS);
+            }
             monsterFinalDamage = EnemyStats.Damage_str;
         }
         else // Magical
-        {
-            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int + (toPlayer.GetComponent<PlayerStats>().Defense_str * OTHER_DEF_BONUS);
+        {            
+            //Other def bonus
+            if(OTHER_DEF_BONUS_FROM_TOTAL_DEF == 0){
+                playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int + (toPlayer.GetComponent<PlayerStats>().Defense_str * OTHER_DEF_BONUS);
+            }else{
+                playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int + (toPlayer.GetComponent<PlayerStats>().Defense_from_pdef * OTHER_DEF_BONUS);
+            }     
             monsterFinalDamage = EnemyStats.Damage_int;
         }
         //.LogError("playerTotalDef=" + playerTotalDef + " monsterFinalDamage="+ monsterFinalDamage);

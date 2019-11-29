@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
@@ -85,6 +85,8 @@ public class EnemyConditions : NetworkBehaviour
     public float decreasedDEF;
    
     public float decreasedDamage;
+
+    public float decreasedDodge;
     #endregion
 
     #region Effects Data
@@ -128,7 +130,7 @@ public class EnemyConditions : NetworkBehaviour
                 buff_chance = 40f;
             }
             applyRandomBuff(buff_chance);
-            if (Random.Range(1f, 100f) <= 5f)//5% chance to have double buff
+            if (Random.Range(0f, 100f) <= 5f)//5% chance to have double buff
             {
                 applyRandomBuff(buff_chance);
             }
@@ -146,24 +148,22 @@ public class EnemyConditions : NetworkBehaviour
         {
             #region Warrior
             case 61003://shield stun
-                chance = 51;
-                if (Random.Range(1, 100) <= chance)
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    debuff_data.buff_debuff_ID.Add(1);
                     stunned = true;
                     EnemyControllerAI.canMove = false;
+                    debuff_data.time = 1f;
+                    debuff_data.buff_debuff_ID.Add(1);
                 }
                 break;
             case 61024://Armor Crusher
                 chance = skillRequested.multipliers[1];
-                if (Random.Range(1, 100) <= chance)
+                if (Random.Range(0f, 100f) <= chance)
                 {
-                    
-                    debuff_data.buff_debuff_ID.Add(11);
-                    debuff_data.time = skillRequested.multipliers[2];
                     EnemyStats.temp_def = EnemyStats.Defense_str;
                     decreasedDEF = skillRequested.multipliers[0];
-
+                    debuff_data.time = skillRequested.multipliers[2];
+                    debuff_data.buff_debuff_ID.Add(11);
                 }               
                 break;
             case 61025://dismember                
@@ -171,96 +171,117 @@ public class EnemyConditions : NetworkBehaviour
                 {
                     //remove armor crusher debuff and add dissarmed debuff
                     remove_buff_debuff(type.debuff, 11);
-                    decreasedDamage = skillRequested.multipliers[2]; //usually a big negative number like -90
-                    debuff_data.buff_debuff_ID.Add(12);
-                    debuff_data.time = skillRequested.multipliers[1];
                     EnemyStats.temp_dmg_int = EnemyStats.Damage_int;
-                    EnemyStats.temp_dmg_str = EnemyStats.Damage_str;                   
+                    EnemyStats.temp_dmg_str = EnemyStats.Damage_str;    
+                    decreasedDamage = skillRequested.multipliers[2]; //usually a big negative number like -90
+                    debuff_data.time = skillRequested.multipliers[1];
+                    debuff_data.buff_debuff_ID.Add(12);
                 }
                 break;
             case 61026://slow down
-                debuff_data.buff_debuff_ID.Add(2);
                 slowed = true;
                 EnemyControllerAI.maxSpeed *= (1f-(skillRequested.multipliers[0] / 100f));
+                debuff_data.time = skillRequested.multipliers[1];
+                debuff_data.buff_debuff_ID.Add(2);
                 break;
-            case 61027://on your kneess
-                if (EnemyStats.CurrentHP / EnemyStats.MaxHP <= (skillRequested.multipliers[1]/100f))
+            case 61027://on your knees
+                /*if (EnemyStats.CurrentHP / EnemyStats.MaxHP <= (skillRequested.multipliers[1]/100f))
                 {
                     chance = (int)skillRequested.multipliers[0];
-                    if (Random.Range(1, 100) <= chance)
+                    if (Random.Range(0f, 100f) <= chance)
                     {
                         debuff_data.buff_debuff_ID.Add(1);
                         stunned = true;
                         EnemyControllerAI.canMove = false;
                     }
+                }*/
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
+                {
+                    EnemyControllerAI.canMove = false;
+                    stunned = true;
+                    debuff_data.time = 2f;
+                    debuff_data.buff_debuff_ID.Add(13);
+                }
+                else if (Random.Range(0f, 100f) <= skillRequested.multipliers[2])
+                {
+                    slowed = true;
+                    EnemyControllerAI.maxSpeed *= 0.75f;
+                    debuff_data.time = 2.5f;
+                    debuff_data.buff_debuff_ID.Add(2);
                 }
 
                 break;
             #endregion
             #region Wizard
             case 62007:  //frost blade           
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    debuff_data.buff_debuff_ID.Add(13);
                     stunned = true;
                     EnemyControllerAI.canMove = false;
+                    debuff_data.time = 1f;
+                    debuff_data.buff_debuff_ID.Add(13);
                 }
                 break;
             case 62009://blizzard
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    debuff_data.buff_debuff_ID.Add(13);
                     stunned = true;
                     EnemyControllerAI.canMove = false;
+                    debuff_data.time = 2f;
+                    debuff_data.buff_debuff_ID.Add(13);
                 }
-                else if (Random.Range(1, 100) <= skillRequested.multipliers[2])
+                else if (Random.Range(0f, 100f) <= skillRequested.multipliers[2])
                 {
-                    debuff_data.buff_debuff_ID.Add(2);
                     slowed = true;
-                    EnemyControllerAI.maxSpeed *= 0.5f;
+                    EnemyControllerAI.maxSpeed *= 0.75f;
+                    debuff_data.time = 2.5f;
+                    debuff_data.buff_debuff_ID.Add(2);
                 }
                 break;
-            case 62010://frostbomb
-                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+            case 62010://frost bomb
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    debuff_data.buff_debuff_ID.Add(2);
                     slowed = true;
-                    EnemyControllerAI.maxSpeed *= 0.5f;
+                    EnemyControllerAI.maxSpeed *= 0.75f;
+                    debuff_data.time = 2.5f;
+                    debuff_data.buff_debuff_ID.Add(2);
                 }
                 break;
             case 62011://Corpse Life Drain
-                debuff_data.buff_debuff_ID.Add(4);
                 debuff_data.time = skillRequested.multipliers[1];
+                debuff_data.buff_debuff_ID.Add(4);
                 break;
             #endregion
             #region Hunter
             case 63005://Hamstring Shot
-                chance = 60;
-                if (Random.Range(1, 100) <= chance)
+                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    debuff_data.buff_debuff_ID.Add(2);
                     slowed = true;
-                    EnemyControllerAI.maxSpeed = EnemyControllerAI.maxSpeed * 0.5f;
+                    EnemyControllerAI.maxSpeed = (float)(EnemyControllerAI.maxSpeed * (1f - (skillRequested.multipliers[2] / 100f)));
+                    debuff_data.time = 2.5f;
+                    debuff_data.buff_debuff_ID.Add(2);
                 }
                 break;
-            case 63011:   //hunters mark             
-                    debuff_data.buff_debuff_ID.Add(14);
-                    debuff_data.time = 10f;
+            case 63011:   //hunter's mark             
+                EnemyStats.temp_dodge = EnemyStats.Dodge_percent_dex;
+                decreasedDodge = skillRequested.multipliers[1];
+                debuff_data.time = skillRequested.multipliers[0];
+                debuff_data.buff_debuff_ID.Add(14);
                 break;
             #endregion
             #region Paladin
-            case 64012:
-                chance = (int)skillRequested.multipliers[0];
-                if (Random.Range(1, 100) <= chance)
+            case 64012: //Silence
+                chance = skillRequested.multipliers[0];
+                if (Random.Range(0f, 100f) <= chance)
                 {
-                    debuff_data.buff_debuff_ID.Add(10);
-                    debuff_data.time = skillRequested.multipliers[1];
                     silence = true;
+                    debuff_data.time = skillRequested.multipliers[1];
+                    debuff_data.buff_debuff_ID.Add(10);
                 }
                 break;
             case 64014://buff remover
-                chance = (int)skillRequested.multipliers[0];
-                if (Random.Range(1, 100) <= chance && buffs.Count > 0)
+                chance = skillRequested.multipliers[0];
+                if (Random.Range(0f, 100f) <= chance && buffs.Count > 0)
                 {
                     reset_buffs_or_debuffs(type.buff);
                 }
@@ -299,7 +320,7 @@ public class EnemyConditions : NetworkBehaviour
     void applyRandomBuff(float buff_chance)
     {
         ////Debug.LogError("RandomBuff");
-        if (Random.Range(1f, 100f) <= buff_chance)//10% chance of getting a buffed mob with better drop rate
+        if (Random.Range(0f, 100f) <= buff_chance)//10% chance of getting a buffed mob with better drop rate
         {
             ////Debug.LogError("RandomBuff YAS");
             int winner_buff = Random.Range(1, 11);
@@ -314,15 +335,15 @@ public class EnemyConditions : NetworkBehaviour
             {
                 case 1://speedy
                     speedy = true;
-                    EnemyControllerAI.maxSpeed *= 1.3f;
+                    EnemyControllerAI.maxSpeed *= 1.5f;
                     break;
                 case 2://Final Frenzy
-                    EnemyStats.Damage_int = Mathf.RoundToInt(EnemyStats.Damage_int * 1.3f);
-                    EnemyStats.Damage_str = Mathf.RoundToInt(EnemyStats.Damage_str * 1.3f);
+                    EnemyStats.Damage_int = EnemyStats.Damage_int * 1.5f;
+                    EnemyStats.Damage_str = EnemyStats.Damage_str * 1.5f;
                     break;
                 case 3://Concentration
-                    EnemyStats.Damage_int = Mathf.RoundToInt(EnemyStats.Damage_int * 1.2f);
-                    EnemyStats.Damage_str = Mathf.RoundToInt(EnemyStats.Damage_str * 1.2f);
+                    EnemyStats.Damage_int = EnemyStats.Damage_int * 1.25f;
+                    EnemyStats.Damage_str = EnemyStats.Damage_str * 1.25f;
                     break;
                 case 4://Hawkeye
                     EnemyStats.Critical_percent_agi = 50f;
@@ -335,10 +356,10 @@ public class EnemyConditions : NetworkBehaviour
                     EnemyStats.HP_regen = 0.05f;
                     break;
                 case 7://Arcane Protection               
-                    EnemyStats.Defense_str = Mathf.RoundToInt(EnemyStats.Defense_str * 1.5f);
+                    EnemyStats.Defense_str = EnemyStats.Defense_str * 1.5f;
                     break;
                 case 8://Arcane Protection               
-                    EnemyStats.Defense_int = Mathf.RoundToInt(EnemyStats.Defense_int * 1.5f);
+                    EnemyStats.Defense_int = EnemyStats.Defense_int * 1.5f;
                     break;
                 case 9://quickshot
                     EnemyStats.AttackSpeed *= 0.5f;
@@ -454,12 +475,12 @@ public class EnemyConditions : NetworkBehaviour
                     EnemyControllerAI.maxSpeed *= 0.8f;
                     break;
                 case 2://Final Frenzy
-                    EnemyStats.Damage_int = Mathf.RoundToInt(EnemyStats.Damage_int * 0.8f);
-                    EnemyStats.Damage_str = Mathf.RoundToInt(EnemyStats.Damage_str * 0.8f);
+                    EnemyStats.Damage_int = EnemyStats.Damage_int * 0.8f;
+                    EnemyStats.Damage_str = EnemyStats.Damage_str * 0.8f;
                     break;
                 case 3://Concentration
-                    EnemyStats.Damage_int = Mathf.RoundToInt(EnemyStats.Damage_int * 0.8f);
-                    EnemyStats.Damage_str = Mathf.RoundToInt(EnemyStats.Damage_str * 0.8f);
+                    EnemyStats.Damage_int = EnemyStats.Damage_int * 0.8f;
+                    EnemyStats.Damage_str = (EnemyStats.Damage_str * 0.8f;
                     break;
                 case 4://Hawkeye
                     EnemyStats.Critical_percent_agi = 10f;
@@ -475,10 +496,10 @@ public class EnemyConditions : NetworkBehaviour
                     EnemyStats.HP_regen = 0.02f;
                     break;
                 case 7://Arcane Protection               
-                    EnemyStats.Defense_str = Mathf.RoundToInt(EnemyStats.Defense_str * 0.8f);
+                    EnemyStats.Defense_str = EnemyStats.Defense_str * 0.8f;
                     break;
                 case 8://Arcane Protection               
-                    EnemyStats.Defense_int = Mathf.RoundToInt(EnemyStats.Defense_int * 0.8f);
+                    EnemyStats.Defense_int = EnemyStats.Defense_int * 0.8f;
                     break;
                 case 9://quickshot
                     EnemyStats.AttackSpeed *= 2f;
@@ -567,21 +588,24 @@ public class EnemyConditions : NetworkBehaviour
                     break;
                 case 11://Armor Crusher
                     decreasedDEF = 0f;
-                    EnemyStats.Defense_str = (int)EnemyStats.temp_def;
-                    EnemyStats.temp_def = 0;
-
+                    EnemyStats.Defense_str = EnemyStats.temp_def;
+                    EnemyStats.temp_def = 0f;
                     break;
                 case 12://dissarmed
-                    decreasedDamage = 0;
-                    EnemyStats.Damage_int = (int)EnemyStats.temp_dmg_int;
-                    EnemyStats.Damage_str = (int)EnemyStats.temp_dmg_str;
-                    EnemyStats.temp_dmg_int = 0;
-                    EnemyStats.temp_dmg_str = 0;
+                    decreasedDamage = 0f;
+                    EnemyStats.Damage_int = EnemyStats.temp_dmg_int;
+                    EnemyStats.Damage_str = EnemyStats.temp_dmg_str;
+                    EnemyStats.temp_dmg_int = 0f;
+                    EnemyStats.temp_dmg_str = 0f;
                     break;
                 case 13:
                     stunned = false;
                     EnemyControllerAI.canMove = true;
                     break;
+                case 14: //Hunter's mark
+                    decreasedDodge = 0f;
+                    EnemyStats.Dodge_percent_dex = EnemyStats.temp_dodge;
+                    EnemyStats.temp_dodge = 0f;
                 default:
                     break;
 
@@ -606,14 +630,15 @@ public class EnemyConditions : NetworkBehaviour
      */
     public void handle_effect(DOT_effect.effect_type effect, float effect_power, GameObject effect_dealer)
     {
-        var total_time = 8f;
+        var total_time = 4f;
         var effectid = -1;
         var effect_every = 1f;
         switch (effect)
         {
             case DOT_effect.effect_type.poison:
                 effectid = 9010;
-                effect_every = 1f;//cada segundo se hace dano 
+                effect_every = 1f;//cada segundo se hace dano
+                total_time = 4f; 
                 break;
             case DOT_effect.effect_type.fire:
                 effectid = 9020;
@@ -669,11 +694,11 @@ public class EnemyConditions : NetworkBehaviour
     }
     public IEnumerator start_effect_timer(int effectID, float total_time, float effect_every, GameObject effect_dealer, float effect_power)
     {
-        var hp_modifier = -(int)EnemyTakeDamage.CalculateSkillDamageRx(effect_dealer, effect_power);
+        var hp_modifier = - EnemyTakeDamage.CalculateSkillDamageRx(effect_dealer, effect_power);
         var hpaffected = hp_modifier / (total_time / effect_every);
         if (EnemyStats.CurrentHP > 0)
         {
-            hpaffected=EnemyTakeDamage.CentralEnemyTakeDamage((int)hpaffected * -1, effect_dealer);
+            hpaffected=EnemyTakeDamage.CentralEnemyTakeDamage(hpaffected * -1, effect_dealer);
             effect_dealer.GetComponent<PlayerGeneral>().showCBT(gameObject, false, false, (int)hpaffected * -1, "damage");
             yield return new WaitForSeconds(effect_every);
             for (int i = 0; i < effects_running.Count; i++)

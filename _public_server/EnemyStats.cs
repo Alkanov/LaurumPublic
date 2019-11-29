@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
@@ -50,6 +50,7 @@ public class EnemyStats : NetworkBehaviour
     public float temp_def;
     public float temp_dmg_int;
     public float temp_dmg_str;
+    public float temp_dodge;
     #endregion
 
     #region Stats
@@ -58,9 +59,9 @@ public class EnemyStats : NetworkBehaviour
     public DamageType DamageType_now;
     
    
-    public float HP_regen = 0.02f;//2% regen
+    public float HP_regen = 0.025f;//2.5% regen
     public float hp_regen_time = 10f;
-    public float MP_regen = 0.02f;//2% regen
+    public float MP_regen = 0.025f;//2.5% regen
 
     public int Damage_str;
     public int Damage_int;
@@ -78,7 +79,7 @@ public class EnemyStats : NetworkBehaviour
 
     public float Exp;
 
-    public float WalkingSpeed = 0.7f;
+    public float WalkingSpeed = 0.75f;
 
     #endregion
 
@@ -107,21 +108,25 @@ public class EnemyStats : NetworkBehaviour
   
     public void ProcessStats()
     {
-        if (Conditions.decreasedDEF < 0)
+        if (Conditions.decreasedDEF < 0f)
         {
-            Defense_str = Mathf.RoundToInt(Defense_str * (1f + (Conditions.decreasedDEF / 100f)));
+            Defense_str = Defense_str * (1f + (Conditions.decreasedDEF / 100f));
         }
-        if (Conditions.decreasedDamage < 0)
+        if (Conditions.decreasedDamage < 0f)
         {
-            Damage_str = Mathf.RoundToInt(Damage_str *(1f + (Conditions.decreasedDamage / 100f)));
-            Damage_int = Mathf.RoundToInt(Damage_str *(1f + (Conditions.decreasedDamage / 100f)));
+            Damage_str = Damage_str *(1f + (Conditions.decreasedDamage / 100f));
+            Damage_int = Damage_str *(1f + (Conditions.decreasedDamage / 100f));
+        }
+        if (Conditions.decreasedDodge < 0f)
+        {
+            Dodge_percent_dex = Dodge_percent_dex * (1f + (Conditions.decreasedDodge / 100f));
         }
     }
 
     IEnumerator HPMPRegen()
     {
         yield return new WaitForSeconds(temp_hpregen);
-        if (CurrentHP > 0)
+        if (CurrentHP > 0f)
         {
             var hp_to_regen = MaxHP * HP_regen;
             CurrentHP += hp_to_regen;

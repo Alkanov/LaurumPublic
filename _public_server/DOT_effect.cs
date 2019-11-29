@@ -224,7 +224,7 @@ public class DOT_effect : NetworkBehaviour
                         var chance = 100f;
                         if (Random.Range(0f, 100f) <= chance)
                         {
-                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(1, skillRequested, false, 2.5f, owner, EnemyConditions.type.debuff, true);
+                            triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(1, skillRequested, false, 2f, owner, EnemyConditions.type.debuff, true);
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().stunned = true;
                             triggeredBy.gameObject.GetComponent<Pathfinding.EnemyControllerAI>().canMove = false;
                         }
@@ -311,7 +311,7 @@ public class DOT_effect : NetworkBehaviour
             var chance = 100f;
             if (Random.Range(0f, 100f) <= chance)
             {
-                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(1, skillRequested, false, 2.5f, owner, PlayerConditions.type.debuff, true);
+                triggeredBy.gameObject.GetComponent<PlayerConditions>().add_buff_debuff(1, skillRequested, false, 2f, owner, PlayerConditions.type.debuff, true);
                 triggeredBy.gameObject.GetComponent<PlayerConditions>().stunned = true;
                 triggeredBy.gameObject.GetComponent<PlayerMPSync>().PlayerCanMove = false;
             }

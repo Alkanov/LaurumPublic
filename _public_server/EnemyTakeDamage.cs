@@ -361,17 +361,17 @@ public class EnemyTakeDamage : NetworkBehaviour
                             EnemyConditions.handle_effect(DOT_effect.effect_type.poison, skillRequested.multipliers[0], fromPlayer);
                         }
                     }
-                    buff_info = EnemyConditions.get_buff_information(EnemyConditions.type.debuff, 14);//hunters mark
+                    /*buff_info = EnemyConditions.get_buff_information(EnemyConditions.type.debuff, 14);//hunter's mark
                     if (buff_info != null)
                     {
                         if (EnemyStats.CurrentHP / EnemyStats.MaxHP <= buff_info.skill_requested.multipliers[1] / 100f)
                         {
                             DamageRX *= 1f + (buff_info.skill_requested.multipliers[2] / 100f);
                         }
-                    }
+                    }*/
                     if (skillRequested.SkillID == 61008)//provoke
                     {
-                        if (Random.Range(0f, 100f) < skillRequested.multipliers[1])
+                        if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                         {
                             damageType = "Provoked!";
                             EnemyAggro.AggroChange(fromPlayer);
