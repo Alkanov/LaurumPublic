@@ -7,7 +7,7 @@
       },
       {
          "ID":2,
-         "value":0.20,
+         "value":0.05,
          "description":"Defense % you get from defense stat points (PVP)"
       },
       {
@@ -17,7 +17,7 @@
       },
       {
          "ID":4,
-         "value":0.20,
+         "value":0.05,
          "description":"Defense % you get from the other type of defense (PVP and PVE)"
       },
       {
