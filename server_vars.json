@@ -12,7 +12,7 @@
       },
       {
          "ID":3,
-         "value":0.05,
+         "value":0.00,
          "description":"Defense % you get from defense stat points while being stationary (PVP))"
       },
       {
@@ -22,7 +22,7 @@
       },
       {
          "ID":5,
-         "value":5.00,
+         "value":0.00,
          "description":"Dodge % you get while being in movement (PVP and PVE)"
       },
       {
@@ -37,7 +37,7 @@
       },
       {
          "ID":8,
-         "value":0.75,
+         "value":0.65,
          "description":"Nerf crit and dodge % chance (PVP)"
       },
       {
