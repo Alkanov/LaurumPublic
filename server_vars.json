@@ -2,53 +2,43 @@
    "Items":[
       {
          "ID":1,
-         "value":0.175,
-         "description":"Nerf Damage % applied (PVP), 1 to disable"
+         "value":1,
+         "description":"Nerf % to the Final(Total) damage (PVP), 1 to disable"
       },
       {
          "ID":2,
-         "value":-0.25,
-         "description":"Defense % you get from defense stat points (PVP), 0 to disable"
+         "value":0.9,
+         "description":"Nerf Damage % or ^ (Depends on which formula used) (PVP)"
       },
       {
          "ID":3,
-         "value":0,
-         "description":"Defense % you get from defense stat points while being stationary (PVP)), 0 to disable"
+         "value":0.8,
+         "description":"Nerf Defense % or ^ (Depends on which formula used) (PVP)"
       },
       {
          "ID":4,
-         "value":0,
-         "description":"Defense % you get from the other type of defense (PVP and PVE), 0 to disable"
-      },
-      {
-         "ID":5,
-         "value":0,
-         "description":"Dodge % you get while being in movement (PVP and PVE), 0 to disable"
-      },
-      {
-         "ID":6,
          "value":1.25,
          "description":"Crit damage % (PVP)"
       },
       {
-         "ID":7,
+         "ID":5,
          "value":1.75,
          "description":"Crit damage % (PVE)"
       },
       {
-         "ID":8,
+         "ID":6,
          "value":1,
          "description":"Nerf crit % chance (PVP), 1 to disable"
       },
       {
-         "ID":9,
+         "ID":7,
          "value":1,
          "description":"Nerf dodge % chance (PVP), 1 to disable"
       },
       {
-         "ID":10,
-         "value":0,
-         "description":"With 0 extra defense from other defense will be applied from total def, otherwise from stats"
+         "ID":8,
+         "value":1,
+         "description":"With 1 new formula will be used, otherwise old one"
       }
    ]
 }

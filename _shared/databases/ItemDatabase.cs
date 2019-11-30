@@ -27,11 +27,11 @@ public class ItemDatabase : MonoBehaviour
     public const float Crit_Secondary = MAX_Crit_Dodge * 0.6f;
 
     //Accessories(Necklace, ring)
-    public const float Def_Accessory = Def_Secondary * 0.6f;
-    public const float Damage_Accessory = Damage_Secondary * 0.6f;
-    public const float HP_Accessory = HP_Secondary * 0.6f;
-    public const float MP_Accessory = MP_Secondary * 0.6f;
-    public const float Crit_Accessory = MAX_Crit_Dodge * 0.5f;
+    public const float Def_Accessory = Def_Secondary * 0.5f;
+    public const float Damage_Accessory = Damage_Secondary * 0.5f;
+    public const float HP_Accessory = HP_Secondary * 0.5f;
+    public const float MP_Accessory = MP_Secondary * 0.5f;
+    public const float Crit_Accessory = Crit_Secondary * 0.75f;
 
     //Declare every item class modifier based on the max item stat and the multiplier associated to that class(same as stat multipliers of each class)
     //We divide that into the max item tiers we have in the game(current 10: 1 to 90)
