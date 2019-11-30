@@ -2,12 +2,12 @@
    "Items":[
       {
          "ID":1,
-         "value":0.275,
+         "value":0.175,
          "description":"Nerf Damage % applied (PVP), 1 to disable"
       },
       {
          "ID":2,
-         "value":0,
+         "value":-0.25,
          "description":"Defense % you get from defense stat points (PVP), 0 to disable"
       },
       {
@@ -27,12 +27,12 @@
       },
       {
          "ID":6,
-         "value":1.3,
+         "value":1.25,
          "description":"Crit damage % (PVP)"
       },
       {
          "ID":7,
-         "value":1.7,
+         "value":1.75,
          "description":"Crit damage % (PVE)"
       },
       {
@@ -42,7 +42,7 @@
       },
       {
          "ID":9,
-         "value":0.67,
+         "value":1,
          "description":"Nerf dodge % chance (PVP), 1 to disable"
       },
       {
