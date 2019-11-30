@@ -2,12 +2,12 @@
    "Items":[
       {
          "ID":1,
-         "value":0.25,
+         "value":1.00,
          "description":"Nerf Damage % applied (PVP)"
       },
       {
          "ID":2,
-         "value":0.00,
+         "value":0.50,
          "description":"Defense % you get from defense stat points (PVP)"
       },
       {
@@ -17,7 +17,7 @@
       },
       {
          "ID":4,
-         "value":0.0,
+         "value":0.50,
          "description":"Defense % you get from the other type of defense (PVP and PVE)"
       },
       {
