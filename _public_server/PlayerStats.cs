@@ -429,12 +429,12 @@ public class PlayerStats : NetworkBehaviour
         {
             Damage_int = (Damage_int * INT) + PlayerEquipStats[2];
         }
-        if (Conditions.increasedDamage != 0f)
+        if (Conditions.increasedDamage != 0f)//Concentration
         {
             //Damage_str *= (1f + (Conditions.increasedDamage / 100f));
             Damage_int *= (1f + (Conditions.increasedDamage / 100f));
         }
-        if (Conditions.decreasedDamage < 0f)
+        if (Conditions.decreasedDamage < 0f)//Dismember
         {
             Damage_str *= (1f + (Conditions.decreasedDamage / 100f));
             //Damage_int *= (1f + (Conditions.decreasedDamage / 100f));
