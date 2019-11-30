@@ -2,12 +2,12 @@
    "Items":[
       {
          "ID":1,
-         "value":0.15,
+         "value":0.1750,
          "description":"Nerf Damage % applied (PVP), 1 to disable"
       },
       {
          "ID":2,
-         "value":-0.30,
+         "value":-0.25,
          "description":"Defense % you get from defense stat points (PVP), 0 to disable"
       },
       {
