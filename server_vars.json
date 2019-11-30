@@ -43,7 +43,7 @@
       {
          "ID":9,
          "value":0.67,
-         "description":"Nerf dodge % chance (PVP)"
+         "description":"Nerf dodge % chance (PVP), 1 to disable"
       },
       {
          "ID":10,
