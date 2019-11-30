@@ -176,9 +176,10 @@ public class PlayerPVPDamage : NetworkBehaviour
             //get incomming damage from attacker player
             float DamageRX = CalculateDamageRx(fromPlayer);
 
-            float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().Critical_chance;
             float critNerf = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Nerf].value;
             float dodgeNerf = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Dodge_Nerf].value;
+            
+            float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().Critical_chance;
             playerCriticalChance *= critNerf; //Nerf
 
             //critical chance lottery
@@ -189,23 +190,10 @@ public class PlayerPVPDamage : NetworkBehaviour
                 DamageRX = DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage);
             }        
 
+	    	float playerDodgeChance = PlayerStats.Dodge_chance;
+            playerDodgeChance *= dodgeNerf; //Nerf
             //dodge chance lottery
-            float Adj_dodge_chance = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Movement_Dodge_Bonus].value;
-	        if (PlayerStats.Dodge_chance > (PlayerStats.Dodge_hard_cap - Adj_dodge_chance)) {
-                Adj_dodge_chance = PlayerStats.Dodge_chance - (PlayerStats.Dodge_hard_cap - Adj_dodge_chance); 
-            }
-	        if (PlayerStats.Dodge_chance >= PlayerStats.Dodge_hard_cap) { 
-                Adj_dodge_chance = 0;
-            }
-            if (!PlayerMPSync.stationary) // JWR
-            {
-	    	    Adj_dodge_chance += PlayerStats.Dodge_chance; // JWR - Add bonus if moving
-	        }else{
-	    	    Adj_dodge_chance = PlayerStats.Dodge_chance; // JWR - No bonus if stationary
-	        }
-
-            Adj_dodge_chance *= dodgeNerf; //Nerf
-            if (Random.Range(0f, 100f) <= Adj_dodge_chance) //JWR - Use adjusted dodge chance
+            if (Random.Range(0f, 100f) <= playerDodgeChance)
             {
                 DamageRX = 0f;
                 dodged = true;
@@ -284,57 +272,32 @@ public class PlayerPVPDamage : NetworkBehaviour
         float playerTotalDef = 0f;
         float fromPlayerDamage = 0f;
         
-        float PVP_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Defense_Bonus].value;
-        float STATIONARY_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Stationary_Defense_Bonus].value;
+        bool USE_NEW_FORMULA = Mathf.roundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Use_New_PVP_Formula].value) == 1;
+        float NERF_FINAL = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_FinalDmg_Nerf].value;
+        float NERF_DEFENSE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Defense_Nerf].value;
         float NERF_DAMAGE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Damage_Nerf].value;
-        float OTHER_DEF_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus].value;
-        int OTHER_DEF_BONUS_FROM_TOTAL_DEF = Mathf.RoundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus_From_Total_Def].value);
-
-        //used below
-        float pvpBonus = 0f;
-        float stationaryBonus = 0f;
 
         switch (fromPlayerStats.DamageType_now)
         {
             case PlayerStats.DamageType.magical:
-                pvpBonus = PlayerStats.Defense_from_mdef * PVP_BONUS; //JWR - Mdef bonus using base defense before armor/buff
-                stationaryBonus = PlayerStats.Defense_from_mdef * STATIONARY_BONUS;
-                
-                //Other def bonus
-                if(OTHER_DEF_BONUS_FROM_TOTAL_DEF == 0){
-                    playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * OTHER_DEF_BONUS);
-                }else{
-                    playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_from_pdef * OTHER_DEF_BONUS);
-                }
-
-                playerTotalDef += pvpBonus; //JWR - Add def bonus (general bonus for PvP balance)
-                if (PlayerMPSync.stationary) { 
-                    playerTotalDef += stationaryBonus; //JWR - If stationary, double the defense bonus
-                } 
+                playerTotalDef = PlayerStats.Defense_int;
                 fromPlayerDamage = fromPlayerStats.Damage_int;
                 break;
             case PlayerStats.DamageType.physical:
-                pvpBonus = PlayerStats.Defense_from_pdef * PVP_BONUS; //JWR - Pdef bonus using base defense before armor/buff
-                stationaryBonus = PlayerStats.Defense_from_pdef * STATIONARY_BONUS;
-
-                //Other def bonus
-                if(OTHER_DEF_BONUS_FROM_TOTAL_DEF == 0){
-                    playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * OTHER_DEF_BONUS);
-                }else{
-                    playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_from_mdef * OTHER_DEF_BONUS);
-                }
-
-                playerTotalDef += pvpBonus; //JWR Add def bonus
-                if (PlayerMPSync.stationary) { 
-                    playerTotalDef += stationaryBonus; //JWR - If stationary, double the defense bonus
-                } 
+                playerTotalDef = PlayerStats.Defense_str;
                 fromPlayerDamage = fromPlayerStats.Damage_str;
                 break;
             default:
                 break;
         }
-        
-        DamageRX = (fromPlayerDamage - playerTotalDef) * NERF_DAMAGE;
+
+        if(USE_NEW_FORMULA)
+        {
+            DamageRX = (Mathf.Pow(fromPlayerDamage, NERF_DAMAGE) - Mathf.Pow(playerTotalDef, NERF_DEFENSE)) * PVP_FinalDmg_Nerf;
+        }
+        else{
+            DamageRX = (fromPlayerDamage * NERF_DAMAGE - playerTotalDef * NERF_DEFENSE) * PVP_FinalDmg_Nerf;
+        }
 
         //if damage is below 0 make sure to return 0, a negative number here would heal the player instead (100HP-(-100 damage)=200)
         if (DamageRX < 0f)
@@ -356,18 +319,7 @@ public class PlayerPVPDamage : NetworkBehaviour
             PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 16);
             DamageRX = 0f;
         }
-        /*
-         * Deprecated: Hunters Mark only affects skills
-         * 
-         * //if has Hunters Mark
-        var buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.debuff, 14);
-        if (buff_info != null)
-        {
-            if (PlayerStats.CurrentHP / PlayerStats.MaxHealth <= buff_info.skill_requested.multipliers[1] / 100f)
-            {
-                DamageRX = Mathf.RoundToInt(DamageRX * (1f + (buff_info.skill_requested.multipliers[2] / 100f)));
-            }
-        }*/
+
         return DamageRX;
     }
     #endregion
@@ -487,26 +439,10 @@ public class PlayerPVPDamage : NetworkBehaviour
                             DamageRX = DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage);
                         }
 
-                        //dodge chance lottery
-                        float Adj_dodge_chance = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Movement_Dodge_Bonus].value;
+	    			    float playerDodgeChance = PlayerStats.Dodge_chance;
+                        playerDodgeChance *= dodgeNerf; //Nerf
 
-        			    if (PlayerStats.Dodge_chance > (PlayerStats.Dodge_hard_cap - Adj_dodge_chance)) { 
-                            Adj_dodge_chance = PlayerStats.Dodge_chance - (PlayerStats.Dodge_hard_cap - Adj_dodge_chance); 
-                        }
-	    		        if (PlayerStats.Dodge_chance >= PlayerStats.Dodge_hard_cap) { 
-                            Adj_dodge_chance = 0f; 
-                        }
-            		    if (!PlayerMPSync.stationary) // JWR
-            		    {
-				            Adj_dodge_chance += PlayerStats.Dodge_chance; // JWR - Add bonus if moving
-	    		        }
-            		    else
-	    		        {
-	    			        Adj_dodge_chance = PlayerStats.Dodge_chance; // JWR - No bonus if stationary
-	    		        }
-
-                        Adj_dodge_chance *= dodgeNerf; //Nerf for skills
-	                    if (Random.Range(0f, 100f) <= Adj_dodge_chance) //JWR - Use adjusted dodge chance
+	                    if (Random.Range(0f, 100f) <= playerDodgeChance) //JWR - Use adjusted dodge chance
                         {
                             DamageRX = 0f;
                             dodged = true;
@@ -632,59 +568,35 @@ public class PlayerPVPDamage : NetworkBehaviour
     {
         float DamageRxAcc = 0f;
         PlayerStats fromPlayerStats = fromPlayer.GetComponent<PlayerStats>();
-        float playerTotalDef = 0;
-        float fromPlayerDamage = 0;
+        float playerTotalDef = 0f;
+        float fromPlayerDamage = 0f;
         
-        float PVP_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Defense_Bonus].value;
-        float STATIONARY_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Stationary_Defense_Bonus].value;
+        bool USE_NEW_FORMULA = Mathf.roundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Use_New_PVP_Formula].value) == 1;
+        float NERF_FINAL = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_FinalDmg_Nerf].value;
+        float NERF_DEFENSE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Defense_Nerf].value;
         float NERF_DAMAGE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Damage_Nerf].value;
-        float OTHER_DEF_BONUS = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus].value;
-        int OTHER_DEF_BONUS_FROM_TOTAL_DEF = Mathf.RoundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus_From_Total_Def].value);
-        
-        //used below
-        float pvpBonus = 0f;
-        float stationaryBonus = 0f;
+
         switch (fromPlayerStats.DamageType_now)
         {
-            case PlayerStats.DamageType.magical:
-                pvpBonus = PlayerStats.Defense_from_mdef * PVP_BONUS; //JWR - Mdef bonus using base defense before armor/buff
-                stationaryBonus = PlayerStats.Defense_from_mdef * STATIONARY_BONUS;
-                
-                //Other def bonus
-                if(OTHER_DEF_BONUS_FROM_TOTAL_DEF == 0){
-                    playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * OTHER_DEF_BONUS);
-                }else{
-                    playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_from_pdef * OTHER_DEF_BONUS);
-                }
-
-                playerTotalDef += pvpBonus; //JWR - Add def bonus (general bonus for PvP balance)
-                if (PlayerMPSync.stationary) { 
-                    playerTotalDef += stationaryBonus; //JWR - If stationary, double the defense bonus
-                } 
+            case PlayerStats.DamageType.magical: 
+                playerTotalDef = PlayerStats.Defense_int;
                 fromPlayerDamage = fromPlayerStats.Damage_int * power_multiplier;
                 break;
-            case PlayerStats.DamageType.physical:
-                pvpBonus = PlayerStats.Defense_from_pdef * PVP_BONUS; //JWR - Pdef bonus using base defense before armor/buff
-                stationaryBonus = PlayerStats.Defense_from_pdef * STATIONARY_BONUS;
-
-                //Other def bonus
-                if(OTHER_DEF_BONUS_FROM_TOTAL_DEF == 0){
-                    playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * OTHER_DEF_BONUS);
-                }else{
-                    playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_from_mdef * OTHER_DEF_BONUS);
-                }
-
-                playerTotalDef += pvpBonus; //JWR Add def bonus
-                if (PlayerMPSync.stationary) { 
-                    playerTotalDef += stationaryBonus; //JWR - If stationary, double the defense bonus
-                } 
+            case PlayerStats.DamageType.physical:         
+                playerTotalDef = PlayerStats.Defense_str;
                 fromPlayerDamage = fromPlayerStats.Damage_str * power_multiplier;
                 break;
             default:
                 break;
         }
 
-        DamageRxAcc = (fromPlayerDamage - playerTotalDef) * NERF_DAMAGE;
+        if(USE_NEW_FORMULA)
+        {
+            DamageRxAcc = (Mathf.Pow(fromPlayerDamage, NERF_DAMAGE) - Mathf.Pow(playerTotalDef, NERF_DEFENSE)) * PVP_FinalDmg_Nerf;
+        }
+        else{
+            DamageRxAcc = (fromPlayerDamage * NERF_DAMAGE - playerTotalDef * NERF_DEFENSE) * PVP_FinalDmg_Nerf;
+        }
 
         //if damage is below 0 make sure to return 0, a negative number here would heal the player instead (100HP-(-100 damage)=200)
         if (DamageRxAcc < 0f)

@@ -508,7 +508,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         else
         {
             //take damage from HP           
-            if (EnemyStats.CurrentHP - DamageToTake < 0)
+            if (EnemyStats.CurrentHP - DamageToTake < 0f)
             {
                 DamageToTake = EnemyStats.CurrentHP;                
             }

@@ -26,54 +26,44 @@ public class ServerUniversalSettings : MonoBehaviour
         none,
         
         /// <summary>
-        /// 1:Nerf Damage % Applied in PVP
+        /// 1:Nerf % to the Final(Total) damage (PVP)
+        /// </summary>
+        PVP_FinalDmg_Nerf,
+        
+        /// <summary>
+        /// 2:Nerf Damage % or ^ (Depends on which formula used) (PVP)
         /// </summary>
         PVP_Damage_Nerf,
         
         /// <summary>
-        /// 2:Extra defense % you gain from defense stat points in PVP
+        /// 3:Nerf Defense % or ^ (Depends on which formula used) (PVP)
         /// </summary>
-        PVP_Defense_Bonus,
+        PVP_Defense_Nerf,
 
         /// <summary>
-        /// 3:Defense % you get from defense stat points while being stationary in PVP
-        /// </summary>
-        PVP_Stationary_Defense_Bonus,
-
-        /// <summary>
-        /// 4:Defense % you get from the other type of defense (PVP and PVE)
-        /// </summary>
-        Other_Defense_Bonus,
-
-        /// <summary>
-        /// 5:Dodge % you get while being in movement (PVP and PVE)
-        /// </summary>
-        Movement_Dodge_Bonus,
-
-        /// <summary>
-        /// 6:Crit damage % (PVP)
+        /// 4:Crit damage % (PVP)
         /// </summary>
         PVP_Crit_Multiplier,
 
         /// <summary>
-        /// 7:Crit damage % (PVE)
+        /// 5:Crit damage % (PVE)
         /// </summary>
         PVE_Crit_Multiplier,
 
         /// <summary>
-        /// 8:Nerf crit % chance (PVP)
+        /// 6:Nerf crit % chance (PVP), 1 to disable
         /// </summary>
         PVP_Crit_Nerf,
 
          /// <summary>
-        /// 9:Nerf dodge % chance (PVP)
+        /// 7:Nerf dodge % chance (PVP), 1 to disable
         /// </summary>
         PVP_Dodge_Nerf,
 
         /// <summary>
-        /// 10:With 0 extra defense from other defense will be applied from total def, otherwise from stats
+        /// 8:With 1 new formula will be used, otherwise old one
         /// </summary>
-        Other_Defense_Bonus_From_Total_Def
+        Use_New_PVP_Formula
     }
 
     /// <summary>

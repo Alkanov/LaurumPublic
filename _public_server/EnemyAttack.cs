@@ -117,24 +117,9 @@ public class EnemyAttack : MonoBehaviour
                         Critico = true;
                         DamageTX = DamageTX * 2f;
                     }
-                    float Adj_dodge_chance = EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Movement_Dodge_Bonus].value;
-                    float Player_dodge_chance = PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance;
-                    float Dodge_hard_cap = PlayerToAttack.GetComponent<PlayerStats>().Dodge_hard_cap;
-	                if (Player_dodge_chance > (Dodge_hard_cap - Adj_dodge_chance)) { 
-                        Adj_dodge_chance = Player_dodge_chance - (Dodge_hard_cap - Adj_dodge_chance); 
-                    }
-	                if (Player_dodge_chance >= Dodge_hard_cap) { 
-                        Adj_dodge_chance = 0f; 
-                    }
-                    if (!PlayerToAttack.GetComponent<PlayerMPSync>().stationary) // JWR
-                    {
-	    	            Adj_dodge_chance += PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance; // JWR - Add bonus if moving
-	                }
-                    else
-	                {
-	    	            Adj_dodge_chance = PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance; // JWR - No bonus if stationary
-	                }
-                    if (Random.Range(0f, 100f) <= Adj_dodge_chance)
+                    
+                    //vemos esquiva el golpe
+                    if (Random.Range(0f, 100f) <= PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance)
                     {
                         dodged = true;
                         DamageTX = 0f;
@@ -214,27 +199,15 @@ public class EnemyAttack : MonoBehaviour
         float DamageTx = 0f;
         float playerTotalDef = 0f;
         float monsterFinalDamage = 0f;
-        float OTHER_DEF_BONUS = EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus].value;
-        int OTHER_DEF_BONUS_FROM_TOTAL_DEF = Mathf.RoundToInt(EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Other_Defense_Bonus_From_Total_Def].value);
 
         if (EnemyStats.DamageType_now == EnemyStats.DamageType.physical) // Physical
         {             
-            //Other def bonus
-            if(OTHER_DEF_BONUS_FROM_TOTAL_DEF == 0){
-                playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str + (toPlayer.GetComponent<PlayerStats>().Defense_int * OTHER_DEF_BONUS);
-            }else{
-                playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str + (toPlayer.GetComponent<PlayerStats>().Defense_from_mdef * OTHER_DEF_BONUS);
-            }
+            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str;
             monsterFinalDamage = EnemyStats.Damage_str;
         }
         else // Magical
         {            
-            //Other def bonus
-            if(OTHER_DEF_BONUS_FROM_TOTAL_DEF == 0){
-                playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int + (toPlayer.GetComponent<PlayerStats>().Defense_str * OTHER_DEF_BONUS);
-            }else{
-                playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int + (toPlayer.GetComponent<PlayerStats>().Defense_from_pdef * OTHER_DEF_BONUS);
-            }     
+            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int;
             monsterFinalDamage = EnemyStats.Damage_int;
         }
         //.LogError("playerTotalDef=" + playerTotalDef + " monsterFinalDamage="+ monsterFinalDamage);
