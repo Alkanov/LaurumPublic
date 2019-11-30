@@ -17,7 +17,7 @@
       },
       {
          "ID":4,
-         "value":0.25,
+         "value":0,
          "description":"Defense % you get from the other type of defense (PVP and PVE)"
       },
       {
@@ -47,5 +47,3 @@
       }
    ]
 }
-
-
