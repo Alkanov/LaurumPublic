@@ -293,7 +293,7 @@ public class PlayerPVPDamage : NetworkBehaviour
 
         if(USE_NEW_FORMULA)
         {
-            DamageRX = ( (fromPlayerDamage ^ NERF_DAMAGE) - (playerTotalDef ^ NERF_DEFENSE) ) * PVP_FinalDmg_Nerf;
+            DamageRX = (Mathf.Pow(fromPlayerDamage, NERF_DAMAGE) - Mathf.Pow(playerTotalDef, NERF_DEFENSE)) * PVP_FinalDmg_Nerf;
         }
         else{
             DamageRX = (fromPlayerDamage * NERF_DAMAGE - playerTotalDef * NERF_DEFENSE) * PVP_FinalDmg_Nerf;
@@ -592,7 +592,7 @@ public class PlayerPVPDamage : NetworkBehaviour
 
         if(USE_NEW_FORMULA)
         {
-            DamageRxAcc = ( (fromPlayerDamage ^ NERF_DAMAGE) - (playerTotalDef ^ NERF_DEFENSE) ) * PVP_FinalDmg_Nerf;
+            DamageRxAcc = (Mathf.Pow(fromPlayerDamage, NERF_DAMAGE) - Mathf.Pow(playerTotalDef, NERF_DEFENSE)) * PVP_FinalDmg_Nerf;
         }
         else{
             DamageRxAcc = (fromPlayerDamage * NERF_DAMAGE - playerTotalDef * NERF_DEFENSE) * PVP_FinalDmg_Nerf;
