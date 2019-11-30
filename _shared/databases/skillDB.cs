@@ -144,7 +144,7 @@ public class skillDB : MonoBehaviour
         //burn on touch buff
         Skills.Add(new skill(64005, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 1.62f, 10f }, 28));//damage/time
         //Holy Light
-        Skills.Add(new skill(64006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Paladin, 3.75f, 0.5f, 1.8f, 30));
+        Skills.Add(new skill(64006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Paladin, 3.2f, 0.5f, 1.8f, 30));
         //Self Heal
         Skills.Add(new skill(64007, skill.SAction.active, skill.Stype.selfHeal_over_time, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, 0.5f, 18));
         //Heal totem
