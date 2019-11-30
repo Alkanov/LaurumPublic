@@ -2,7 +2,7 @@
    "Items":[
       {
          "ID":1,
-         "value":0.175,
+         "value":0.20,
          "description":"Nerf Damage % applied (PVP)"
       },
       {
@@ -27,7 +27,7 @@
       },
       {
          "ID":6,
-         "value":1.35,
+         "value":1.25,
          "description":"Crit damage % (PVP)"
       },
       {
