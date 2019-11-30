@@ -75,7 +75,7 @@ public class skillDB : MonoBehaviour
         Skills.Add(new skill(62005, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Wizard, 10f, 1f, 1.8f, 38));
         //---------------Ice
         //Ice Spear
-        Skills.Add(new skill(62006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 1.8f, 0.4f, 1.4f, 28));
+        Skills.Add(new skill(62006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 1.8f, 0.5f, 1.4f, 28));
         //Frost Blade
         Skills.Add(new skill(62007, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 7f, 0.8f, new float[2] { 1.6f, 50f }, 30));//damage/chance
         //Frozen Hands
