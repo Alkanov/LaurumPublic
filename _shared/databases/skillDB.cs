@@ -57,7 +57,7 @@ public class skillDB : MonoBehaviour
         //Ultimate Defense
         Skills.Add(new skill(61020, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.4f, new float[2] { 35f, 10f }, 10));//buff/time
         //Arrow Deflect
-        Skills.Add(new skill(61028, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[2] { 35f, 5f }, 12));//buff/time
+        Skills.Add(new skill(61028, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[2] { 35f, 5f }, 10));//buff/time
         //Shields Up
         Skills.Add(new skill(61029, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 5f, 0.2f, new float[1] { 10f }, 10));//time
 
@@ -81,7 +81,7 @@ public class skillDB : MonoBehaviour
         //Frozen Hands
         Skills.Add(new skill(62008, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 15f, 0.8f, new float[2] { 5f, 47.5f }, 25));//time
         //Blizzard
-        Skills.Add(new skill(62009, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Wizard, 15f, 1f, new float[3] { 1.3f, 50f, 75f }, 30));//damage/chance to freeze/chance to slow
+        Skills.Add(new skill(62009, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Wizard, 15f, 1f, new float[3] { 1.3f, 50f, 75f }, 32));//damage/chance to freeze/chance to slow
         //Frost Bomb
         Skills.Add(new skill(62010, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 6f, 0.6f, new float[2] { 1.7f, 50f }, 30));//damage//chance
         //---------------Util
@@ -134,33 +134,33 @@ public class skillDB : MonoBehaviour
         //-----Paladin            
         //---------------Protection
         //Final Protection
-        Skills.Add(new skill(64001, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, 25f, 18));
+        Skills.Add(new skill(64001, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, 25f, 20));
         //Magic Protection totem
-        Skills.Add(new skill(64002, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[2] { 35f, 10f }, 18));  //def/time
+        Skills.Add(new skill(64002, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[2] { 35f, 10f }, 20));  //def/time
         //Physical Protection totem
-        Skills.Add(new skill(64003, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[2] { 35f, 10f }, 18)); //def/time
+        Skills.Add(new skill(64003, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[2] { 35f, 10f }, 20)); //def/time
         //Linked Hearts
-        Skills.Add(new skill(64004, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 10f, 75f }, 18));//time/absorb
+        Skills.Add(new skill(64004, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 10f, 75f }, 20));//time/absorb
         //burn on touch buff
         Skills.Add(new skill(64005, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 1.62f, 10f }, 28));//damage/time
         //Holy Light
         Skills.Add(new skill(64006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Paladin, 3.2f, 0.5f, 1.8f, 30));
         //Self Heal
-        Skills.Add(new skill(64007, skill.SAction.active, skill.Stype.selfHeal_over_time, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, 0.5f, 18));
+        Skills.Add(new skill(64007, skill.SAction.active, skill.Stype.selfHeal_over_time, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, 0.5f, 20));
         //Heal totem
-        Skills.Add(new skill(64008, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, 75f, 18));
+        Skills.Add(new skill(64008, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, 75f, 20));
         //Resurrection
-        Skills.Add(new skill(64009, skill.SAction.active, skill.Stype.AOE_revive, PlayerStats.PlayerClass.Paladin, 30f, 2f, 75f, 18));
+        Skills.Add(new skill(64009, skill.SAction.active, skill.Stype.AOE_revive, PlayerStats.PlayerClass.Paladin, 30f, 2f, 75f, 20));
         //Cleanse
-        Skills.Add(new skill(64010, skill.SAction.active, skill.Stype.AOE_cleanse, PlayerStats.PlayerClass.Paladin, 5f, 0.2f, 5f, 18));
+        Skills.Add(new skill(64010, skill.SAction.active, skill.Stype.AOE_cleanse, PlayerStats.PlayerClass.Paladin, 5f, 0.2f, 5f, 20));
         //Mana totem
-        Skills.Add(new skill(64011, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[1] { 45f }, 18));//value
+        Skills.Add(new skill(64011, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[1] { 45f }, 20));//value
         //Silence
-        Skills.Add(new skill(64012, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 15f, 0.2f, new float[2] { 100f, 5f }, 20));//chance/time
+        Skills.Add(new skill(64012, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 15f, 0.2f, new float[2] { 100f, 5f }, 22));//chance/time
         //Speed totem
-        Skills.Add(new skill(64013, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[5] { 45f, 35f, 25f, 15f, 10f }, 18));//mov speed, attack speed, casting speed, cooldown reduction, time
+        Skills.Add(new skill(64013, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[5] { 45f, 35f, 25f, 15f, 10f }, 20));//mov speed, attack speed, casting speed, cooldown reduction, time
         //Buff remover
-        Skills.Add(new skill(64014, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 5f, 0.2f, 100f, 18));//chance
+        Skills.Add(new skill(64014, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 5f, 0.2f, 100f, 20));//chance
         //Remember me->changed to Consecration
         Skills.Add(new skill(64015, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Paladin, 4f, 0.5f, 1.71f, 35));
 
