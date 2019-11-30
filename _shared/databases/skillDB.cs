@@ -42,7 +42,7 @@ public class skillDB : MonoBehaviour
         //Charge                                                                                                                                                     
         Skills.Add(new skill(61006, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.8f, new float[2] { 45f, 5f }, 10));//buff/time
         //Provoke
-        Skills.Add(new skill(61008, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Warrior, 5.4f, 0.3f, new float[2] { 1.3f, 90f }, 15));//damage/chance/
+        Skills.Add(new skill(61008, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Warrior, 5.4f, 0.25f, new float[2] { 1.15f, 90f }, 15));//damage/chance/
         //Battle Shout
         Skills.Add(new skill(61013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Warrior, 15f, 0.8f, new float[2] { 40f, 10f }, 10));//buff/time
         //Slow down!
