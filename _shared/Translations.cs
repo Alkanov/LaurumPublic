@@ -1831,7 +1831,7 @@ public class Translations : MonoBehaviour
             skillTitles[61024] = "Armor Crusher";
             skillDescriptions[61024] = "Places a debuff on your target that reduces its total DEF by {0}% for {2} seconds";
             skillTitles[61025] = "Dismember";
-            skillDescriptions[61025] = "Does damage and disarms ({2}% INT and STR damage) enemies with Armor Crusher (debuff) on for {1} seconds";
+            skillDescriptions[61025] = "Does damage and disarms ({2}% STR damage) enemies with Armor Crusher (debuff) on for {1} seconds";
             skillTitles[61006] = "Charge";
             skillDescriptions[61006] = "Buffs your walking speed by {0}% for {1} seconds";
             skillTitles[61008] = "Provoke";
@@ -1895,7 +1895,7 @@ public class Translations : MonoBehaviour
             skillTitles[63005] = "Hamstring Shot";
             skillDescriptions[63005] = "Damages your target and slows it by -{2}% for 2.5 seconds";
             skillTitles[63006] = "Poison Arrow";
-            skillDescriptions[63006] = "Damages your target and has a {1}% chance to apply poison on it for 5 seconds";
+            skillDescriptions[63006] = "Applies poison on your target for 5 seconds";
             skillTitles[63007] = "Multitrap";
             skillDescriptions[63007] = "Deploys 4 traps in 4 directions. Traps cause bleed for 5 seconds and slow by -25% for 2.5 seconds when triggered";
             skillTitles[63008] = "Poison Trap";
