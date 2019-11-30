@@ -27,12 +27,12 @@
       },
       {
          "ID":6,
-         "value":1.3,
+         "value":1.25,
          "description":"Crit damage % (PVP)"
       },
       {
          "ID":7,
-         "value":1.7,
+         "value":1.75,
          "description":"Crit damage % (PVE)"
       },
       {
@@ -42,7 +42,7 @@
       },
       {
          "ID":9,
-         "value":0.67,
+         "value":1,
          "description":"Nerf dodge % chance (PVP), 1 to disable"
       },
       {
