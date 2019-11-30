@@ -75,7 +75,7 @@ public class skillDB : MonoBehaviour
         Skills.Add(new skill(62005, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Wizard, 10f, 1f, 1.8f, 38));
         //---------------Ice
         //Ice Spear
-        Skills.Add(new skill(62006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 1.8f, 0.5f, 1.4f, 28));
+        Skills.Add(new skill(62006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 1.75f, 0.5f, 1.4f, 28));
         //Frost Blade
         Skills.Add(new skill(62007, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 7f, 0.8f, new float[2] { 1.6f, 50f }, 30));//damage/chance
         //Frozen Hands
@@ -105,7 +105,7 @@ public class skillDB : MonoBehaviour
         //Multishot
         Skills.Add(new skill(63003, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Hunter, 9f, 1f, new float[2] { 1.71f, 5f }, 30));//damage//targets
         //Steady shot
-        Skills.Add(new skill(63004, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 1.62f, 0.25f, 1.26f, 18));
+        Skills.Add(new skill(63004, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 1.575f, 0.25f, 1.26f, 18));
         //Hamstring shot
         Skills.Add(new skill(63005, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 5.4f, 0.3f, new float[3] { 1.53f, 100f, 25f }, 20));//damage/chance/effect
         //---------------Survival
@@ -123,7 +123,7 @@ public class skillDB : MonoBehaviour
         //Hunter's Mark
         Skills.Add(new skill(63011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Hunter, 15f, 0.2f, new float[2] { 5f, -50f }, 18));//time//debuff
         //Hunter's Ritual
-        Skills.Add(new skill(63012, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Hunter, 12f, 0.2f, new float[2] { 50f, 5f }, 15));//buff/time
+        Skills.Add(new skill(63012, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Hunter, 12.5f, 0.2f, new float[2] { 50f, 5f }, 15));//buff/time
         //Camouflage
         Skills.Add(new skill(63013, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.8f, 5f, 15));
         //Soul Sacrifice
