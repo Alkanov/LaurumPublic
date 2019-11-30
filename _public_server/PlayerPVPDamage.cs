@@ -177,8 +177,9 @@ public class PlayerPVPDamage : NetworkBehaviour
             float DamageRX = CalculateDamageRx(fromPlayer);
 
             float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().Critical_chance;
-            float critAndDodgeChanceNerfPercentage = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_And_Dodge_Chance_Nerf].value;
-            playerCriticalChance *= critAndDodgeChanceNerfPercentage; //Nerf
+            float critNerf = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Nerf].value;
+            float dodgeNerf = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Dodge_Nerf].value;
+            playerCriticalChance *= critNerf; //Nerf
 
             //critical chance lottery
             if (Random.Range(0f, 100f) <= playerCriticalChance)
@@ -203,7 +204,7 @@ public class PlayerPVPDamage : NetworkBehaviour
 	    	    Adj_dodge_chance = PlayerStats.Dodge_chance; // JWR - No bonus if stationary
 	        }
 
-            Adj_dodge_chance *= critAndDodgeChanceNerfPercentage; //Nerf
+            Adj_dodge_chance *= dodgeNerf; //Nerf
             if (Random.Range(0f, 100f) <= Adj_dodge_chance) //JWR - Use adjusted dodge chance
             {
                 DamageRX = 0f;
@@ -445,6 +446,9 @@ public class PlayerPVPDamage : NetworkBehaviour
                             case 61004://bleed - warrior
                                 PlayerConditions.handle_effect(DOT_effect.effect_type.bleed, skillRequested.multipliers[0], fromPlayer, 0);
                                 break;
+                            case 63006://poison arrow - hunter
+                                PlayerConditions.handle_effect(DOT_effect.effect_type.poison, skillRequested.multipliers[0], fromPlayer, 0);
+                                break;
                             default:
                                 break;
                         }
@@ -461,8 +465,9 @@ public class PlayerPVPDamage : NetworkBehaviour
                         damageType = "damage";
                         float DamageRX = CalculateSkillDamageRx(fromPlayer, skillRequested.multipliers[0]);
                         float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().Critical_chance;
-                        float critAndDodgeChanceNerfPercentage = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_And_Dodge_Chance_Nerf].value;
-                        playerCriticalChance *= critAndDodgeChanceNerfPercentage; //Nerf for skills
+                        float critNerf = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Nerf].value;
+                        float dodgeNerf = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Dodge_Nerf].value;
+                        playerCriticalChance *= critNerf; //Nerf for skills
 
                         if (Random.Range(0f, 100f) <= playerCriticalChance)
                         {
@@ -500,7 +505,7 @@ public class PlayerPVPDamage : NetworkBehaviour
 	    			        Adj_dodge_chance = PlayerStats.Dodge_chance; // JWR - No bonus if stationary
 	    		        }
 
-                        Adj_dodge_chance *= critAndDodgeChanceNerfPercentage; //Nerf for skills
+                        Adj_dodge_chance *= dodgeNerf; //Nerf for skills
 	                    if (Random.Range(0f, 100f) <= Adj_dodge_chance) //JWR - Use adjusted dodge chance
                         {
                             DamageRX = 0f;

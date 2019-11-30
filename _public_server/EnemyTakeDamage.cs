@@ -289,6 +289,9 @@ public class EnemyTakeDamage : NetworkBehaviour
                     case 61004://bleed - warrior
                         EnemyConditions.handle_effect(DOT_effect.effect_type.bleed, skillRequested.multipliers[0], fromPlayer);
                         break;
+                    case 63006://poison arrow - hunter
+                        EnemyConditions.handle_effect(DOT_effect.effect_type.poison, skillRequested.multipliers[0], fromPlayer);
+                        break;
                     default:
                         break;
                 }

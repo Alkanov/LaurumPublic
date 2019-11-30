@@ -466,9 +466,9 @@ public class ItemDatabase : MonoBehaviour
         //Snipe
         items.Add(new Item(63001, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Hawkeye
-        items.Add(new Item(63002, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
+        items.Add(new Item(63002, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Multishot
-        items.Add(new Item(63003, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
+        items.Add(new Item(63003, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Steady shot
         items.Add(new Item(63004, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Hamstring shot
@@ -477,20 +477,20 @@ public class ItemDatabase : MonoBehaviour
         //Poison Arrow
         items.Add(new Item(63006, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Multi trap
-        items.Add(new Item(63007, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
+        items.Add(new Item(63007, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Posion Trap
         items.Add(new Item(63008, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Steel trap
         items.Add(new Item(63009, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Booby Trap
-        items.Add(new Item(63010, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
+        items.Add(new Item(63010, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //---------------Util
         //Hunter's Mark
         items.Add(new Item(63011, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Hunter's Ritual
-        items.Add(new Item(63012, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
+        items.Add(new Item(63012, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Camouflage
-        items.Add(new Item(63013, Item.UseAs.SkillMain, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
+        items.Add(new Item(63013, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Soul Sacrifice
         items.Add(new Item(63014, Item.UseAs.SkillSecondary, Item.Restrictions.tradeable, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Hunter }, 1));
         //Acrobatics

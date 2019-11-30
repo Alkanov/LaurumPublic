@@ -26,47 +26,52 @@ public class ServerUniversalSettings : MonoBehaviour
         none,
         
         /// <summary>
-        /// Nerf Damage % Applied in PVP
+        /// 1:Nerf Damage % Applied in PVP
         /// </summary>
         PVP_Damage_Nerf,
         
         /// <summary>
-        /// Extra defense % you gain from defense stat points in PVP
+        /// 2:Extra defense % you gain from defense stat points in PVP
         /// </summary>
         PVP_Defense_Bonus,
 
         /// <summary>
-        /// Defense % you get from defense stat points while being stationary in PVP
+        /// 3:Defense % you get from defense stat points while being stationary in PVP
         /// </summary>
         PVP_Stationary_Defense_Bonus,
 
         /// <summary>
-        /// Defense % you get from the other type of defense (PVP and PVE)
+        /// 4:Defense % you get from the other type of defense (PVP and PVE)
         /// </summary>
         Other_Defense_Bonus,
 
         /// <summary>
-        /// Dodge % you get while being in movement (PVP and PVE)
+        /// 5:Dodge % you get while being in movement (PVP and PVE)
         /// </summary>
         Movement_Dodge_Bonus,
 
         /// <summary>
-        /// Crit damage % (PVP)
+        /// 6:Crit damage % (PVP)
         /// </summary>
         PVP_Crit_Multiplier,
 
         /// <summary>
-        /// Crit damage % (PVE)
+        /// 7:Crit damage % (PVE)
         /// </summary>
         PVE_Crit_Multiplier,
 
         /// <summary>
-        /// Nerf crit and dodge % chance (PVP)
+        /// 8:Nerf crit % chance (PVP)
         /// </summary>
-        PVP_Crit_And_Dodge_Chance_Nerf,
+        PVP_Crit_Nerf,
+
+         /// <summary>
+        /// 9:Nerf dodge % chance (PVP)
+        /// </summary>
+        PVP_Dodge_Nerf,
 
         /// <summary>
-        /// With 0 extra defense from other defense will be applied from total def, otherwise from stats
+        /// 10:With 0 extra defense from other defense will be applied from total def, otherwise from stats
         /// </summary>
         Other_Defense_Bonus_From_Total_Def
     }

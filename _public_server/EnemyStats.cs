@@ -115,7 +115,7 @@ public class EnemyStats : NetworkBehaviour
         if (Conditions.decreasedDamage < 0f)
         {
             Damage_str = Damage_str *(1f + (Conditions.decreasedDamage / 100f));
-            Damage_int = Damage_str *(1f + (Conditions.decreasedDamage / 100f));
+            //Damage_int = Damage_int *(1f + (Conditions.decreasedDamage / 100f));
         }
         if (Conditions.decreasedDodge < 0f)
         {
