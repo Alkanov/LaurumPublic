@@ -7,7 +7,7 @@
       },
       {
          "ID":2,
-         "value":0,
+         "value":-0.2,
          "description":"Defense % you get from defense stat points (PVP), 0 to disable"
       },
       {
