@@ -29,7 +29,7 @@ public class skillDB : MonoBehaviour
         //-----Warrior
         //---------------Berserker
         //Whirlwind
-        Skills.Add(new skill(61001, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Warrior, 4.5f, 0.5f, 1.9f, 25));//value
+        Skills.Add(new skill(61001, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Warrior, 4.5f, 0.45f, 1.9f, 25));//value
         //Bleed
         Skills.Add(new skill(61004, skill.SAction.active, skill.Stype.target_DOT, PlayerStats.PlayerClass.Warrior, 9f, 0.3f, new float[2] { 1.8f, 5f }, 18));//value//time(not in use)
         //Execution
@@ -42,7 +42,7 @@ public class skillDB : MonoBehaviour
         //Charge                                                                                                                                                     
         Skills.Add(new skill(61006, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.8f, new float[2] { 45f, 5f }, 10));//buff/time
         //Provoke
-        Skills.Add(new skill(61008, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Warrior, 4.95f, 0.45f, new float[2] { 1f, 90f }, 15));//damage/chance/
+        Skills.Add(new skill(61008, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Warrior, 4.5f, 0.45f, new float[2] { 1f, 90f }, 15));//damage/chance/
         //Battle Shout
         Skills.Add(new skill(61013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Warrior, 15f, 0.8f, new float[2] { 40f, 10f }, 10));//buff/time
         //Slow down!
@@ -144,7 +144,7 @@ public class skillDB : MonoBehaviour
         //burn on touch buff
         Skills.Add(new skill(64005, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 1.62f, 10f }, 28));//damage/time
         //Holy Light
-        Skills.Add(new skill(64006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Paladin, 3.2f, 0.5f, 1.8f, 30));
+        Skills.Add(new skill(64006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Paladin, 3.2f, 0.45f, 1.8f, 30));
         //Self Heal
         Skills.Add(new skill(64007, skill.SAction.active, skill.Stype.selfHeal_over_time, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, 0.5f, 20));
         //Heal totem
@@ -162,7 +162,7 @@ public class skillDB : MonoBehaviour
         //Buff remover
         Skills.Add(new skill(64014, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 5f, 0.2f, 100f, 20));//chance
         //Remember me->changed to Consecration
-        Skills.Add(new skill(64015, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Paladin, 4f, 0.5f, 1.71f, 35));
+        Skills.Add(new skill(64015, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Paladin, 4f, 0.45f, 1.71f, 35));
 
     }
 
