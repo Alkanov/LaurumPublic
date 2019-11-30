@@ -2,7 +2,7 @@
    "Items":[
       {
          "ID":1,
-         "value":1.00,
+         "value":0.50,
          "description":"Nerf Damage % applied (PVP)"
       },
       {
