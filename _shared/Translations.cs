@@ -1907,7 +1907,7 @@ public class Translations : MonoBehaviour
             skillTitles[63011] = "Hunter's Mark";
             skillDescriptions[63011] = "Places a debuff on your target that reduces its total dodge by {1}% for {0} seconds";
             skillTitles[63012] = "Hunter's Ritual";
-            skillDescriptions[63012] = "AoE buff that increases movement speed by {0}% for {1} seconds";
+            skillDescriptions[63012] = "Buffs your walking speed by {0}% for {1} seconds";
             skillTitles[63013] = "Camouflage";
             skillDescriptions[63013] = "Becomes invisible for {0} seconds (or until skill/auto-attack is used)";
             skillTitles[63014] = "Soul Sacrifice";

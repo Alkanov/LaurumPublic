@@ -123,7 +123,7 @@ public class skillDB : MonoBehaviour
         //Hunter's Mark
         Skills.Add(new skill(63011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Hunter, 15f, 0.2f, new float[2] { 5f, -50f }, 18));//time//debuff
         //Hunter's Ritual
-        Skills.Add(new skill(63012, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Hunter, 12.5f, 0.2f, new float[2] { 50f, 5f }, 15));//buff/time
+        Skills.Add(new skill(63012, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 12.5f, 0.2f, new float[2] { 50f, 5f }, 15));//buff/time
         //Camouflage
         Skills.Add(new skill(63013, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.8f, 5f, 15));
         //Soul Sacrifice
