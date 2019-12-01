@@ -961,7 +961,7 @@ public class PlayerConditions : NetworkBehaviour
             case DOT_effect.effect_type.poison:
                 effectid = 9010;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 4f;
+                total_time = 7f;
                 break;
             case DOT_effect.effect_type.fire:
                 effectid = 9020;
