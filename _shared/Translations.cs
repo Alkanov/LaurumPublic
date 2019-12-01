@@ -1895,11 +1895,11 @@ public class Translations : MonoBehaviour
             skillTitles[63005] = "Hamstring Shot";
             skillDescriptions[63005] = "Damages your target and slows it by -{2}% for 2.5 seconds";
             skillTitles[63006] = "Poison Arrow";
-            skillDescriptions[63006] = "Applies poison on your target for 5 seconds";
+            skillDescriptions[63006] = "Applies poison on your target for 7.5 seconds";
             skillTitles[63007] = "Multitrap";
             skillDescriptions[63007] = "Deploys 4 traps in 4 directions. Traps cause bleed for 5 seconds and slow by -25% for 2.5 seconds when triggered";
             skillTitles[63008] = "Poison Trap";
-            skillDescriptions[63008] = "Deploys a trap that applies poison for 5 seconds when triggered";
+            skillDescriptions[63008] = "Deploys a trap that applies poison for 7.5 seconds when triggered";
             skillTitles[63009] = "Steel Trap";
             skillDescriptions[63009] = "Deploys a trap that stuns on touch for 2 seconds";
             skillTitles[63010] = "Booby Trap";
