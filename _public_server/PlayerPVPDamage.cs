@@ -272,7 +272,7 @@ public class PlayerPVPDamage : NetworkBehaviour
         float playerTotalDef = 0f;
         float fromPlayerDamage = 0f;
         
-        bool USE_NEW_FORMULA = Mathf.roundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Use_New_PVP_Formula].value) == 1;
+        bool USE_NEW_FORMULA = Mathf.RoundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Use_New_PVP_Formula].value) == 1;
         float NERF_FINAL = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_FinalDmg_Nerf].value;
         float NERF_DEFENSE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Defense_Nerf].value;
         float NERF_DAMAGE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Damage_Nerf].value;
@@ -293,10 +293,10 @@ public class PlayerPVPDamage : NetworkBehaviour
 
         if(USE_NEW_FORMULA)
         {
-            DamageRX = (Mathf.Pow(fromPlayerDamage, NERF_DAMAGE) - Mathf.Pow(playerTotalDef, NERF_DEFENSE)) * PVP_FinalDmg_Nerf;
+            DamageRX = (Mathf.Pow(fromPlayerDamage, NERF_DAMAGE) - Mathf.Pow(playerTotalDef, NERF_DEFENSE)) * NERF_FINAL;
         }
         else{
-            DamageRX = (fromPlayerDamage * NERF_DAMAGE - playerTotalDef * NERF_DEFENSE) * PVP_FinalDmg_Nerf;
+            DamageRX = (fromPlayerDamage * NERF_DAMAGE - playerTotalDef * NERF_DEFENSE) * NERF_FINAL;
         }
 
         //if damage is below 0 make sure to return 0, a negative number here would heal the player instead (100HP-(-100 damage)=200)
@@ -571,7 +571,7 @@ public class PlayerPVPDamage : NetworkBehaviour
         float playerTotalDef = 0f;
         float fromPlayerDamage = 0f;
         
-        bool USE_NEW_FORMULA = Mathf.roundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Use_New_PVP_Formula].value) == 1;
+        bool USE_NEW_FORMULA = Mathf.RoundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Use_New_PVP_Formula].value) == 1;
         float NERF_FINAL = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_FinalDmg_Nerf].value;
         float NERF_DEFENSE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Defense_Nerf].value;
         float NERF_DAMAGE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Damage_Nerf].value;
@@ -592,10 +592,10 @@ public class PlayerPVPDamage : NetworkBehaviour
 
         if(USE_NEW_FORMULA)
         {
-            DamageRxAcc = (Mathf.Pow(fromPlayerDamage, NERF_DAMAGE) - Mathf.Pow(playerTotalDef, NERF_DEFENSE)) * PVP_FinalDmg_Nerf;
+            DamageRxAcc = (Mathf.Pow(fromPlayerDamage, NERF_DAMAGE) - Mathf.Pow(playerTotalDef, NERF_DEFENSE)) * NERF_FINAL;
         }
         else{
-            DamageRxAcc = (fromPlayerDamage * NERF_DAMAGE - playerTotalDef * NERF_DEFENSE) * PVP_FinalDmg_Nerf;
+            DamageRxAcc = (fromPlayerDamage * NERF_DAMAGE - playerTotalDef * NERF_DEFENSE) * NERF_FINAL;
         }
 
         //if damage is below 0 make sure to return 0, a negative number here would heal the player instead (100HP-(-100 damage)=200)
