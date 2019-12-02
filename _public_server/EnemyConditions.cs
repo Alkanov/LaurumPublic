@@ -631,7 +631,7 @@ public class EnemyConditions : NetworkBehaviour
      */
     public void handle_effect(DOT_effect.effect_type effect, float effect_power, GameObject effect_dealer)
     {
-        var total_time = 4f;
+        var total_time = 8f;
         var effectid = -1;
         var effect_every = 1f;
         switch (effect)
@@ -639,7 +639,7 @@ public class EnemyConditions : NetworkBehaviour
             case DOT_effect.effect_type.poison:
                 effectid = 9010;
                 effect_every = 1f;//cada segundo se hace dano
-                total_time = 7f; 
+                total_time = 8f; 
                 break;
             case DOT_effect.effect_type.fire:
                 effectid = 9020;
