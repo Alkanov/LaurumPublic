@@ -161,7 +161,7 @@ public class PlayerConditions : NetworkBehaviour
         PlayerPVPDamage = GetComponent<PlayerPVPDamage>();
         PlayerGeneral = GetComponent<PlayerGeneral>();
         PlayerSkillsActions = GetComponent<PlayerSkillsActions>();
-        increasedAtkSpeed = 1;
+        increasedAtkSpeed = 0f;
     }
     private void Start()
     {
@@ -880,7 +880,7 @@ public class PlayerConditions : NetworkBehaviour
                 increasedMDEF = 0f;
                 break;
             case 9://quickshot
-                increasedAtkSpeed = 1;
+                increasedAtkSpeed = 0f;
                 break;
             case 10:
                 immortal = false;
