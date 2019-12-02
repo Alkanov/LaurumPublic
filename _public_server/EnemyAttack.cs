@@ -202,12 +202,12 @@ public class EnemyAttack : MonoBehaviour
 
         if (EnemyStats.DamageType_now == EnemyStats.DamageType.physical) // Physical
         {             
-            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str;
+            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str + (toPlayer.GetComponent<PlayerStats>().Defense_int * 0.25f);
             monsterFinalDamage = EnemyStats.Damage_str;
         }
         else // Magical
         {            
-            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int;
+            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int + (toPlayer.GetComponent<PlayerStats>().Defense_str * 0.25f);
             monsterFinalDamage = EnemyStats.Damage_int;
         }
         //.LogError("playerTotalDef=" + playerTotalDef + " monsterFinalDamage="+ monsterFinalDamage);
