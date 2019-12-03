@@ -161,7 +161,7 @@ public class PlayerConditions : NetworkBehaviour
         PlayerPVPDamage = GetComponent<PlayerPVPDamage>();
         PlayerGeneral = GetComponent<PlayerGeneral>();
         PlayerSkillsActions = GetComponent<PlayerSkillsActions>();
-        increasedAtkSpeed = 1;
+        increasedAtkSpeed = 0f;
     }
     private void Start()
     {
@@ -880,7 +880,7 @@ public class PlayerConditions : NetworkBehaviour
                 increasedMDEF = 0f;
                 break;
             case 9://quickshot
-                increasedAtkSpeed = 1;
+                increasedAtkSpeed = 0f;
                 break;
             case 10:
                 immortal = false;
@@ -953,7 +953,7 @@ public class PlayerConditions : NetworkBehaviour
    
     public void handle_effect(DOT_effect.effect_type effect, float effect_power, GameObject effect_dealer, float pve_damage)
     {
-        var total_time = 4f;
+        var total_time = 8f;
         var effectid = -1;
         var effect_every = 1f;
         switch (effect)
@@ -961,7 +961,7 @@ public class PlayerConditions : NetworkBehaviour
             case DOT_effect.effect_type.poison:
                 effectid = 9010;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 7f;
+                total_time = 8f;
                 break;
             case DOT_effect.effect_type.fire:
                 effectid = 9020;
@@ -981,13 +981,13 @@ public class PlayerConditions : NetworkBehaviour
             case DOT_effect.effect_type.true_damage_poison:
                 effectid = 9011;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 29f;
+                total_time = 30f;
                 //effect_power in this case has a % of the maxhealth to take since its true damage, example: 2f = 2% in total_time
                 break;
             case DOT_effect.effect_type.true_damage_poison_lesser:
                 effectid = 9012;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 9f;
+                total_time = 10f;
                 //effect_power in this case has a % of the maxhealth to take since its true damage, example: 2f = 2% in total_time
                 break;
             default:
