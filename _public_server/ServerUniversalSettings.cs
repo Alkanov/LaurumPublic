@@ -51,17 +51,7 @@ public class ServerUniversalSettings : MonoBehaviour
         PVE_Crit_Multiplier,
 
         /// <summary>
-        /// 6:Nerf crit % chance (PVP), 1 to disable
-        /// </summary>
-        PVP_Crit_Nerf,
-
-         /// <summary>
-        /// 7:Nerf dodge % chance (PVP), 1 to disable
-        /// </summary>
-        PVP_Dodge_Nerf,
-
-        /// <summary>
-        /// 8:With 1 new formula will be used, otherwise old one
+        /// 6:With 1 new formula will be used, otherwise old one
         /// </summary>
         Use_New_PVP_Formula
     }
