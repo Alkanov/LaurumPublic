@@ -254,11 +254,11 @@ public class PlayerStats : NetworkBehaviour
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
         public static float AutoAtk_speed = 1f;
-        public static float AutoAtk_range = 2.8f;
+        public static float AutoAtk_range = 3f;
 
         public static float Walking_spd = 1.2f;
 
-        public static float Skill_range = 2.8f;
+        public static float Skill_range = 3f;
         public static float Skill_mana_usage = 1f; //not used yet
 
         public static float Casting_speed_reduction = 0;
@@ -296,11 +296,11 @@ public class PlayerStats : NetworkBehaviour
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
         public static float AutoAtk_speed = 1f;
-        public static float AutoAtk_range = 2.38f;
+        public static float AutoAtk_range = 2.7f;
 
         public static float Walking_spd = 1.15f;
 
-        public static float Skill_range = 2.38f; //not used yet
+        public static float Skill_range = 2.7f; //not used yet
         public static float Skill_mana_usage = 1f; //not used yet
 
         public static float Casting_speed_reduction = 0;
