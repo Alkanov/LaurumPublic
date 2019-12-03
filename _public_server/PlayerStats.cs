@@ -118,7 +118,7 @@ public class PlayerStats : NetworkBehaviour
         public static float MAX_MP_per_Wis = MAX_HP_per_Sta * 0.6f;
         public static float MAX_MP_per_level = MAX_HP_per_level * 0.6f;
         public static float MAX_Defense = 4f;
-        public static float MAX_Crit_Dodge = 0.16f;
+        public static float MAX_Crit_Dodge = 0.12f;
         public static float MAX_Damage = MAX_Defense * 0.8f;
     }
 
