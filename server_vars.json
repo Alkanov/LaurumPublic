@@ -28,16 +28,6 @@
       {
          "ID":6,
          "value":1,
-         "description":"Nerf crit % chance (PVP), 1 to disable"
-      },
-      {
-         "ID":7,
-         "value":1,
-         "description":"Nerf dodge % chance (PVP), 1 to disable"
-      },
-      {
-         "ID":8,
-         "value":1,
          "description":"With 1 new formula will be used, otherwise old one"
       }
    ]

@@ -175,12 +175,11 @@ public class PlayerPVPDamage : NetworkBehaviour
 
             //get incomming damage from attacker player
             float DamageRX = CalculateDamageRx(fromPlayer);
-
-            float critNerf = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Nerf].value;
-            float dodgeNerf = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Dodge_Nerf].value;
             
             float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().Critical_chance;
-            playerCriticalChance *= critNerf; //Nerf
+            if(playerCriticalChance > 50f){
+                playerCriticalChance = 50f;
+            }
 
             //critical chance lottery
             if (Random.Range(0f, 100f) <= playerCriticalChance)
@@ -191,7 +190,9 @@ public class PlayerPVPDamage : NetworkBehaviour
             }        
 
 	    	float playerDodgeChance = PlayerStats.Dodge_chance;
-            playerDodgeChance *= dodgeNerf; //Nerf
+            if(playerDodgeChance > 50f){
+                playerDodgeChance = 50f;
+            }
             //dodge chance lottery
             if (Random.Range(0f, 100f) <= playerDodgeChance)
             {
@@ -416,10 +417,11 @@ public class PlayerPVPDamage : NetworkBehaviour
                         //////////.LogError("DamageSkill");
                         damageType = "damage";
                         float DamageRX = CalculateSkillDamageRx(fromPlayer, skillRequested.multipliers[0]);
+                        
                         float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().Critical_chance;
-                        float critNerf = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Nerf].value;
-                        float dodgeNerf = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Dodge_Nerf].value;
-                        playerCriticalChance *= critNerf; //Nerf for skills
+                        if(playerCriticalChance > 50f){
+                            playerCriticalChance = 50f;
+                        }
 
                         if (Random.Range(0f, 100f) <= playerCriticalChance)
                         {
@@ -440,7 +442,9 @@ public class PlayerPVPDamage : NetworkBehaviour
                         }
 
 	    			    float playerDodgeChance = PlayerStats.Dodge_chance;
-                        playerDodgeChance *= dodgeNerf; //Nerf
+                        if(playerDodgeChance > 50f){
+                            playerDodgeChance = 50f;
+                        }
 
 	                    if (Random.Range(0f, 100f) <= playerDodgeChance) //JWR - Use adjusted dodge chance
                         {
