@@ -405,7 +405,7 @@ public class PlayerInventory : NetworkBehaviour
                 PlayerStats.modMaxMP += ((item_lvl / 2) + 5);
                 break;
             case 10:
-                PlayerStats.modDodge += 2;
+                PlayerStats.modDodge += 1;
                 break;
             case 11:
                 PlayerStats.modReflectSTR += 2;
@@ -417,10 +417,10 @@ public class PlayerInventory : NetworkBehaviour
                 PlayerStats.modHPRegen += 1;
                 break;
             case 14:
-                PlayerStats.modHPonKill += 3;
+                PlayerStats.modHPonKill += 2;
                 break;
             case 15:
-                PlayerStats.modMPonKill += 3;
+                PlayerStats.modMPonKill += 2;
                 break;
             case 16:
                 PlayerStats.modCritChance += 1;
