@@ -41,17 +41,12 @@ public class ServerUniversalSettings : MonoBehaviour
         PVP_Defense_Nerf,
 
         /// <summary>
-        /// 4:Crit damage % (PVP)
+        /// 4:Base Crit Dmg % (PVE)
         /// </summary>
-        PVP_Crit_Multiplier,
+        Crit_Multiplier,
 
         /// <summary>
-        /// 5:Crit damage % (PVE)
-        /// </summary>
-        PVE_Crit_Multiplier,
-
-        /// <summary>
-        /// 6:With 1 new formula will be used, otherwise old one
+        /// 5:With 1 new formula will be used, otherwise old one
         /// </summary>
         Use_New_PVP_Formula
     }

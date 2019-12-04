@@ -18,15 +18,10 @@
       {
          "ID":4,
          "value":1.25,
-         "description":"Crit damage % (PVP)"
+         "description":"Base Crit Dmg %"
       },
       {
          "ID":5,
-         "value":1.25,
-         "description":"Crit damage % (PVE)"
-      },
-      {
-         "ID":6,
          "value":1,
          "description":"With 1 new formula will be used, otherwise old one"
       }

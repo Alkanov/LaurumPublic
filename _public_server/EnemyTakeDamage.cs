@@ -212,8 +212,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         //Critical lottery      
         if (Critico)
         {
-            float critMultiplier = EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVE_Crit_Multiplier].value;
-            DamageRX = DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage);
+            DamageRX = DamageRX * fromPlayer.GetComponent<PlayerStats>().Critical_damage;
         }
 
         //Enemy dodge lottery       
@@ -327,8 +326,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                 //critical lottery
                 if (Critico)
                 {
-                    float critMultiplier = EnemySpawnInfo.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVE_Crit_Multiplier].value;
-                    DamageRX = DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage);
+                    DamageRX = DamageRX * critMultiplier;
                 }
                 //dodge lottery
                 if (dodged)

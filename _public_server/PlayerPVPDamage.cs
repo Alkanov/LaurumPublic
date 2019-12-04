@@ -185,8 +185,7 @@ public class PlayerPVPDamage : NetworkBehaviour
             if (Random.Range(0f, 100f) <= playerCriticalChance)
             {
                 Critico = true;
-                float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Multiplier].value;
-                DamageRX = DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage);
+                DamageRX = DamageRX * fromPlayer.GetComponent<PlayerStats>().Critical_damage;
             }        
 
 	    	float playerDodgeChance = PlayerStats.Dodge_chance;
@@ -437,8 +436,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                         }
                         if (Critico)
                         {  
-                            float critMultiplier = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Crit_Multiplier].value;
-                            DamageRX = DamageRX * (critMultiplier + fromPlayer.GetComponent<PlayerStats>().Critical_damage);
+                            DamageRX = DamageRX * fromPlayer.GetComponent<PlayerStats>().Critical_damage;
                         }
 
 	    			    float playerDodgeChance = PlayerStats.Dodge_chance;
