@@ -112,13 +112,13 @@ public class skillDB : MonoBehaviour
         //Poison Arrow
         Skills.Add(new skill(63006, skill.SAction.active, skill.Stype.target_DOT, PlayerStats.PlayerClass.Hunter, 9f, 0.3f, new float[2] { 1.8f, 100f }, 28));//damage/chance
         //Multi trap
-        Skills.Add(new skill(63007, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 9f, 0.5f, 1.62f, 28));
+        Skills.Add(new skill(63007, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 9f, 0.5f, 1.8f, 28));
         //Posion Trap
-        Skills.Add(new skill(63008, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.25f, 1.62f, 22));//damage
+        Skills.Add(new skill(63008, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.25f, 1.8f, 22));//damage
         //Steel trap
         Skills.Add(new skill(63009, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 5.67f, 0.25f, 0f, 20));
         //Booby Trap
-        Skills.Add(new skill(63010, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.25f, 1.62f, 22));
+        Skills.Add(new skill(63010, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.25f, 1.8f, 22));
         //---------------Util
         //Hunter's Mark
         Skills.Add(new skill(63011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Hunter, 15f, 0.2f, new float[2] { 5f, -50f }, 18));//time//debuff
