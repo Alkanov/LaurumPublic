@@ -110,7 +110,7 @@ public class skillDB : MonoBehaviour
         Skills.Add(new skill(63005, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 5.4f, 0.3f, new float[3] { 1.53f, 100f, 25f }, 20));//damage/chance/effect
         //---------------Survival
         //Poison Arrow
-        Skills.Add(new skill(63006, skill.SAction.active, skill.Stype.target_DOT, PlayerStats.PlayerClass.Hunter, 9f, 0.3f, new float[2] { 1.62f, 100f }, 28));//damage/chance
+        Skills.Add(new skill(63006, skill.SAction.active, skill.Stype.target_DOT, PlayerStats.PlayerClass.Hunter, 9f, 0.3f, new float[2] { 1.8f, 100f }, 28));//damage/chance
         //Multi trap
         Skills.Add(new skill(63007, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 9f, 0.5f, 1.62f, 28));
         //Posion Trap
@@ -129,7 +129,7 @@ public class skillDB : MonoBehaviour
         //Soul Sacrifice
         Skills.Add(new skill(63014, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 100f }, 1));//mp required//% to recover from mp burned
         //Acrobatics
-        Skills.Add(new skill(63015, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 5f }, 15));//buff/time
+        Skills.Add(new skill(63015, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 10f }, 15));//buff/time
 
         //-----Paladin            
         //---------------Protection
@@ -142,7 +142,7 @@ public class skillDB : MonoBehaviour
         //Linked Hearts
         Skills.Add(new skill(64004, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 10f, 75f }, 20));//time/absorb
         //burn on touch buff
-        Skills.Add(new skill(64005, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 1.62f, 10f }, 28));//damage/time
+        Skills.Add(new skill(64005, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 1.8f, 10f }, 28));//damage/time
         //Holy Light
         Skills.Add(new skill(64006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Paladin, 3.2f, 0.45f, 1.8f, 30));
         //Self Heal
