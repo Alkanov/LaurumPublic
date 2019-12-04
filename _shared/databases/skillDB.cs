@@ -110,15 +110,15 @@ public class skillDB : MonoBehaviour
         Skills.Add(new skill(63005, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 5.4f, 0.3f, new float[3] { 1.53f, 100f, 25f }, 20));//damage/chance/effect
         //---------------Survival
         //Poison Arrow
-        Skills.Add(new skill(63006, skill.SAction.active, skill.Stype.target_DOT, PlayerStats.PlayerClass.Hunter, 9f, 0.3f, new float[2] { 1.62f, 100f }, 28));//damage/chance
+        Skills.Add(new skill(63006, skill.SAction.active, skill.Stype.target_DOT, PlayerStats.PlayerClass.Hunter, 9f, 0.3f, new float[2] { 1.8f, 100f }, 28));//damage/chance
         //Multi trap
-        Skills.Add(new skill(63007, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 9f, 0.5f, 1.62f, 28));
+        Skills.Add(new skill(63007, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 9f, 0.5f, 1.8f, 28));
         //Posion Trap
-        Skills.Add(new skill(63008, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.25f, 1.62f, 22));//damage
+        Skills.Add(new skill(63008, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.25f, 1.8f, 22));//damage
         //Steel trap
         Skills.Add(new skill(63009, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 5.67f, 0.25f, 0f, 20));
         //Booby Trap
-        Skills.Add(new skill(63010, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.25f, 1.62f, 22));
+        Skills.Add(new skill(63010, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Hunter, 4.5f, 0.25f, 1.8f, 22));
         //---------------Util
         //Hunter's Mark
         Skills.Add(new skill(63011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Hunter, 15f, 0.2f, new float[2] { 5f, -50f }, 18));//time//debuff
@@ -129,7 +129,7 @@ public class skillDB : MonoBehaviour
         //Soul Sacrifice
         Skills.Add(new skill(63014, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 100f }, 1));//mp required//% to recover from mp burned
         //Acrobatics
-        Skills.Add(new skill(63015, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 5f }, 15));//buff/time
+        Skills.Add(new skill(63015, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 10f }, 15));//buff/time
 
         //-----Paladin            
         //---------------Protection
@@ -142,7 +142,7 @@ public class skillDB : MonoBehaviour
         //Linked Hearts
         Skills.Add(new skill(64004, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 10f, 75f }, 20));//time/absorb
         //burn on touch buff
-        Skills.Add(new skill(64005, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 1.62f, 10f }, 28));//damage/time
+        Skills.Add(new skill(64005, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[2] { 1.8f, 10f }, 28));//damage/time
         //Holy Light
         Skills.Add(new skill(64006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Paladin, 3.2f, 0.45f, 1.8f, 30));
         //Self Heal
