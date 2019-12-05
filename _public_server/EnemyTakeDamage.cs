@@ -326,6 +326,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                 //critical lottery
                 if (Critico)
                 {
+                    //FIX critMultiplier: compile error
                     DamageRX = DamageRX * critMultiplier;
                 }
                 //dodge lottery

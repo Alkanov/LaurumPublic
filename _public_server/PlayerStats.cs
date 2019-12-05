@@ -165,7 +165,7 @@ public class PlayerStats : NetworkBehaviour
         public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
 
         public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
-        public static float Critical_damage_percent_base = DamageType.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Crit_Multiplier].value;
+        public static float Critical_damage_percent_base = 0;
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
@@ -207,7 +207,7 @@ public class PlayerStats : NetworkBehaviour
         public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
 
         public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
-        public static float Critical_damage_percent_base = DamageType.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Crit_Multiplier].value;
+        public static float Critical_damage_percent_base=0;
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
@@ -249,7 +249,7 @@ public class PlayerStats : NetworkBehaviour
         public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
 
         public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
-        public static float Critical_damage_percent_base = DamageType.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Crit_Multiplier].value;
+        public static float Critical_damage_percent_base = 0;
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
@@ -291,7 +291,7 @@ public class PlayerStats : NetworkBehaviour
         public static float Defense_per_int = PlayerSharedStats.MAX_Defense * MDEF_Multiplier;
 
         public static float Critical_chance_per_DEX = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
-        public static float Critical_damage_percent_base = DamageType.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Crit_Multiplier].value;
+        public static float Critical_damage_percent_base = 0;
         
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
@@ -418,6 +418,8 @@ public class PlayerStats : NetworkBehaviour
             default:
                 break;
         }
+        //Since this is the same for all classes we can do it here
+        Critical_damage = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Crit_Multiplier].value;
         //damage
         Damage_str = (Damage_str * STR) + PlayerEquipStats[0];
 
