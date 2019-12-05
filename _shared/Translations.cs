@@ -1269,16 +1269,16 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[3110] = "Used to train\n(%6%)Intelligence\n(%6%)Magical Defense";
             itemNamesTranslation[3110] = "Stone of Sham";
 
-            itemDescrTranslation[3111] = "Used to train\n(%6%)Physical Defense\n(%6%)Magical Defense";
+            itemDescrTranslation[3111] = "Used to train\n(%5%)Physical Defense\n(%8%)Magical Defense";
             itemNamesTranslation[3111] = "Stone of Canopus";
 
-            itemDescrTranslation[3112] = "Used to train\n(%6%)Agility\n(%6%)Dexterity";
+            itemDescrTranslation[3112] = "Used to train\n(%5%)Agility\n(%8%)Dexterity";
             itemNamesTranslation[3112] = "Stone of Achird";
 
-            itemDescrTranslation[3113] = "Used to train\n(%6%)Stamina\n(%6%)Strength";
+            itemDescrTranslation[3113] = "Used to train\n(%5%)Stamina\n(%8%)Strength";
             itemNamesTranslation[3113] = "Stone of Procyon";
 
-            itemDescrTranslation[3114] = "Used to train\n(%6%)Wisdom\n(%6%)Intelligence";
+            itemDescrTranslation[3114] = "Used to train\n(%5%)Stamina\n(%8%)Intelligence";
             itemNamesTranslation[3114] = "Stone of Centauri";
 
             itemDescrTranslation[3115] = "Used to train\n(%8%)Stamina\n(%5%)Wisdom";
@@ -1299,14 +1299,14 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[3120] = "Used to train\n(%3%)Stamina\n(%3%)Strength\n(%8%)Physical Defense";
             itemNamesTranslation[3120] = "Stone of Antares";
 
-            itemDescrTranslation[3121] = "Used to train\n(%3%)Wisdom\n(%3%)Intelligence\n(%8%)Magical Defense";
+            itemDescrTranslation[3121] = "Used to train\n(%3%)Stamina\n(%3%)Intelligence\n(%8%)Magical Defense";
             itemNamesTranslation[3121] = "Stone of Agena";
 
             itemNamesTranslation[3122] = "Stone of Arcturo";
             itemDescrTranslation[3122] = "Used to train\n(%3%)Stamina\n(%8%)Strength\n(%2%)Agility\n(%2%)Dexterity";
 
             itemNamesTranslation[3123] = "Stone of Bellatrix";
-            itemDescrTranslation[3123] = "Used to train\n(%3%)Wisdom\n(%8%)Intelligence\n(%2%)Agility\n(%2%)Dexterity";
+            itemDescrTranslation[3123] = "Used to train\n(%3%)Stamina\n(%8%)Intelligence\n(%2%)Agility\n(%2%)Dexterity";
 
             itemNamesTranslation[3300] = "Upgrade Jewel A";
             itemDescrTranslation[3300] = "Used to upgrade <color=white>Common</color> and <color=#1eff00>Uncommon</color> gear to <color=#0070ff>Rare</color> (+15)";
@@ -1408,11 +1408,15 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[251028] = "Description";
             itemNamesTranslation[251029] = "Venom Warrior Female";
             itemDescrTranslation[251029] = "Description";
-
             itemNamesTranslation[251030] = "Celestial Warrior Male";
             itemDescrTranslation[251030] = "Description";
             itemNamesTranslation[251031] = "Celestial Warrior Female";
             itemDescrTranslation[251031] = "Description";
+
+            itemNamesTranslation[251032] = "2019 Xmas Warrior Male";
+            itemDescrTranslation[251032] = "First introduced in 2019 - Only available in November and December";
+            itemNamesTranslation[251033] = "2019 Xmas Warrior Female";
+            itemDescrTranslation[251033] = "First introduced in 2019 -  Only available in November and December";
 
             itemNamesTranslation[25201] = "Male Hunter";
             itemDescrTranslation[25201] = "Description";
@@ -1472,11 +1476,15 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[252028] = "Description";
             itemNamesTranslation[252029] = "Venom Hunter Female";
             itemDescrTranslation[252029] = "Description";
-
             itemNamesTranslation[252030] = "Celestial Hunter Male";
             itemDescrTranslation[252030] = "Description";
             itemNamesTranslation[252031] = "Celestial Hunter Female";
             itemDescrTranslation[252031] = "Description";
+
+            itemNamesTranslation[252032] = "2019 Xmas Hunter Male";
+            itemDescrTranslation[252032] = "First introduced in 2019 - Only available in November and December";
+            itemNamesTranslation[252033] = "2019 Xmas Hunter Female";
+            itemDescrTranslation[252033] = "First introduced in 2019 - Only available in November and December";
 
             itemNamesTranslation[25301] = "Male Wizard";
             itemDescrTranslation[25301] = "Description";
@@ -1536,11 +1544,15 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[253028] = "Description";
             itemNamesTranslation[253029] = "Venom Wizard Female";
             itemDescrTranslation[253029] = "Description";
-
             itemNamesTranslation[253030] = "Celestial Wizard Male";
             itemDescrTranslation[253030] = "Description";
             itemNamesTranslation[253031] = "Celestial Wizard Female";
             itemDescrTranslation[253031] = "Description";
+
+            itemNamesTranslation[253032] = "2019 Xmas Wizard Male";
+            itemDescrTranslation[253032] = "First introduced in 2019 - Only available in November and December";
+            itemNamesTranslation[253033] = "2019 Xmas Wizard Female";
+            itemDescrTranslation[253033] = "First introduced in 2019 - Only available in November and December";
 
             itemNamesTranslation[25401] = "Female Paladin";
             itemDescrTranslation[25401] = "Description";
@@ -1600,11 +1612,15 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[254028] = "Description";
             itemNamesTranslation[254029] = "Venom Paladin Female";
             itemDescrTranslation[254029] = "Description";
-
             itemNamesTranslation[254030] = "Celestial Paladin Male";
             itemDescrTranslation[254030] = "Description";
             itemNamesTranslation[254031] = "Celestial Paladin Female";
             itemDescrTranslation[254031] = "Description";
+
+            itemNamesTranslation[254032] = "2019 Xmas Paladin Male";
+            itemDescrTranslation[254032] = "First introduced in 2019 - Only available in November and December";
+            itemNamesTranslation[254033] = "2019 Xmas Paladin Female";
+            itemDescrTranslation[254033] = "First introduced in 2019 - Only available in November and December";
 
 
             itemNamesTranslation[26101] = "Green Set";
@@ -1639,9 +1655,12 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26115] = "Description";
             itemNamesTranslation[26116] = "Venom Warrior Set";
             itemDescrTranslation[26116] = "Description";
-
             itemNamesTranslation[26117] = "Celestial Warrior Set";
             itemDescrTranslation[26117] = "Description";
+
+            itemNamesTranslation[26118] = "2019 Xmas Warrior Set";
+            itemDescrTranslation[26118] = "First introduced in 2019 - Only available in November and December";
+         
 
             itemNamesTranslation[26201] = "Red Set";
             itemDescrTranslation[26201] = "Hunters Red Basic Set";
@@ -1675,9 +1694,11 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26215] = "Description";
             itemNamesTranslation[26216] = "Venom Hunter Set";
             itemDescrTranslation[26216] = "Description";
-
             itemNamesTranslation[26217] = "Celestial Hunter Set";
             itemDescrTranslation[26217] = "Description";
+
+            itemNamesTranslation[26218] = "2019 Xmas Hunter Set";
+            itemDescrTranslation[26218] = "First introduced in 2019 - Only available in November and December";
 
             itemNamesTranslation[26301] = "Red Staff";
             itemDescrTranslation[26301] = "Wizards Red Basic Set";
@@ -1711,9 +1732,11 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26315] = "Description";
             itemNamesTranslation[26316] = "Venom Wizard Set";
             itemDescrTranslation[26316] = "Description";
-
             itemNamesTranslation[26317] = "Celestial Wizard Set";
             itemDescrTranslation[26317] = "Description";
+
+            itemNamesTranslation[26318] = "2019 Xmas Wizard Set";
+            itemDescrTranslation[26318] = "First introduced in 2019 - Only available in November and December";
 
             itemNamesTranslation[26401] = "Green Set";
             itemDescrTranslation[26401] = "Paladins Green Basic Set";
@@ -1747,10 +1770,11 @@ public class Translations : MonoBehaviour
             itemDescrTranslation[26415] = "Description";
             itemNamesTranslation[26416] = "Venom Paladin Set";
             itemDescrTranslation[26416] = "Description";
-
             itemNamesTranslation[26417] = "Celestial Paladin Set";
-            itemDescrTranslation[26417] = "Description";
+            itemDescrTranslation[26417] = "Description";        
 
+            itemNamesTranslation[26418] = "2019 Xmas Paladin Set";
+            itemDescrTranslation[26418] = "First introduced in 2019 - Only available in November and December";
 
             #endregion
 
@@ -1799,31 +1823,31 @@ public class Translations : MonoBehaviour
             #region skills
             //warrior
             skillTitles[61001] = "Whirlwind";
-            skillDescriptions[61001] = "Close range AOE damage";
+            skillDescriptions[61001] = "Close range AoE damage";
             skillTitles[61004] = "Bleed";
             skillDescriptions[61004] = "Inflicts a serious wound that causes temporary bleeding for {1} seconds";
             skillTitles[61016] = "Execution";
-            skillDescriptions[61016] = "Always crits if target is below {1}% HP";
+            skillDescriptions[61016] = "Does damage and always crits if target is below {1}% HP";
             skillTitles[61024] = "Armor Crusher";
-            skillDescriptions[61024] = "{1}% chance to add a debuff on target that reduces its total DEF by {0}%. for {2} seconds";
+            skillDescriptions[61024] = "Places a debuff on your target that reduces its total DEF by {0}% for {2} seconds";
             skillTitles[61025] = "Dismember";
-            skillDescriptions[61025] = "Does damage and disarms ({2}% INT and STR damage) enemies with Armor Crusher (debuff) on for {1}s";
+            skillDescriptions[61025] = "Does damage and disarms ({2}% STR damage) enemies with Armor Crusher (debuff) on for {1} seconds";
             skillTitles[61006] = "Charge";
-            skillDescriptions[61006] = "Buffs your walking speed by +{0}% for {1}s";
+            skillDescriptions[61006] = "Buffs your walking speed by {0}% for {1} seconds";
             skillTitles[61008] = "Provoke";
-            skillDescriptions[61008] = "Low damage with a {1}% chance to pull enemies aggro (cancel target on PVP)";
+            skillDescriptions[61008] = "Low damage ability with a {1}% chance to pull enemies aggro (cancel target on PVP)";
             skillTitles[61013] = "Battle Shout";
-            skillDescriptions[61013] = "Buffs your maximum health by +{0}% for {1}s";
+            skillDescriptions[61013] = "Buffs your maximum health by {0}% for {1} seconds";
             skillTitles[61026] = "Slow Down!";
-            skillDescriptions[61026] = "Has infinite range and slows your target by -{0}% for {1}s";
+            skillDescriptions[61026] = "Has infinite range and slows your target by -{0}% for {1} seconds";
             skillTitles[61027] = "On your Knees!";
-            skillDescriptions[61027] = "{0}% chance to stun your target if its HP is below {1}%";
+            skillDescriptions[61027] = "Low damage ability with a {1}% chance to stun for 2 seconds. If stun fails there is an extra {2}% chance to slow it by -25% for 2.5 seconds";
             skillTitles[61003] = "Shield Stun";
-            skillDescriptions[61003] = "Hits your target with less power but has a {1}% chance of stunning it";
+            skillDescriptions[61003] = "Hits your target with less power but has a {1}% chance of stunning it for 1 second";
             skillTitles[61010] = "Soul Cravings";
             skillDescriptions[61010] = "Damages your target. If target is stunned it heals you for {1}% of the damage done";
             skillTitles[61020] = "Ultimate Defense";
-            skillDescriptions[61020] = "Greatly increases DEF by +{0}% for {1} seconds with a 50% chance of getting slowed (-20% walking speed) for {1} seconds";
+            skillDescriptions[61020] = "Greatly increases DEF by {0}% for {1} seconds with a 50% chance of getting slowed (-20% walking speed) for {1} seconds";
             skillTitles[61028] = "Arrow Deflect";
             skillDescriptions[61028] = "Ranged physical attacks hit {0}% less for {1} seconds";
             skillTitles[61029] = "Shields Up";
@@ -1832,33 +1856,33 @@ public class Translations : MonoBehaviour
             skillTitles[62001] = "Fireball";
             skillDescriptions[62001] = "Powerful fireball that hits a single enemy";
             skillTitles[62002] = "Flame Missile";
-            skillDescriptions[62002] = "Damages your target and has a {1}% chance to apply Burn";
+            skillDescriptions[62002] = "Damages your target and has a {1}% chance to apply burn for 5 seconds";
             skillTitles[62003] = "Burn";
-            skillDescriptions[62003] = "100% chance to apply Burn on your target";
+            skillDescriptions[62003] = "Applies burn on your target for 5 seconds";
             skillTitles[62004] = "Meteor Rain";
             skillDescriptions[62004] = "Summons a rain of meteors that hits everything around you";
             skillTitles[62005] = "Lava Barrier";
-            skillDescriptions[62005] = "Creates a protective barrier of lava that lasts for 10s and applies burn on touch";
+            skillDescriptions[62005] = "Creates a protective barrier of lava that lasts for 10 seconds and applies burn on touch for 5 seconds";
             skillTitles[62006] = "Ice Spear";
             skillDescriptions[62006] = "Ice attack cast faster hit less";
             skillTitles[62007] = "Frost Blade";
-            skillDescriptions[62007] = "Damages your target and has a {1}% chance to Freeze it";
+            skillDescriptions[62007] = "Hit your target with less power and has a {1}% chance to freeze it for 1 second";
             skillTitles[62008] = "Frozen Hands";
-            skillDescriptions[62008] = "Buffs yourself for {0}s, during this time your basic attack applies slow";
+            skillDescriptions[62008] = "Buffs yourself for {0} seconds, during this time increases your movement speed by {1}% and your basic attack slows your target by -25% for 2.5 seconds";
             skillTitles[62009] = "Blizzard";
-            skillDescriptions[62009] = "High power skill. It has a {1}% chance to Freeze, if freeze fails there is an extra {2}% chance to Slow";
+            skillDescriptions[62009] = "Low damage ability with a {1}% chance to freeze for 1 second. If freeze fails there is an extra {2}% chance to slow it by -25% for 2.5 seconds";
             skillTitles[62010] = "Frost Bomb";
-            skillDescriptions[62010] = "Damages your target and has a {1}% chance to apply Slow debuff on it";
+            skillDescriptions[62010] = "Damages your target and has a {1}% chance to slow it by -25% for 2.5 seconds";
             skillTitles[62011] = "Corpse Life Drain";
-            skillDescriptions[62011] = "Places a debuff on your target for {1} seconds, if this dies you will be healed by {0}% of its Max Health";
+            skillDescriptions[62011] = "Places a debuff on your target for {1} seconds, if this dies you will be healed by {0}% of its max health";
             skillTitles[62012] = "Mana shield";
-            skillDescriptions[62012] = "Incoming damage will be taken out of your Mana untill effect wears out ({0}s) or Mana is empty";
+            skillDescriptions[62012] = "Incoming damage will be taken out of your mana untill effect wears out ({0} seconds) or mana is empty";
             skillTitles[62013] = "Expanded Mana";
-            skillDescriptions[62013] = "Increases your Max Mana by +{0}% and lasts for {1} seconds";
+            skillDescriptions[62013] = "Increases your max mana by {0}% for {1} seconds";
             skillTitles[62014] = "Quick Cast";//Caster Contract
             skillDescriptions[62014] = "Next spell is instant. Lasts for {0} seconds";
             skillTitles[62015] = "Concentration";
-            skillDescriptions[62015] = "Increases your total damage output by {0}%, but at an increased 2xMP cost per skill. Lasts for {1}s";
+            skillDescriptions[62015] = "Increases your total damage output by {0}%, but at an increased 2xMP cost per skill. Lasts for {1} seconds";
             //Hunter
             skillTitles[63001] = "Snipe";
             skillDescriptions[63001] = "Powerful single target shot";
@@ -1867,60 +1891,60 @@ public class Translations : MonoBehaviour
             skillTitles[63003] = "Multishot";
             skillDescriptions[63003] = "Hits the {1} closest targets";
             skillTitles[63004] = "Steady Shot";
-            skillDescriptions[63004] = "Long casting, high single target damage";
+            skillDescriptions[63004] = "Quick cast, low single target damage";
             skillTitles[63005] = "Hamstring Shot";
-            skillDescriptions[63005] = "Low damage ability with a {1}% chance of slowing the enemy by {2}%";
+            skillDescriptions[63005] = "Damages your target and slows it by -{2}% for 2.5 seconds";
             skillTitles[63006] = "Poison Arrow";
-            skillDescriptions[63006] = "Damages your target and has a {1}% chance to apply Poison on it";
-            skillTitles[63007] = "Multi trap";
-            skillDescriptions[63007] = "Deploys 4 visible traps in 4 directions. Traps slow on trigger";
+            skillDescriptions[63006] = "Applies poison on your target for 5 seconds";
+            skillTitles[63007] = "Multitrap";
+            skillDescriptions[63007] = "Deploys 4 traps in 4 directions. Traps cause bleed for 5 seconds and slow by -25% for 2.5 seconds when triggered";
             skillTitles[63008] = "Poison Trap";
-            skillDescriptions[63008] = "Deploys 1 hidden trap. Apply poison when triggered";
+            skillDescriptions[63008] = "Deploys a trap that applies poison for 5 seconds when triggered";
             skillTitles[63009] = "Steel Trap";
-            skillDescriptions[63009] = "Deploys 1 visible trap that stuns on touch";
+            skillDescriptions[63009] = "Deploys a trap that stuns on touch for 2 seconds";
             skillTitles[63010] = "Booby Trap";
-            skillDescriptions[63010] = "Deploys a trap that applies a bomb on touch. Bombs explode after 2 seconds applying burn around it";
-            skillTitles[63011] = "Hunters Mark";
-            skillDescriptions[63011] = "Debuff your target to take {2}% more skill damage if it has less than {1}% HP. Lasts for {0}s";
-            skillTitles[63012] = "Hunters Ritual";
-            skillDescriptions[63012] = "AOE buff that increases movement speed by {0}% for {1} seconds";
+            skillDescriptions[63010] = "Deploys a trap that applies a bomb on touch. Bomb explodes after 1 second applying burn around it for 5 seconds";
+            skillTitles[63011] = "Hunter's Mark";
+            skillDescriptions[63011] = "Places a debuff on your target that reduces its total dodge by {1}% for {0} seconds";
+            skillTitles[63012] = "Hunter's Ritual";
+            skillDescriptions[63012] = "Buffs your walking speed by {0}% for {1} seconds";
             skillTitles[63013] = "Camouflage";
-            skillDescriptions[63013] = "Becomes invisible for {0} seconds (or until skills/auto-attack is used)";
+            skillDescriptions[63013] = "Becomes invisible for {0} seconds (or until skill/auto-attack is used)";
             skillTitles[63014] = "Soul Sacrifice";
-            skillDescriptions[63014] = "Burns {0}% of your max mana and gain {1}% of it as hp";
+            skillDescriptions[63014] = "Burns -{0}% of your max mana and gains {1}% of it as HP";
             skillTitles[63015] = "Acrobatics";
-            skillDescriptions[63015] = "{0}% chance to Dodges all attacks (except skills) for {1} seconds";
+            skillDescriptions[63015] = "Increases dodge chance by {0}% for {1} seconds";
             //Paladin
             skillTitles[64001] = "Final Protection";
-            skillDescriptions[64001] = "Increases dodge chance of nearby players by +{0}%, makes you immortal and stuns you for 8 seconds";
+            skillDescriptions[64001] = "Increases dodge chance of nearby players by {0}%, makes you immortal and stuns you for 5 seconds";
             skillTitles[64002] = "Magic Protection Banner";
-            skillDescriptions[64002] = "Deploys a banner that increases party member's Magical Defense by {0}%";
+            skillDescriptions[64002] = "Deploys a banner that increases party members magical defense by {0}% for 10 seconds";
             skillTitles[64003] = "Physical Protection Banner";
-            skillDescriptions[64003] = "Deploys a banner that increases party member's Physical Defense by {0}%";
+            skillDescriptions[64003] = "Deploys a banner that increases party members physical defense by {0}% for 10 seconds";
             skillTitles[64004] = "Linked Hearts";
             skillDescriptions[64004] = "Applies buff to close party members, {1}% of the damage they get is diverted to you for {0} seconds";
             skillTitles[64005] = "Burn Shield";
-            skillDescriptions[64005] = "Buffs close party members for {1} seconds, burn will be applied to those who attack them. Buff will be removed once burn is applied or expired";
+            skillDescriptions[64005] = "Buffs close party members for {1} seconds, burn will be applied for 5 seconds to those who attack them";
             skillTitles[64006] = "Holy Light";
-            skillDescriptions[64006] = "Single target damage";
+            skillDescriptions[64006] = "Powerful single target damage";
             skillTitles[64007] = "Self Heal";
-            skillDescriptions[64007] = "Heals yourself over 5 seconds";
+            skillDescriptions[64007] = "Heals yourself every second for 5 seconds";
             skillTitles[64008] = "Heal Banner";
-            skillDescriptions[64008] = "Deploys a banner that heals nearby party members every second. Lasts for 10 seconds";
+            skillDescriptions[64008] = "Deploys a banner that (inside) heals nearby party members every second for 10 seconds";
             skillTitles[64009] = "Resurrection";
             skillDescriptions[64009] = "Revives all nearby players with {0}% HP/MP";
             skillTitles[64010] = "Cleanse";
-            skillDescriptions[64010] = "Removes {0} debuffs from nearby players";
+            skillDescriptions[64010] = "Removes all debuffs from nearby players";
             skillTitles[64011] = "Mana banner";
-            skillDescriptions[64011] = "Deploys a banner that replenishes mana every second for 10 seconds";
+            skillDescriptions[64011] = "Deploys a banner that (inside) recovers mana every second for 10 seconds";
             skillTitles[64012] = "Silence";
-            skillDescriptions[64012] = "{0}% chance to Silence your target for {1} seconds. Has infinite range";
+            skillDescriptions[64012] = "Silences your target for {1} seconds (can't use skills). Has infinite range";
             skillTitles[64013] = "Speed banner";
-            skillDescriptions[64013] = "Deploys a banner that increases {0}% movement speed. Buff lasts for {1} seconds";
+            skillDescriptions[64013] = "Deploys a banner that increases movement speed by {0}%, attack speed by {1}%, casting speed by {2}% and cooldown reduction by {3}%. Buff lasts for {4} seconds";
             skillTitles[64014] = "Buff Remover";
-            skillDescriptions[64014] = "{0}% chance to remove all target buffs";
+            skillDescriptions[64014] = "Removes all target buffs";
             skillTitles[64015] = "Consecration";
-            skillDescriptions[64015] = "Close range AOE damage";
+            skillDescriptions[64015] = "Close range AoE damage";
             #endregion
             #region Item descriptions for skill items
             //string ou="";<- I dont like this like here 

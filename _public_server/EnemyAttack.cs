@@ -112,22 +112,24 @@ public class EnemyAttack : MonoBehaviour
                     float DamageTX = CalculateDamageTx(PlayerToAttack);
 
                     //calculamos el critico
-                    if (Random.Range(0, 100) <= EnemyStats.Critical_percent_agi)
+                    if (Random.Range(0f, 100f) <= EnemyStats.Critical_percent_agi)
                     {
                         Critico = true;
-                        DamageTX = Mathf.RoundToInt(DamageTX * 2);
+                        DamageTX = DamageTX * 2f;
                     }
-                    if (Random.Range(0, 100) <= PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance)
+                    
+                    //vemos esquiva el golpe
+                    if (Random.Range(0f, 100f) <= PlayerToAttack.GetComponent<PlayerStats>().Dodge_chance)
                     {
                         dodged = true;
-                        DamageTX = 0;
+                        DamageTX = 0f;
                     }
 
                     //MOD ReflectDMG
-                    if (DamageTX > 0 && !dodged)
+                    if (DamageTX > 0f && !dodged)
                     {
 
-                        DamageTX = Random.Range(Mathf.RoundToInt(DamageTX * 0.95f), Mathf.RoundToInt(DamageTX * 1.05f));
+                        DamageTX = Random.Range(DamageTX * 0.95f, DamageTX * 1.05f);
 
                         //Linked hearts
                         var buff_info = PlayerToAttack.GetComponent<PlayerConditions>().get_buff_information(PlayerConditions.type.buff, 20);
@@ -151,16 +153,16 @@ public class EnemyAttack : MonoBehaviour
                         buff_info = PlayerToAttack.GetComponent<PlayerConditions>().get_buff_information(PlayerConditions.type.buff, 21);
                         if (buff_info != null)
                         {
-                            PlayerToAttack.GetComponent<PlayerConditions>().remove_buff_debuff(PlayerConditions.type.buff, 21);
+                            //PlayerToAttack.GetComponent<PlayerConditions>().remove_buff_debuff(PlayerConditions.type.buff, 21);
                             EnemyConditions.handle_effect(DOT_effect.effect_type.fire, buff_info.skill_requested.multipliers[0], PlayerToAttack);
                         }
 
-                        var reflectSTR = PlayerToAttack.GetComponent<PlayerStats>().modReflectSTR * DamageTX / 100;
-                        if (reflectSTR > 0)
+                        float reflectSTR = PlayerToAttack.GetComponent<PlayerStats>().modReflectSTR * DamageTX / 100f;
+                        if (reflectSTR > 0f)
                         {
-                            reflectSTR = Mathf.Ceil(reflectSTR);
-                            EnemyStats.CurrentHP = EnemyStats.CurrentHP - reflectSTR;
-                            PlayerToAttack.GetComponent<PlayerGeneral>().showCBT(gameObject, false, false, (int)reflectSTR, "reflect");
+                            int toReflect = Mathf.RoundToInt(reflectSTR);
+                            EnemyStats.CurrentHP = EnemyStats.CurrentHP - toReflect;
+                            PlayerToAttack.GetComponent<PlayerGeneral>().showCBT(gameObject, false, false, toReflect, "reflect");
                             if (EnemyStats.CurrentHP <= 0)
                             {
                                 EnemyTakeDamage.dieNow();
@@ -170,12 +172,12 @@ public class EnemyAttack : MonoBehaviour
 
                         }
 
-                        DamageTX = EnemySpawnInfo.x_ObjectHelper.DamagePlayerNow(PlayerToAttack, DamageTX, EnemyStats.MobName, gameObject);
+                        DamageTX = EnemySpawnInfo.x_ObjectHelper.DamagePlayerNow(PlayerToAttack, Mathf.RoundToInt(DamageTX), EnemyStats.MobName, gameObject);
                         
                     }
                     EnemyStats.RpcMakeSound("auto_hit_tx", transform.position);
                    
-                    PlayerToAttack.GetComponent<PlayerGeneral>().showCBT(PlayerToAttack, Critico, dodged, (int)DamageTX, "damage");
+                    PlayerToAttack.GetComponent<PlayerGeneral>().showCBT(PlayerToAttack, Critico, dodged, Mathf.RoundToInt(DamageTX), "damage");
                     PlayerToAttack.GetComponent<PlayerGeneral>().send_autoATK_animation(gameObject, PlayerToAttack);
                 }
                 else
@@ -191,22 +193,21 @@ public class EnemyAttack : MonoBehaviour
 
 
     }
-    public int CalculateDamageTx(GameObject toPlayer)
+    public float CalculateDamageTx(GameObject toPlayer)
     {
 
-        float DamageTx = 0;
-        float playerTotalDef = 0;
-        float monsterFinalDamage = 0;
-
+        float DamageTx = 0f;
+        float playerTotalDef = 0f;
+        float monsterFinalDamage = 0f;
 
         if (EnemyStats.DamageType_now == EnemyStats.DamageType.physical) // Physical
-        {
-            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str + (toPlayer.GetComponent<PlayerStats>().Defense_int * 0.2f);
+        {             
+            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_str + (toPlayer.GetComponent<PlayerStats>().Defense_int * 0.25f);
             monsterFinalDamage = EnemyStats.Damage_str;
         }
         else // Magical
-        {
-            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int + (toPlayer.GetComponent<PlayerStats>().Defense_str * 0.2f);
+        {            
+            playerTotalDef = toPlayer.GetComponent<PlayerStats>().Defense_int + (toPlayer.GetComponent<PlayerStats>().Defense_str * 0.25f);
             monsterFinalDamage = EnemyStats.Damage_int;
         }
         //.LogError("playerTotalDef=" + playerTotalDef + " monsterFinalDamage="+ monsterFinalDamage);
@@ -232,17 +233,17 @@ public class EnemyAttack : MonoBehaviour
                 if (damageIncrease < 0.05f)
                     damageIncrease = 0.05f;
 
-                DamageTx = Mathf.RoundToInt(DamageTx * damageIncrease);
+                DamageTx = DamageTx * damageIncrease;
 
             }
 
         }
-        if (DamageTx < 0)
+        if (DamageTx < 0f)
         {
-            DamageTx = 0;
+            DamageTx = 0f;
         }
 
-        return (int)DamageTx;
+        return DamageTx;
     }
     #endregion
 
@@ -266,10 +267,10 @@ public class EnemyAttack : MonoBehaviour
                     {
                         if (EnemyStats.CurrentHP / EnemyStats.MaxHP > 0.3f)
                         {
-                            if (Random.Range(1, 100) <= 50)
+                            if (Random.Range(0f, 100f) <= 50f)
                             {
                                 already_happened[0] = true;
-                                EnemySpawnInfo.x_ObjectHelper.GeneralSkills.ricochet_projectile(false, gameObject, PlayerToAttack, DOT_effect.effect_type.fire, EnemyStats.Damage_int, EnemyStats.Defense_str);
+                                EnemySpawnInfo.x_ObjectHelper.GeneralSkills.ricochet_projectile(false, gameObject, PlayerToAttack, DOT_effect.effect_type.fire, (int)EnemyStats.Damage_int, (int)EnemyStats.Defense_str);
                                 EnemyAggro.Rpc_show_CBT("", true, "Fireball!");
                                 EnemyStats.RpcMakeSound("boss_fireball", transform.position);
                                 StartCoroutine(reset_action(0, 5f));
@@ -345,10 +346,10 @@ public class EnemyAttack : MonoBehaviour
                     {
                         if (EnemyStats.CurrentHP / EnemyStats.MaxHP > 0.3f)
                         {
-                            if (Random.Range(1, 100) <= 50)
+                            if (Random.Range(0f, 100f) <= 50f)
                             {
                                 already_happened[0] = true;
-                                EnemySpawnInfo.x_ObjectHelper.GeneralSkills.multiple_projectiles(1.1f, transform.position, Random.Range(4, 8), DOT_effect.effect_type.bleed, Mathf.RoundToInt(EnemyStats.Damage_int * 0.8f), EnemyStats.Defense_str, false, 4f);
+                                EnemySpawnInfo.x_ObjectHelper.GeneralSkills.multiple_projectiles(1.1f, transform.position, Random.Range(4, 8+1), DOT_effect.effect_type.bleed, Mathf.RoundToInt(EnemyStats.Damage_int * 0.8f), (int)EnemyStats.Defense_str, false, 4f);
                                 EnemyAggro.Rpc_show_CBT("", true, "Multi Axe");
                                 EnemyStats.RpcMakeSound("boss_multi_axe", transform.position);
                                 StartCoroutine(reset_action(0, 6f));

@@ -128,7 +128,7 @@ public class PlayerPVPDamage : NetworkBehaviour
         int minCharAmount = 10;
         int maxCharAmount = 12;
         string myString = "";
-        int charAmount = Random.Range(minCharAmount, maxCharAmount); //set those to the minimum and maximum length of your string
+        int charAmount = Random.Range(minCharAmount, maxCharAmount + 1); //set those to the minimum and maximum length of your string
         for (int i = 0; i < charAmount; i++)
         {
             myString += glyphs[Random.Range(0, glyphs.Length)];
@@ -174,34 +174,43 @@ public class PlayerPVPDamage : NetworkBehaviour
             bool dodged = false;
 
             //get incomming damage from attacker player
-            int DamageRX = CalculateDamageRx(fromPlayer);
-
-            //critical chance lottery
-            if (Random.Range(1f, 100f) <= fromPlayer.GetComponent<PlayerStats>().Critical_chance)
-            {
-                Critico = true;
-                //damage is multiplied by 2 and by 1.X again
-                DamageRX = Mathf.RoundToInt(DamageRX * fromPlayer.GetComponent<PlayerStats>().Critical_damage);
+            float DamageRX = CalculateDamageRx(fromPlayer);
+            
+            float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().Critical_chance;
+            if(playerCriticalChance > 50f){
+                playerCriticalChance = 50f;
             }
 
-            //dodge chance lottery
-            if (Random.Range(1, 100) <= PlayerStats.Dodge_chance)
+            //critical chance lottery
+            if (Random.Range(0f, 100f) <= playerCriticalChance)
             {
-                DamageRX = 0;
+                Critico = true;
+                DamageRX = DamageRX * fromPlayer.GetComponent<PlayerStats>().Critical_damage;
+            }        
+
+	    	float playerDodgeChance = PlayerStats.Dodge_chance;
+            if(playerDodgeChance > 50f){
+                playerDodgeChance = 50f;
+            }
+            //dodge chance lottery
+            if (Random.Range(0f, 100f) <= playerDodgeChance)
+            {
+                DamageRX = 0f;
                 dodged = true;
             }
 
             //if damage was not dodged and damage is above 0 (means DEF/MDEF was not higher than damage)
-            if (DamageRX > 0 && !dodged)
+            if (DamageRX > 0f && !dodged)
             {
                 //Calculate reflect if player has any reflect mode on him
-                var reflectSTR = PlayerStats.modReflectSTR * DamageRX / 100;
-                if (reflectSTR > 0)
+                var reflectSTR = (float) PlayerStats.modReflectSTR * DamageRX / 100f;
+                if (reflectSTR > 0f)
                 {
+                    int toReflect = Mathf.RoundToInt(reflectSTR);
                     //reflect the damage straight away - player attacking cannot dodge/defend himself from this damage
-                    fromPlayer.GetComponent<PlayerStats>().CurrentHP -= reflectSTR;
+                    fromPlayer.GetComponent<PlayerStats>().CurrentHP -= toReflect;
                     //send animation to client (damage numbers)
-                    PlayerGeneral.showCBT(fromPlayer, false, false, reflectSTR, "reflect");
+                    PlayerGeneral.showCBT(fromPlayer, false, false, toReflect, "reflect");
                 }
                 //--------------------skill/passives checks
                 //if attacker has frozen hands
@@ -209,7 +218,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                 {
                     PlayerConditions.decreasedWalkingSpeed = -20f;//-20% walking speed
                     PlayerStats.RefreshStats();
-                    PlayerConditions.add_buff_debuff(2, null, false, 0.8f, fromPlayer, PlayerConditions.type.debuff, true);
+                    PlayerConditions.add_buff_debuff(2, null, false, 3f, fromPlayer, PlayerConditions.type.debuff, true);
                 }
                 //Linked hearts
                 var buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 20);
@@ -233,22 +242,22 @@ public class PlayerPVPDamage : NetworkBehaviour
                 buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 21);
                 if (buff_info != null)
                 {
-                    PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 21);
+                    //PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 21);
                     fromPlayer.GetComponent<PlayerConditions>().handle_effect(DOT_effect.effect_type.fire, buff_info.skill_requested.multipliers[0], buff_info.skill_owner, 0);
                 }
             }
 
-
+            int damageToTake = Mathf.RoundToInt(DamageRX);
             //take the damage
-            takeDamageinPVPNow(DamageRX, fromPlayer, Critico);
+            takeDamageinPVPNow(damageToTake, fromPlayer, Critico);
 
 
             //send auto attack animation to client
             PlayerGeneral.send_autoATK_animation(fromPlayer, gameObject);
             //send damage number animation to client
-            PlayerGeneral.showCBT(gameObject, Critico, dodged, DamageRX, "damage");
+            PlayerGeneral.showCBT(gameObject, Critico, dodged, damageToTake, "damage");
             //add damage this player did to list (dont remember using this anywhere)
-            PlayerDamageDone[PlayerinFight] = PlayerDamageDone[PlayerinFight] + DamageRX;
+            PlayerDamageDone[PlayerinFight] = PlayerDamageDone[PlayerinFight] + damageToTake;
 
             //once the auto attack cool down finishes tag this player as free to attack again
             yield return new WaitForSeconds(PlayerAutoAttackSpeed);
@@ -256,62 +265,61 @@ public class PlayerPVPDamage : NetworkBehaviour
         }
 
     }
-    int CalculateDamageRx(GameObject fromPlayer)
+    float CalculateDamageRx(GameObject fromPlayer)
     {
-        int DamageRX;
+        float DamageRX = 0f;
         PlayerStats fromPlayerStats = fromPlayer.GetComponent<PlayerStats>();
-        float playerTotalDef = 0;
-        float fromPlayerDamage = 0;
-        float nerfDamage = 0.35f;
+        float playerTotalDef = 0f;
+        float fromPlayerDamage = 0f;
+        
+        bool USE_NEW_FORMULA = Mathf.RoundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Use_New_PVP_Formula].value) == 1;
+        float NERF_FINAL = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_FinalDmg_Nerf].value;
+        float NERF_DEFENSE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Defense_Nerf].value;
+        float NERF_DAMAGE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Damage_Nerf].value;
 
         switch (fromPlayerStats.DamageType_now)
         {
             case PlayerStats.DamageType.magical:
-                playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * 0.2f);
+                playerTotalDef = PlayerStats.Defense_int;
                 fromPlayerDamage = fromPlayerStats.Damage_int;
                 break;
             case PlayerStats.DamageType.physical:
-                playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * 0.2f);
+                playerTotalDef = PlayerStats.Defense_str;
                 fromPlayerDamage = fromPlayerStats.Damage_str;
                 break;
             default:
                 break;
         }
 
-        DamageRX = Mathf.RoundToInt((fromPlayerDamage - playerTotalDef) * nerfDamage);
+        if(USE_NEW_FORMULA)
+        {
+            DamageRX = (Mathf.Pow(fromPlayerDamage, NERF_DAMAGE) - Mathf.Pow(playerTotalDef, NERF_DEFENSE)) * NERF_FINAL;
+        }
+        else{
+            DamageRX = (fromPlayerDamage * NERF_DAMAGE - playerTotalDef * NERF_DEFENSE) * NERF_FINAL;
+        }
 
         //if damage is below 0 make sure to return 0, a negative number here would heal the player instead (100HP-(-100 damage)=200)
-        if (DamageRX < 0)
+        if (DamageRX < 0f)
         {
-            DamageRX = 0;
+            DamageRX = 0f;
         }
 
         //random a number between -10%/+10% from damage received to keep number aleatory
-        DamageRX = Mathf.RoundToInt(Random.Range(DamageRX * 0.9f, DamageRX * 1.1f));
+        DamageRX = Random.Range(DamageRX * 0.9f, DamageRX * 1.1f);
 
         //arrow deflect
         if (PlayerConditions.buffs.Contains(15) && fromPlayer.GetComponent<PlayerStats>().PlayerClass_now == PlayerStats.PlayerClass.Hunter)//arrow deflect buff
         {
-            DamageRX = Mathf.RoundToInt(DamageRX * (1f - (PlayerConditions.get_buff_information(PlayerConditions.type.buff, 15).skill_requested.multipliers[0] / 100f)));
+            DamageRX = DamageRX * (1f - (PlayerConditions.get_buff_information(PlayerConditions.type.buff, 15).skill_requested.multipliers[0] / 100f));
         }
         //shields up
         if (PlayerConditions.buffs.Contains(16) && (fromPlayer.GetComponent<PlayerStats>().PlayerClass_now == PlayerStats.PlayerClass.Hunter || fromPlayer.GetComponent<PlayerStats>().PlayerClass_now == PlayerStats.PlayerClass.Warrior))
         {
             PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 16);
-            DamageRX = 0;
+            DamageRX = 0f;
         }
-        /*
-         * Deprecated: Hunters Mark only affects skills
-         * 
-         * //if has Hunters Mark
-        var buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.debuff, 14);
-        if (buff_info != null)
-        {
-            if (PlayerStats.CurrentHP / PlayerStats.MaxHealth <= buff_info.skill_requested.multipliers[1] / 100f)
-            {
-                DamageRX = Mathf.RoundToInt(DamageRX * (1f + (buff_info.skill_requested.multipliers[2] / 100f)));
-            }
-        }*/
+
         return DamageRX;
     }
     #endregion
@@ -345,7 +353,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                         playerCriticalChance = 45f;
                     }
                     playerCriticalChance = playerCriticalChance + PlayerConditions.increasedCritical;
-                    if (Random.Range(1f, 100f) <= playerCriticalChance)
+                    if (Random.Range(0f, 100f) <= playerCriticalChance)
                     {
                         Critico = true;
                         healRX = Mathf.RoundToInt((healRX * 1.35f) * (1f + ((fromPlayer.GetComponent<PlayerStats>().modCritDmg + fromPlayer.GetComponent<PlayerStats>().passive_CritDmg) / 100f)));
@@ -390,6 +398,9 @@ public class PlayerPVPDamage : NetworkBehaviour
                             case 61004://bleed - warrior
                                 PlayerConditions.handle_effect(DOT_effect.effect_type.bleed, skillRequested.multipliers[0], fromPlayer, 0);
                                 break;
+                            case 63006://poison arrow - hunter
+                                PlayerConditions.handle_effect(DOT_effect.effect_type.poison, skillRequested.multipliers[0], fromPlayer, 0);
+                                break;
                             default:
                                 break;
                         }
@@ -404,14 +415,14 @@ public class PlayerPVPDamage : NetworkBehaviour
                     {
                         //////////.LogError("DamageSkill");
                         damageType = "damage";
-                        int DamageRX = Mathf.RoundToInt(CalculateSkillDamageRx(fromPlayer, skillRequested.multipliers[0]));
-                        float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().DEX * 0.05f;
-                        playerCriticalChance = playerCriticalChance + fromPlayer.GetComponent<PlayerStats>().modCritChance + fromPlayer.GetComponent<PlayerStats>().passive_CritChance;
-                        if (playerCriticalChance >= 45f)
-                        {
-                            playerCriticalChance = 45f;
+                        float DamageRX = CalculateSkillDamageRx(fromPlayer, skillRequested.multipliers[0]);
+                        
+                        float playerCriticalChance = fromPlayer.GetComponent<PlayerStats>().Critical_chance;
+                        if(playerCriticalChance > 50f){
+                            playerCriticalChance = 50f;
                         }
-                        if (Random.Range(1f, 100f) <= playerCriticalChance)
+
+                        if (Random.Range(0f, 100f) <= playerCriticalChance)
                         {
                             Critico = true;
                         }
@@ -424,20 +435,24 @@ public class PlayerPVPDamage : NetworkBehaviour
                             }
                         }
                         if (Critico)
-                        {
-                            DamageRX = Mathf.RoundToInt((DamageRX * 1.35f) * (1f + ((fromPlayer.GetComponent<PlayerStats>().modCritDmg + fromPlayer.GetComponent<PlayerStats>().passive_CritDmg) / 100f)));
+                        {  
+                            DamageRX = DamageRX * fromPlayer.GetComponent<PlayerStats>().Critical_damage;
                         }
 
-                        //dodge chance lottery
-                        if (Random.Range(1, 100) <= PlayerStats.Dodge_chance)
+	    			    float playerDodgeChance = PlayerStats.Dodge_chance;
+                        if(playerDodgeChance > 50f){
+                            playerDodgeChance = 50f;
+                        }
+
+	                    if (Random.Range(0f, 100f) <= playerDodgeChance) //JWR - Use adjusted dodge chance
                         {
-                            DamageRX = 0;
+                            DamageRX = 0f;
                             dodged = true;
                         }
 
-                        if (DamageRX < 0)
+                        if (DamageRX < 0f)
                         {
-                            DamageRX = 0;
+                            DamageRX = 0f;
                         }
 
                         if (!PlayerConditions.immortal && !dodged)
@@ -455,7 +470,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                             //flame missile
                             if (skillRequested.SkillID == 62002)
                             {
-                                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                                 {
                                     PlayerConditions.handle_effect(DOT_effect.effect_type.fire, skillRequested.multipliers[0], fromPlayer, 0);
                                 }
@@ -463,19 +478,19 @@ public class PlayerPVPDamage : NetworkBehaviour
                             //posion arrow
                             if (skillRequested.SkillID == 63006)
                             {
-                                if (Random.Range(1, 100) <= skillRequested.multipliers[1])
+                                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                                 {
                                     PlayerConditions.handle_effect(DOT_effect.effect_type.poison, skillRequested.multipliers[0], fromPlayer, 0);
                                 }
                             }
-                            buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.debuff, 14);
-                            if (buff_info != null)//if has Hunters Mark
+                            /*buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.debuff, 14);
+                            if (buff_info != null)//if has Hunter's Mark
                             {
-                                if (PlayerStats.CurrentHP / PlayerStats.MaxHealth <= buff_info.skill_requested.multipliers[1] / 100f)
+                                if ((float)PlayerStats.CurrentHP / (float)PlayerStats.MaxHealth <= buff_info.skill_requested.multipliers[1] / 100f)
                                 {
-                                    DamageRX = Mathf.RoundToInt(DamageRX * (1f + (buff_info.skill_requested.multipliers[2] / 100f)));
+                                    DamageRX = DamageRX * (1f + (buff_info.skill_requested.multipliers[2] / 100f));
                                 }
-                            }
+                            }*/
                             //Linked hearts
                             buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.debuff, 20);
                             if (buff_info != null)
@@ -499,12 +514,12 @@ public class PlayerPVPDamage : NetworkBehaviour
                             buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 21);
                             if (buff_info != null)
                             {
-                                PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 21);
+                                //PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 21);
                                 fromPlayer.GetComponent<PlayerConditions>().handle_effect(DOT_effect.effect_type.fire, buff_info.skill_requested.multipliers[0], buff_info.skill_owner, 0);
                             }
                             if (skillRequested.SkillID == 61008)//provoke
                             {
-                                if (Random.Range(0, 100) <= skillRequested.multipliers[1])
+                                if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                                 {
                                     damageType = "Provoked!";
                                     PlayerGeneral.TargetUntargetMe(connectionToClient, fromPlayer, 0);//time not used
@@ -518,9 +533,9 @@ public class PlayerPVPDamage : NetworkBehaviour
 
                         }
 
-                        takeDamageinPVPNow(DamageRX, fromPlayer, Critico);
-
-                        finalNumber = DamageRX;
+                        int damageToTake = Mathf.RoundToInt(DamageRX);
+                        takeDamageinPVPNow(damageToTake, fromPlayer, Critico);
+                        finalNumber = damageToTake;
                     }
                 }
             }
@@ -553,47 +568,57 @@ public class PlayerPVPDamage : NetworkBehaviour
     }
     public float CalculateSkillDamageRx(GameObject fromPlayer, float power_multiplier)
     {
-        int DamageRxAcc;
+        float DamageRxAcc = 0f;
         PlayerStats fromPlayerStats = fromPlayer.GetComponent<PlayerStats>();
-        float playerTotalDef = 0;
-        float fromPlayerDamage = 0;
-        float nerfDamage = 0.35f;
+        float playerTotalDef = 0f;
+        float fromPlayerDamage = 0f;
+        
+        bool USE_NEW_FORMULA = Mathf.RoundToInt(PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Use_New_PVP_Formula].value) == 1;
+        float NERF_FINAL = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_FinalDmg_Nerf].value;
+        float NERF_DEFENSE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Defense_Nerf].value;
+        float NERF_DAMAGE = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.PVP_Damage_Nerf].value;
 
         switch (fromPlayerStats.DamageType_now)
         {
-            case PlayerStats.DamageType.magical:
-                playerTotalDef = PlayerStats.Defense_int + (PlayerStats.Defense_str * 0.2f);
+            case PlayerStats.DamageType.magical: 
+                playerTotalDef = PlayerStats.Defense_int;
                 fromPlayerDamage = fromPlayerStats.Damage_int * power_multiplier;
                 break;
-            case PlayerStats.DamageType.physical:
-                playerTotalDef = PlayerStats.Defense_str + (PlayerStats.Defense_int * 0.2f);
+            case PlayerStats.DamageType.physical:         
+                playerTotalDef = PlayerStats.Defense_str;
                 fromPlayerDamage = fromPlayerStats.Damage_str * power_multiplier;
                 break;
             default:
                 break;
         }
 
-        DamageRxAcc = Mathf.RoundToInt((fromPlayerDamage - playerTotalDef) * nerfDamage);
+        if(USE_NEW_FORMULA)
+        {
+            DamageRxAcc = (Mathf.Pow(fromPlayerDamage, NERF_DAMAGE) - Mathf.Pow(playerTotalDef, NERF_DEFENSE)) * NERF_FINAL;
+        }
+        else{
+            DamageRxAcc = (fromPlayerDamage * NERF_DAMAGE - playerTotalDef * NERF_DEFENSE) * NERF_FINAL;
+        }
 
         //if damage is below 0 make sure to return 0, a negative number here would heal the player instead (100HP-(-100 damage)=200)
-        if (DamageRxAcc < 0)
+        if (DamageRxAcc < 0f)
         {
-            DamageRxAcc = 0;
+            DamageRxAcc = 0f;
         }
 
         //random a number between -10%/+10% from damage received to keep number aleatory
-        DamageRxAcc = Mathf.RoundToInt((Random.Range(DamageRxAcc * 0.9f, DamageRxAcc * 1.1f)));
+        DamageRxAcc = Random.Range(DamageRxAcc * 0.9f, DamageRxAcc * 1.1f);
 
         //arrow deflect
         if (PlayerConditions.buffs.Contains(15) && fromPlayer.GetComponent<PlayerStats>().PlayerClass_now == PlayerStats.PlayerClass.Hunter)//arrow deflect buff
         {
-            DamageRxAcc = Mathf.RoundToInt(DamageRxAcc * PlayerConditions.get_buff_information(PlayerConditions.type.buff, 15).skill_requested.multipliers[1] / 100f);
+            DamageRxAcc = DamageRxAcc * PlayerConditions.get_buff_information(PlayerConditions.type.buff, 15).skill_requested.multipliers[1] / 100f;
         }
         //shields up
         if (PlayerConditions.buffs.Contains(16) && (fromPlayer.GetComponent<PlayerStats>().PlayerClass_now == PlayerStats.PlayerClass.Hunter || fromPlayer.GetComponent<PlayerStats>().PlayerClass_now == PlayerStats.PlayerClass.Warrior))
         {
             PlayerConditions.remove_buff_debuff(PlayerConditions.type.buff, 16);
-            DamageRxAcc = 0;
+            DamageRxAcc = 0f;
         }
         return DamageRxAcc;
     }
@@ -622,7 +647,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                     //save how much hp player had before hit
                     var temp_hp = PlayerStats.CurrentHP;
                     //take the hp now
-                    PlayerStats.hpChange(-(int)DamageToTake);
+                    PlayerStats.hpChange(-DamageToTake);
 
                     //did player die?
                     if (PlayerStats.CurrentHP <= 0)
@@ -646,7 +671,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                 if (PlayerStats.CurrentHP > 0)
                 {
                     //take the damage from hp
-                    PlayerStats.hpChange(-(int)DamageToTake);
+                    PlayerStats.hpChange(-DamageToTake);
                     //there was a hit
                     hit = true;
 
@@ -848,7 +873,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                 { //SKILL-Final Frenzy      
                     if (PlayerStats.CurrentHP / PlayerStats.MaxHealth <= 0.4f)
                     {
-                        if (Random.Range(1, 100) <= knownskill.multipliers[0])//15% chance
+                        if (Random.Range(0f, 100f) <= knownskill.multipliers[0])//15% chance
                         {
                             PlayerConditions.handle_buffs_debuffs(knownskill, gameObject);
                             PlayerGeneral.showCBT(gameObject, false, false, 0, "F.Frenzy!");
@@ -857,7 +882,7 @@ public class PlayerPVPDamage : NetworkBehaviour
                 }
                 if (knownskill.SkillID == 1100)
                 {  //SKILL-Enraged 
-                    if (Random.Range(1, 100) <= knownskill.multipliers[0])//15% chance
+                    if (Random.Range(0f, 100f) <= knownskill.multipliers[0])//15% chance
                     {
                         //stun = no
                         PlayerConditions.handle_buffs_debuffs(knownskill, gameObject);
@@ -876,7 +901,7 @@ public class PlayerPVPDamage : NetworkBehaviour
         //SKILL-QUICKSHOT
         /*if (PlayerStats.PlayerSelectedClass == "Archer")
         {
-            if (Random.Range(1, 100) <= 15)//15% chance
+            if (Random.Range(0f, 100f) <= 15f)//15% chance
             {
                 foreach (var knownskill in PlayerSkills.PlayerKnownSkills)
                 {

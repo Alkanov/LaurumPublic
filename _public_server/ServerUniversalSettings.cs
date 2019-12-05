@@ -21,39 +21,34 @@ public class ServerUniversalSettings : MonoBehaviour
     public enum var_names
     {
         /// <summary>
-        /// nothing... never used
+        /// nothing... never used... don't delete... this is position/id 0
         /// </summary>
         none,
+        
+        /// <summary>
+        /// 1:Nerf % to the Final(Total) damage (PVP)
+        /// </summary>
+        PVP_FinalDmg_Nerf,
+        
+        /// <summary>
+        /// 2:Nerf Damage % or ^ (Depends on which formula used) (PVP)
+        /// </summary>
+        PVP_Damage_Nerf,
+        
+        /// <summary>
+        /// 3:Nerf Defense % or ^ (Depends on which formula used) (PVP)
+        /// </summary>
+        PVP_Defense_Nerf,
 
         /// <summary>
-        /// variable a
+        /// 4:Base Crit Dmg % (PVE)
         /// </summary>
-        f_a,
+        Crit_Multiplier,
 
         /// <summary>
-        /// variable b
+        /// 5:With 1 new formula will be used, otherwise old one
         /// </summary>
-        f_b,
-
-        /// <summary>
-        /// variable c... etc
-        /// </summary>
-        f_c,
-
-        /// <summary>
-        /// Defines the f_d
-        /// </summary>
-        f_d,
-
-        /// <summary>
-        /// Defines the f_x
-        /// </summary>
-        f_x,
-
-        /// <summary>
-        /// Defines the f_m
-        /// </summary>
-        f_m
+        Use_New_PVP_Formula
     }
 
     /// <summary>
@@ -114,17 +109,27 @@ public class ServerUniversalSettings : MonoBehaviour
     /// This method uses a "list" as we cant serialize Dictionaries with Unity's JsonUtility so we download the server_vars.json->transform it to list->transform to dictionary 
     /// </summary>
     /// <param name="fake_list">The fake_list<see cref="List{var_data}"/></param>
-    public void write_values(List<var_data> fake_list)
+    public bool write_values(List<var_data> fake_list)
     {
-        dict_vars = fake_list.ToDictionary(p => p.ID);
-        foreach (KeyValuePair<var_names, var_data> kvp in dict_vars)
+        try
         {
-            Debug.LogErrorFormat(
-                "Key {0}: val:{1} desc:{2}",
-                kvp.Key,
-                kvp.Value.value,
-                kvp.Value.description);
+            dict_vars = fake_list.ToDictionary(p => p.ID);
+            foreach (KeyValuePair<var_names, var_data> kvp in dict_vars)
+            {
+                Debug.LogErrorFormat(
+                    "Key {0}: val:{1} desc:{2}",
+                    kvp.Key,
+                    kvp.Value.value,
+                    kvp.Value.description);
+            }
+            return true;
         }
+        catch (Exception ex)
+        {
+            Debug.LogError(ex.ToString());
+            return false;          
+        }
+        
     }
 
     /// <summary>
@@ -145,7 +150,10 @@ public class ServerUniversalSettings : MonoBehaviour
         {
             try
             {
-                write_values(JsonHelper.FromJson<var_data>(uwr.downloadHandler.text).ToList());
+                if (!write_values(JsonHelper.FromJson<var_data>(uwr.downloadHandler.text).ToList())) {
+                    Debug.LogError("Error while loading dynamic variables #333");
+                    Application.Quit();
+                }
             }
             catch (System.Exception ex)
             {

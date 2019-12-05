@@ -45,9 +45,10 @@ public class PlayerInventory : NetworkBehaviour
     int currentGoldOffered;
     bool tradingCD;
     #endregion
-
+    int gold_to_save_buffer;
+    bool save_gold_allowed;
     #endregion
-
+    #region Unity events
     private void Awake()
     {
         Inventory = GetComponent<Inventory>();
@@ -61,8 +62,19 @@ public class PlayerInventory : NetworkBehaviour
         PlayerGuild = GetComponent<PlayerGuild>();
         PlayerSkills = GetComponent<PlayerSkills>();
         PlayerDeath = GetComponent<PlayerDeath>();
+        StartCoroutine(save_gold_cd());
     }
-
+    public void OnDestroy()
+    {
+        if (PlayerGeneral.playerLoaded)
+        {
+            var TradingWith_GO = PlayerGeneral.x_ObjectHelper.PlayersConnected.getPlayerObject(TradingWith);
+            PlayerGeneral.ServerNetworkManager.cancelTrade(TradingWith_GO);
+            //save whatever gold is in the buffer when player disconnects
+            save_gold_to_db(0, string.Empty, true);
+        }
+    }
+    #endregion
     #region test
     /* private void Update()
      {
@@ -222,7 +234,7 @@ public class PlayerInventory : NetworkBehaviour
                     //Item upgrade operation
                     if (ItemData.ItemStats[i] > 0)//if this stat is above 0 - we check this because each item has an float[8] of stats and we dont want to upgrade stats that are 0
                     {
-                        var final_stat = ItemData.ItemStats[i] + (float)Math.Round(ItemData.ItemStats[i] * PlayerGeneral.x_ObjectHelper.item_upgrade_stat_increase(equippedItem.itemUpgrade) / 100f, 2);
+                        var final_stat = ItemData.ItemStats[i] + (float)Math.Round((Decimal)(ItemData.ItemStats[i] * PlayerGeneral.x_ObjectHelper.item_upgrade_stat_increase(equippedItem.itemUpgrade) / 100f), 2, MidpointRounding.AwayFromZero);
                         if (ItemData.useAs == Item.UseAs.LeftHand && PlayerStats.passive_off_hand_mastery > 0)
                         {
                             final_stat *= (1f + (PlayerStats.passive_off_hand_mastery / 100f));
@@ -393,7 +405,7 @@ public class PlayerInventory : NetworkBehaviour
                 PlayerStats.modMaxMP += ((item_lvl / 2) + 5);
                 break;
             case 10:
-                PlayerStats.modDodge += 2;
+                PlayerStats.modDodge += 1;
                 break;
             case 11:
                 PlayerStats.modReflectSTR += 2;
@@ -405,10 +417,10 @@ public class PlayerInventory : NetworkBehaviour
                 PlayerStats.modHPRegen += 1;
                 break;
             case 14:
-                PlayerStats.modHPonKill += 3;
+                PlayerStats.modHPonKill += 2;
                 break;
             case 15:
-                PlayerStats.modMPonKill += 3;
+                PlayerStats.modMPonKill += 2;
                 break;
             case 16:
                 PlayerStats.modCritChance += 1;
@@ -655,20 +667,10 @@ public class PlayerInventory : NetworkBehaviour
                 TargetOperateInventory(connectionToClient, itemUID, 1, null);
                 //LOGS
                 StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(PlayerGeneral.ServerDBHandler.saveLog("logsgame", this.GetComponent<PlayerAccountInfo>().PlayerAccount, "SELL - soldUID: " + itemUID + " had:" + Gold, this.GetComponent<PlayerAccountInfo>().PlayerIP)));
-                //give gold               
-                Gold += sell_price;
-                //titles
-                if (Gold > 15000000)
-                {
-                    PlayerGeneral.rewadTitleAndUpdateClient(30);//Goldilocks
-                }
-                //update gold on client
-                TargetSetGoldInPlayer(connectionToClient, Gold);
                 //track
                 PlayerStatistics.track_statistics(PlayerStatistics.tracked_statistics.items_sold_session, 1);
-                //save gold
-                var urlServer = PlayerGeneral.ServerDBHandler.addGold(PlayerAccountInfo.PlayerAccount, sell_price);
-                StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(urlServer));
+                //give and save gold
+                ChangeGold_NEGATIVE_or_POSITIVE_gold(sell_price, string.Empty,false);               
             }
             //___V2
             else if (cmd == "use")
@@ -998,7 +1000,7 @@ public class PlayerInventory : NetworkBehaviour
                                 //take one durability now
                                 ItemReference.itemDurability--;
                                 //add gold
-                                ChangeGold_NEGATIVE_or_POSITIVE_gold(Item_.misc_data[0], string.Format("{0}_gold_ingot_open", Item_.ItemID));
+                                ChangeGold_NEGATIVE_or_POSITIVE_gold(Item_.misc_data[0], string.Format("{0}_gold_ingot_open", Item_.ItemID),false);
                                 //change and save durability of potion
                                 Change_durabil(ItemReference.itemDurability, ItemReference);
                                 //if this item still has durability above 0 then keep it, if not destroy it
@@ -1042,7 +1044,7 @@ public class PlayerInventory : NetworkBehaviour
                             case rewards.reward_type.mats_only:
                                 for (int i = 0; i < reward.mat_Amounts.Count; i++)
                                 {
-                                    var amount = UnityEngine.Random.Range(reward.mat_Amounts[i].min, reward.mat_Amounts[i].max);
+                                    var amount = UnityEngine.Random.Range(reward.mat_Amounts[i].min, reward.mat_Amounts[i].max + 1);
                                     material_add_amount_and_save(reward.mat_Amounts[i].materials_inside, amount, string.Format("UID:{0} opened", ItemReference.itemUniqueID));
                                     mats_IDs.Add((int)reward.mat_Amounts[i].materials_inside);
                                     mats_amount.Add(amount);
@@ -1053,7 +1055,7 @@ public class PlayerInventory : NetworkBehaviour
                             case rewards.reward_type.mixed:
                                 break;
                             case rewards.reward_type.iap_only:
-                                IAP_amount = UnityEngine.Random.Range(reward.IAP_gems_amounts.min, reward.IAP_gems_amounts.max);
+                                IAP_amount = UnityEngine.Random.Range(reward.IAP_gems_amounts.min, reward.IAP_gems_amounts.max + 1);
                                 var had_gems = PlayerAccountInfo.PlayerIAPcurrency;
                                 //log the action
                                 var log = string.Format("UID:{0} opened - inside:{1} gems", ItemReference.itemUniqueID, IAP_amount);
@@ -1148,19 +1150,9 @@ public class PlayerInventory : NetworkBehaviour
                         ));
                 //-save logs
                 PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(
-                    PlayerGeneral.ServerDBHandler.saveLog("logsgame", PlayerAccountInfo.PlayerAccount, string.Format("mass_locked_sell:{0}", string.Join(",", item_pool.ToArray())), PlayerAccountInfo.PlayerIP)));
-                //add total gold sold
-                Gold += gold_pool;
-                //update gold on client
-                TargetSetGoldInPlayer(connectionToClient, Gold);
-                //titles
-                if (Gold > 15000000)
-                {
-                    PlayerGeneral.rewadTitleAndUpdateClient(30);//Goldilocks
-                }
-                //save gold
-                var urlServer = PlayerGeneral.ServerDBHandler.addGold(PlayerAccountInfo.PlayerAccount, gold_pool);
-                StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(urlServer));
+                    PlayerGeneral.ServerDBHandler.saveLog("logsgame", PlayerAccountInfo.PlayerAccount, string.Format("mass_locked_sell:{0}", string.Join(",", item_pool.ToArray())), PlayerAccountInfo.PlayerIP)));               
+                //save and update gold on client
+                ChangeGold_NEGATIVE_or_POSITIVE_gold(gold_pool, string.Empty,false);
                 //notify
                 PlayerGeneral.TargetSendToChat(connectionToClient, string.Format("{0} items sold for {1} gold", item_pool.Count, gold_pool));
             }
@@ -1557,16 +1549,7 @@ public class PlayerInventory : NetworkBehaviour
 
         }
     }
-    #endregion
-    [Server]
-    public void OnDestroy()
-    {
-        if (PlayerGeneral.playerLoaded)
-        {
-            var TradingWith_GO = PlayerGeneral.x_ObjectHelper.PlayersConnected.getPlayerObject(TradingWith);
-            PlayerGeneral.ServerNetworkManager.cancelTrade(TradingWith_GO);
-        }
-    }
+    #endregion       
     [Command]
     public void CmdOpenBank()
     {
@@ -1744,7 +1727,7 @@ public class PlayerInventory : NetworkBehaviour
                     //save
                     PlayerGeneral.x_ObjectHelper.ServerItemBoards.SaveManager.SaveBoardsToXML("boards.xml", PlayerGeneral.x_ObjectHelper.ServerItemBoards.ItemBoardsList);
                     //take gold
-                    ChangeGold_NEGATIVE_or_POSITIVE_gold(-boardItem.price, string.Format("had:{0} now:{1} gold buying from broker", Gold, Gold - boardItem.price));
+                    ChangeGold_NEGATIVE_or_POSITIVE_gold(-boardItem.price, string.Format("had:{0} now:{1} gold buying from broker", Gold, Gold - boardItem.price),false);
                     //change item owner to the buyer
                     PlayerGeneral.x_ObjectHelper.TradeCenter.change_item_owner(boardItem.vendor_account_ID, boardItem.InventoryItem.itemUniqueID, PlayerAccountInfo.PlayerAccount);
                     //change item flag from broker to inventory              
@@ -1787,7 +1770,7 @@ public class PlayerInventory : NetworkBehaviour
                 if (Gold >= expan_inv_gold)
                 {
                     addInventorySlot();
-                    ChangeGold_NEGATIVE_or_POSITIVE_gold(-expan_inv_gold, "Inventory Expanded");
+                    ChangeGold_NEGATIVE_or_POSITIVE_gold(-expan_inv_gold, "Inventory Expanded",false);
                 }
             }
             else
@@ -1803,7 +1786,7 @@ public class PlayerInventory : NetworkBehaviour
                 if (Gold >= expan_bank_gold)
                 {
                     addBankSlot();
-                    ChangeGold_NEGATIVE_or_POSITIVE_gold(-expan_bank_gold, "Bank Expanded");
+                    ChangeGold_NEGATIVE_or_POSITIVE_gold(-expan_bank_gold, "Bank Expanded",false);
                 }
             }
             else
@@ -1896,7 +1879,7 @@ public class PlayerInventory : NetworkBehaviour
                     }
                 }
                 //take gold requirements
-                ChangeGold_NEGATIVE_or_POSITIVE_gold(-recipe.gold_required, "{uid:" + uid + " crafting_recipe_ID->" + recipe.ID + "}");
+                ChangeGold_NEGATIVE_or_POSITIVE_gold(-recipe.gold_required, "{uid:" + uid + " crafting_recipe_ID->" + recipe.ID + "}",false);
                 //---award results
                 //items
                 if (recipe.ItemID_crafted_result != -1)
@@ -2159,13 +2142,13 @@ public class PlayerInventory : NetworkBehaviour
             int distributedGold = goldToAdd / members_around.Count;
             for (int i = 0; i < members_around.Count; i++)
             {
-                members_around[i].GetComponent<PlayerInventory>().ChangeGold_NEGATIVE_or_POSITIVE_gold(distributedGold, string.Empty);
+                members_around[i].GetComponent<PlayerInventory>().ChangeGold_NEGATIVE_or_POSITIVE_gold(distributedGold, string.Empty,false);
             }
 
         }
         else
         {
-            ChangeGold_NEGATIVE_or_POSITIVE_gold(goldToAdd, string.Empty);
+            ChangeGold_NEGATIVE_or_POSITIVE_gold(goldToAdd, string.Empty,false);
         }
         Destroy(pickingUpThisItem);
     }
@@ -2181,12 +2164,15 @@ public class PlayerInventory : NetworkBehaviour
         StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(urlServer));
         TargetSetGoldInPlayer(connectionToClient, Gold);
     }*/
-    public void ChangeGold_NEGATIVE_or_POSITIVE_gold(int goldToModify, string savelog)
+
+    
+    public void ChangeGold_NEGATIVE_or_POSITIVE_gold(int goldToModify, string savelog,bool forced)
     {
-        if (savelog != string.Empty && savelog != null)
-        {
-            PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(PlayerGeneral.ServerDBHandler.saveLog("logsgame", this.GetComponent<PlayerAccountInfo>().PlayerAccount, savelog + " taken:" + goldToModify + " had:" + Gold, this.GetComponent<PlayerAccountInfo>().PlayerIP)));
-        }
+        //always increase buffer
+        gold_to_save_buffer += goldToModify;
+        //see if we can save gold now
+        save_gold_to_db(goldToModify, savelog, forced);
+        //always update on memory even if we dont save it to DB
         Gold += goldToModify;
         if (Gold > 15000000)
         {
@@ -2196,11 +2182,35 @@ public class PlayerInventory : NetworkBehaviour
         {
             PlayerStatistics.track_statistics(PlayerStatistics.tracked_statistics.gold_session, goldToModify);
         }
-        var urlServer = PlayerGeneral.ServerDBHandler.addGold(PlayerAccountInfo.PlayerAccount, goldToModify);
-        StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(urlServer));
         TargetSetGoldInPlayer(connectionToClient, Gold);
     }
 
+    private void save_gold_to_db(int goldToModify, string savelog, bool forced)
+    {
+        int goldToSaveInDb = gold_to_save_buffer;
+        //save if allowed,forced or if there is a log which usually happens when the event is important
+        if (save_gold_allowed || savelog != string.Empty || forced)
+        {
+            save_gold_allowed = false;
+            if (savelog != string.Empty && savelog != null)
+            {
+                string full_log = string.Format("{0} taken:{1} had:{2} buffer:{3}", savelog, goldToModify, Gold, goldToSaveInDb);
+                PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(PlayerGeneral.ServerDBHandler.saveLog("logsgame", this.GetComponent<PlayerAccountInfo>().PlayerAccount, full_log, this.GetComponent<PlayerAccountInfo>().PlayerIP)));
+            }
+            var urlServer = PlayerGeneral.ServerDBHandler.addGold(PlayerAccountInfo.PlayerAccount, goldToSaveInDb);
+            PlayerGeneral.x_ObjectHelper.StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(urlServer));
+            //all saved (hopefully) so clear the buffer
+            gold_to_save_buffer -= goldToSaveInDb;
+            
+        }
+    }
+
+    IEnumerator save_gold_cd()
+    {
+        yield return new WaitForSeconds(30f);
+        save_gold_allowed = true;
+        StartCoroutine(save_gold_cd());
+    }
     void AddCollectedItemToInv(GameObject pickingUpThisItem)
     {
         var thisItem = pickingUpThisItem.GetComponent<droppedItemInfo>();
@@ -2259,14 +2269,7 @@ public class PlayerInventory : NetworkBehaviour
             //////////.LogError("Not enough slots");
         }
 
-    }
-    public void Gold_changeAndSave(int amount)
-    {
-        Gold += amount;
-        TargetSetGoldInPlayer(connectionToClient, Gold);
-        var urlServer = PlayerGeneral.ServerDBHandler.addGold(PlayerAccountInfo.PlayerAccount, amount);
-        StartCoroutine(PlayerGeneral.x_ObjectHelper.safeWWWrequest(urlServer));
-    }
+    }   
     #endregion
 
     #region Utilidades
@@ -2543,7 +2546,7 @@ public class PlayerInventory : NetworkBehaviour
             droppedItemInfo.itemID = 7700;
             droppedItemInfo.gold = amount;
             //take it from player
-            ChangeGold_NEGATIVE_or_POSITIVE_gold(-amount, log);
+            ChangeGold_NEGATIVE_or_POSITIVE_gold(-amount, log,false);
             //spawn
             droppedItemInstance.transform.position = this.transform.position;
             NetworkServer.Spawn(droppedItemInstance);
@@ -2569,7 +2572,7 @@ public class PlayerInventory : NetworkBehaviour
                         List<int> new_mods = new List<int>();//new mods
                         for (int i = 0; i < itemFound.itemMods.Count; i++)
                         {
-                            new_mods.Add(UnityEngine.Random.Range(1, 19));
+                            new_mods.Add(UnityEngine.Random.Range(1, 19 + 1));
                         }
 
                         for (int i = 0; i < Inventory.InventoryList.Count; i++)//change item mods
@@ -2578,7 +2581,7 @@ public class PlayerInventory : NetworkBehaviour
                             {
                                 //quito el oro y guardo log en db
                                 var log = "item:" + Inventory.InventoryList[i].itemUniqueID + " old_mods:" + string.Join("-", new List<int>(Inventory.InventoryList[i].itemMods).ConvertAll(r => r.ToString()).ToArray()) + " new_mods:" + string.Join("-", new List<int>(new_mods).ConvertAll(r => r.ToString()).ToArray()) + " plus:" + Inventory.InventoryList[i].itemUpgrade;
-                                ChangeGold_NEGATIVE_or_POSITIVE_gold(-buy_price, log);
+                                ChangeGold_NEGATIVE_or_POSITIVE_gold(-buy_price, log,false);
                                 for (int d = 0; d < new_mods.Count; d++)
                                 {
                                     Inventory.InventoryList[i].itemMods[d] = new_mods[d];
@@ -3007,7 +3010,7 @@ public class PlayerInventory : NetworkBehaviour
                     {
                         TargetListingReply(connectionToClient, true);
                         PlayerGeneral.TargetSendToChat(connectionToClient, "Item listed");
-                        ChangeGold_NEGATIVE_or_POSITIVE_gold(-fee, "item_listed:" + itemUID + " for:" + price + " had:" + Gold + " premium:" + premium.ToString());
+                        ChangeGold_NEGATIVE_or_POSITIVE_gold(-fee, "item_listed:" + itemUID + " for:" + price + " had:" + Gold + " premium:" + premium.ToString(),false);
                         //---------offline stuff
                         //change flag
                         PlayerGeneral.x_ObjectHelper.ChangeItemFlagOn_DB(string.Format("bro-{0}", PlayerGeneral.x_ObjectHelper.IRCchat.nickName), item_to_add, PlayerAccountInfo.PlayerAccount);
@@ -3095,7 +3098,7 @@ public class PlayerInventory : NetworkBehaviour
                         chance_succeed = 36f;
                     }
 
-                    if (UnityEngine.Random.Range(0, 100) <= chance_succeed)
+                    if (UnityEngine.Random.Range(0f, 100f) <= chance_succeed)
                     {
                         //change it      
                         to_item.enchants = from_item.enchants;
@@ -3272,7 +3275,7 @@ public class PlayerInventory : NetworkBehaviour
 
                     if (chance_succeed > 0)
                     {
-                        if (UnityEngine.Random.Range(1, 101) <= chance_succeed)
+                        if (UnityEngine.Random.Range(0f, 100f) <= chance_succeed)
                         {
                             //change it      
                             InventoryItem_to_change.itemUpgrade += upgrade_amount;
