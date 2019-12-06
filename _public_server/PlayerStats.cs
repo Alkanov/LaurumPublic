@@ -466,35 +466,38 @@ public class PlayerStats : NetworkBehaviour
         //Critical chance
         Critical_chance *= DEX;
         Critical_chance += modCritChance + passive_CritChance + PlayerEquipStats[1];
-        if (Critical_chance > CC_soft_cap) //JWR changed from hard coded cap to label
+        Critical_chance += Conditions.increasedCritical;
+        if (Critical_chance > CC_soft_cap)
         {
             Critical_chance = (Critical_chance - CC_soft_cap) / 2f;
             Critical_chance += CC_soft_cap;
         }
-        if (Critical_chance > CC_hard_cap) //JWR changed from hard coded cap to label
+        if (Critical_chance > CC_hard_cap)
         {
             Critical_chance = CC_hard_cap;
         }
-        Critical_chance += Conditions.increasedCritical;
+        Critical_chance = (float)System.Math.Round((decimal)Critical_chance, 2, System.MidpointRounding.AwayFromZero);
 
         //Dodge
         Dodge_chance *= AGI;
-        Dodge_chance += modDodge + PlayerEquipStats[7] + passive_dodge; //+passive_DodgeChance     
-        if (Dodge_chance > Dodge_soft_cap)	//JWR changed from hard coded cap to label
+        Dodge_chance += modDodge + PlayerEquipStats[7] + passive_dodge;     
+        Dodge_chance += Conditions.increasedDodge;
+        if (Dodge_chance > Dodge_soft_cap)
         {
             Dodge_chance = (Dodge_chance - Dodge_soft_cap) / 2f; 
             Dodge_chance += Dodge_soft_cap; 
         }
-        if (Dodge_chance > Dodge_hard_cap) //JWR changed from hard coded cap to label
+        if (Dodge_chance > Dodge_hard_cap)
         {
             Dodge_chance = Dodge_hard_cap;
         }
-        Dodge_chance += Conditions.increasedDodge;
 
         if (Conditions.decreasedDodge < 0f)
         {
             Dodge_chance *= (1f + (Conditions.decreasedDodge / 100f));
         }
+
+        Dodge_chance = (float)System.Math.Round((decimal)Dodge_chance, 2, System.MidpointRounding.AwayFromZero);
 
         //Regens
         HP_regen_percent += modHPRegen + passive_HPRegen;

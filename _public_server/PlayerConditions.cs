@@ -966,17 +966,17 @@ public class PlayerConditions : NetworkBehaviour
             case DOT_effect.effect_type.fire:
                 effectid = 9020;
                 effect_every = 1f;
-                total_time = 4f;
+                total_time = 5f;
                 break;
             case DOT_effect.effect_type.bleed:
                 effectid = 9030;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 4f;
+                total_time = 5f;
                 break;
             case DOT_effect.effect_type.heal:
                 effectid = 9040;
                 effect_every = 1f;//cada segundo 
-                total_time = 4f;
+                total_time = 5f;
                 break;
             case DOT_effect.effect_type.true_damage_poison:
                 effectid = 9011;
@@ -1054,7 +1054,7 @@ public class PlayerConditions : NetworkBehaviour
 
             }else if (effectID == 9011 || effectID == 9012)//true damage
             {
-                total_damage_or_heal = PlayerStats.MaxHealth * effect_power/100f;
+                total_damage_or_heal = PlayerStats.MaxHealth * effect_power / 100f;
             }
             else//damage
             {
@@ -1090,7 +1090,7 @@ public class PlayerConditions : NetworkBehaviour
                 }
                 else
                 {
-                    PlayerPVPDamage.takeDamageinPVPNow((int)damage_or_heal_over_time, effect_dealer, false);
+                    PlayerPVPDamage.takeDamageinPVPNow(damage_or_heal_over_time, effect_dealer, false);
                 }
 
             }

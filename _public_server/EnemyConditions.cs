@@ -644,12 +644,12 @@ public class EnemyConditions : NetworkBehaviour
             case DOT_effect.effect_type.fire:
                 effectid = 9020;
                 effect_every = 1f;
-                total_time = 4f;
+                total_time = 5f;
                 break;
             case DOT_effect.effect_type.bleed:
                 effectid = 9030;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 4f;
+                total_time = 5f;
                 break;
             default:
                 break;
@@ -700,7 +700,7 @@ public class EnemyConditions : NetworkBehaviour
         if (EnemyStats.CurrentHP > 0)
         {
             hpaffected=EnemyTakeDamage.CentralEnemyTakeDamage(hpaffected * -1, effect_dealer);
-            effect_dealer.GetComponent<PlayerGeneral>().showCBT(gameObject, false, false, (int)hpaffected * -1, "damage");
+            effect_dealer.GetComponent<PlayerGeneral>().showCBT(gameObject, false, false, Mathf.RoundToInt(hpaffected * -1), "damage");
             yield return new WaitForSeconds(effect_every);
             for (int i = 0; i < effects_running.Count; i++)
             {
