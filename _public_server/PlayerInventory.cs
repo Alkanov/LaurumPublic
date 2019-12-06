@@ -2572,7 +2572,11 @@ public class PlayerInventory : NetworkBehaviour
                         List<int> new_mods = new List<int>();//new mods
                         for (int i = 0; i < itemFound.itemMods.Count; i++)
                         {
-                            new_mods.Add(UnityEngine.Random.Range(1, 23 + 1));
+                            int newMod = UnityEngine.Random.Range(1, 23 + 1);
+                            while(newMod == 22){ //We don't want exp
+                                newMod = UnityEngine.Random.Range(1, 23 + 1);
+                            }
+                            new_mods.Add(newMod);
                         }
 
                         for (int i = 0; i < Inventory.InventoryList.Count; i++)//change item mods
