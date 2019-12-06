@@ -40,7 +40,7 @@ public class skillDB : MonoBehaviour
         Skills.Add(new skill(61025, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Warrior, 15f, 0.3f, new float[3] { 1.7f, 5f, -50f }, 15));//damage/time/debuff
         //---------------Utility
         //Charge                                                                                                                                                     
-        Skills.Add(new skill(61006, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.8f, new float[2] { 45f, 5f }, 10));//buff/time
+        Skills.Add(new skill(61006, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 30f, 0.8f, new float[2] { 25f, 5f }, 10));//buff/time
         //Provoke
         Skills.Add(new skill(61008, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Warrior, 4.5f, 0.45f, new float[2] { 1f, 90f }, 15));//damage/chance/
         //Battle Shout
@@ -79,7 +79,7 @@ public class skillDB : MonoBehaviour
         //Frost Blade
         Skills.Add(new skill(62007, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 7f, 0.8f, new float[2] { 1.6f, 50f }, 30));//damage/chance
         //Frozen Hands
-        Skills.Add(new skill(62008, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 15f, 0.8f, new float[2] { 5f, 47.5f }, 25));//time
+        Skills.Add(new skill(62008, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 30f, 0.8f, new float[2] { 5f, 25f }, 25));//time
         //Blizzard
         Skills.Add(new skill(62009, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Wizard, 15f, 1f, new float[3] { 1.3f, 50f, 75f }, 32));//damage/chance to freeze/chance to slow
         //Frost Bomb
@@ -123,7 +123,7 @@ public class skillDB : MonoBehaviour
         //Hunter's Mark
         Skills.Add(new skill(63011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Hunter, 15f, 0.2f, new float[2] { 5f, -50f }, 18));//time//debuff
         //Hunter's Ritual
-        Skills.Add(new skill(63012, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 12.5f, 0.2f, new float[2] { 50f, 5f }, 15));//buff/time
+        Skills.Add(new skill(63012, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 30f, 0.2f, new float[2] { 50f, 5f }, 15));//buff/time
         //Camouflage
         Skills.Add(new skill(63013, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.8f, 5f, 15));
         //Soul Sacrifice
@@ -158,7 +158,7 @@ public class skillDB : MonoBehaviour
         //Silence
         Skills.Add(new skill(64012, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 15f, 0.2f, new float[2] { 100f, 5f }, 22));//chance/time
         //Speed totem
-        Skills.Add(new skill(64013, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[5] { 45f, 35f, 25f, 15f, 10f }, 20));//mov speed, attack speed, casting speed, cooldown reduction, time
+        Skills.Add(new skill(64013, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.8f, new float[5] { 50f, 35f, 25f, 15f, 10f }, 20));//mov speed, attack speed, casting speed, cooldown reduction, time
         //Buff remover
         Skills.Add(new skill(64014, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Paladin, 5f, 0.2f, 100f, 20));//chance
         //Remember me->changed to Consecration
