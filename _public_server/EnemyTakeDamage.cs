@@ -326,13 +326,12 @@ public class EnemyTakeDamage : NetworkBehaviour
                 //critical lottery
                 if (Critico)
                 {
-                    //FIX critMultiplier: compile error
-                    DamageRX = DamageRX * critMultiplier;
+                    DamageRX = DamageRX * fromPlayer.GetComponent<PlayerStats>().Critical_damage;
                 }
                 //dodge lottery
                 if (dodged)
                 {
-                    DamageRX = 0;
+                    DamageRX = 0f;
                 }
 
 

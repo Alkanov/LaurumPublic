@@ -79,7 +79,7 @@ public class EnemyStats : NetworkBehaviour
 
     public float Exp;
 
-    public float WalkingSpeed = 0.75f;
+    public float WalkingSpeed = 0.8f;
 
     #endregion
 
