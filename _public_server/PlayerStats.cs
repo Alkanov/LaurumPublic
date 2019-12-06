@@ -466,7 +466,6 @@ public class PlayerStats : NetworkBehaviour
         //Critical chance
         Critical_chance *= DEX;
         Critical_chance += modCritChance + passive_CritChance + PlayerEquipStats[1];
-        Critical_chance += Conditions.increasedCritical;
         if (Critical_chance > CC_soft_cap)
         {
             Critical_chance = (Critical_chance - CC_soft_cap) / 2f;
@@ -476,12 +475,13 @@ public class PlayerStats : NetworkBehaviour
         {
             Critical_chance = CC_hard_cap;
         }
+        
+        Critical_chance += Conditions.increasedCritical;
         Critical_chance = (float)System.Math.Round((decimal)Critical_chance, 2, System.MidpointRounding.AwayFromZero);
 
         //Dodge
         Dodge_chance *= AGI;
         Dodge_chance += modDodge + PlayerEquipStats[7] + passive_dodge;     
-        Dodge_chance += Conditions.increasedDodge;
         if (Dodge_chance > Dodge_soft_cap)
         {
             Dodge_chance = (Dodge_chance - Dodge_soft_cap) / 2f; 
@@ -491,6 +491,8 @@ public class PlayerStats : NetworkBehaviour
         {
             Dodge_chance = Dodge_hard_cap;
         }
+        
+        Dodge_chance += Conditions.increasedDodge;
 
         if (Conditions.decreasedDodge < 0f)
         {
