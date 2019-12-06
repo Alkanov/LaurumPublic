@@ -2566,7 +2566,7 @@ public class PlayerInventory : NetworkBehaviour
                 if (itemFound.itemMods.Count > 0)//si tiene mods
                 {
                     var itemData = PlayerGeneral.ItemDatabase.FetchItemByID(itemID);
-                    int buy_price = PlayerGeneral.x_ObjectHelper.getItemBuyPrice(itemData);
+                    int buy_price = Mathf.RoundToInt(PlayerGeneral.x_ObjectHelper.getItemBuyPrice(itemData)*PlayerGeneral.x_ObjectHelper.game_event_manager.is_event_on(game_event_manager.game_event.cheap_aug_reroll));
                     if (Gold >= buy_price)//oro confirmado
                     {
                         List<int> new_mods = new List<int>();//new mods
@@ -2605,6 +2605,7 @@ public class PlayerInventory : NetworkBehaviour
                     else
                     {
                         //reason = "Gold not found";
+                        PlayerGeneral.TargetSendToChat(connectionToClient, "Not enough Gold");
                     }
                 }
                 else
