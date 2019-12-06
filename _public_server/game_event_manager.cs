@@ -153,6 +153,7 @@ public class game_event_manager : MonoBehaviour
 
     private void update_events_on_all_clients()
     {
+        //FIX: there is still something fucked up here. Server is sending this every second instead of only when there is a change. Re-work it.
         temp_values.Clear();
         for (int i = 0; i < active_events.Count; i++)
         {
