@@ -635,6 +635,7 @@ public class PlayerConditions : NetworkBehaviour
     {
         if (GetComponent<NetworkProximityChecker>().forceHidden)
         {
+            GetComponent<NetworkProximityChecker>().forceHidden = false;
             clean_buff_debuff(type.buff, 14);
         }
 
