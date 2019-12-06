@@ -12,6 +12,7 @@ public class game_event_manager : MonoBehaviour
         public game_event game_event;
         public float event_multiplier;
         public DateTime event_expire;
+        public bool active;
 
         public event_data_class(game_event game_event, float event_multiplier, DateTime event_expire)
         {
@@ -50,6 +51,10 @@ public class game_event_manager : MonoBehaviour
     public List<event_data_class> active_events = new List<event_data_class>();
     #endregion
 
+    #region data
+    public List<event_data_class> temp_event_values = new List<event_data_class>();//keep the temp to compare it later and know if clients need update
+    List<event_data_class> temp_values = new List<event_data_class>();
+    #endregion
 
     private void Awake()
     {
@@ -58,6 +63,7 @@ public class game_event_manager : MonoBehaviour
     private void Start()
     {
         load_events_now();
+        StartCoroutine(event_change_detection());
     }
 
     IEnumerator load_events(int times)
@@ -134,14 +140,6 @@ public class game_event_manager : MonoBehaviour
                     x_ObjectHelper.IRC_demo.submitData(string.Format("Shutting down - error parsing event data:{0}", uwr.downloadHandler.text));
                     x_ObjectHelper.PlayersConnected.shutdown(false);
                 }
-                else
-                {
-                    //update events on all connected clients
-                    for (int i = 0; i < x_ObjectHelper.PlayersConnected.allPlayers.Count; i++)
-                    {
-                        x_ObjectHelper.PlayersConnected.allPlayers[i].GetComponent<PlayerGeneral>().send_server_events_to_client();
-                    }
-                }
             }
         }
         else
@@ -153,13 +151,38 @@ public class game_event_manager : MonoBehaviour
         StartCoroutine(event_timer());
     }
 
+    private void update_events_on_all_clients()
+    {
+        temp_values.Clear();
+        for (int i = 0; i < active_events.Count; i++)
+        {
+            temp_values.Add(active_events[i]);
+        }
+        //if something changed send it to all clients
+        if (temp_event_values != temp_values)
+        {
+            //update the temp list
+            temp_event_values.Clear();
+            for (int i = 0; i < active_events.Count; i++)
+            {
+                temp_event_values.Add(active_events[i]);
+            }
+            //update events on all connected clients
+            for (int i = 0; i < x_ObjectHelper.PlayersConnected.allPlayers.Count; i++)
+            {
+                x_ObjectHelper.PlayersConnected.allPlayers[i].GetComponent<PlayerGeneral>().send_server_events_to_client();
+            }
+        }
+
+    }
+
     #region event timers
     IEnumerator event_timer()
-    {      
+    {
         if (gvg_time(DateTime.UtcNow.Hour) == x_ObjectHelper.use_even_time)
-        {           
+        {
             if (is_event_on(game_event.guild_wars, true) == 0f || is_event_on(game_event.guild_wars, true) == 2f)//was off or this is the first start
-            {               
+            {
                 //activate event
                 for (int i = 0; i < active_events.Count; i++)
                 {
@@ -175,9 +198,9 @@ public class game_event_manager : MonoBehaviour
             }
         }
         else
-        {           
+        {
             if (is_event_on(game_event.guild_wars, true) != 0f)//anything but off (we can use any other number to turn event off here
-            {                
+            {
                 //deactivate event
                 for (int i = 0; i < active_events.Count; i++)
                 {
@@ -197,6 +220,15 @@ public class game_event_manager : MonoBehaviour
         }
         yield return new WaitForSeconds(30f);
         StartCoroutine(event_timer());
+    }
+    IEnumerator event_change_detection()
+    {
+        yield return new WaitForSeconds(1f);
+        if (active_events.Count > 0)//if events are loaded
+        {
+            update_events_on_all_clients();
+        }
+        StartCoroutine(event_change_detection());
     }
     #endregion
 
@@ -238,7 +270,12 @@ public class game_event_manager : MonoBehaviour
                 {
                     if (DateTime.UtcNow < active_events[i].event_expire)
                     {
+                        active_events[i].active = true;
                         return active_events[i].event_multiplier;
+                    }
+                    else
+                    {
+                        active_events[i].active = false;
                     }
                 }
             }
