@@ -1837,7 +1837,7 @@ public class Translations : MonoBehaviour
             skillTitles[61008] = "Provoke";
             skillDescriptions[61008] = "Low damage ability with a {1}% chance to pull enemies aggro (cancel target on PVP)";
             skillTitles[61013] = "Battle Shout";
-            skillDescriptions[61013] = "Buffs your maximum health by {0}% for {1} seconds";
+            skillDescriptions[61013] = "AoE buff that increases maximum health by {0}% for {1} seconds";
             skillTitles[61026] = "Slow Down!";
             skillDescriptions[61026] = "Has infinite range and slows your target by -{0}% for {1} seconds";
             skillTitles[61027] = "On your Knees!";
@@ -1878,7 +1878,7 @@ public class Translations : MonoBehaviour
             skillTitles[62012] = "Mana shield";
             skillDescriptions[62012] = "Incoming damage will be taken out of your mana untill effect wears out ({0} seconds) or mana is empty";
             skillTitles[62013] = "Expanded Mana";
-            skillDescriptions[62013] = "Increases your max mana by {0}% for {1} seconds";
+            skillDescriptions[62013] = "AoE buff that increases max mana by {0}% for {1} seconds";
             skillTitles[62014] = "Quick Cast";//Caster Contract
             skillDescriptions[62014] = "Next spell is instant. Lasts for {0} seconds";
             skillTitles[62015] = "Concentration";
@@ -1907,7 +1907,7 @@ public class Translations : MonoBehaviour
             skillTitles[63011] = "Hunter's Mark";
             skillDescriptions[63011] = "Places a debuff on your target that reduces its total dodge by {1}% for {0} seconds";
             skillTitles[63012] = "Hunter's Ritual";
-            skillDescriptions[63012] = "Buffs your walking speed by {0}% for {1} seconds";
+            skillDescriptions[63012] = "AoE buff that increases walking speed by {0}% for {1} seconds";
             skillTitles[63013] = "Camouflage";
             skillDescriptions[63013] = "Becomes invisible for {0} seconds (or until skill/auto-attack is used)";
             skillTitles[63014] = "Soul Sacrifice";
