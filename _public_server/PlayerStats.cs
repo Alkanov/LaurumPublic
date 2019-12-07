@@ -169,7 +169,7 @@ public class PlayerStats : NetworkBehaviour
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 1f;
+        public static float AutoAtk_speed = 0.95f;
         public static float AutoAtk_range = 1f;
 
         public static float Walking_spd = 1.1f;
@@ -211,7 +211,7 @@ public class PlayerStats : NetworkBehaviour
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 0.95f;
+        public static float AutoAtk_speed = 0.9f;
         public static float AutoAtk_range = 1f;
 
         public static float Walking_spd = 1.1f;
@@ -253,7 +253,7 @@ public class PlayerStats : NetworkBehaviour
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 0.9f;
+        public static float AutoAtk_speed = 0.8f;
         public static float AutoAtk_range = 3f;
 
         public static float Walking_spd = 1.2f;
@@ -505,73 +505,69 @@ public class PlayerStats : NetworkBehaviour
         HP_regen_percent += modHPRegen + passive_HPRegen;
         MP_regen_percent += passive_MPRegen;
 
-        //Auto attack - the less here the quicker it attacks because this is the time to wait between autos
-        /*AutoAtk_speed *= (1f - (modAttkSPD / 100f)) * Conditions.increasedAtkSpeed;
-        if (AutoAtk_speed < 0.3f)
-        {
-            AutoAtk_speed = 0.3f;
-        }*/
+        //Attack speed
         float totalAttkSpd = modAttkSPD + Conditions.increasedAtkSpeed + passive_atk_speed;
         float secondsToDecreaseOnAutoAtkSpeed = 0.00f;
-
-        for (int i = 0; totalAttkSpd >= 1; i++)
-        {
-            switch (i)
+        if(totalAttkSpd > 0f){
+            for (int i = 0; totalAttkSpd >= 1; i++)
             {
-                case 0: //can get until 0.50sec to decrease (max: 2 attack per second / 0 to 100% attack speed total increase)
-                    if (totalAttkSpd >= 100)
-                    {
-                        secondsToDecreaseOnAutoAtkSpeed += 0.50f;
-                        totalAttkSpd -= 100f;
-                    }
-                    else
-                    {
-                        secondsToDecreaseOnAutoAtkSpeed += totalAttkSpd / 200f;
-                        totalAttkSpd = 0f;
-                    }
-                    break;
+                switch (i)
+                {
+                    case 0: //can get until 0.50sec to decrease (max: 2 attack per second / 0 to 100% attack speed total increase)
+                        if (totalAttkSpd >= 100)
+                        {
+                            secondsToDecreaseOnAutoAtkSpeed += 0.50f;
+                            totalAttkSpd -= 100f;
+                        }
+                        else
+                        {
+                            secondsToDecreaseOnAutoAtkSpeed += totalAttkSpd / 200f;
+                            totalAttkSpd = 0f;
+                        }
+                        break;
 
-                case 1: //can get until +0.16sec to decrease (max: 3 attack per second / 101 to 200% attack speed total increase)
-                    if (totalAttkSpd >= 100)
-                    {
-                        secondsToDecreaseOnAutoAtkSpeed += 0.16f;
-                        totalAttkSpd -= 100f;
-                    }
-                    else
-                    {
-                        secondsToDecreaseOnAutoAtkSpeed += totalAttkSpd / 625f;
-                        totalAttkSpd = 0f;
-                    }
-                    break;
+                    case 1: //can get until +0.16sec to decrease (max: 3 attack per second / 101 to 200% attack speed total increase)
+                        if (totalAttkSpd >= 100)
+                        {
+                            secondsToDecreaseOnAutoAtkSpeed += 0.16f;
+                            totalAttkSpd -= 100f;
+                        }
+                        else
+                        {
+                            secondsToDecreaseOnAutoAtkSpeed += totalAttkSpd / 625f;
+                            totalAttkSpd = 0f;
+                        }
+                        break;
 
-                case 2: //can get until +0.08sec to decrease (max: 4 attack per second / 201 to 300% attack speed total increase)
-                    if (totalAttkSpd >= 100)
-                    {
-                        secondsToDecreaseOnAutoAtkSpeed += 0.08f;
-                        totalAttkSpd -= 100f;
-                    }
-                    else
-                    {
-                        secondsToDecreaseOnAutoAtkSpeed += totalAttkSpd / 1250f;
-                        totalAttkSpd = 0f;
-                    }
-                    break;
+                    case 2: //can get until +0.08sec to decrease (max: 4 attack per second / 201 to 300% attack speed total increase)
+                        if (totalAttkSpd >= 100)
+                        {
+                            secondsToDecreaseOnAutoAtkSpeed += 0.08f;
+                            totalAttkSpd -= 100f;
+                        }
+                        else
+                        {
+                            secondsToDecreaseOnAutoAtkSpeed += totalAttkSpd / 1250f;
+                            totalAttkSpd = 0f;
+                        }
+                        break;
 
-                case 3: //can get until +0.05sec to decrease (max: 5 attack per second / 401 to 500% attack speed total increase)
-                    if (totalAttkSpd >= 100)
-                    {
-                        secondsToDecreaseOnAutoAtkSpeed += 0.05f; //CAP: 0.80sec to decrease
-                        totalAttkSpd = 0f; //CAP: 500% Attack Speed
-                    }
-                    else
-                    {
-                        secondsToDecreaseOnAutoAtkSpeed += totalAttkSpd / 2000f;
-                        totalAttkSpd = 0f;
-                    }
-                    break;
+                    case 3: //can get until +0.05sec to decrease (max: 5 attack per second / 401 to 500% attack speed total increase)
+                        if (totalAttkSpd >= 100)
+                        {
+                            secondsToDecreaseOnAutoAtkSpeed += 0.05f; //CAP: 0.80sec to decrease
+                            totalAttkSpd = 0f; //CAP: 500% Attack Speed
+                        }
+                        else
+                        {
+                            secondsToDecreaseOnAutoAtkSpeed += totalAttkSpd / 2000f;
+                            totalAttkSpd = 0f;
+                        }
+                        break;
+                }
             }
+            AutoAtk_speed = AutoAtk_speed - secondsToDecreaseOnAutoAtkSpeed;
         }
-        AutoAtk_speed = 1f - secondsToDecreaseOnAutoAtkSpeed;
 
         //walking speed = base + variables              
         Walking_spd *= (1f + ((modSPD + passive_WalkingSpeed + Conditions.increasedWalkingSpeed + Conditions.decreasedWalkingSpeed) / 100f));
