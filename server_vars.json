@@ -2,17 +2,17 @@
    "Items":[
       {
          "ID":1,
-         "value":0.9,
+         "value":0.5,
          "description":"Nerf % to the Final(Total) damage (PVP), 1 to disable"
       },
       {
          "ID":2,
-         "value":0.8,
+         "value":0.95,
          "description":"Nerf Damage % or ^ (Depends on which formula used) (PVP)"
       },
       {
          "ID":3,
-         "value":0.7,
+         "value":1,
          "description":"Nerf Defense % or ^ (Depends on which formula used) (PVP)"
       },
       {
