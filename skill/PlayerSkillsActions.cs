@@ -286,7 +286,7 @@ public class PlayerSkillsActions : MonoBehaviour
     /// </summary>
     public List<GameObject> get_aoe_targets(skill skillRequested, bool include_myself, int number_of_targets)
     {
-        var possible_targets = PlayerGeneral.x_ObjectHelper.get_AOE_LOS_targets(gameObject, PlayerStats.Skill_range, LayerMask.GetMask("Enemy", "Player", "decoy", "Coliders"), include_myself);
+        var possible_targets = PlayerGeneral.x_ObjectHelper.get_AOE_LOS_targets(gameObject, PlayerStats.Skill_range, LayerMask.GetMask("Enemy"), false);
         possible_targets = possible_targets.OrderBy(x => Vector2.Distance(this.transform.position, x.transform.position)).ToList();
 
         if (possible_targets.Count > 0)//if targets arround
