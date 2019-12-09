@@ -886,7 +886,7 @@ public class PlayerStats : NetworkBehaviour
         PlayerSkillsActions = GetComponent<PlayerSkillsActions>();
         Conditions = GetComponent<PlayerConditions>();
         PlayerAccountInfo = GetComponent<PlayerAccountInfo>();
-
+        PINGPONG_last_rx = Time.time;
     }
     void Start()
     {
@@ -895,6 +895,7 @@ public class PlayerStats : NetworkBehaviour
         HPandMPRegen();
         StartCoroutine(waitsecodsafterstart());
         StartCoroutine(save_exp_cooldown());
+        StartCoroutine(PINGPONG());
     }
     private void OnDestroy()
     {
@@ -1136,6 +1137,11 @@ public class PlayerStats : NetworkBehaviour
             saveCustomStats_all();
         }
     }
+    [Command]
+    public void CmdPONG(int ping)
+    {
+        PINGPONG_last_rx = Time.time;
+    }
     #endregion
 
     #region Networking Client   
@@ -1175,6 +1181,8 @@ public class PlayerStats : NetworkBehaviour
     {
 
     }
+    [TargetRpc]
+    public void TargetPING(NetworkConnection target, int pong) { }
     #endregion
 
     #region Networking RPC
@@ -2536,5 +2544,21 @@ public class PlayerStats : NetworkBehaviour
     }
     #endregion
 
+    #region PINGPONG    
+    float PINGPONG_last_rx = 0f;
+    float PINGPONG_max_timeout = 15f;//more than 3 pings without answer
+    IEnumerator PINGPONG()
+    {
+        yield return new WaitForSeconds(3f);
+        TargetPING(connectionToClient, 12345);
+        yield return new WaitForSeconds(1f);//just extra time to allow for RTT
+        if (Time.time - PINGPONG_last_rx > PINGPONG_max_timeout)//this should usually be around if(1>15)
+        {
+            //timeout
+            GetComponent<NetworkIdentity>().connectionToClient.Disconnect();
+        }
+        StartCoroutine(PINGPONG());
+    }
+    #endregion
 
 }
