@@ -1518,16 +1518,16 @@ public class PlayerStats : NetworkBehaviour
                     break;
                 case 3111:
                     stat_training_exp[5] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
-                    stat_training_exp[6] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
+                    stat_training_exp[6] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
                     total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3112:
-                    stat_training_exp[1] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
-                    stat_training_exp[7] += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade)); 
+                    stat_training_exp[1] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    stat_training_exp[7] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3113:
