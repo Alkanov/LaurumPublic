@@ -769,7 +769,7 @@ public class PlayerStats : NetworkBehaviour
 
     #region Mods
     //Normales        
-    public int modSTR,
+    public float modSTR,
      modDEX,
      modINT,
      modWIS,

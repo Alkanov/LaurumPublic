@@ -216,9 +216,9 @@ public class PlayerPVPDamage : NetworkBehaviour
                 //if attacker has frozen hands
                 if (fromPlayer.GetComponent<PlayerConditions>().has_buff_debuff(PlayerConditions.type.buff, 17))
                 {
-                    PlayerConditions.decreasedWalkingSpeed = -20f;//-20% walking speed
+                    PlayerConditions.decreasedWalkingSpeed = -25f;//-25% walking speed
                     PlayerStats.RefreshStats();
-                    PlayerConditions.add_buff_debuff(2, null, false, 3f, fromPlayer, PlayerConditions.type.debuff, true);
+                    PlayerConditions.add_buff_debuff(2, null, false, 2.5f, fromPlayer, PlayerConditions.type.debuff, true);
                 }
                 //Linked hearts
                 var buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 20);
