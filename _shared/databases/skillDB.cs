@@ -92,7 +92,7 @@ public class skillDB : MonoBehaviour
         //Expanded Mana
         Skills.Add(new skill(62013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Wizard, 60f, 0.4f, new float[2] { 40f, 45f }, 18));//effect/time
         //Caster Contract
-        Skills.Add(new skill(62014, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 30f, 0.8f, new float[1] { 10f }, 20));//time
+        Skills.Add(new skill(62014, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 15f, 0.2f, new float[1] { 10f }, 20));//time
         //Concentration
         Skills.Add(new skill(62015, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 15f, 0.4f, new float[2] { 25f, 10f }, 20));//effect/time
 
