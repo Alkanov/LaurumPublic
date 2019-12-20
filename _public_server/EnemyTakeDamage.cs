@@ -776,14 +776,22 @@ public class EnemyTakeDamage : NetworkBehaviour
             {
                 PlayerStats maxDMGplayer_PlayerStats = maxDMGplayer.GetComponent<PlayerStats>();
                 PlayerInventory maxDMGplayer_PlayerInventory = maxDMGplayer.GetComponent<PlayerInventory>();
+                float modHPonKill = maxDMGplayer_PlayerStats.modHPonKill;
+                float modMPonKill = maxDMGplayer_PlayerStats.modMPonKill;
 
+                if (modHPonKill > 10f){
+                    modHPonKill = 10f;
+                }
+                if (modMPonKill > 10f){
+                    modMPonKill = 10f;
+                }
                 if (maxDMGplayer_PlayerStats.CurrentHP > 0)
                 {
                     //modHPonKill
-                    maxDMGplayer_PlayerStats.CurrentHP += (maxDMGplayer_PlayerStats.modHPonKill / 100f * maxDMGplayer_PlayerStats.MaxHealth);
+                    maxDMGplayer_PlayerStats.CurrentHP += Mathf.RoundToInt(modHPonKill / 100f * (float)maxDMGplayer_PlayerStats.MaxHealth);
                     //mod
                     //modMPonKill
-                    maxDMGplayer_PlayerStats.CurrentMP += (maxDMGplayer_PlayerStats.modMPonKill / 100f * maxDMGplayer_PlayerStats.MaxMana);
+                    maxDMGplayer_PlayerStats.CurrentMP += Mathf.RoundToInt(modMPonKill / 100f * (float)maxDMGplayer_PlayerStats.MaxMana);
                     //enchant
                     if (maxDMGplayer_PlayerStats.ench_free_hp_potion_use_on_kill > 0f)
                     {
@@ -793,10 +801,10 @@ public class EnemyTakeDamage : NetworkBehaviour
                             if (item != null)
                             {
                                 var itemData = maxDMGplayer.GetComponent<PlayerGeneral>().ItemDatabase.FetchItemByID(item.itemID);
-                                var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * 0.15f * item.itemUpgrade)) * (1f + (maxDMGplayer_PlayerStats.ench_extra_hp_from_pots / 100f)));
+                                var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * 0.48f * item.itemUpgrade / 100f)) * (1f + (maxDMGplayer_PlayerStats.ench_extra_hp_from_pots / 100f)));
 
                                 maxDMGplayer_PlayerStats.CurrentHP += to_gain;
-                                maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Saphire");
+                                maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Sapphire");
                             }
                         }
                     }
@@ -820,7 +828,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                             }
 
                             maxDMGplayer_PlayerInventory.SendWholeEquipmentToClient();
-                            maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Corrupted Saphire");
+                            maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Corrupted Sapphire");
                         }
                     }
                     if (maxDMGplayer_PlayerStats.ench_free_mp_potion_use_on_kill > 0)
@@ -831,8 +839,8 @@ public class EnemyTakeDamage : NetworkBehaviour
                             if (item != null)
                             {
                                 var itemData = maxDMGplayer.GetComponent<PlayerGeneral>().ItemDatabase.FetchItemByID(item.itemID);
-                                var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * 0.15f * item.itemUpgrade)) * (1f + (maxDMGplayer_PlayerStats.ench_extra_mp_from_pots / 100f)));
-
+                                var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * 0.48f * item.itemUpgrade / 100f)) * (1f + (maxDMGplayer_PlayerStats.ench_extra_mp_from_pots / 100f)));
+                                
                                 maxDMGplayer_PlayerStats.CurrentMP += to_gain;
                                 maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Siderite");
                             }
@@ -842,8 +850,8 @@ public class EnemyTakeDamage : NetworkBehaviour
                     {
                         if (Random.Range(0f, 100f) <= maxDMGplayer_PlayerStats.ench_chance_to_get_hpandmp_on_kill)
                         {
-                            maxDMGplayer_PlayerStats.CurrentHP = maxDMGplayer_PlayerStats.CurrentHP + (maxDMGplayer_PlayerStats.MaxHealth * 0.01f);
-                            maxDMGplayer_PlayerStats.CurrentMP = maxDMGplayer_PlayerStats.CurrentMP + (maxDMGplayer_PlayerStats.MaxMana * 0.01f);
+                            maxDMGplayer_PlayerStats.CurrentHP = maxDMGplayer_PlayerStats.CurrentHP + Mathf.RoundToInt(maxDMGplayer_PlayerStats.MaxHealth * 0.1f);
+                            maxDMGplayer_PlayerStats.CurrentMP = maxDMGplayer_PlayerStats.CurrentMP + Mathf.RoundToInt(maxDMGplayer_PlayerStats.MaxMana * 0.1f);
                             maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Corrupted Siderite");
                         }
                     }
@@ -856,7 +864,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                             {
                                 if (enemies_around[i].GetComponent<EnemyStats>().CurrentHP > 0)
                                 {
-                                    enemies_around[i].GetComponent<EnemyTakeDamage>().TakeHit(maxDMGplayer, 3f);
+                                    enemies_around[i].GetComponent<EnemyTakeDamage>().TakeHit(maxDMGplayer, 2.5f);
                                 }
 
                             }

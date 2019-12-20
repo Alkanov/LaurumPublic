@@ -1791,16 +1791,16 @@ public class Translations : MonoBehaviour
             enchantDescriptions_penalties[-6] = "MP potions give 50% less mana";
 
             enchantDescriptions[11] = "Sapphire: Chance to heal your HP (by the amount of the HP Potion equipped) on killing a target";
-            enchantDescriptions[-11] = "Sapphire: Chance to gain 1 HP and MP refil on kill";
-            enchantDescriptions_penalties[-11] = "Your movement speed will decrease by 25 %";
+            enchantDescriptions[-11] = "Sapphire: Chance to gain 1 HP and MP refill on kill";
+            enchantDescriptions_penalties[-11] = "Your movement speed will decrease by 25%";
 
-            enchantDescriptions[16] = "Siderite: Chance to heal your MP (by the amount of the HP Potion equipped) on killing a target";
-            enchantDescriptions[-16] = "Siderite: Chance to heal 1% of your maximum HP and MP on kill";
+            enchantDescriptions[16] = "Siderite: Chance to heal your MP (by the amount of the MP Potion equipped) on killing a target";
+            enchantDescriptions[-16] = "Siderite: Chance to heal 10% of your maximum HP and MP on kill";
             enchantDescriptions_penalties[-16] = "Potions don't make an effect on you";
 
-            enchantDescriptions[21] = "Gypsum: Chance to create a explosion on killing target, dealing 300% auto attack damage to near targets";
+            enchantDescriptions[21] = "Gypsum: Chance to create a explosion on killing target, dealing 250% auto attack damage to near targets";
             enchantDescriptions[-21] = "Gypsum: Chance to cast skills for half of the mana usage";
-            enchantDescriptions_penalties[-21] = "10% chance of fail on casting skill";
+            enchantDescriptions_penalties[-21] = "5% chance of fail on casting skill";
             #endregion
 
 
@@ -1874,7 +1874,7 @@ public class Translations : MonoBehaviour
             skillTitles[62010] = "Frost Bomb";
             skillDescriptions[62010] = "Damages your target and has a {1}% chance to slow it by -25% for 2.5 seconds";
             skillTitles[62011] = "Corpse Life Drain";
-            skillDescriptions[62011] = "Places a debuff on your target for {1} seconds, if this dies you will be healed by {0}% of its max health";
+            skillDescriptions[62011] = "Places a debuff on your target for {1} seconds, if this dies you will be healed by {0}% of its max health (capped to 20% of your max health)";
             skillTitles[62012] = "Mana shield";
             skillDescriptions[62012] = "Incoming damage will be taken out of your mana untill effect wears out ({0} seconds) or mana is empty";
             skillTitles[62013] = "Expanded Mana";
@@ -1911,7 +1911,7 @@ public class Translations : MonoBehaviour
             skillTitles[63013] = "Camouflage";
             skillDescriptions[63013] = "Becomes invisible for {0} seconds (or until skill/auto-attack is used)";
             skillTitles[63014] = "Soul Sacrifice";
-            skillDescriptions[63014] = "Burns -{0}% of your max mana and gains {1}% of it as HP";
+            skillDescriptions[63014] = "Burns -{0}% of your max mana and gains {1}% of it as HP (capped to 20% of your max health)";
             skillTitles[63015] = "Acrobatics";
             skillDescriptions[63015] = "Increases dodge chance by {0}% for {1} seconds";
             //Paladin

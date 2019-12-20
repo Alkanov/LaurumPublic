@@ -567,19 +567,15 @@ public class EnemyConditions : NetworkBehaviour
                     if (EnemyStats.CurrentHP <= 0 && track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP > 0)
                     {
                         var hpdrained = EnemyStats.MaxHP * track_buff_debuffs.skill_requested.multipliers[0] / 100f;
-                        if (track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP + hpdrained > track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth)
-                        {
-                            var hpdiff = track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth - track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP;
-                            track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP = track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth;
-                            track_buff_debuffs.skill_owner.GetComponent<PlayerGeneral>().showCBT(track_buff_debuffs.skill_owner, false, false, (int)hpdiff, "heal");
-                            //////.Log("Healed");
+                        var cap = track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth * 0.2f;
+                        if(hpdrained > cap){
+                            hpdrained = cap;
                         }
-                        else
-                        {
-                            //////.Log("Healed");
-                            track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP += hpdrained;
-                            track_buff_debuffs.skill_owner.GetComponent<PlayerGeneral>().showCBT(track_buff_debuffs.skill_owner, false, false, (int)hpdrained, "heal");
-                        }
+                        hpdrained = Mathf.RoundToInt(hpdrained);
+                        //////.Log("Healed");
+                        track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP += hpdrained;
+                        track_buff_debuffs.skill_owner.GetComponent<PlayerGeneral>().showCBT(track_buff_debuffs.skill_owner, false, false, hpdrained, "heal");
+
                     }
                     break;
                 //-----------------------V2-----------------

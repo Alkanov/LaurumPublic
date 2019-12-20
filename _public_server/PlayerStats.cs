@@ -505,6 +505,14 @@ public class PlayerStats : NetworkBehaviour
         HP_regen_percent += modHPRegen + passive_HPRegen;
         MP_regen_percent += passive_MPRegen;
 
+        if(HP_regen_percent > 25f){
+            HP_regen_percent = 25f;
+        }
+
+        if(MP_regen_percent > 25f){
+            HP_regen_percent = 25f;
+        }
+
         //Attack speed
         float totalAttkSpd = modAttkSPD + Conditions.increasedAtkSpeed + passive_atk_speed;
         float secondsToDecreaseOnAutoAtkSpeed = 0.00f;
@@ -2175,7 +2183,7 @@ public class PlayerStats : NetworkBehaviour
         }
         if (in_combat)
         {
-            yield return new WaitForSeconds(HP_regen_time);
+            yield return new WaitForSeconds(HP_regen_time * 1.5f);
         }
         else
         {
@@ -2488,7 +2496,7 @@ public class PlayerStats : NetworkBehaviour
                             ench_chance_to_get_free_mphp_potion_charge += enchant_found.set_bonuses[enchant_found.IDs.IndexOf(enchants.Key)][enchants.Value - 2];
                             if (!enchants_affecting.Contains(enchant.enchant_base.corrupted_saphire))
                             {
-                                ench_speed_penalty = -20f;
+                                ench_speed_penalty = -25f;
                                 Conditions.decreasedWalkingSpeed = ench_speed_penalty;
                                 RefreshStats();
                                 enchants_affecting.Add(enchant.enchant_base.corrupted_saphire);
@@ -2514,7 +2522,7 @@ public class PlayerStats : NetworkBehaviour
                             ench_chance_to_free_cast += enchant_found.set_bonuses[enchant_found.IDs.IndexOf(enchants.Key)][enchants.Value - 2];
                             if (!enchants_affecting.Contains(enchant.enchant_base.corrupted_gypsum))
                             {
-                                ench_chance_to_fail_casting += 10f;
+                                ench_chance_to_fail_casting += 5f;
                                 enchants_affecting.Add(enchant.enchant_base.corrupted_gypsum);
                             }
                             break;

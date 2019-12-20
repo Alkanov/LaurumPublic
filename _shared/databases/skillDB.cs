@@ -44,7 +44,7 @@ public class skillDB : MonoBehaviour
         //Provoke
         Skills.Add(new skill(61008, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Warrior, 3.6f, 0.4f, new float[2] { 1f, 90f }, 12));//damage/chance/
         //Battle Shout
-        Skills.Add(new skill(61013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Warrior, 15f, 0.8f, new float[2] { 40f, 10f }, 12));//buff/time
+        Skills.Add(new skill(61013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Warrior, 30f, 0.8f, new float[2] { 35f, 20f }, 12));//buff/time
         //Slow down!
         Skills.Add(new skill(61026, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[2] { 25f, 5f }, 12));//debuff/time
         //On your knees!
@@ -55,7 +55,7 @@ public class skillDB : MonoBehaviour
         //Soul Cravings
         Skills.Add(new skill(61010, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Warrior, 5.4f, 0.3f, new float[2] { 1.7f, 30f }, 15));//damage/heal
         //Ultimate Defense
-        Skills.Add(new skill(61020, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.4f, new float[2] { 35f, 10f }, 12));//buff/time
+        Skills.Add(new skill(61020, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 30f, 0.4f, new float[2] { 35f, 20f }, 12));//buff/time
         //Arrow Deflect
         Skills.Add(new skill(61028, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[2] { 35f, 5f }, 10));//buff/time
         //Shields Up
@@ -72,7 +72,7 @@ public class skillDB : MonoBehaviour
         //Meteor Rain
         Skills.Add(new skill(62004, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Wizard, 10f, 2f, 1.8f, 30));
         //Lava Barrier
-        Skills.Add(new skill(62005, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Wizard, 8f, 1f, 1.9f, 38));
+        Skills.Add(new skill(62005, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Wizard, 8f, 1f, 1.9f, 28));
         //---------------Ice
         //Ice Spear
         Skills.Add(new skill(62006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 1.6f, 0.5f, 1.4f, 20));
@@ -88,9 +88,9 @@ public class skillDB : MonoBehaviour
         //Corpse Life Drain
         Skills.Add(new skill(62011, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Wizard, 2.5f, 0.2f, new float[2] { 25f, 5f }, 20));//effect/time
         //Mana shield
-        Skills.Add(new skill(62012, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 60f, 0.4f, 45f, 18));//time
+        Skills.Add(new skill(62012, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 15f, 0.4f, 10f, 18));//time
         //Expanded Mana
-        Skills.Add(new skill(62013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Wizard, 60f, 0.4f, new float[2] { 40f, 45f }, 18));//effect/time
+        Skills.Add(new skill(62013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Wizard, 60f, 0.4f, new float[2] { 35f, 50f }, 18));//effect/time
         //Caster Contract
         Skills.Add(new skill(62014, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 15f, 0.2f, new float[1] { 10f }, 20));//time
         //Concentration
@@ -125,7 +125,7 @@ public class skillDB : MonoBehaviour
         //Hunter's Ritual
         Skills.Add(new skill(63012, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Hunter, 20f, 0.2f, new float[2] { 45f, 10f }, 12));//buff/time
         //Camouflage
-        Skills.Add(new skill(63013, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.8f, 5f, 15));
+        Skills.Add(new skill(63013, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, 5f, 15));
         //Soul Sacrifice
         Skills.Add(new skill(63014, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 100f }, 1));//mp required//% to recover from mp burned
         //Acrobatics
