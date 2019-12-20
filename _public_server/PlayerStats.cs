@@ -630,9 +630,9 @@ public class PlayerStats : NetworkBehaviour
 
         //Cool down reduction
         CD_reduction = modCDReduction + passive_CD_redux + Conditions.increasedCooldownReduction;
-        if (CD_reduction > 30f)
+        if (CD_reduction > 33f)
         {
-            CD_reduction = 30f;
+            CD_reduction = 33f;
         }
         //Did anything change? if yes send it to client       
         DetectChangesOnStats_and_sendToClient();
