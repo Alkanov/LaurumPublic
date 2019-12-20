@@ -44,7 +44,7 @@ public class skillDB : MonoBehaviour
         //Provoke
         Skills.Add(new skill(61008, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Warrior, 3.6f, 0.4f, new float[2] { 1f, 90f }, 12));//damage/chance/
         //Battle Shout
-        Skills.Add(new skill(61013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Warrior, 30f, 0.8f, new float[2] { 35f, 20f }, 12));//buff/time
+        Skills.Add(new skill(61013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Warrior, 15f, 0.8f, new float[2] { 35f, 10f }, 12));//buff/time
         //Slow down!
         Skills.Add(new skill(61026, skill.SAction.active, skill.Stype.target_debuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[2] { 25f, 5f }, 12));//debuff/time
         //On your knees!
@@ -55,7 +55,7 @@ public class skillDB : MonoBehaviour
         //Soul Cravings
         Skills.Add(new skill(61010, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Warrior, 5.4f, 0.3f, new float[2] { 1.7f, 30f }, 15));//damage/heal
         //Ultimate Defense
-        Skills.Add(new skill(61020, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 30f, 0.4f, new float[2] { 35f, 20f }, 12));//buff/time
+        Skills.Add(new skill(61020, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.4f, new float[2] { 35f, 10f }, 12));//buff/time
         //Arrow Deflect
         Skills.Add(new skill(61028, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Warrior, 15f, 0.2f, new float[2] { 35f, 5f }, 10));//buff/time
         //Shields Up
@@ -90,7 +90,7 @@ public class skillDB : MonoBehaviour
         //Mana shield
         Skills.Add(new skill(62012, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 15f, 0.4f, 10f, 18));//time
         //Expanded Mana
-        Skills.Add(new skill(62013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Wizard, 60f, 0.4f, new float[2] { 35f, 50f }, 18));//effect/time
+        Skills.Add(new skill(62013, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Wizard, 60f, 0.4f, new float[2] { 35f, 40f }, 18));//effect/time
         //Caster Contract
         Skills.Add(new skill(62014, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Wizard, 15f, 0.2f, new float[1] { 10f }, 20));//time
         //Concentration

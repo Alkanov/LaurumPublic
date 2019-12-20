@@ -515,7 +515,7 @@ public class PlayerConditions : NetworkBehaviour
                 break;
             case 63014://soul sacririce -> no buff but we handle it here
                 var to_regen = PlayerStats.MaxMana * skill.multipliers[1] / 100f;
-                var cap = PlayerStats.MaxHealth * 0.2f; //20% of the max health
+                var cap = PlayerStats.MaxHealth * 0.25f; //25% of the max health
                 if(to_regen > cap){
                     to_regen = cap;
                 }
@@ -804,7 +804,7 @@ public class PlayerConditions : NetworkBehaviour
                 {
                     var hpdrained = PlayerStats.MaxHealth * track_buff_debuffs.skill_requested.multipliers[0] / 100;
 
-                    var cap = track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth * 0.2f;
+                    var cap = track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth * 0.25f;
                     if(hpdrained > cap){
                         hpdrained = cap;
                     }

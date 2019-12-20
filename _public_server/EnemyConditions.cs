@@ -567,7 +567,7 @@ public class EnemyConditions : NetworkBehaviour
                     if (EnemyStats.CurrentHP <= 0 && track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP > 0)
                     {
                         var hpdrained = EnemyStats.MaxHP * track_buff_debuffs.skill_requested.multipliers[0] / 100f;
-                        var cap = track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth * 0.2f;
+                        var cap = track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth * 0.25f;
                         if(hpdrained > cap){
                             hpdrained = cap;
                         }

@@ -1874,7 +1874,7 @@ public class Translations : MonoBehaviour
             skillTitles[62010] = "Frost Bomb";
             skillDescriptions[62010] = "Damages your target and has a {1}% chance to slow it by -25% for 2.5 seconds";
             skillTitles[62011] = "Corpse Life Drain";
-            skillDescriptions[62011] = "Places a debuff on your target for {1} seconds, if this dies you will be healed by {0}% of its max health (capped to 20% of your max health)";
+            skillDescriptions[62011] = "Places a debuff on your target for {1} seconds, if this dies you will be healed by {0}% of its max health (capped to 25% of your max health)";
             skillTitles[62012] = "Mana shield";
             skillDescriptions[62012] = "Incoming damage will be taken out of your mana untill effect wears out ({0} seconds) or mana is empty";
             skillTitles[62013] = "Expanded Mana";
@@ -1911,7 +1911,7 @@ public class Translations : MonoBehaviour
             skillTitles[63013] = "Camouflage";
             skillDescriptions[63013] = "Becomes invisible for {0} seconds (or until skill/auto-attack is used)";
             skillTitles[63014] = "Soul Sacrifice";
-            skillDescriptions[63014] = "Burns -{0}% of your max mana and gains {1}% of it as HP (capped to 20% of your max health)";
+            skillDescriptions[63014] = "Burns -{0}% of your max mana and gains {1}% of it as HP (capped to 25% of your max health)";
             skillTitles[63015] = "Acrobatics";
             skillDescriptions[63015] = "Increases dodge chance by {0}% for {1} seconds";
             //Paladin
