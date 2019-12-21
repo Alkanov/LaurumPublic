@@ -1798,7 +1798,7 @@ public class Translations : MonoBehaviour
             enchantDescriptions[-16] = "Siderite: Chance to heal 10% of your maximum HP and MP on kill";
             enchantDescriptions_penalties[-16] = "Potions don't make an effect on you";
 
-            enchantDescriptions[21] = "Gypsum: Chance to create a explosion on killing target, dealing 250% auto attack damage to near targets";
+            enchantDescriptions[21] = "Gypsum: Chance to create a explosion on killing target, dealing 200% auto attack damage to near targets";
             enchantDescriptions[-21] = "Gypsum: Chance to cast skills for half of the mana usage";
             enchantDescriptions_penalties[-21] = "5% chance of fail on casting skill";
             #endregion

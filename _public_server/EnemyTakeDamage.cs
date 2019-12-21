@@ -864,7 +864,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                             {
                                 if (enemies_around[i].GetComponent<EnemyStats>().CurrentHP > 0)
                                 {
-                                    enemies_around[i].GetComponent<EnemyTakeDamage>().TakeHit(maxDMGplayer, 2.5f);
+                                    enemies_around[i].GetComponent<EnemyTakeDamage>().TakeHit(maxDMGplayer, 2f);
                                 }
 
                             }
