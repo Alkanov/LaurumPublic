@@ -2204,46 +2204,40 @@ public class PlayerStats : NetworkBehaviour
     #region Update Current Stats
     public void ProcessStats()
     {
-        var starter_min_str = 1;
-        var starter_min_int = 1;
+        float starter_min_str = 1f;
+        float starter_min_int = 1f;
+
         switch (PlayerClass_now)
         {
             case PlayerClass.Hunter:
-                starter_min_str = 2;
+                starter_min_str = 2f;
                 break;
             case PlayerClass.Wizard:
-                starter_min_int = 3;
+                starter_min_int = 3f;
                 break;
             case PlayerClass.Paladin:
-                starter_min_int = 2;
+                starter_min_int = 2f;
                 break;
             case PlayerClass.Warrior:
-                starter_min_str = 3;
+                starter_min_str = 3f;
                 break;
             default:
                 break;
         }
 
         STR = Mathf.Round(((starter_min_str + PlayerCustomStats_lvl[0] + PlayerCustomStats_reb[0]) * get_training_multiplier(0)) + modSTR);
-        DEX = ((1 + PlayerCustomStats_lvl[1] + PlayerCustomStats_reb[1]) * get_training_multiplier(1)) + modDEX;
+        DEX = Mathf.Round(((1f + PlayerCustomStats_lvl[1] + PlayerCustomStats_reb[1]) * get_training_multiplier(1)) + modDEX);
         INT = Mathf.Round(((starter_min_int + PlayerCustomStats_lvl[2] + PlayerCustomStats_reb[2]) * get_training_multiplier(2)) + modINT);
-        STA = Mathf.Round(((1 + PlayerCustomStats_lvl[3] + PlayerCustomStats_reb[3]) * get_training_multiplier(3)) + modSTA);
-        WIS = Mathf.Round(((1 + PlayerCustomStats_lvl[4] + PlayerCustomStats_reb[4]) * get_training_multiplier(4)) + modWIS);
-        DEF = Mathf.Round(((1 + PlayerCustomStats_lvl[5] + PlayerCustomStats_reb[5]) * get_training_multiplier(5)) + modDEF);
-        MDEF = Mathf.Round(((1 + PlayerCustomStats_lvl[6] + PlayerCustomStats_reb[6]) * get_training_multiplier(6)) + modMDEF);
-        AGI = ((1 + PlayerCustomStats_lvl[7] + PlayerCustomStats_reb[7]) * get_training_multiplier(7)) + modAGI;
-        LCK = (1 + PlayerEquipStats[8] + PlayerCustomStats_lvl[8] + PlayerCustomStats_reb[8]);
-
-
-        DEX = (float)(Math.Round((Decimal)DEX, 2, MidpointRounding.AwayFromZero)); //round to 2 decimal places
-        AGI = (float)(Math.Round((Decimal)AGI, 2, MidpointRounding.AwayFromZero)); //round to 2 decimal places
-        LCK = (float)(Math.Round((Decimal)LCK, 2, MidpointRounding.AwayFromZero)); //round to 2 decimal places
+        STA = Mathf.Round(((1f + PlayerCustomStats_lvl[3] + PlayerCustomStats_reb[3]) * get_training_multiplier(3)) + modSTA);
+        WIS = Mathf.Round(((1f + PlayerCustomStats_lvl[4] + PlayerCustomStats_reb[4]) * get_training_multiplier(4)) + modWIS);
+        DEF = Mathf.Round(((1f + PlayerCustomStats_lvl[5] + PlayerCustomStats_reb[5]) * get_training_multiplier(5)) + modDEF);
+        MDEF = Mathf.Round(((1f + PlayerCustomStats_lvl[6] + PlayerCustomStats_reb[6]) * get_training_multiplier(6)) + modMDEF);
+        AGI = Mathf.Round(((1f + PlayerCustomStats_lvl[7] + PlayerCustomStats_reb[7]) * get_training_multiplier(7)) + modAGI);
+        LCK = Mathf.Round(1f + PlayerEquipStats[8] + PlayerCustomStats_lvl[8] + PlayerCustomStats_reb[8]);
 
         RefreshStats();
 
         StatsReady = true;
-
-
     }
 
     float get_training_multiplier(int stat_index)
@@ -2252,7 +2246,7 @@ public class PlayerStats : NetworkBehaviour
         {
             if (stat_training_levels[stat_index] >= PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].level_min && stat_training_levels[stat_index] <= PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].level_max)
             {
-                return 1f + (stat_training_levels[stat_index] * PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].multiplier / 100f);
+                return 1f + ((float)stat_training_levels[stat_index] * (float)PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].multiplier / 100f);
             }
         }
         return 1f;

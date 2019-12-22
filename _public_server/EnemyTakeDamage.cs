@@ -523,7 +523,7 @@ public class EnemyTakeDamage : NetworkBehaviour
             fromPlayer.GetComponent<PlayerStats>().hpChange(-dmng_reflected);
             fromPlayer.GetComponent<PlayerGeneral>().showCBT(fromPlayer, false, false, dmng_reflected, "reflect");
 
-            if (Mathf.Round(fromPlayer.GetComponent<PlayerStats>().CurrentHP) <= 0)
+            if (Mathf.RoundToInt(fromPlayer.GetComponent<PlayerStats>().CurrentHP) <= 0)
             {
                 //dead body animation
                 EnemySpawnInfo.x_ObjectHelper.spawn_sync_object(2, 15f, transform.position);
