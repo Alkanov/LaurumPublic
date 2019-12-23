@@ -574,7 +574,7 @@ public class EnemyConditions : NetworkBehaviour
                         hpdrained = Mathf.RoundToInt(hpdrained);
                         //////.Log("Healed");
                         track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP += hpdrained;
-                        track_buff_debuffs.skill_owner.GetComponent<PlayerGeneral>().showCBT(track_buff_debuffs.skill_owner, false, false, hpdrained, "heal");
+                        track_buff_debuffs.skill_owner.GetComponent<PlayerGeneral>().showCBT(track_buff_debuffs.skill_owner, false, false, (int)hpdrained, "heal");
 
                     }
                     break;
