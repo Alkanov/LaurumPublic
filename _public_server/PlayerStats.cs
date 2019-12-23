@@ -1149,6 +1149,9 @@ public class PlayerStats : NetworkBehaviour
     public void CmdPONG(int ping)
     {
         PINGPONG_last_rx = Time.time;
+#if UNITY_EDITOR
+        Debug.LogFormat("PONG {0}", ping);
+#endif
     }
     #endregion
 
@@ -2553,7 +2556,13 @@ public class PlayerStats : NetworkBehaviour
     {
         yield return new WaitForSeconds(3f);
         TargetPING(connectionToClient, 12345);
+#if UNITY_EDITOR
+        Debug.LogFormat("PING {0}", 12345);
+#endif
         yield return new WaitForSeconds(1f);//just extra time to allow for RTT
+#if UNITY_EDITOR
+        Debug.LogFormat("PINGPONG_last_rx {0} RTT {1}", PINGPONG_last_rx, Time.time - PINGPONG_last_rx);
+#endif
         if (Time.time - PINGPONG_last_rx > PINGPONG_max_timeout)//this should usually be around if(1>15)
         {
             //timeout

@@ -107,7 +107,7 @@ public class PlayerStats : NetworkBehaviour
         PlayerConditions = GetComponent<PlayerConditions>();
         PlayerSkills = GetComponent<PlayerSkills>();
         PlayerAnimatorC = GetComponent<PlayerAnimatorC>();
-        PlayerTargetController = GetComponent<PlayerTargetController>();
+        PlayerTargetController = GetComponent<PlayerTargetController>();       
     }
     public override void OnStartClient()
     {
@@ -425,10 +425,14 @@ public class PlayerStats : NetworkBehaviour
         RearmEquippedEnchants(dictionary, out StreamItem, out binFormatter);
         enchants_grouped = binFormatter.Deserialize(StreamItem) as Dictionary<int, int>;
     }
+    public bool reply;
     [TargetRpc]
     public void TargetPING(NetworkConnection target, int pong) {
-
-        CmdPONG(pong);
+        if (reply)
+        {
+            CmdPONG(pong);
+        }
+        
     }
     #endregion
 
