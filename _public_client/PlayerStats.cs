@@ -317,10 +317,28 @@ public class PlayerStats : NetworkBehaviour
 
         DetailedStats[9] = detailedStats[9].ToString() + "%";
         DetailedStats[10] = detailedStats[10].ToString() + "s";
-        DetailedStats[11] = detailedStats[11].ToString() + "%";
+
+        if (detailedStats[11] >= 25f)
+        {
+            DetailedStats[11] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[11]);
+        }
+        else
+        {
+            DetailedStats[11] = detailedStats[11].ToString() + "%";
+        }    
+
         DetailedStats[12] = detailedStats[12].ToString() + "s";
         DetailedStats[13] = detailedStats[13].ToString();
-        DetailedStats[14] = detailedStats[14].ToString() + "%";
+        
+        if (detailedStats[14] >= 75f)
+        {
+            DetailedStats[14] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[14]);
+        }
+        else
+        {
+            DetailedStats[14] = detailedStats[14].ToString() + "%";
+        }
+
         DetailedStats[15] = detailedStats[15].ToString() + "m";
         DetailedStats[16] = (detailedStats[16]).ToString();
         DetailedStats[17] = (detailedStats[17]).ToString();
@@ -336,9 +354,28 @@ public class PlayerStats : NetworkBehaviour
         }
 
         DetailedStats[21] = detailedStats[21].ToString();
-        DetailedStats[22] = detailedStats[22].ToString() + "%";
+              
+
+        if (detailedStats[22] >= 75f)
+        {
+            DetailedStats[22] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[22]);
+        }
+        else
+        {
+            DetailedStats[22] = detailedStats[22].ToString() + "%";
+        }
+
         DetailedStats[23] = detailedStats[23].ToString();
         DetailedStats[24] = detailedStats[24].ToString();
+        if (detailedStats[24] >= 1.8f)
+        {
+            DetailedStats[24] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[24]);
+        }
+        else
+        {
+            DetailedStats[24] = detailedStats[24].ToString() + "%";
+        }
+
 
         DetailedStats[25] = "+" + detailedStats[25].ToString();
         DetailedStats[26] = "+" + detailedStats[26].ToString();
@@ -377,7 +414,7 @@ public class PlayerStats : NetworkBehaviour
         DetailedStats[56] = detailedStats[56].ToString() + "%";
         DetailedStats[57] = detailedStats[57].ToString() + "%";
         DetailedStats[58] = detailedStats[58].ToString() + "%";
-        if (detailedStats[59] >= 30f)
+        if (detailedStats[59] >= 33f)
         {
             DetailedStats[59] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[59]);
         }
