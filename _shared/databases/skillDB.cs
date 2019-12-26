@@ -103,7 +103,7 @@ public class skillDB : MonoBehaviour
         //Hawkeye
         Skills.Add(new skill(63002, skill.SAction.active, skill.Stype.selfBuff, PlayerStats.PlayerClass.Hunter, 15f, 0.4f, new float[2] { 25f, 10f }, 12));//buff/time
         //Multishot
-        Skills.Add(new skill(63003, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Hunter, 8f, 1f, new float[2] { 1.62f, 5f }, 25));//damage//targets
+        Skills.Add(new skill(63003, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Hunter, 8f, 1f, new float[1] { 1.62f }, 25));//damage
         //Steady shot
         Skills.Add(new skill(63004, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 1.28f, 0.25f, 1.26f, 15));
         //Hamstring shot

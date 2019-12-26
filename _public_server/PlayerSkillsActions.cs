@@ -212,23 +212,8 @@ public class PlayerSkillsActions : MonoBehaviour
                 case skill.Stype.selfBuff:
                     PlayerConditions.handle_buffs_debuffs(skillRequested, gameObject);
                     break;
-                case skill.Stype.AOE_damage:
-                    if (skillRequested.SkillID == 63003)
-                    {
-
-                        var targets = get_aoe_targets(skillRequested, false, (int)skillRequested.multipliers[1]);
-                        /*for (int i = 0; i < targets.Count; i++)
-                        {
-                            if (targets[i].tag == "Player" || targets[i].tag == "Enemy")
-                            {
-                                
-                            } 
-                        }*/
-                    }
-                    else
-                    {
-                        get_aoe_targets(skillRequested, false);
-                    }
+                case skill.Stype.AOE_damage:                    
+                    get_aoe_targets(skillRequested, false);                    
                     break;
                 case skill.Stype.selfHeal_over_time:
                     PlayerPVPDamage.TakeSkillDamage(gameObject, skillRequested);

@@ -1889,7 +1889,7 @@ public class Translations : MonoBehaviour
             skillTitles[63002] = "Hawkeye";
             skillDescriptions[63002] = "Increases critical chance by +{0}% for {1} seconds";
             skillTitles[63003] = "Multishot";
-            skillDescriptions[63003] = "Hits the {1} closest targets";
+            skillDescriptions[63003] = "Hits close targets";
             skillTitles[63004] = "Steady Shot";
             skillDescriptions[63004] = "Quick cast, low single target damage";
             skillTitles[63005] = "Hamstring Shot";
