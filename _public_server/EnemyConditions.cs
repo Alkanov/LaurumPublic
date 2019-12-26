@@ -627,7 +627,7 @@ public class EnemyConditions : NetworkBehaviour
      */
     public void handle_effect(DOT_effect.effect_type effect, float effect_power, GameObject effect_dealer)
     {
-        var total_time = 5f;
+        var total_time = 4f;
         var effectid = -1;
         var effect_every = 1f;
         switch (effect)
@@ -635,17 +635,17 @@ public class EnemyConditions : NetworkBehaviour
             case DOT_effect.effect_type.poison:
                 effectid = 9010;
                 effect_every = 1f;//cada segundo se hace dano
-                total_time = 5f; 
+                total_time = 4f; 
                 break;
             case DOT_effect.effect_type.fire:
                 effectid = 9020;
                 effect_every = 1f;
-                total_time = 5f;
+                total_time = 4f;
                 break;
             case DOT_effect.effect_type.bleed:
                 effectid = 9030;
                 effect_every = 1f;//cada segundo se hace dano 
-                total_time = 5f;
+                total_time = 4f;
                 break;
             default:
                 break;

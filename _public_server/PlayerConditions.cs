@@ -450,9 +450,15 @@ public class PlayerConditions : NetworkBehaviour
                 buff_data.buff_debuff_ID.Add(1);
                 break;
             case 61013://battle shout
+                float currentHPRatio = PlayerStats.CurrentHP / PlayerStats.MaxHealth;
+                float newMaxHealth = PlayerStats.MaxHealth * (1f + (skill.multipliers[0] / 100f));
+                float newCurrentHP = newMaxHealth * currentHPRatio;
+                
                 increasedMaxHP = skill.multipliers[0];
                 buff_data.time = skill.multipliers[1];
                 buff_data.buff_debuff_ID.Add(5);
+                
+                PlayerStats.CurrentHP = Mathf.Round(newCurrentHP);
                 break;
             case 61020://Ultimate Defense
                 increasedDEF = skill.multipliers[0];
@@ -480,9 +486,15 @@ public class PlayerConditions : NetworkBehaviour
                 buff_data.buff_debuff_ID.Add(13);
                 break;
             case 62013://expanded mana
+                float currentMPRatio = PlayerStats.CurrentMP / PlayerStats.MaxMana;
+                float newMaxaMana = PlayerStats.MaxMana * (1f + (skill.multipliers[0] / 100f));
+                float newCurrentMP = newMaxaMana * currentMPRatio;
+
                 increasedMaxMana = skill.multipliers[0];
                 buff_data.time = skill.multipliers[1];
                 buff_data.buff_debuff_ID.Add(6);
+
+                PlayerStats.CurrentMP = Mathf.Round(newCurrentMP);
                 break;
             case 62014://caster contract
                 buff_data.time = skill.multipliers[0];

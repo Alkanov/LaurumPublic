@@ -315,21 +315,22 @@ public class PlayerStats : NetworkBehaviour
         DetailedStats[7] = detailedStats[7].ToString();
         DetailedStats[8] = detailedStats[8].ToString();
 
-        DetailedStats[9] = detailedStats[9].ToString() + "%";
-        DetailedStats[10] = detailedStats[10].ToString() + "s";
-
-        if (detailedStats[11] >= 25f)
+        //HP Regen
+        if (detailedStats[9] >= 25f)
         {
-            DetailedStats[11] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[11]);
+            DetailedStats[9] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[9]);
         }
         else
         {
-            DetailedStats[11] = detailedStats[11].ToString() + "%";
+            DetailedStats[9] = detailedStats[11].ToString() + "%";
         }    
 
+        DetailedStats[10] = detailedStats[10].ToString() + "s";
+        DetailedStats[11] = detailedStats[11].ToString() + "%";
         DetailedStats[12] = detailedStats[12].ToString() + "s";
         DetailedStats[13] = detailedStats[13].ToString();
         
+        //Critical Chance
         if (detailedStats[14] >= 75f)
         {
             DetailedStats[14] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[14]);
@@ -340,10 +341,40 @@ public class PlayerStats : NetworkBehaviour
         }
 
         DetailedStats[15] = detailedStats[15].ToString() + "m";
-        DetailedStats[16] = (detailedStats[16]).ToString();
+        
+        //Attack Speed
+        if (detailedStats[16] <= 0.5f)
+        {
+            DetailedStats[16] = string.Format("<color=red>{0}s Cap.</color>", detailedStats[16]);
+        }
+        else
+        {
+            DetailedStats[16] = detailedStats[14].ToString() + "s";
+        }
+
         DetailedStats[17] = (detailedStats[17]).ToString();
-        DetailedStats[18] = (detailedStats[18] * 100f).ToString() + "%";
-        DetailedStats[19] = detailedStats[19].ToString() + "m";
+        
+        //Critical Damage
+        if (detailedStats[18] >= 2f)
+        {
+            DetailedStats[18] = string.Format("<color=red>{0}% Cap.</color>", (detailedStats[18] * 100f).ToString());
+        }
+        else
+        {
+            DetailedStats[18] = (detailedStats[18] * 100f).ToString() + "%";
+        }
+
+        //Range
+        if (detailedStats[19] >= 3f)
+        {
+            DetailedStats[19] = string.Format("<color=red>{0}m Cap.</color>", detailedStats[19]);
+        }
+        else
+        {
+            DetailedStats[19] = detailedStats[19].ToString() + "m";
+        }
+
+        //Casting Speed Reduction
         if (detailedStats[20] >= 50f)
         {
             DetailedStats[20] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[20]);
@@ -355,7 +386,7 @@ public class PlayerStats : NetworkBehaviour
 
         DetailedStats[21] = detailedStats[21].ToString();
               
-
+        //Dodge Chance
         if (detailedStats[22] >= 75f)
         {
             DetailedStats[22] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[22]);
@@ -366,7 +397,8 @@ public class PlayerStats : NetworkBehaviour
         }
 
         DetailedStats[23] = detailedStats[23].ToString();
-        DetailedStats[24] = detailedStats[24].ToString();
+        
+        //Walking Speed
         if (detailedStats[24] >= 1.8f)
         {
             DetailedStats[24] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[24]);
@@ -375,7 +407,6 @@ public class PlayerStats : NetworkBehaviour
         {
             DetailedStats[24] = detailedStats[24].ToString() + "%";
         }
-
 
         DetailedStats[25] = "+" + detailedStats[25].ToString();
         DetailedStats[26] = "+" + detailedStats[26].ToString();
@@ -397,7 +428,6 @@ public class PlayerStats : NetworkBehaviour
         DetailedStats[42] = detailedStats[42].ToString() + "%";
         DetailedStats[43] = detailedStats[43].ToString() + "%";
         DetailedStats[44] = detailedStats[44].ToString() + "%";
-
         DetailedStats[45] = detailedStats[45].ToString() + "%";
         DetailedStats[46] = detailedStats[46].ToString() + "%";
         DetailedStats[47] = detailedStats[47].ToString() + "%";
@@ -405,15 +435,15 @@ public class PlayerStats : NetworkBehaviour
         DetailedStats[49] = detailedStats[49].ToString() + "%";
         DetailedStats[50] = detailedStats[50].ToString() + "%";
         DetailedStats[51] = detailedStats[51].ToString() + "%";
-
         DetailedStats[52] = detailedStats[52].ToString() + "%";
         DetailedStats[53] = detailedStats[53].ToString() + "%";
         DetailedStats[54] = detailedStats[54].ToString() + "%";
         DetailedStats[55] = detailedStats[55].ToString() + "%";
-
         DetailedStats[56] = detailedStats[56].ToString() + "%";
         DetailedStats[57] = detailedStats[57].ToString() + "%";
         DetailedStats[58] = detailedStats[58].ToString() + "%";
+        
+        //Cooldown Reduction
         if (detailedStats[59] >= 33f)
         {
             DetailedStats[59] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[59]);
@@ -422,8 +452,6 @@ public class PlayerStats : NetworkBehaviour
         {
             DetailedStats[59] = detailedStats[59].ToString() + "%";
         }
-
-
 
         Damage_str = detailedStats[13];
         Damage_int = detailedStats[17];

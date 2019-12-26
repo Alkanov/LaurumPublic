@@ -169,7 +169,7 @@ public class PlayerStats : NetworkBehaviour
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 0.95f;
+        public static float AutoAtk_speed = 1.15f;
         public static float AutoAtk_range = 1f;
 
         public static float Walking_spd = 1.1f;
@@ -211,7 +211,7 @@ public class PlayerStats : NetworkBehaviour
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 0.9f;
+        public static float AutoAtk_speed = 1.1f;
         public static float AutoAtk_range = 1f;
 
         public static float Walking_spd = 1.1f;
@@ -253,7 +253,7 @@ public class PlayerStats : NetworkBehaviour
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 0.8f;
+        public static float AutoAtk_speed = 1.05f;
         public static float AutoAtk_range = 3f;
 
         public static float Walking_spd = 1.2f;
@@ -295,7 +295,7 @@ public class PlayerStats : NetworkBehaviour
         
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 1f;
+        public static float AutoAtk_speed = 1.2f;
         public static float AutoAtk_range = 2.7f;
 
         public static float Walking_spd = 1.15f;
@@ -418,8 +418,6 @@ public class PlayerStats : NetworkBehaviour
             default:
                 break;
         }
-        //Since this is the same for all classes we can do it here
-        Critical_damage = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Crit_Multiplier].value;
         //damage
         Damage_str = (Damage_str * STR) + PlayerEquipStats[0];
 
@@ -461,7 +459,12 @@ public class PlayerStats : NetworkBehaviour
         }
 
         //Critical damage
+        //Since this is the same for all classes we can do it here
+        Critical_damage = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Crit_Multiplier].value;
         Critical_damage = Critical_damage + ((modCritDmg + passive_CritDmg) / 100f);
+        if(Critical_damage > 2f){
+            Critical_damage = 2f;
+        }
 
         //Critical chance
         Critical_chance *= DEX;
@@ -506,10 +509,6 @@ public class PlayerStats : NetworkBehaviour
         MP_regen_percent += passive_MPRegen;
 
         if(HP_regen_percent > 25f){
-            HP_regen_percent = 25f;
-        }
-
-        if(MP_regen_percent > 25f){
             HP_regen_percent = 25f;
         }
 
@@ -575,6 +574,9 @@ public class PlayerStats : NetworkBehaviour
                 }
             }
             AutoAtk_speed = AutoAtk_speed - secondsToDecreaseOnAutoAtkSpeed;
+            if(AutoAtk_speed < 0.5f){
+                AutoAtk_speed = 0.5f;
+            }
         }
 
         //walking speed = base + variables              
@@ -663,7 +665,7 @@ public class PlayerStats : NetworkBehaviour
         stat_hash[13] = Damage_str;
         stat_hash[14] = Critical_chance;
         stat_hash[15] = Skill_range;
-        stat_hash[16] = AutoAtk_speed + 0.2f;//to allow lag
+        stat_hash[16] = AutoAtk_speed;
         stat_hash[17] = Damage_int;
         stat_hash[18] = Critical_damage;
         stat_hash[19] = AutoAtk_range;
@@ -701,14 +703,10 @@ public class PlayerStats : NetworkBehaviour
         stat_hash[49] = passive_Casting;
         stat_hash[50] = passive_WalkingSpeed;
         stat_hash[51] = passive_MPRegen;
-
-
-
         stat_hash[52] = modDropRate;
         stat_hash[53] = modGoldDrop;
         stat_hash[54] = modExpRate;
         stat_hash[55] = modCDReduction;
-
         stat_hash[56] = PlayerDropChance;
         stat_hash[57] = ExtraGoldDrop;
         stat_hash[58] = ExtraExp;

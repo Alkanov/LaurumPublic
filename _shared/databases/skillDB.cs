@@ -75,7 +75,7 @@ public class skillDB : MonoBehaviour
         Skills.Add(new skill(62005, skill.SAction.active, skill.Stype.trap, PlayerStats.PlayerClass.Wizard, 8f, 1f, 1.9f, 28));
         //---------------Ice
         //Ice Spear
-        Skills.Add(new skill(62006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 1.6f, 0.5f, 1.4f, 20));
+        Skills.Add(new skill(62006, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 1.75f, 0.5f, 1.4f, 20));
         //Frost Blade
         Skills.Add(new skill(62007, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Wizard, 7f, 0.8f, new float[2] { 1.6f, 50f }, 22));//damage/chance
         //Frozen Hands
@@ -105,7 +105,7 @@ public class skillDB : MonoBehaviour
         //Multishot
         Skills.Add(new skill(63003, skill.SAction.active, skill.Stype.AOE_damage, PlayerStats.PlayerClass.Hunter, 8f, 1f, new float[2] { 1.62f, 5f }, 25));//damage//targets
         //Steady shot
-        Skills.Add(new skill(63004, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 1.28f, 0.25f, 1.26f, 15));
+        Skills.Add(new skill(63004, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 1.4f, 0.25f, 1.26f, 15));
         //Hamstring shot
         Skills.Add(new skill(63005, skill.SAction.active, skill.Stype.target_damage, PlayerStats.PlayerClass.Hunter, 4.8f, 0.3f, new float[3] { 1.53f, 100f, 25f }, 18));//damage/chance/effect
         //---------------Survival
