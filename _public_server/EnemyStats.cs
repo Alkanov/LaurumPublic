@@ -79,13 +79,13 @@ public class EnemyStats : NetworkBehaviour
 
     public float Exp;
 
-    public float WalkingSpeed = 0.8f;
+    public float WalkingSpeed = 0.9f;
 
     #endregion
 
     private void Awake()
     {
-        HP_regen = 0.02f;
+        HP_regen = 0.025f;
         temp_hpregen = hp_regen_time;
         EnemyTakeDamage = GetComponent<EnemyTakeDamage>();
         Conditions = GetComponent<EnemyConditions>();
