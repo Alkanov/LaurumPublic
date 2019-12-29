@@ -318,7 +318,7 @@ public class PlayerStats : NetworkBehaviour
         //HP Regen
         if (detailedStats[9] >= 25f)
         {
-            DetailedStats[9] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[9]);
+            DetailedStats[9] = string.Format("<color=red>{0}% Cap</color>", detailedStats[9]);
         }
         else
         {
@@ -333,7 +333,7 @@ public class PlayerStats : NetworkBehaviour
         //Critical Chance
         if (detailedStats[14] >= 75f)
         {
-            DetailedStats[14] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[14]);
+            DetailedStats[14] = string.Format("<color=red>{0}% Cap</color>", detailedStats[14]);
         }
         else
         {
@@ -345,11 +345,11 @@ public class PlayerStats : NetworkBehaviour
         //Attack Speed
         if (detailedStats[16] <= 0.5f)
         {
-            DetailedStats[16] = string.Format("<color=red>{0}s Cap.</color>", detailedStats[16]);
+            DetailedStats[16] = string.Format("<color=red>{0}s Cap</color>", detailedStats[16]);
         }
         else
         {
-            DetailedStats[16] = detailedStats[14].ToString() + "s";
+            DetailedStats[16] = detailedStats[16].ToString() + "s";
         }
 
         DetailedStats[17] = (detailedStats[17]).ToString();
@@ -357,7 +357,7 @@ public class PlayerStats : NetworkBehaviour
         //Critical Damage
         if (detailedStats[18] >= 2f)
         {
-            DetailedStats[18] = string.Format("<color=red>{0}% Cap.</color>", (detailedStats[18] * 100f).ToString());
+            DetailedStats[18] = string.Format("<color=red>{0}% Cap</color>", (detailedStats[18] * 100f).ToString());
         }
         else
         {
@@ -367,7 +367,7 @@ public class PlayerStats : NetworkBehaviour
         //Range
         if (detailedStats[19] >= 3f)
         {
-            DetailedStats[19] = string.Format("<color=red>{0}m Cap.</color>", detailedStats[19]);
+            DetailedStats[19] = string.Format("<color=red>{0}m Cap</color>", detailedStats[19]);
         }
         else
         {
@@ -377,7 +377,7 @@ public class PlayerStats : NetworkBehaviour
         //Casting Speed Reduction
         if (detailedStats[20] >= 50f)
         {
-            DetailedStats[20] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[20]);
+            DetailedStats[20] = string.Format("<color=red>{0}% Cap</color>", detailedStats[20]);
         }
         else
         {
@@ -389,7 +389,7 @@ public class PlayerStats : NetworkBehaviour
         //Dodge Chance
         if (detailedStats[22] >= 75f)
         {
-            DetailedStats[22] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[22]);
+            DetailedStats[22] = string.Format("<color=red>{0}% Cap</color>", detailedStats[22]);
         }
         else
         {
@@ -401,7 +401,7 @@ public class PlayerStats : NetworkBehaviour
         //Walking Speed
         if (detailedStats[24] >= 1.8f)
         {
-            DetailedStats[24] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[24]);
+            DetailedStats[24] = string.Format("<color=red>{0}% Cap</color>", detailedStats[24]);
         }
         else
         {
@@ -446,7 +446,7 @@ public class PlayerStats : NetworkBehaviour
         //Cooldown Reduction
         if (detailedStats[59] >= 33f)
         {
-            DetailedStats[59] = string.Format("<color=red>{0}% Cap.</color>", detailedStats[59]);
+            DetailedStats[59] = string.Format("<color=red>{0}% Cap</color>", detailedStats[59]);
         }
         else
         {
