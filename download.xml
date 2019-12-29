@@ -18,7 +18,19 @@
             <population>Low</population>
             <IP>144.202.38.106</IP>
             <port>31370</port>
-          </Servers>  
+          </Servers>
+          <Servers>
+            <name>&lt;color=red&gt;Testland2</name>
+            <population>Low</population>
+            <IP>144.202.38.106</IP>
+            <port>31371</port>
+          </Servers>
+          <Servers>
+            <name>&lt;color=red&gt;Testland3</name>
+            <population>Low</population>
+            <IP>144.202.38.106</IP>
+            <port>31372</port>
+          </Servers>
           <Servers>
             <name>&lt;color=red&gt;Localhost</name>
             <population>Low</population>
