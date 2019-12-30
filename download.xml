@@ -31,6 +31,12 @@
             <IP>144.202.38.106</IP>
             <port>31372</port>
           </Servers>
+            <Servers>
+            <name>&lt;color=red&gt;Testland4</name>
+            <population>Low</population>
+            <IP>144.202.38.106</IP>
+            <port>31373</port>
+          </Servers>
           <Servers>
             <name>&lt;color=red&gt;Localhost</name>
             <population>Low</population>
