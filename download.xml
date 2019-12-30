@@ -14,27 +14,27 @@
         <servers>        
          
           <Servers>
-            <name>&lt;color=red&gt;Testland</name>
+            <name>&lt;color=red&gt;EU Testland</name>
             <population>Low</population>
-            <IP>144.202.38.106</IP>
+            <IP>45.32.180.3</IP>
             <port>31370</port>
           </Servers>
           <Servers>
-            <name>&lt;color=red&gt;Testland2</name>
+            <name>&lt;color=red&gt;EU Testland2</name>
             <population>Low</population>
-            <IP>144.202.38.106</IP>
+            <IP>45.32.180.3</IP>
             <port>31371</port>
           </Servers>
           <Servers>
-            <name>&lt;color=red&gt;Testland3</name>
+            <name>&lt;color=red&gt;EU Testland3</name>
             <population>Low</population>
-            <IP>144.202.38.106</IP>
+            <IP>45.32.180.3</IP>
             <port>31372</port>
           </Servers>
             <Servers>
-            <name>&lt;color=red&gt;Testland4</name>
+            <name>&lt;color=red&gt;EU Testland4</name>
             <population>Low</population>
-            <IP>144.202.38.106</IP>
+            <IP>45.32.180.3</IP>
             <port>31373</port>
           </Servers>
           <Servers>
