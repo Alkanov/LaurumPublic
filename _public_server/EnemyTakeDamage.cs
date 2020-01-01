@@ -1,5 +1,4 @@
 ﻿using Mirror;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -17,7 +16,6 @@ public class EnemyTakeDamage : NetworkBehaviour
     #endregion
     #region Data   
     GameObject currentlyTakingDamageFrom;
-    bool[] takingAutoAttackDamage = new bool[10];
     List<GameObject> AttackersList = new List<GameObject>();
     public Dictionary<GameObject, float> DamageTrack = new Dictionary<GameObject, float>();
     int PlayerinFight;
@@ -169,40 +167,18 @@ public class EnemyTakeDamage : NetworkBehaviour
             }
             //get the index of that player on the list to use it later to avoid speed hack attacks 
             PlayerinFight = AttackersList.IndexOf(fromPlayer);
-
-
+            
             //Raycast to avoid damage above walls       
             if (EnemySpawnInfo.x_ObjectHelper.Raycast_didItHit(fromPlayer, gameObject, Vector2.Distance(fromPlayer.transform.position, transform.position), LayerMask.GetMask("Enemy", "Coliders")))
             {
-                //if this player auto attack is allowed (this is false once attack speed time has completed)
-                if (!takingAutoAttackDamage[PlayerinFight])
-                {
-                    takingAutoAttackDamage[PlayerinFight] = true;
-                    //where the magic happens after all the checks
-                    StartCoroutine(TakingAutoAttackDamage(fromPlayer, PlayerinFight));
-                }
+                fromPlayer.GetComponent<PlayerConditions>().RevealPlayer();
+                fromPlayer.GetComponent<PlayerGeneral>().RpcMakeSound(fromPlayer.GetComponent<PlayerStats>().PlayerClass_now.ToString() + "_auto_atk", transform.position);
+                //where the magic happens after all the checks
+                TakeHit(fromPlayer, 1f);
             }
 
         }
     }
-    IEnumerator TakingAutoAttackDamage(GameObject fromPlayer, int PlayerinFight)
-    {
-        //NOTE:this keeps the player from attacking quicker than what he should, but we should probably handle this on the auto attack method instead of on the enemy
-        //because right now, you your auto attack cd is per enemy, if we had an infinite amount of enemies lined up, you could attack each of them one by one without taking auto attack speed into account
-
-        TakeHit(fromPlayer, 1f);
-        //wait for that player auto attack speed
-        //--->since there is no guarantee of when IEnumerator start (could take longer under severe cpu load), AutoAtk_speed cant match on client and server so we use less auto attack time on server
-        // One downside is that speedhackers will have a quicker attack speed but only by 0.1seconds   
-        //TODO: read "NOTE" above and see if we can move the bool that marks the player auto attack cd to the PlayerAutoAtack.cs, that way we can have:
-        //Client "AA now"-->Server "done but now your AA is on CD"---->Server "Wait CD", "Now you can attack again"-->Client "Auto attack again"
-        // with the above clients would "see" the real auto attack time and if server is under load auto attacks would happen slower but we would keep it 100% real instead of hardcoded with 0.1s
-        yield return new WaitForSeconds(fromPlayer.GetComponent<PlayerStats>().AutoAtk_speed-0.1f);
-        //flag this as false so player can auto attack again 
-        takingAutoAttackDamage[PlayerinFight] = false;
-
-    }
-
     private void TakeHit(GameObject fromPlayer, float damage_multiplier)
     {
         //used on aggro
@@ -513,10 +489,10 @@ public class EnemyTakeDamage : NetworkBehaviour
             //take damage from HP           
             if (EnemyStats.CurrentHP - DamageToTake < 0f)
             {
-                DamageToTake = EnemyStats.CurrentHP;                
+                DamageToTake = EnemyStats.CurrentHP;
             }
             //add damage to the tracker
-            damage_to_track += DamageToTake;           
+            damage_to_track += DamageToTake;
             //take mob hp
             EnemyStats.CurrentHP -= DamageToTake;
         }
@@ -784,19 +760,21 @@ public class EnemyTakeDamage : NetworkBehaviour
                 float modHPonKill = maxDMGplayer_PlayerStats.modHPonKill;
                 float modMPonKill = maxDMGplayer_PlayerStats.modMPonKill;
 
-                if (modHPonKill > 10f){
+                if (modHPonKill > 10f)
+                {
                     modHPonKill = 10f;
                 }
-                if (modMPonKill > 10f){
+                if (modMPonKill > 10f)
+                {
                     modMPonKill = 10f;
                 }
                 if (maxDMGplayer_PlayerStats.CurrentHP > 0)
                 {
                     //modHPonKill
-                    maxDMGplayer_PlayerStats.CurrentHP += Mathf.RoundToInt(modHPonKill / 100f * (float)maxDMGplayer_PlayerStats.MaxHealth);
+                    maxDMGplayer_PlayerStats.CurrentHP += Mathf.RoundToInt(modHPonKill / 100f * maxDMGplayer_PlayerStats.MaxHealth);
                     //mod
                     //modMPonKill
-                    maxDMGplayer_PlayerStats.CurrentMP += Mathf.RoundToInt(modMPonKill / 100f * (float)maxDMGplayer_PlayerStats.MaxMana);
+                    maxDMGplayer_PlayerStats.CurrentMP += Mathf.RoundToInt(modMPonKill / 100f * maxDMGplayer_PlayerStats.MaxMana);
                     //enchant
                     if (maxDMGplayer_PlayerStats.ench_free_hp_potion_use_on_kill > 0f)
                     {
@@ -845,7 +823,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                             {
                                 var itemData = maxDMGplayer.GetComponent<PlayerGeneral>().ItemDatabase.FetchItemByID(item.itemID);
                                 var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * 0.48f * item.itemUpgrade / 100f)) * (1f + (maxDMGplayer_PlayerStats.ench_extra_mp_from_pots / 100f)));
-                                
+
                                 maxDMGplayer_PlayerStats.CurrentMP += to_gain;
                                 maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Siderite");
                             }
