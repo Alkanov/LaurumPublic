@@ -7,7 +7,7 @@ public class EnemyAggro : NetworkBehaviour
 {
     #region Enemy
     EnemyAttack EnemyAttack;
-    EnemyControllerAI AILerpTest;
+    AILerp AILerpTest;
     EnemySpawnInfo EnemySpawnInfo;
     EnemyStats EnemyStats;
     EnemyTakeDamage EnemyTakeDamage;
@@ -32,7 +32,7 @@ public class EnemyAggro : NetworkBehaviour
 
     private void Awake()
     {
-        AILerpTest = GetComponent<EnemyControllerAI>();
+        AILerpTest = GetComponent<AILerp>();
         EnemyAttack = GetComponent<EnemyAttack>();
         EnemySpawnInfo = GetComponent<EnemySpawnInfo>();
         EnemyStats = GetComponent<EnemyStats>();
@@ -216,9 +216,9 @@ public class EnemyAggro : NetworkBehaviour
             if (Vector2.Distance(player.transform.position, gameObject.transform.position) <= 6f)
             {
                 ////Debug.LogError("Aggro Reset");
-                AILerpTest.destination = player.transform.position;
+                AILerpTest.destination = get_attack_position(player.transform);
                 TargetSetAggroIcon(player.GetComponent<NetworkIdentity>().connectionToClient, this.gameObject, player);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.1f);
                 temp_KeepAttackDistance = StartCoroutine(KeepAttackDistance(player));
                
             }
@@ -226,9 +226,9 @@ public class EnemyAggro : NetworkBehaviour
             {
                 if (vicious_attack_mode)
                 {
-                    AILerpTest.destination = player.transform.position;
+                    AILerpTest.destination = get_attack_position(player.transform);
                     TargetSetAggroIcon(player.GetComponent<NetworkIdentity>().connectionToClient, this.gameObject, player);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.1f);
                     temp_KeepAttackDistance = StartCoroutine(KeepAttackDistance(player));
                     
                 }
@@ -346,6 +346,21 @@ public class EnemyAggro : NetworkBehaviour
             TargetUnSetAggroIcon(player.GetComponent<NetworkIdentity>().connectionToClient, this.gameObject, player);
         }
         AggroNow(new_player);
+    }
+    public float stop_distance = 0.2f;
+    Vector3 get_attack_position(Transform player)
+    {
+        stop_distance = EnemyStats.AttackRange-0.3f;
+        switch (EnemyStats.AttackType_now)
+        {
+            case EnemyStats.AttackType.melee:               
+                return player.position + ((transform.position - player.position).normalized * stop_distance);
+            case EnemyStats.AttackType.ranged:               
+                return player.position + ((transform.position - player.position).normalized * stop_distance);
+            default:
+                return player.position + ((transform.position - player.position).normalized * 0.2f);
+        }
+        
     }
     #endregion
 

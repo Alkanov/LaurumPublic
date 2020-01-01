@@ -12,7 +12,7 @@ public class EnemyConditions : NetworkBehaviour
     public SyncListInt de_buffs = new SyncListInt();
     #endregion
     #region Enemy
-    public EnemyControllerAI EnemyControllerAI;
+    public AILerp AILerp;
     EnemyStats EnemyStats;
     EnemyTakeDamage EnemyTakeDamage;
     EnemySpawnInfo EnemySpawnInfo;
@@ -109,7 +109,7 @@ public class EnemyConditions : NetworkBehaviour
     {
 
         EnemyStats = GetComponent<EnemyStats>();
-        EnemyControllerAI = GetComponent<EnemyControllerAI>();
+        AILerp = GetComponent<AILerp>();
         EnemyTakeDamage = GetComponent<EnemyTakeDamage>();
         EnemySpawnInfo = GetComponent<EnemySpawnInfo>();
         EnemyAttack = GetComponent<EnemyAttack>();
@@ -151,7 +151,7 @@ public class EnemyConditions : NetworkBehaviour
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     stunned = true;
-                    EnemyControllerAI.canMove = false;
+                    AILerp.canMove = false;
                     debuff_data.time = 1f;
                     debuff_data.buff_debuff_ID.Add(1);
                 }
@@ -180,7 +180,7 @@ public class EnemyConditions : NetworkBehaviour
                 break;
             case 61026://slow down
                 slowed = true;
-                EnemyControllerAI.maxSpeed *= (1f-(skillRequested.multipliers[0] / 100f));
+                AILerp.speed *= (1f-(skillRequested.multipliers[0] / 100f));
                 debuff_data.time = skillRequested.multipliers[1];
                 debuff_data.buff_debuff_ID.Add(2);
                 break;
@@ -192,12 +192,12 @@ public class EnemyConditions : NetworkBehaviour
                     {
                         debuff_data.buff_debuff_ID.Add(1);
                         stunned = true;
-                        EnemyControllerAI.canMove = false;
+                        AILerp.canMove = false;
                     }
                 }*/
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
-                    EnemyControllerAI.canMove = false;
+                    AILerp.canMove = false;
                     stunned = true;
                     debuff_data.time = 2f;
                     debuff_data.buff_debuff_ID.Add(13);
@@ -205,7 +205,7 @@ public class EnemyConditions : NetworkBehaviour
                 else if (Random.Range(0f, 100f) <= skillRequested.multipliers[2])
                 {
                     slowed = true;
-                    EnemyControllerAI.maxSpeed *= 0.75f;
+                    AILerp.speed *= 0.75f;
                     debuff_data.time = 2.5f;
                     debuff_data.buff_debuff_ID.Add(2);
                 }
@@ -217,7 +217,7 @@ public class EnemyConditions : NetworkBehaviour
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     stunned = true;
-                    EnemyControllerAI.canMove = false;
+                    AILerp.canMove = false;
                     debuff_data.time = 1f;
                     debuff_data.buff_debuff_ID.Add(13);
                 }
@@ -226,14 +226,14 @@ public class EnemyConditions : NetworkBehaviour
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     stunned = true;
-                    EnemyControllerAI.canMove = false;
+                    AILerp.canMove = false;
                     debuff_data.time = 2f;
                     debuff_data.buff_debuff_ID.Add(13);
                 }
                 else if (Random.Range(0f, 100f) <= skillRequested.multipliers[2])
                 {
                     slowed = true;
-                    EnemyControllerAI.maxSpeed *= 0.75f;
+                    AILerp.speed *= 0.75f;
                     debuff_data.time = 2.5f;
                     debuff_data.buff_debuff_ID.Add(2);
                 }
@@ -242,7 +242,7 @@ public class EnemyConditions : NetworkBehaviour
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     slowed = true;
-                    EnemyControllerAI.maxSpeed *= 0.75f;
+                    AILerp.speed *= 0.75f;
                     debuff_data.time = 2.5f;
                     debuff_data.buff_debuff_ID.Add(2);
                 }
@@ -257,7 +257,7 @@ public class EnemyConditions : NetworkBehaviour
                 if (Random.Range(0f, 100f) <= skillRequested.multipliers[1])
                 {
                     slowed = true;
-                    EnemyControllerAI.maxSpeed = (float)(EnemyControllerAI.maxSpeed * (1f - (skillRequested.multipliers[2] / 100f)));
+                    AILerp.speed = (float)(AILerp.speed * (1f - (skillRequested.multipliers[2] / 100f)));
                     debuff_data.time = 2.5f;
                     debuff_data.buff_debuff_ID.Add(2);
                 }
@@ -291,13 +291,13 @@ public class EnemyConditions : NetworkBehaviour
             /*case 1040://Fierce Blow               
                 debuff_data.buff_debuff_ID.Add(2);
                 slowed = true;
-                EnemyControllerAI.maxSpeed = EnemyControllerAI.maxSpeed * 0.8f;
+                AILerp.speed = AILerp.speed * 0.8f;
                 break;
             case 2040://Explosive Arrow
                 debuff_data.buff_debuff_ID.Add(2);
                 debuff_data.buff_debuff_ID.Add(3);
                 slowed = true;
-                EnemyControllerAI.maxSpeed = EnemyControllerAI.maxSpeed * 0.5f;
+                AILerp.speed = AILerp.speed * 0.5f;
                 break;*/
 
             //--------------------------V2----------------------
@@ -335,7 +335,7 @@ public class EnemyConditions : NetworkBehaviour
             {
                 case 1://speedy
                     speedy = true;
-                    EnemyControllerAI.maxSpeed *= 1.5f;
+                    AILerp.speed *= 1.5f;
                     break;
                 case 2://Final Frenzy
                     EnemyStats.Damage_int = EnemyStats.Damage_int * 1.5f;
@@ -472,7 +472,7 @@ public class EnemyConditions : NetworkBehaviour
             {
                 case 1://speedy
                     speedy = false;
-                    EnemyControllerAI.maxSpeed *= 0.8f;
+                    AILerp.speed *= 0.8f;
                     break;
                 case 2://Final Frenzy
                     EnemyStats.Damage_int = EnemyStats.Damage_int * 0.8f;
@@ -537,11 +537,11 @@ public class EnemyConditions : NetworkBehaviour
             {
                 case 1://stun              
                     stunned = false;
-                    EnemyControllerAI.canMove = true;
+                    AILerp.canMove = true;
                     break;
                 case 2://slow              
                     slowed = false;
-                    EnemyControllerAI.maxSpeed = EnemyStats.WalkingSpeed;
+                    AILerp.speed = EnemyStats.WalkingSpeed;
                     break;
                 case 3://Explosive Arrow
                        //explotar bomba
@@ -596,7 +596,7 @@ public class EnemyConditions : NetworkBehaviour
                     break;
                 case 13:
                     stunned = false;
-                    EnemyControllerAI.canMove = true;
+                    AILerp.canMove = true;
                     break;
                 case 14: //Hunter's mark
                     decreasedDodge = 0f;

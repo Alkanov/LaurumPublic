@@ -668,34 +668,34 @@ public class PlayerInventory : NetworkBehaviour
                                     bool used = false;
                                     if (Item_.ItemID == 29010)//laurumharbor
                                     {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[0].transform.position);
+                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[0].transform.position, 15f);
                                         used = true;
                                     }
                                     else if (Item_.ItemID == 29011)//libra
                                     {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[1].transform.position);
+                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[1].transform.position, 15f);
                                         used = true;
                                     }
                                     else if (Item_.ItemID == 29014)//Ghost
                                     {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[2].transform.position);
+                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[2].transform.position, 15f);
                                         used = true;
                                     }
                                     else if (Item_.ItemID == 29015)//Fire Cave
                                     {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[5].transform.position);
+                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[5].transform.position, 15f);
                                         used = true;
                                     }
                                     else if (Item_.ItemID == 29016)//Rynthia
                                     {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[4].transform.position);
+                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[4].transform.position, 15f);
                                         used = true;
                                     }
                                     else if (Item_.ItemID == 29012)//back to death pos teleport
                                     {
                                         if (PlayerDeath.respawn_position_before_death_world != Vector3.zero)
                                         {
-                                            PlayerGeneral.use_teleport_stone(PlayerDeath.respawn_position_before_death_world);
+                                            PlayerGeneral.use_teleport_stone(PlayerDeath.respawn_position_before_death_world, 15f);
                                             PlayerDeath.respawn_position_before_death_world = Vector3.zero;
                                             used = true;
                                         }
@@ -716,7 +716,7 @@ public class PlayerInventory : NetworkBehaviour
                                                 {
                                                     if (!leader.Player.GetComponent<PlayerGeneral>().in_devilSquare)
                                                     {
-                                                        PlayerGeneral.use_teleport_stone(leader.Player.transform.position);
+                                                        PlayerGeneral.use_teleport_stone(leader.Player.transform.position, 15f);
                                                         used = true;
                                                     }
                                                     else

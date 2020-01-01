@@ -2364,7 +2364,7 @@ public class PlayerStats : NetworkBehaviour
         //nude
         NudeMode();
         //teleport
-        PlayerMPSync.Unstuck();
+        PlayerGeneral.PlayerTeleport.teleportPlayer(gameObject, PlayerMPSync.unstuck_pos);
         //level 1 = 1001 exp because 1000 triggers the tutorial
         CurrentEXP = 1001f;
         player_exp_change(0, PlayerStats.exp_source.config);

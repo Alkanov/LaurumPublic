@@ -552,14 +552,14 @@ public class PlayerSkillsActions : MonoBehaviour
              Mirror.NetworkServer.Spawn(decoy_deployed);
              if (i == 5)
              {
-                 decoy_deployed.GetComponent<EnemyControllerAI>().destination = transform.position;
+                 decoy_deployed.GetComponent<AILerp>().destination = transform.position;
              }
              else
              {
-                 decoy_deployed.GetComponent<EnemyControllerAI>().destination = RandomPosition(i);
+                 decoy_deployed.GetComponent<AILerp>().destination = RandomPosition(i);
              }
 
-             decoy_deployed.GetComponent<EnemyControllerAI>().maxSpeed = PlayerMPSync.PlayerSpeed;
+             decoy_deployed.GetComponent<AILerp>().speed = PlayerMPSync.PlayerSpeed;
          }
 
      }*/

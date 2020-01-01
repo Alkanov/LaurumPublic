@@ -140,7 +140,7 @@ public class skillDB : MonoBehaviour
         //Physical Protection totem
         Skills.Add(new skill(64003, skill.SAction.active, skill.Stype.totem_spawn, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[2] { 10f, 35f }, 15)); //time//def
         //Linked Hearts
-        Skills.Add(new skill(64004, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.4, new float[2] { 10f, 75f }, 15));//time/absorb
+        Skills.Add(new skill(64004, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.4f, new float[2] { 10f, 75f }, 15));//time/absorb
         //burn on touch buff
         Skills.Add(new skill(64005, skill.SAction.active, skill.Stype.AOE_buff, PlayerStats.PlayerClass.Paladin, 15f, 0.6f, new float[2] { 1.8f, 10f }, 18));//damage/time
         //Holy Light

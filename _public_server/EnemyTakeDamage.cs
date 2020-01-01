@@ -39,7 +39,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         database = GameObject.Find("LootManager").GetComponent<ItemDatabase>();
         EnemyLoot = GetComponent<EnemyLoot>();
         EnemyStats = GetComponent<EnemyStats>();
-        //AILerpTest = GetComponent<EnemyControllerAI>();
+        //AILerpTest = GetComponent<AILerp>();
         EnemyAggro = GetComponent<EnemyAggro>();
         //StartCoroutine("CheckForDestroy");
         ServerDBHandler = GameObject.Find("ServerDBreflector").GetComponent<ServerDBHandler>();
@@ -234,7 +234,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         if (fromPlayer.GetComponent<PlayerConditions>().has_buff_debuff(PlayerConditions.type.buff, 17))//if attacker has frozen hands
         {
             EnemyConditions.slowed = true;
-            EnemyConditions.EnemyControllerAI.maxSpeed *= 0.75f;
+            EnemyConditions.AILerp.speed *= 0.75f;
             EnemyConditions.add_buff_debuff(2, null, false, 2.5f, fromPlayer, EnemyConditions.type.debuff, true);
         }
 
