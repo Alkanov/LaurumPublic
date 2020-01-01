@@ -187,12 +187,17 @@ public class EnemyTakeDamage : NetworkBehaviour
     }
     IEnumerator TakingAutoAttackDamage(GameObject fromPlayer, int PlayerinFight)
     {
-        //this keeps the player from attacking quicker than what he should, but we should probably handle this on the auto attack method instead of on the enemy
+        //NOTE:this keeps the player from attacking quicker than what he should, but we should probably handle this on the auto attack method instead of on the enemy
         //because right now, you your auto attack cd is per enemy, if we had an infinite amount of enemies lined up, you could attack each of them one by one without taking auto attack speed into account
 
         TakeHit(fromPlayer, 1f);
         //wait for that player auto attack speed
-        yield return new WaitForSeconds(fromPlayer.GetComponent<PlayerStats>().AutoAtk_speed);
+        //--->since there is no guarantee of when IEnumerator start (could take longer under severe cpu load), AutoAtk_speed cant match on client and server so we use less auto attack time on server
+        // One downside is that speedhackers will have a quicker attack speed but only by 0.1seconds   
+        //TODO: read "NOTE" above and see if we can move the bool that marks the player auto attack cd to the PlayerAutoAtack.cs, that way we can have:
+        //Client "AA now"-->Server "done but now your AA is on CD"---->Server "Wait CD", "Now you can attack again"-->Client "Auto attack again"
+        // with the above clients would "see" the real auto attack time and if server is under load auto attacks would happen slower but we would keep it 100% real instead of hardcoded with 0.1s
+        yield return new WaitForSeconds(fromPlayer.GetComponent<PlayerStats>().AutoAtk_speed-0.1f);
         //flag this as false so player can auto attack again 
         takingAutoAttackDamage[PlayerinFight] = false;
 
