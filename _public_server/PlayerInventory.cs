@@ -1702,9 +1702,9 @@ public class PlayerInventory : NetworkBehaviour
                 if (inventoryFreeSpaces() > 0)
                 {
                     //remove it from broker
-                    PlayerGeneral.x_ObjectHelper.ServerItemBoards.ItemBoardsList.Remove(boardItem);
-                    //save
-                    PlayerGeneral.x_ObjectHelper.ServerItemBoards.SaveManager.SaveBoardsToXML("boards.xml", PlayerGeneral.x_ObjectHelper.ServerItemBoards.ItemBoardsList);
+                    PlayerGeneral.x_ObjectHelper.ServerItemBoards.ItemBoardsList.Remove(boardItem);                    
+                    //mark it to save it
+                    PlayerGeneral.x_ObjectHelper.ServerItemBoards.set_ItemBoards_dirty(false);
                     //take gold
                     ChangeGold_NEGATIVE_or_POSITIVE_gold(-boardItem.price, string.Format("had:{0} now:{1} gold buying from broker", Gold, Gold - boardItem.price),false);
                     //change item owner to the buyer

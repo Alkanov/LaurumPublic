@@ -148,6 +148,7 @@ public class ServerUniversalSettings : MonoBehaviour
             {
                 if (!write_values(JsonHelper.FromJson<var_data>(uwr.downloadHandler.text).ToList())) {
                     Debug.LogError("Error while loading dynamic variables #333");
+                    Debug.LogError("SHUTTING DOWN(#102): Couldnt load server details");
                     Application.Quit();
                 }
             }
