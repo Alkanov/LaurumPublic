@@ -245,7 +245,7 @@ public class PlayerConditions : NetworkBehaviour
                 if (Random.Range(0f, 100f) <= chance)
                 {
                     decreasedWalkingSpeed = -25f;
-                    debuff_data.time = skillRequested.multipliers[1];                  
+                    debuff_data.time = 10f;                  
                     debuff_data.buff_debuff_ID.Add(2);
                 }
                 break;
@@ -450,9 +450,15 @@ public class PlayerConditions : NetworkBehaviour
                 buff_data.buff_debuff_ID.Add(1);
                 break;
             case 61013://battle shout
+                float currentHPRatio = PlayerStats.CurrentHP / PlayerStats.MaxHealth;
+                float newMaxHealth = PlayerStats.MaxHealth * (1f + (skill.multipliers[0] / 100f));
+                float newCurrentHP = newMaxHealth * currentHPRatio;
+                
                 increasedMaxHP = skill.multipliers[0];
                 buff_data.time = skill.multipliers[1];
                 buff_data.buff_debuff_ID.Add(5);
+                
+                PlayerStats.CurrentHP = Mathf.Round(newCurrentHP);
                 break;
             case 61020://Ultimate Defense
                 increasedDEF = skill.multipliers[0];
@@ -480,9 +486,15 @@ public class PlayerConditions : NetworkBehaviour
                 buff_data.buff_debuff_ID.Add(13);
                 break;
             case 62013://expanded mana
+                float currentMPRatio = PlayerStats.CurrentMP / PlayerStats.MaxMana;
+                float newMaxaMana = PlayerStats.MaxMana * (1f + (skill.multipliers[0] / 100f));
+                float newCurrentMP = newMaxaMana * currentMPRatio;
+
                 increasedMaxMana = skill.multipliers[0];
                 buff_data.time = skill.multipliers[1];
                 buff_data.buff_debuff_ID.Add(6);
+
+                PlayerStats.CurrentMP = Mathf.Round(newCurrentMP);
                 break;
             case 62014://caster contract
                 buff_data.time = skill.multipliers[0];
@@ -515,8 +527,12 @@ public class PlayerConditions : NetworkBehaviour
                 break;
             case 63014://soul sacririce -> no buff but we handle it here
                 var to_regen = PlayerStats.MaxMana * skill.multipliers[1] / 100f;
+                var cap = PlayerStats.MaxHealth * 0.25f; //25% of the max health
+                if(to_regen > cap){
+                    to_regen = cap;
+                }
                 PlayerStats.CurrentHP += to_regen;
-                PlayerGeneral.showCBT(gameObject, false, false, (int)to_regen, "heal");
+                PlayerGeneral.showCBT(gameObject, false, false, Mathf.RoundToInt(to_regen), "heal");
                 break;
             case 63015: //Acrobatics
                 increasedDodge = skill.multipliers[0];
@@ -799,18 +815,16 @@ public class PlayerConditions : NetworkBehaviour
                 if (PlayerStats.CurrentHP <= 0f && track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP > 0f)
                 {
                     var hpdrained = PlayerStats.MaxHealth * track_buff_debuffs.skill_requested.multipliers[0] / 100;
-                    if (track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP + hpdrained > track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth)
-                    {
-                        var hpdiff = track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth - track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP;
-                        track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP = track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth;
-                        track_buff_debuffs.skill_owner.GetComponent<PlayerGeneral>().showCBT(track_buff_debuffs.skill_owner, false, false, (int)hpdiff, "heal");
-                    }
-                    else
-                    {
-                        track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP += hpdrained;
-                        track_buff_debuffs.skill_owner.GetComponent<PlayerGeneral>().showCBT(track_buff_debuffs.skill_owner, false, false, (int)hpdrained, "heal");
-                    }
 
+                    var cap = track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().MaxHealth * 0.25f;
+                    if(hpdrained > cap){
+                        hpdrained = cap;
+                    }
+                    hpdrained = Mathf.RoundToInt(hpdrained);
+
+                    track_buff_debuffs.skill_owner.GetComponent<PlayerStats>().CurrentHP += hpdrained;
+                    track_buff_debuffs.skill_owner.GetComponent<PlayerGeneral>().showCBT(track_buff_debuffs.skill_owner, false, false, (int)hpdrained, "heal");
+                    
                 }
                 break;
             case 5://Confused (client side)

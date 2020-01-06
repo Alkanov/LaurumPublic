@@ -211,7 +211,7 @@ public class DOT_effect : NetworkBehaviour
                         {
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(2, skillRequested, false, 2.5f, owner, EnemyConditions.type.debuff, true);
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().slowed = true;
-                            triggeredBy.gameObject.GetComponent<Pathfinding.EnemyControllerAI>().maxSpeed *= 0.75f;
+                            triggeredBy.gameObject.GetComponent<Pathfinding.AILerp>().speed *= 0.75f;
                            
                         }
                         else
@@ -226,7 +226,7 @@ public class DOT_effect : NetworkBehaviour
                         {
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(1, skillRequested, false, 2f, owner, EnemyConditions.type.debuff, true);
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().stunned = true;
-                            triggeredBy.gameObject.GetComponent<Pathfinding.EnemyControllerAI>().canMove = false;
+                            triggeredBy.gameObject.GetComponent<Pathfinding.AILerp>().canMove = false;
                         }
                         else
                         {
@@ -253,7 +253,7 @@ public class DOT_effect : NetworkBehaviour
                         {
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().add_buff_debuff(2, skillRequested, false, 2.5f, owner, EnemyConditions.type.debuff, true);
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().slowed = true;
-                            triggeredBy.gameObject.GetComponent<Pathfinding.EnemyControllerAI>().maxSpeed *= 0.75f;
+                            triggeredBy.gameObject.GetComponent<Pathfinding.AILerp>().speed *= 0.75f;
                             //We also apply bleed
                             triggeredBy.gameObject.GetComponent<EnemyConditions>().handle_effect(effect_type.bleed, trap_effect_power, owner);
                         }

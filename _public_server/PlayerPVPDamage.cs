@@ -18,9 +18,7 @@ public class PlayerPVPDamage : NetworkBehaviour
     #region PVP Data
     float pvp_damage_factor = 1f;
     [HideInInspector]
-    public string PVPmodeOn;
-    [HideInInspector]
-    public bool[] takingAutoAttackDamage = new bool[100];
+    public string PVPmodeOn;   
     [HideInInspector]
     public List<GameObject> AttackersList = new List<GameObject>();//limpiar cuando muere
     List<float> PlayerDamageDone = new List<float>();//limpiar cuando muere
@@ -44,6 +42,7 @@ public class PlayerPVPDamage : NetworkBehaviour
     PlayerMPSync PlayerMPSync;
     PlayerSkillsActions PlayerSkillsActions;
     PlayerGuild PlayerGuild;
+    PlayerAutoAtack PlayerAutoAtack;
     #endregion
 
     [SerializeField]
@@ -64,6 +63,7 @@ public class PlayerPVPDamage : NetworkBehaviour
         PlayerMPSync = GetComponent<PlayerMPSync>();
         PlayerSkillsActions = GetComponent<PlayerSkillsActions>();
         PlayerGuild = GetComponent<PlayerGuild>();
+        PlayerAutoAtack = GetComponent<PlayerAutoAtack>();
         PlayerFrozen_byAdmin = false;
         DEFvalue = 0.8f;
     }
@@ -82,9 +82,34 @@ public class PlayerPVPDamage : NetworkBehaviour
     public void CmdsetToggleModeOnServer(string mode)
     {
         PVPmodeOn = mode;
+    }    
+    #endregion
+
+
+    #region Utilidades
+    public void setPVPtoggle(bool mode)
+    {
+
+        TargetsetPVPtoggle(connectionToClient, mode);
+
+    }   
+    string randomString()
+    {
+        int minCharAmount = 10;
+        int maxCharAmount = 12;
+        string myString = "";
+        int charAmount = Random.Range(minCharAmount, maxCharAmount + 1); //set those to the minimum and maximum length of your string
+        for (int i = 0; i < charAmount; i++)
+        {
+            myString += glyphs[Random.Range(0, glyphs.Length)];
+        }
+        return myString;
     }
-    [Command]
-    public void CmdPVPTageDamageinServer(GameObject AutoAttackThisEnemy)
+    #endregion
+
+
+    #region Auto Attack
+    public void PVPTakeDamageinServer(GameObject AutoAttackThisEnemy)
     {
         if (AutoAttackThisEnemy.GetComponent<PlayerPVPDamage>().isPVPenabled && isPVPenabled && PlayerStats.CurrentHP > 0 && !PlayerGeneral.using_teleport && !PlayerSkillsActions.is_casting)
         {
@@ -113,59 +138,34 @@ public class PlayerPVPDamage : NetworkBehaviour
             PlayerConditions.RevealPlayer();
         }
     }
-    #endregion
-
-
-    #region Utilidades
-    public void setPVPtoggle(bool mode)
-    {
-
-        TargetsetPVPtoggle(connectionToClient, mode);
-
-    }   
-    string randomString()
-    {
-        int minCharAmount = 10;
-        int maxCharAmount = 12;
-        string myString = "";
-        int charAmount = Random.Range(minCharAmount, maxCharAmount + 1); //set those to the minimum and maximum length of your string
-        for (int i = 0; i < charAmount; i++)
-        {
-            myString += glyphs[Random.Range(0, glyphs.Length)];
-        }
-        return myString;
-    }
-    #endregion
-
-
-    #region Auto Attack
     public void TakeAutoAttackDamage(GameObject fromPlayer)
     {
         //if Player attacking is alive and player receiving is alive
         if (fromPlayer.GetComponent<PlayerStats>().CurrentHP > 0 && PlayerStats.CurrentHP > 0)
         {
-            //if attacking player is not in the list of attackers add him
-            if (!AttackersList.Contains(fromPlayer))
-            {
-                AttackersList.Add(fromPlayer);
-                PlayerDamageDone.Add(0);
-            }
-            //get the index of the player who attacked you, this is used to know when the auto attack cooldown is over
-            PlayerinFight = AttackersList.IndexOf(fromPlayer);
-
-            //Raycast to avoid being hit over walls
-            if (PlayerGeneral.x_ObjectHelper.Raycast_didItHit(fromPlayer, gameObject, Vector2.Distance(transform.position, fromPlayer.transform.position), LayerMask.GetMask("Player", "Coliders")))
-            {
-                //flag this attacker as "attacking"
-                takingAutoAttackDamage[PlayerinFight] = true;
-                //continue here
-                StartCoroutine(TakingAutoAttackDamage(fromPlayer, PlayerinFight, fromPlayer.GetComponent<PlayerStats>().AutoAtk_speed));
+            //if AA CD is now on
+            if (PlayerAutoAtack.can_player_use_AA())
+            {            
+                //Raycast to avoid being hit over walls
+                if (PlayerGeneral.x_ObjectHelper.Raycast_didItHit(fromPlayer, gameObject, Vector2.Distance(transform.position, fromPlayer.transform.position), LayerMask.GetMask("Player", "Coliders")))
+                {
+                    //if attacking player is not in the list of attackers add him
+                    if (!AttackersList.Contains(fromPlayer))
+                    {
+                        AttackersList.Add(fromPlayer);
+                        PlayerDamageDone.Add(0);
+                    }
+                    //get the index of the player who attacked you, this is used to know when the auto attack cooldown is over
+                    PlayerinFight = AttackersList.IndexOf(fromPlayer);
+                    //continue here
+                    TakingAutoAttackDamage(fromPlayer, PlayerinFight);       
+                }
             }
 
         }
 
-    }
-    IEnumerator TakingAutoAttackDamage(GameObject fromPlayer, int PlayerinFight, float PlayerAutoAttackSpeed)
+    }    
+    void TakingAutoAttackDamage(GameObject fromPlayer, int PlayerinFight)
     {
         //if both players are in PVP area and attacker is alive and not frozen by adming (not in use)
         if (isPVPenabled && fromPlayer.GetComponent<PlayerPVPDamage>().isPVPenabled && fromPlayer.GetComponent<PlayerStats>().CurrentHP > 0 && !PlayerFrozen_byAdmin)
@@ -216,9 +216,9 @@ public class PlayerPVPDamage : NetworkBehaviour
                 //if attacker has frozen hands
                 if (fromPlayer.GetComponent<PlayerConditions>().has_buff_debuff(PlayerConditions.type.buff, 17))
                 {
-                    PlayerConditions.decreasedWalkingSpeed = -20f;//-20% walking speed
+                    PlayerConditions.decreasedWalkingSpeed = -25f;//-25% walking speed
                     PlayerStats.RefreshStats();
-                    PlayerConditions.add_buff_debuff(2, null, false, 3f, fromPlayer, PlayerConditions.type.debuff, true);
+                    PlayerConditions.add_buff_debuff(2, null, false, 2.5f, fromPlayer, PlayerConditions.type.debuff, true);
                 }
                 //Linked hearts
                 var buff_info = PlayerConditions.get_buff_information(PlayerConditions.type.buff, 20);
@@ -250,20 +250,13 @@ public class PlayerPVPDamage : NetworkBehaviour
             int damageToTake = Mathf.RoundToInt(DamageRX);
             //take the damage
             takeDamageinPVPNow(damageToTake, fromPlayer, Critico);
-
-
             //send auto attack animation to client
             PlayerGeneral.send_autoATK_animation(fromPlayer, gameObject);
             //send damage number animation to client
             PlayerGeneral.showCBT(gameObject, Critico, dodged, damageToTake, "damage");
             //add damage this player did to list (dont remember using this anywhere)
-            PlayerDamageDone[PlayerinFight] = PlayerDamageDone[PlayerinFight] + damageToTake;
-
-            //once the auto attack cool down finishes tag this player as free to attack again
-            yield return new WaitForSeconds(PlayerAutoAttackSpeed);
-            takingAutoAttackDamage[PlayerinFight] = false;
+            PlayerDamageDone[PlayerinFight] = PlayerDamageDone[PlayerinFight] + damageToTake;                     
         }
-
     }
     float CalculateDamageRx(GameObject fromPlayer)
     {

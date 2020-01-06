@@ -9,16 +9,39 @@
         <title>&lt;color=red&gt;Testland</title>
         <description>debug only</description>
         <rates>debug</rates>
-        <version_needed>1.3-beta.9</version_needed>
+        <version_needed>1.3-beta.14.rc</version_needed>
         <ends_on>Have fun!</ends_on>
-        <servers>        
-         
+        <servers>         
           <Servers>
-            <name>&lt;color=red&gt;Testland</name>
+            <name>&lt;color=red&gt;EU Testland</name>
             <population>Low</population>
-            <IP>144.202.38.106</IP>
+            <IP>45.32.180.3</IP>
             <port>31370</port>
-          </Servers>         
+          </Servers>
+          <Servers>
+            <name>&lt;color=red&gt;EU Testland2</name>
+            <population>Low</population>
+            <IP>45.32.180.3</IP>
+            <port>31371</port>
+          </Servers>
+          <Servers>
+            <name>&lt;color=red&gt;EU Testland3</name>
+            <population>Low</population>
+            <IP>45.32.180.3</IP>
+            <port>31372</port>
+          </Servers>
+            <Servers>
+            <name>&lt;color=red&gt;EU Testland4</name>
+            <population>Low</population>
+            <IP>45.32.180.3</IP>
+            <port>31373</port>
+          </Servers>
+          <Servers>
+            <name>&lt;color=red&gt;Localhost</name>
+            <population>Low</population>
+            <IP>127.0.0.1</IP>
+            <port>31370</port>
+          </Servers>   
          </servers>
          </Worlds>    </all_worlds>
   </RemoteData>

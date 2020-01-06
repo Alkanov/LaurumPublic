@@ -339,30 +339,6 @@ public class PlayerInventory : NetworkBehaviour
         //----------
 
         int mod_result = 1;
-        //Normales
-        //0 nada
-        //1 +mod_result STR    = modSTR
-        //2 +mod_result DEX    = modDEX
-        //3 +mod_result INT    = modINT
-        //4 +mod_result WIS    = modWIS
-        //5 +mod_result STA    = modSTA
-        //6 +mod_result DEF    = modDEF
-        //7 +mod_result MDEF   = modMDEF
-
-        //Raros
-        //8     +item_lvl+20 MaxHP              = modMaxHP
-        //9     +item_lvl+20 MaxMP              = modMaxMP
-
-        //10    +2% of Dodge           = modDodge
-        //11    +2% Reflect            = modReflectSTR
-        //12    +3% Attk SPD           = modAttkSPD
-        //13    +1% HP Regen           = modHPRegen
-        //14    +3% maxHP on kill      = modHPonKill
-        //15    +3% maxMP on kill      = modMPonKill
-        //16    +1% Crit chance        = modCritChance
-        //17    +2% Crit DMG           = modCritDmg
-        //18    +2% SPD                = modSPD
-        //19    +1% Reflect as INT     = modCastingSpeed
 
         if (item_lvl < 10)
         {
@@ -378,13 +354,13 @@ public class PlayerInventory : NetworkBehaviour
             case 0:
                 break;
             case 1:
-                PlayerStats.modSTR += (mod_result + 2);
+                PlayerStats.modSTR += mod_result;
                 break;
             case 2:
-                PlayerStats.modDEX += (mod_result + 3);
+                PlayerStats.modDEX += mod_result;
                 break;
             case 3:
-                PlayerStats.modINT += (mod_result + 2);
+                PlayerStats.modINT += mod_result;
                 break;
             case 4:
                 PlayerStats.modWIS += mod_result;
@@ -393,16 +369,16 @@ public class PlayerInventory : NetworkBehaviour
                 PlayerStats.modSTA += mod_result;
                 break;
             case 6:
-                PlayerStats.modDEF += (mod_result + 4);
+                PlayerStats.modDEF += (mod_result + 5);
                 break;
             case 7:
-                PlayerStats.modMDEF += (mod_result + 4);
+                PlayerStats.modMDEF += (mod_result + 5);
                 break;
             case 8:
-                PlayerStats.modMaxHP += (item_lvl + 10);
+                PlayerStats.modMaxHP += (item_lvl + 30);
                 break;
             case 9:
-                PlayerStats.modMaxMP += ((item_lvl / 2) + 5);
+                PlayerStats.modMaxMP += (item_lvl + 30) * 0.6f;
                 break;
             case 10:
                 PlayerStats.modDodge += 1;
@@ -445,6 +421,9 @@ public class PlayerInventory : NetworkBehaviour
                 break;
             case 23:
                 PlayerStats.modCDReduction += 3;
+                break;
+            case 24:
+                PlayerStats.modAGI += mod_result;
                 break;
         }
     }
@@ -689,34 +668,34 @@ public class PlayerInventory : NetworkBehaviour
                                     bool used = false;
                                     if (Item_.ItemID == 29010)//laurumharbor
                                     {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[0].transform.position);
+                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[0].transform.position, 15f);
                                         used = true;
                                     }
                                     else if (Item_.ItemID == 29011)//libra
                                     {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[1].transform.position);
+                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[1].transform.position, 15f);
                                         used = true;
                                     }
                                     else if (Item_.ItemID == 29014)//Ghost
                                     {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[2].transform.position);
+                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[2].transform.position, 15f);
                                         used = true;
                                     }
                                     else if (Item_.ItemID == 29015)//Fire Cave
                                     {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[5].transform.position);
+                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[5].transform.position, 15f);
                                         used = true;
                                     }
                                     else if (Item_.ItemID == 29016)//Rynthia
                                     {
-                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[4].transform.position);
+                                        PlayerGeneral.use_teleport_stone(PlayerGeneral.x_ObjectHelper.Teleport_stones[4].transform.position, 15f);
                                         used = true;
                                     }
                                     else if (Item_.ItemID == 29012)//back to death pos teleport
                                     {
                                         if (PlayerDeath.respawn_position_before_death_world != Vector3.zero)
                                         {
-                                            PlayerGeneral.use_teleport_stone(PlayerDeath.respawn_position_before_death_world);
+                                            PlayerGeneral.use_teleport_stone(PlayerDeath.respawn_position_before_death_world, 15f);
                                             PlayerDeath.respawn_position_before_death_world = Vector3.zero;
                                             used = true;
                                         }
@@ -737,7 +716,7 @@ public class PlayerInventory : NetworkBehaviour
                                                 {
                                                     if (!leader.Player.GetComponent<PlayerGeneral>().in_devilSquare)
                                                     {
-                                                        PlayerGeneral.use_teleport_stone(leader.Player.transform.position);
+                                                        PlayerGeneral.use_teleport_stone(leader.Player.transform.position, 15f);
                                                         used = true;
                                                     }
                                                     else
@@ -1723,9 +1702,9 @@ public class PlayerInventory : NetworkBehaviour
                 if (inventoryFreeSpaces() > 0)
                 {
                     //remove it from broker
-                    PlayerGeneral.x_ObjectHelper.ServerItemBoards.ItemBoardsList.Remove(boardItem);
-                    //save
-                    PlayerGeneral.x_ObjectHelper.ServerItemBoards.SaveManager.SaveBoardsToXML("boards.xml", PlayerGeneral.x_ObjectHelper.ServerItemBoards.ItemBoardsList);
+                    PlayerGeneral.x_ObjectHelper.ServerItemBoards.ItemBoardsList.Remove(boardItem);                    
+                    //mark it to save it
+                    PlayerGeneral.x_ObjectHelper.ServerItemBoards.set_ItemBoards_dirty(false);
                     //take gold
                     ChangeGold_NEGATIVE_or_POSITIVE_gold(-boardItem.price, string.Format("had:{0} now:{1} gold buying from broker", Gold, Gold - boardItem.price),false);
                     //change item owner to the buyer
@@ -2572,9 +2551,9 @@ public class PlayerInventory : NetworkBehaviour
                         List<int> new_mods = new List<int>();//new mods
                         for (int i = 0; i < itemFound.itemMods.Count; i++)
                         {
-                            int newMod = UnityEngine.Random.Range(1, 23 + 1);
+                            int newMod = UnityEngine.Random.Range(1, 24 + 1);
                             while(newMod == 22){ //We don't want exp
-                                newMod = UnityEngine.Random.Range(1, 23 + 1);
+                                newMod = UnityEngine.Random.Range(1, 24 + 1);
                             }
                             new_mods.Add(newMod);
                         }

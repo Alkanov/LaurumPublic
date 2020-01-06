@@ -114,14 +114,10 @@ public class ServerUniversalSettings : MonoBehaviour
         try
         {
             dict_vars = fake_list.ToDictionary(p => p.ID);
-            foreach (KeyValuePair<var_names, var_data> kvp in dict_vars)
+            /*foreach (KeyValuePair<var_names, var_data> kvp in dict_vars)
             {
-                Debug.LogErrorFormat(
-                    "Key {0}: val:{1} desc:{2}",
-                    kvp.Key,
-                    kvp.Value.value,
-                    kvp.Value.description);
-            }
+               Debug.LogErrorFormat("Key {0}: val:{1} desc:{2}", kvp.Key, kvp.Value.value,kvp.Value.description);
+            }*/
             return true;
         }
         catch (Exception ex)
@@ -152,6 +148,7 @@ public class ServerUniversalSettings : MonoBehaviour
             {
                 if (!write_values(JsonHelper.FromJson<var_data>(uwr.downloadHandler.text).ToList())) {
                     Debug.LogError("Error while loading dynamic variables #333");
+                    Debug.LogError("SHUTTING DOWN(#102): Couldnt load server details");
                     Application.Quit();
                 }
             }

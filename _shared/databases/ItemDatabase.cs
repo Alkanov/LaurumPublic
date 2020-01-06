@@ -203,11 +203,11 @@ public class ItemDatabase : MonoBehaviour
         }
 
         //NECKLACE
-        items.Add(new Item(2302, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, HP_Accessory, MP_Accessory, Def_Accessory, Def_Accessory, 0f, 0f }, 30, Item.Restrictions.tradeable)); //HP+MP+PDEF+MDEF
+        items.Add(new Item(2302, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { Damage_Accessory / 2f, 0f, Damage_Accessory / 2f, HP_Accessory, MP_Accessory, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //PDMG+MDMG+PDEF+MDEF
         items.Add(new Item(2303, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { Damage_Accessory, 0f, Damage_Accessory, 0f, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //PDMG+MDMG
         items.Add(new Item(2304, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, Damage_Accessory, HP_Accessory, MP_Accessory, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //MDMG+HP+MP
         items.Add(new Item(2305, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, Crit_Accessory, 0f, 0f, 0f, 0f, Def_Accessory, Crit_Accessory, 0f }, 30, Item.Restrictions.tradeable)); //CRIT+MDEF+DODGE
-        items.Add(new Item(2306, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, 0f, 0f, Def_Accessory, Def_Accessory, Crit_Accessory, 0f }, 45, Item.Restrictions.tradeable)); //PDEF+MDEF+DODGE
+        items.Add(new Item(2306, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, 0f, 0f, Def_Accessory, Def_Accessory, Crit_Accessory, 0f }, 30, Item.Restrictions.tradeable)); //PDEF+MDEF+DODGE
 
         /* items.Add(new Item(2307, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 0f, 0f, 110f, 0f, 0f, 0f, 0f }, 45, Item.Restrictions.tradeable)); //MP
         items.Add(new Item(2308, Item.UseAs.Neck, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, 75f, 0f, 0f, 0f, 0f, 25f, 0f }, 60, Item.Restrictions.tradeable)); //INT
@@ -218,7 +218,7 @@ public class ItemDatabase : MonoBehaviour
 
 
         //RING             
-        items.Add(new Item(2201, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { Damage_Accessory, 0f, Damage_Accessory, HP_Accessory, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //PDMG+MDMG+HP
+        items.Add(new Item(2201, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { Damage_Accessory / 2f, 0f, Damage_Accessory / 2f, HP_Accessory, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //PDMG+MDMG+HP
         items.Add(new Item(2202, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { Damage_Accessory, 0f, 0f, HP_Accessory, 0f, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //PDMG+HP
         items.Add(new Item(2203, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, Crit_Accessory, 0f, 0f, 0f, Def_Accessory, Def_Accessory, 0f, 0f }, 30, Item.Restrictions.tradeable)); //CRIT+PDEF+MDEF
         items.Add(new Item(2204, Item.UseAs.Ring, new PlayerStats.PlayerClass[] { PlayerStats.PlayerClass.Any }, new float[] { 0f, 0f, Damage_Accessory, HP_Accessory, MP_Accessory, 0f, 0f, 0f, 0f }, 30, Item.Restrictions.tradeable)); //MDMG+HP+MP
@@ -347,15 +347,15 @@ public class ItemDatabase : MonoBehaviour
         items.Add(new Item(3101, Item.UseAs.ExpFarmStone, 10, Item.Restrictions.tradeable));
         items.Add(new Item(3102, Item.UseAs.ExpFarmStone, 10, Item.Restrictions.tradeable));
         items.Add(new Item(3103, Item.UseAs.ExpFarmStone, 10, Item.Restrictions.tradeable));
-        items.Add(new Item(3104, Item.UseAs.ExpFarmStone, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(3105, Item.UseAs.ExpFarmStone, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(3106, Item.UseAs.ExpFarmStone, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(3107, Item.UseAs.ExpFarmStone, 20, Item.Restrictions.tradeable));
+        items.Add(new Item(3104, Item.UseAs.ExpFarmStone, 10, Item.Restrictions.tradeable));
+        items.Add(new Item(3105, Item.UseAs.ExpFarmStone, 10, Item.Restrictions.tradeable));
+        items.Add(new Item(3106, Item.UseAs.ExpFarmStone, 10, Item.Restrictions.tradeable));
+        items.Add(new Item(3107, Item.UseAs.ExpFarmStone, 10, Item.Restrictions.tradeable));
         items.Add(new Item(3108, Item.UseAs.ExpFarmStone, 20, Item.Restrictions.tradeable));
         items.Add(new Item(3109, Item.UseAs.ExpFarmStone, 20, Item.Restrictions.tradeable));
         items.Add(new Item(3110, Item.UseAs.ExpFarmStone, 20, Item.Restrictions.tradeable));
         items.Add(new Item(3111, Item.UseAs.ExpFarmStone, 20, Item.Restrictions.tradeable));
-        items.Add(new Item(3112, Item.UseAs.ExpFarmStone, 40, Item.Restrictions.tradeable));
+        items.Add(new Item(3112, Item.UseAs.ExpFarmStone, 20, Item.Restrictions.tradeable));
         items.Add(new Item(3113, Item.UseAs.ExpFarmStone, 40, Item.Restrictions.tradeable));
         items.Add(new Item(3114, Item.UseAs.ExpFarmStone, 40, Item.Restrictions.tradeable));
         items.Add(new Item(3115, Item.UseAs.ExpFarmStone, 40, Item.Restrictions.tradeable));

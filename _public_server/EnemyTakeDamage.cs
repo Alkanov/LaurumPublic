@@ -1,5 +1,4 @@
 ﻿using Mirror;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -17,7 +16,6 @@ public class EnemyTakeDamage : NetworkBehaviour
     #endregion
     #region Data   
     GameObject currentlyTakingDamageFrom;
-    bool[] takingAutoAttackDamage = new bool[10];
     List<GameObject> AttackersList = new List<GameObject>();
     public Dictionary<GameObject, float> DamageTrack = new Dictionary<GameObject, float>();
     int PlayerinFight;
@@ -39,7 +37,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         database = GameObject.Find("LootManager").GetComponent<ItemDatabase>();
         EnemyLoot = GetComponent<EnemyLoot>();
         EnemyStats = GetComponent<EnemyStats>();
-        //AILerpTest = GetComponent<EnemyControllerAI>();
+        //AILerpTest = GetComponent<AILerp>();
         EnemyAggro = GetComponent<EnemyAggro>();
         //StartCoroutine("CheckForDestroy");
         ServerDBHandler = GameObject.Find("ServerDBreflector").GetComponent<ServerDBHandler>();
@@ -169,35 +167,18 @@ public class EnemyTakeDamage : NetworkBehaviour
             }
             //get the index of that player on the list to use it later to avoid speed hack attacks 
             PlayerinFight = AttackersList.IndexOf(fromPlayer);
-
-
+            
             //Raycast to avoid damage above walls       
             if (EnemySpawnInfo.x_ObjectHelper.Raycast_didItHit(fromPlayer, gameObject, Vector2.Distance(fromPlayer.transform.position, transform.position), LayerMask.GetMask("Enemy", "Coliders")))
             {
-                //if this player auto attack is allowed (this is false once attack speed time has completed)
-                if (!takingAutoAttackDamage[PlayerinFight])
-                {
-                    takingAutoAttackDamage[PlayerinFight] = true;
-                    //where the magic happens after all the checks
-                    StartCoroutine(TakingAutoAttackDamage(fromPlayer, PlayerinFight));
-                }
+                fromPlayer.GetComponent<PlayerConditions>().RevealPlayer();
+                fromPlayer.GetComponent<PlayerGeneral>().RpcMakeSound(fromPlayer.GetComponent<PlayerStats>().PlayerClass_now.ToString() + "_auto_atk", transform.position);
+                //where the magic happens after all the checks
+                TakeHit(fromPlayer, 1f);
             }
 
         }
     }
-    IEnumerator TakingAutoAttackDamage(GameObject fromPlayer, int PlayerinFight)
-    {
-        //this keeps the player from attacking quicker than what he should, but we should probably handle this on the auto attack method instead of on the enemy
-        //because right now, you your auto attack cd is per enemy, if we had an infinite amount of enemies lined up, you could attack each of them one by one without taking auto attack speed into account
-
-        TakeHit(fromPlayer, 1f);
-        //wait for that player auto attack speed
-        yield return new WaitForSeconds(fromPlayer.GetComponent<PlayerStats>().AutoAtk_speed);
-        //flag this as false so player can auto attack again 
-        takingAutoAttackDamage[PlayerinFight] = false;
-
-    }
-
     private void TakeHit(GameObject fromPlayer, float damage_multiplier)
     {
         //used on aggro
@@ -234,7 +215,7 @@ public class EnemyTakeDamage : NetworkBehaviour
         if (fromPlayer.GetComponent<PlayerConditions>().has_buff_debuff(PlayerConditions.type.buff, 17))//if attacker has frozen hands
         {
             EnemyConditions.slowed = true;
-            EnemyConditions.EnemyControllerAI.maxSpeed *= 0.75f;
+            EnemyConditions.AILerp.speed *= 0.75f;
             EnemyConditions.add_buff_debuff(2, null, false, 2.5f, fromPlayer, EnemyConditions.type.debuff, true);
         }
 
@@ -508,10 +489,10 @@ public class EnemyTakeDamage : NetworkBehaviour
             //take damage from HP           
             if (EnemyStats.CurrentHP - DamageToTake < 0f)
             {
-                DamageToTake = EnemyStats.CurrentHP;                
+                DamageToTake = EnemyStats.CurrentHP;
             }
             //add damage to the tracker
-            damage_to_track += DamageToTake;           
+            damage_to_track += DamageToTake;
             //take mob hp
             EnemyStats.CurrentHP -= DamageToTake;
         }
@@ -523,7 +504,7 @@ public class EnemyTakeDamage : NetworkBehaviour
             fromPlayer.GetComponent<PlayerStats>().hpChange(-dmng_reflected);
             fromPlayer.GetComponent<PlayerGeneral>().showCBT(fromPlayer, false, false, dmng_reflected, "reflect");
 
-            if (Mathf.Round(fromPlayer.GetComponent<PlayerStats>().CurrentHP) <= 0)
+            if (Mathf.RoundToInt(fromPlayer.GetComponent<PlayerStats>().CurrentHP) <= 0)
             {
                 //dead body animation
                 EnemySpawnInfo.x_ObjectHelper.spawn_sync_object(2, 15f, transform.position);
@@ -776,14 +757,24 @@ public class EnemyTakeDamage : NetworkBehaviour
             {
                 PlayerStats maxDMGplayer_PlayerStats = maxDMGplayer.GetComponent<PlayerStats>();
                 PlayerInventory maxDMGplayer_PlayerInventory = maxDMGplayer.GetComponent<PlayerInventory>();
+                float modHPonKill = maxDMGplayer_PlayerStats.modHPonKill;
+                float modMPonKill = maxDMGplayer_PlayerStats.modMPonKill;
 
+                if (modHPonKill > 10f)
+                {
+                    modHPonKill = 10f;
+                }
+                if (modMPonKill > 10f)
+                {
+                    modMPonKill = 10f;
+                }
                 if (maxDMGplayer_PlayerStats.CurrentHP > 0)
                 {
                     //modHPonKill
-                    maxDMGplayer_PlayerStats.CurrentHP += (maxDMGplayer_PlayerStats.modHPonKill / 100f * maxDMGplayer_PlayerStats.MaxHealth);
+                    maxDMGplayer_PlayerStats.CurrentHP += Mathf.RoundToInt(modHPonKill / 100f * maxDMGplayer_PlayerStats.MaxHealth);
                     //mod
                     //modMPonKill
-                    maxDMGplayer_PlayerStats.CurrentMP += (maxDMGplayer_PlayerStats.modMPonKill / 100f * maxDMGplayer_PlayerStats.MaxMana);
+                    maxDMGplayer_PlayerStats.CurrentMP += Mathf.RoundToInt(modMPonKill / 100f * maxDMGplayer_PlayerStats.MaxMana);
                     //enchant
                     if (maxDMGplayer_PlayerStats.ench_free_hp_potion_use_on_kill > 0f)
                     {
@@ -793,10 +784,10 @@ public class EnemyTakeDamage : NetworkBehaviour
                             if (item != null)
                             {
                                 var itemData = maxDMGplayer.GetComponent<PlayerGeneral>().ItemDatabase.FetchItemByID(item.itemID);
-                                var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * 0.15f * item.itemUpgrade)) * (1f + (maxDMGplayer_PlayerStats.ench_extra_hp_from_pots / 100f)));
+                                var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * 0.48f * item.itemUpgrade / 100f)) * (1f + (maxDMGplayer_PlayerStats.ench_extra_hp_from_pots / 100f)));
 
                                 maxDMGplayer_PlayerStats.CurrentHP += to_gain;
-                                maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Saphire");
+                                maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Sapphire");
                             }
                         }
                     }
@@ -820,7 +811,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                             }
 
                             maxDMGplayer_PlayerInventory.SendWholeEquipmentToClient();
-                            maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Corrupted Saphire");
+                            maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Corrupted Sapphire");
                         }
                     }
                     if (maxDMGplayer_PlayerStats.ench_free_mp_potion_use_on_kill > 0)
@@ -831,7 +822,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                             if (item != null)
                             {
                                 var itemData = maxDMGplayer.GetComponent<PlayerGeneral>().ItemDatabase.FetchItemByID(item.itemID);
-                                var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * 0.15f * item.itemUpgrade)) * (1f + (maxDMGplayer_PlayerStats.ench_extra_mp_from_pots / 100f)));
+                                var to_gain = Mathf.RoundToInt((itemData.misc_data[0] + (itemData.misc_data[0] * 0.48f * item.itemUpgrade / 100f)) * (1f + (maxDMGplayer_PlayerStats.ench_extra_mp_from_pots / 100f)));
 
                                 maxDMGplayer_PlayerStats.CurrentMP += to_gain;
                                 maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Siderite");
@@ -842,8 +833,8 @@ public class EnemyTakeDamage : NetworkBehaviour
                     {
                         if (Random.Range(0f, 100f) <= maxDMGplayer_PlayerStats.ench_chance_to_get_hpandmp_on_kill)
                         {
-                            maxDMGplayer_PlayerStats.CurrentHP = maxDMGplayer_PlayerStats.CurrentHP + (maxDMGplayer_PlayerStats.MaxHealth * 0.01f);
-                            maxDMGplayer_PlayerStats.CurrentMP = maxDMGplayer_PlayerStats.CurrentMP + (maxDMGplayer_PlayerStats.MaxMana * 0.01f);
+                            maxDMGplayer_PlayerStats.CurrentHP = maxDMGplayer_PlayerStats.CurrentHP + Mathf.RoundToInt(maxDMGplayer_PlayerStats.MaxHealth * 0.1f);
+                            maxDMGplayer_PlayerStats.CurrentMP = maxDMGplayer_PlayerStats.CurrentMP + Mathf.RoundToInt(maxDMGplayer_PlayerStats.MaxMana * 0.1f);
                             maxDMGplayer.GetComponent<PlayerGeneral>().showCBT(maxDMGplayer, true, false, 0, "+Corrupted Siderite");
                         }
                     }
@@ -856,7 +847,7 @@ public class EnemyTakeDamage : NetworkBehaviour
                             {
                                 if (enemies_around[i].GetComponent<EnemyStats>().CurrentHP > 0)
                                 {
-                                    enemies_around[i].GetComponent<EnemyTakeDamage>().TakeHit(maxDMGplayer, 3f);
+                                    enemies_around[i].GetComponent<EnemyTakeDamage>().TakeHit(maxDMGplayer, 2f);
                                 }
 
                             }

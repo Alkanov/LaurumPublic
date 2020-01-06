@@ -169,7 +169,7 @@ public class PlayerStats : NetworkBehaviour
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 0.95f;
+        public static float AutoAtk_speed = 1.15f;
         public static float AutoAtk_range = 1f;
 
         public static float Walking_spd = 1.1f;
@@ -211,7 +211,7 @@ public class PlayerStats : NetworkBehaviour
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 0.9f;
+        public static float AutoAtk_speed = 1.1f;
         public static float AutoAtk_range = 1f;
 
         public static float Walking_spd = 1.1f;
@@ -253,7 +253,7 @@ public class PlayerStats : NetworkBehaviour
 
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 0.8f;
+        public static float AutoAtk_speed = 1.05f;
         public static float AutoAtk_range = 3f;
 
         public static float Walking_spd = 1.2f;
@@ -295,7 +295,7 @@ public class PlayerStats : NetworkBehaviour
         
         public static float Dodge_chance_per_AGI = PlayerSharedStats.MAX_Crit_Dodge * Crit_Dodge_Multiplier;
 
-        public static float AutoAtk_speed = 1f;
+        public static float AutoAtk_speed = 1.2f;
         public static float AutoAtk_range = 2.7f;
 
         public static float Walking_spd = 1.15f;
@@ -418,8 +418,6 @@ public class PlayerStats : NetworkBehaviour
             default:
                 break;
         }
-        //Since this is the same for all classes we can do it here
-        Critical_damage = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Crit_Multiplier].value;
         //damage
         Damage_str = (Damage_str * STR) + PlayerEquipStats[0];
 
@@ -461,7 +459,12 @@ public class PlayerStats : NetworkBehaviour
         }
 
         //Critical damage
+        //Since this is the same for all classes we can do it here
+        Critical_damage = PlayerGeneral.x_ObjectHelper.ServerUniversalSettings.dict_vars[ServerUniversalSettings.var_names.Crit_Multiplier].value;
         Critical_damage = Critical_damage + ((modCritDmg + passive_CritDmg) / 100f);
+        if(Critical_damage > 2f){
+            Critical_damage = 2f;
+        }
 
         //Critical chance
         Critical_chance *= DEX;
@@ -504,6 +507,10 @@ public class PlayerStats : NetworkBehaviour
         //Regens
         HP_regen_percent += modHPRegen + passive_HPRegen;
         MP_regen_percent += passive_MPRegen;
+
+        if(HP_regen_percent > 25f){
+            HP_regen_percent = 25f;
+        }
 
         //Attack speed
         float totalAttkSpd = modAttkSPD + Conditions.increasedAtkSpeed + passive_atk_speed;
@@ -567,6 +574,9 @@ public class PlayerStats : NetworkBehaviour
                 }
             }
             AutoAtk_speed = AutoAtk_speed - secondsToDecreaseOnAutoAtkSpeed;
+            if(AutoAtk_speed < 0.5f){
+                AutoAtk_speed = 0.5f;
+            }
         }
 
         //walking speed = base + variables              
@@ -622,9 +632,9 @@ public class PlayerStats : NetworkBehaviour
 
         //Cool down reduction
         CD_reduction = modCDReduction + passive_CD_redux + Conditions.increasedCooldownReduction;
-        if (CD_reduction > 30f)
+        if (CD_reduction > 33f)
         {
-            CD_reduction = 30f;
+            CD_reduction = 33f;
         }
         //Did anything change? if yes send it to client       
         DetectChangesOnStats_and_sendToClient();
@@ -655,7 +665,7 @@ public class PlayerStats : NetworkBehaviour
         stat_hash[13] = Damage_str;
         stat_hash[14] = Critical_chance;
         stat_hash[15] = Skill_range;
-        stat_hash[16] = AutoAtk_speed + 0.2f;//to allow lag
+        stat_hash[16] = AutoAtk_speed;
         stat_hash[17] = Damage_int;
         stat_hash[18] = Critical_damage;
         stat_hash[19] = AutoAtk_range;
@@ -693,14 +703,10 @@ public class PlayerStats : NetworkBehaviour
         stat_hash[49] = passive_Casting;
         stat_hash[50] = passive_WalkingSpeed;
         stat_hash[51] = passive_MPRegen;
-
-
-
         stat_hash[52] = modDropRate;
         stat_hash[53] = modGoldDrop;
         stat_hash[54] = modExpRate;
         stat_hash[55] = modCDReduction;
-
         stat_hash[56] = PlayerDropChance;
         stat_hash[57] = ExtraGoldDrop;
         stat_hash[58] = ExtraExp;
@@ -769,7 +775,7 @@ public class PlayerStats : NetworkBehaviour
 
     #region Mods
     //Normales        
-    public int modSTR,
+    public float modSTR,
      modDEX,
      modINT,
      modWIS,
@@ -886,7 +892,7 @@ public class PlayerStats : NetworkBehaviour
         PlayerSkillsActions = GetComponent<PlayerSkillsActions>();
         Conditions = GetComponent<PlayerConditions>();
         PlayerAccountInfo = GetComponent<PlayerAccountInfo>();
-
+        PINGPONG_last_rx = Time.time;
     }
     void Start()
     {
@@ -895,6 +901,7 @@ public class PlayerStats : NetworkBehaviour
         HPandMPRegen();
         StartCoroutine(waitsecodsafterstart());
         StartCoroutine(save_exp_cooldown());
+        StartCoroutine(PINGPONG());
     }
     private void OnDestroy()
     {
@@ -1136,6 +1143,14 @@ public class PlayerStats : NetworkBehaviour
             saveCustomStats_all();
         }
     }
+    [Command]
+    public void CmdPONG(int ping)
+    {
+        PINGPONG_last_rx = Time.time;
+#if UNITY_EDITOR
+        //Debug.LogFormat("PONG {0}", ping);
+#endif
+    }
     #endregion
 
     #region Networking Client   
@@ -1175,6 +1190,8 @@ public class PlayerStats : NetworkBehaviour
     {
 
     }
+    [TargetRpc]
+    public void TargetPING(NetworkConnection target, int pong) { }
     #endregion
 
     #region Networking RPC
@@ -1510,16 +1527,16 @@ public class PlayerStats : NetworkBehaviour
                     break;
                 case 3111:
                     stat_training_exp[5] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
-                    stat_training_exp[6] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
+                    stat_training_exp[6] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
                     total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3112:
-                    stat_training_exp[1] += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade));
-                    stat_training_exp[7] += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade));
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.08f * stone_upgrade)); 
-                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.05f * stone_upgrade)); 
+                    stat_training_exp[1] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    stat_training_exp[7] += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade));
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
+                    total_train_exp += Mathf.RoundToInt((WARNING_full_exp * 0.06f * stone_upgrade)); 
                     allowed_to_gain_character_exp = false;
                     break;
                 case 3113:
@@ -2167,7 +2184,7 @@ public class PlayerStats : NetworkBehaviour
         }
         if (in_combat)
         {
-            yield return new WaitForSeconds(HP_regen_time);
+            yield return new WaitForSeconds(HP_regen_time * 1.5f);
         }
         else
         {
@@ -2188,46 +2205,40 @@ public class PlayerStats : NetworkBehaviour
     #region Update Current Stats
     public void ProcessStats()
     {
-        var starter_min_str = 1;
-        var starter_min_int = 1;
+        float starter_min_str = 1f;
+        float starter_min_int = 1f;
+
         switch (PlayerClass_now)
         {
             case PlayerClass.Hunter:
-                starter_min_str = 2;
+                starter_min_str = 2f;
                 break;
             case PlayerClass.Wizard:
-                starter_min_int = 3;
+                starter_min_int = 3f;
                 break;
             case PlayerClass.Paladin:
-                starter_min_int = 2;
+                starter_min_int = 2f;
                 break;
             case PlayerClass.Warrior:
-                starter_min_str = 3;
+                starter_min_str = 3f;
                 break;
             default:
                 break;
         }
 
         STR = Mathf.Round(((starter_min_str + PlayerCustomStats_lvl[0] + PlayerCustomStats_reb[0]) * get_training_multiplier(0)) + modSTR);
-        DEX = ((1 + PlayerCustomStats_lvl[1] + PlayerCustomStats_reb[1]) * get_training_multiplier(1)) + modDEX;
+        DEX = Mathf.Round(((1f + PlayerCustomStats_lvl[1] + PlayerCustomStats_reb[1]) * get_training_multiplier(1)) + modDEX);
         INT = Mathf.Round(((starter_min_int + PlayerCustomStats_lvl[2] + PlayerCustomStats_reb[2]) * get_training_multiplier(2)) + modINT);
-        STA = Mathf.Round(((1 + PlayerCustomStats_lvl[3] + PlayerCustomStats_reb[3]) * get_training_multiplier(3)) + modSTA);
-        WIS = Mathf.Round(((1 + PlayerCustomStats_lvl[4] + PlayerCustomStats_reb[4]) * get_training_multiplier(4)) + modWIS);
-        DEF = Mathf.Round(((1 + PlayerCustomStats_lvl[5] + PlayerCustomStats_reb[5]) * get_training_multiplier(5)) + modDEF);
-        MDEF = Mathf.Round(((1 + PlayerCustomStats_lvl[6] + PlayerCustomStats_reb[6]) * get_training_multiplier(6)) + modMDEF);
-        AGI = ((1 + PlayerCustomStats_lvl[7] + PlayerCustomStats_reb[7]) * get_training_multiplier(7)) + modAGI;
-        LCK = (1 + PlayerEquipStats[8] + PlayerCustomStats_lvl[8] + PlayerCustomStats_reb[8]);
-
-
-        DEX = (float)(Math.Round((Decimal)DEX, 2, MidpointRounding.AwayFromZero)); //round to 2 decimal places
-        AGI = (float)(Math.Round((Decimal)AGI, 2, MidpointRounding.AwayFromZero)); //round to 2 decimal places
-        LCK = (float)(Math.Round((Decimal)LCK, 2, MidpointRounding.AwayFromZero)); //round to 2 decimal places
+        STA = Mathf.Round(((1f + PlayerCustomStats_lvl[3] + PlayerCustomStats_reb[3]) * get_training_multiplier(3)) + modSTA);
+        WIS = Mathf.Round(((1f + PlayerCustomStats_lvl[4] + PlayerCustomStats_reb[4]) * get_training_multiplier(4)) + modWIS);
+        DEF = Mathf.Round(((1f + PlayerCustomStats_lvl[5] + PlayerCustomStats_reb[5]) * get_training_multiplier(5)) + modDEF);
+        MDEF = Mathf.Round(((1f + PlayerCustomStats_lvl[6] + PlayerCustomStats_reb[6]) * get_training_multiplier(6)) + modMDEF);
+        AGI = Mathf.Round(((1f + PlayerCustomStats_lvl[7] + PlayerCustomStats_reb[7]) * get_training_multiplier(7)) + modAGI);
+        LCK = Mathf.Round(1f + PlayerEquipStats[8] + PlayerCustomStats_lvl[8] + PlayerCustomStats_reb[8]);
 
         RefreshStats();
 
         StatsReady = true;
-
-
     }
 
     float get_training_multiplier(int stat_index)
@@ -2236,7 +2247,7 @@ public class PlayerStats : NetworkBehaviour
         {
             if (stat_training_levels[stat_index] >= PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].level_min && stat_training_levels[stat_index] <= PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].level_max)
             {
-                return 1f + (stat_training_levels[stat_index] * PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].multiplier / 100f);
+                return 1f + ((float)stat_training_levels[stat_index] * (float)PlayerGeneral.x_ObjectHelper.stat_training_multipliers_list[i].multiplier / 100f);
             }
         }
         return 1f;
@@ -2353,7 +2364,7 @@ public class PlayerStats : NetworkBehaviour
         //nude
         NudeMode();
         //teleport
-        PlayerMPSync.Unstuck();
+        PlayerGeneral.PlayerTeleport.teleportPlayer(gameObject, PlayerMPSync.unstuck_pos);
         //level 1 = 1001 exp because 1000 triggers the tutorial
         CurrentEXP = 1001f;
         player_exp_change(0, PlayerStats.exp_source.config);
@@ -2480,7 +2491,7 @@ public class PlayerStats : NetworkBehaviour
                             ench_chance_to_get_free_mphp_potion_charge += enchant_found.set_bonuses[enchant_found.IDs.IndexOf(enchants.Key)][enchants.Value - 2];
                             if (!enchants_affecting.Contains(enchant.enchant_base.corrupted_saphire))
                             {
-                                ench_speed_penalty = -20f;
+                                ench_speed_penalty = -25f;
                                 Conditions.decreasedWalkingSpeed = ench_speed_penalty;
                                 RefreshStats();
                                 enchants_affecting.Add(enchant.enchant_base.corrupted_saphire);
@@ -2506,7 +2517,7 @@ public class PlayerStats : NetworkBehaviour
                             ench_chance_to_free_cast += enchant_found.set_bonuses[enchant_found.IDs.IndexOf(enchants.Key)][enchants.Value - 2];
                             if (!enchants_affecting.Contains(enchant.enchant_base.corrupted_gypsum))
                             {
-                                ench_chance_to_fail_casting += 10f;
+                                ench_chance_to_fail_casting += 5f;
                                 enchants_affecting.Add(enchant.enchant_base.corrupted_gypsum);
                             }
                             break;
@@ -2536,5 +2547,27 @@ public class PlayerStats : NetworkBehaviour
     }
     #endregion
 
+    #region PINGPONG    
+    float PINGPONG_last_rx = 0f;
+    float PINGPONG_max_timeout = 15f;//more than 3 pings without answer
+    IEnumerator PINGPONG()
+    {
+        yield return new WaitForSeconds(3f);
+        TargetPING(connectionToClient, 12345);
+#if UNITY_EDITOR
+        //Debug.LogFormat("PING {0}", 12345);
+#endif
+        yield return new WaitForSeconds(1f);//just extra time to allow for RTT
+#if UNITY_EDITOR
+        //Debug.LogFormat("PINGPONG_last_rx {0} RTT {1}", PINGPONG_last_rx, Time.time - PINGPONG_last_rx);
+#endif
+        if (Time.time - PINGPONG_last_rx > PINGPONG_max_timeout)//this should usually be around if(1>15)
+        {
+            //timeout
+            GetComponent<NetworkIdentity>().connectionToClient.Disconnect();
+        }
+        StartCoroutine(PINGPONG());
+    }
+    #endregion
 
 }

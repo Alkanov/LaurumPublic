@@ -12,7 +12,7 @@ public class EnemyAttack : MonoBehaviour
     EnemyTakeDamage EnemyTakeDamage;
     EnemyConditions EnemyConditions;
     EnemySpawnInfo EnemySpawnInfo;
-    Pathfinding.EnemyControllerAI EnemyControllerAI;
+    Pathfinding.AILerp AILerp;
     #endregion
 
     #region Enemy Behaviour
@@ -42,7 +42,7 @@ public class EnemyAttack : MonoBehaviour
         EnemyAggro = GetComponent<EnemyAggro>();
         EnemyStats = GetComponent<EnemyStats>();
         EnemyConditions = GetComponent<EnemyConditions>();
-        EnemyControllerAI = GetComponent<Pathfinding.EnemyControllerAI>();
+        AILerp = GetComponent<Pathfinding.AILerp>();
     }
     void Start()
     {
@@ -294,7 +294,7 @@ public class EnemyAttack : MonoBehaviour
                                 //debuff                                
                                 EnemyConditions.de_buffs.Add(1);
                                 EnemyConditions.stunned = true;
-                                EnemyControllerAI.canMove = false;
+                                AILerp.canMove = false;
                                 EnemyConditions.tracker_list.Add(new EnemyConditions.track_buff_debuffs(1, null, Time.time + 5f, null, false, EnemyConditions.type.debuff, false));
 
                             }
@@ -317,7 +317,7 @@ public class EnemyAttack : MonoBehaviour
                                 //debuff                                
                                 EnemyConditions.de_buffs.Add(1);
                                 EnemyConditions.stunned = true;
-                                EnemyControllerAI.canMove = false;
+                                AILerp.canMove = false;
                                 EnemyConditions.tracker_list.Add(new EnemyConditions.track_buff_debuffs(1, null, Time.time + 5f, null, false, EnemyConditions.type.debuff, false));
                             }
                         }

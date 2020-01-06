@@ -85,7 +85,7 @@ public class EnemyStats : NetworkBehaviour
 
     private void Awake()
     {
-        HP_regen = 0.02f;
+        HP_regen = 0.025f;
         temp_hpregen = hp_regen_time;
         EnemyTakeDamage = GetComponent<EnemyTakeDamage>();
         Conditions = GetComponent<EnemyConditions>();
