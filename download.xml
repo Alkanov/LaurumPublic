@@ -5,11 +5,11 @@
     <quest_data></quest_data>
     <titles_data>[1;I am;0;1;You changed your name;0][2;Friendly;0;1;Nice! 20 Online friends;0][3;Mana Drinker;0;1;Used 100 Mana Potions;0][4;Red Stuff;0;1;Used 100 Health Potions;0][5;Refill-O;0;1;Refilled 500 Potions;0][6;Shopper;1;1;You bought 100 items;0][7;Sold;0;1;You sold over 1000 items;0][8;Collector;0;1;Collected more than 500 items;0][9;Early Supporter;10;0;Thanks for believing;0][10;Killer Instincts;10;0;Not too patient;0][11;Panda Eater;10;0;OMG!?...;0][12;Rock Star;10;0;*Noise*;0][13;The Emperor;10;0;F to pay respect;0][14;Lord;10;0;Please call me M'Lord;0][15;Guild Leader;4;2;Sir, yes sir!;0][16;Guild Moderator;1;2;Keep it under control;0][17;Guild Officer;1;2;Train those maggots Recruits!;0][18;1st GvG Champions;10;2;Congratulations ANN! 28.04.2018;0][19;The Butcher;7;1;Over 1000 PVP kills!;0][20;Superhero;4;1;Reached 2500 karma;0][21;Anti-hero;4;1;Reached -2500 karma;0][22;Gladiator;7;1;500 Honorable kills in the arena;0][23;Monster Hunter;4;1;10.000 Monsters Annihilated ;0][24;Exterminator;7;1;50.000 Monsters exterminated!;0][25;Industrious;7;1;Good Job! 500 Quests finished;0][26;Immortal;10;1;8 Rebirths or more;0][27;Risk Aware;4;1;50 Devil Squares Joined;0][28;DS Strategist;7;1;100 PVP kills in the Devil Square;0][30;Goldilocks;10;1;You own 15M Gold (Tax free);0][31;Necromancer;4;1;For reaching Level 150 as a Wizard;0][32;Rougue;4;1;For Reaching Level 150 as a Hunter;0][33;Cavalier;4;1;For Reaching Level 150 as a Warrior;0][34;Persecutor;4;1;For Reaching Level 150 as a Paladin;0][35;Veteran;7;1;You deserve it;1][36;Graveyard Fan;4;1;Secret Revealed;1][37;Death's Friend;7;1;Does it hurt?;1][38;Boss Hunter;10;1;They fear you now;1][39;Quitter;0;1;Come on! 5 Quest Abandoned;1][40;God Of War;7;1;A lot of damage done;1][41;Knife Catcher;7;1;Secret Revealed;1][42;Conqueror;10;1;Secret Revealed;1][43;Merchant;7;1;Secret Revealed;1][44;Potaholic;1;1;Secret Revealed;1][45;Deal Breaker;0;1;Secret Revealed;1][46;Bloodthirsty;10;1;Secret Revealed;1][47;Maniac;7;1;GM-killer event 07/07/2018;1][48;Patron;10;0;Patreon Supporter!;0][49;Bug Squad;7;1;For a #bugfree LO;0][50;Spooky;10;0;Happy Halloween 2018;0][51;BooOoOoo!;10;0;Did you hear that?...;0][52;Frightening;4;1;Happy Halloween 2018;0][53;Trick or Treat;1;1;Happy Halloween 2018;0][54;Wicked;10;0;Mwahahaha;0][55;Courageous;10;1;From +15 to +16 with Corrupted Jewel;0][56;I Love Staff;10;0;Thanks for your support!;0][57;Newcomer;0;1;Welcome to Laurum Online;1][58;Ready to Grind;0;1;Completed your first PvE quest!;1][59;Devil Square Iron;0;1;Completed the Devil Square Iron Quest;0][60;Devil Square Bronze;0;1;Completed the Devil Square Bronze Quest;1][61;Devil Square Silver;1;1;Completed the Devil Square Silver Quest;1][62;Devil Square Gold;1;1;Completed the Devil Square Gold Quest;0][63;Devil Square Platinum;4;1;Completed the Devil Square Platinum Quest;1][64;Devil Square Diamond;4;1;Completed the Devil Square Diamond Quest;1][65;Devil Square Master;7;1;Completed the Devil Square Master Quest;1][66;Devil Square Grandmaster;7;1;Completed the Devil Square Grandmaster Quest;1][67;Devil Square Challenger;10;1;Completed the Devil Square Challenger Quest;0][68;Council Member;10;1;Given to those who assisted with game development.;0]&amp;&amp;&amp;[10;220;220][11;250;250][12;180;180][13;5000;5000][14;250;250][50;300;300][51;300;300][52;1;1][53;1;1][54;300;300]</titles_data>
     <all_worlds>
- <Worlds>
+      <Worlds>
         <title>&lt;color=red&gt;Testland</title>
         <description>debug only</description>
         <rates>debug</rates>
-        <version_needed>1.3-beta.14.rc</version_needed>
+        <version_needed>1.3.1-beta.1.rc</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>         
           <Servers>
@@ -23,19 +23,7 @@
             <population>Low</population>
             <IP>45.32.180.3</IP>
             <port>31371</port>
-          </Servers>
-          <Servers>
-            <name>&lt;color=red&gt;EU Testland3</name>
-            <population>Low</population>
-            <IP>45.32.180.3</IP>
-            <port>31372</port>
-          </Servers>
-            <Servers>
-            <name>&lt;color=red&gt;EU Testland4</name>
-            <population>Low</population>
-            <IP>45.32.180.3</IP>
-            <port>31373</port>
-          </Servers>
+          </Servers>         
           <Servers>
             <name>&lt;color=red&gt;Localhost</name>
             <population>Low</population>
@@ -43,6 +31,7 @@
             <port>31370</port>
           </Servers>   
          </servers>
-         </Worlds>    </all_worlds>
+       </Worlds>    
+    </all_worlds>
   </RemoteData>
 </ArrayOfRemoteData>
