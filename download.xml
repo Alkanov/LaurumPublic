@@ -9,7 +9,7 @@
         <title>&lt;color=red&gt;Testland</title>
         <description>debug only</description>
         <rates>debug</rates>
-        <version_needed>1.3.2-beta.1</version_needed>
+        <version_needed>1.3.2-beta.2.rc</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>         
           <Servers>
