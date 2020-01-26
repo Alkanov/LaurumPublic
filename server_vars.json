@@ -24,6 +24,26 @@
          "ID":5,
          "value":1,
          "description":"With 1 new formula will be used, otherwise old one"
+      },
+      {
+         "ID":6,
+         "value":1.05,
+         "description":"Extra exp for PVP hardcore"
+      },
+      {
+         "ID":7,
+         "value":1.2,
+         "description":"Extra exp for PVE hardcore"
+      },
+      {
+         "ID":8,
+         "value":2,
+         "description":"Extra stats for PVE hardcore"
+      },
+      {
+         "ID":9,
+         "value":5,
+         "description":"Extra HP for PVE hardcore"
       }
    ]
 }
