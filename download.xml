@@ -13,19 +13,19 @@
         <ends_on>Have fun!</ends_on>
         <servers>         
           <Servers>
-            <name>&lt;color=red&gt;[HPVE]Testland</name>
+            <name>&lt;color=red&gt;Testland [HPVE]</name>
             <population>Low</population>
             <IP>45.32.180.3</IP>
             <port>31370</port>
           </Servers>
           <Servers>
-            <name>&lt;color=red&gt;[HPVEvP]Testland2</name>
+            <name>&lt;color=red&gt;Testland2 [HPVEvP]</name>
             <population>Low</population>
             <IP>45.32.180.3</IP>
             <port>31371</port>
           </Servers>
           <Servers>
-            <name>&lt;color=red&gt;Testland3</name>
+            <name>&lt;color=red&gt;Testland3 [Normal]</name>
             <population>Low</population>
             <IP>45.32.180.3</IP>
             <port>31372</port>
