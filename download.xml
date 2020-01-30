@@ -8,7 +8,7 @@
       <Worlds>
         <title>Localhost</title>
         <description>Debug</description>
-        <rates>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</rates>
+        <rates></rates>
         <version_needed>1.3.3-beta.1</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>
@@ -22,8 +22,8 @@
        </Worlds>
       <Worlds>
         <title>&lt;color=blue&gt;Normal Testland</title>
-        <description>Clasic and Normal Servers</description>
-        <rates>Original world with Open PVP and karma penalties</rates>
+        <description>1.0x EXP | Open PVP | Karma ON</description>
+        <rates>First and Original Laurum Online Experience</rates>
         <version_needed>1.3.3-beta.1</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>
@@ -49,7 +49,7 @@
        </Worlds>
       <Worlds>
         <title>&lt;color=yellow&gt;Nightmare Testland</title>
-        <description>Buffed EXP(x1.25) with Open PVP and karma penalties</description>
+        <description>1.25x EXP | Open PVP | Karma ON</description>
         <rates>Similar to the Normal world but with increased PVE difficulty</rates>
         <version_needed>1.3.3-beta.1</version_needed>
         <ends_on>Have fun!</ends_on>
@@ -76,8 +76,8 @@
        </Worlds>
       <Worlds>
         <title>&lt;color=red&gt;Nightmare-PVP Testland</title>
-        <description>Buffed EXP(x1.25) and free PVP without karma penalties</description>
-        <rates>Increase PVE difficulty on top of free PVP. Hardcore Players Only!</rates>
+        <description>1.30x EXP | Open PVP | &lt;color=red&gt;Karma OFF</description>
+        <rates>Increase PVE difficulty + &lt;color=red&gt;Hardcore PVP Players Only!</rates>
         <version_needed>1.3.3-beta.1</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>
