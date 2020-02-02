@@ -32,12 +32,12 @@
       },
       {
          "ID":7,
-         "value":1.20,
+         "value":1.25,
          "description":"Extra exp for PVE hardcore"
       },
       {
          "ID":8,
-         "value":1.5,
+         "value":2,
          "description":"Extra stats for PVE hardcore"
       },
       {
