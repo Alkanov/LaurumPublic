@@ -102,6 +102,6 @@
          </servers>
        </Worlds>  
     </all_worlds>
-    <localization>0.11</localization>
+    <localization>0.12</localization>
   </RemoteData>
 </ArrayOfRemoteData>
