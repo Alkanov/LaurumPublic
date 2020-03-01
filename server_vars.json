@@ -12,7 +12,7 @@
       },
       {
          "ID":3,
-         "value":0.75,
+         "value":0.775,
          "description":"Nerf Defense % or ^ (Depends on which formula used) (PVP)"
       },
       {
@@ -42,7 +42,7 @@
       },
       {
          "ID":9,
-         "value":1.75,
+         "value":2,
          "description":"Extra HP for PVE hardcore"
       }
    ]
