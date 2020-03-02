@@ -7,12 +7,12 @@
       },
       {
          "ID":2,
-         "value":0.8,
+         "value":0.775,
          "description":"Nerf Damage % or ^ (Depends on which formula used) (PVP)"
       },
       {
          "ID":3,
-         "value":0.8,
+         "value":0.775,
          "description":"Nerf Defense % or ^ (Depends on which formula used) (PVP)"
       },
       {
@@ -27,17 +27,17 @@
       },
       {
          "ID":6,
-         "value":1.05,
+         "value":1.10,
          "description":"Extra exp for PVP hardcore"
       },
       {
          "ID":7,
-         "value":1.2,
+         "value":1.25,
          "description":"Extra exp for PVE hardcore"
       },
       {
          "ID":8,
-         "value":2,
+         "value":1.75,
          "description":"Extra stats for PVE hardcore"
       },
       {
