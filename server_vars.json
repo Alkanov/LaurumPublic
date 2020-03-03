@@ -27,7 +27,7 @@
       },
       {
          "ID":6,
-         "value":1.10,
+         "value":1,
          "description":"Extra exp for PVP hardcore"
       },
       {
@@ -37,13 +37,28 @@
       },
       {
          "ID":8,
-         "value":1.75,
+         "value":1.5,
          "description":"Extra stats for PVE hardcore"
       },
       {
          "ID":9,
          "value":2,
          "description":"Extra HP for PVE hardcore"
+      },
+      {
+         "ID":10,
+         "value":1.5,
+         "description":"Extra exp for PVE nightmare"
+      },
+      {
+         "ID":11,
+         "value":2,
+         "description":"Extra stats for PVE nightmare"
+      },
+      {
+         "ID":12,
+         "value":3,
+         "description":"Extra HP for PVE nightmare"
       }
    ]
 }
