@@ -9,7 +9,7 @@
         <title>&lt;color=white&gt;Localhost</title>
         <description>Debug</description>
         <rates></rates>
-        <version_needed>1.3.4-beta.1</version_needed>
+        <version_needed>1.4.5-beta</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>
           <Servers>
@@ -24,7 +24,7 @@
         <title>Normal Testland</title>
         <description>1.0x EXP | Open PVP | Karma ON</description>
         <rates>First and Original Laurum Online Experience</rates>
-        <version_needed>1.3.4-beta.1</version_needed>
+        <version_needed>1.4.5-beta</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>
           <Servers>
@@ -51,7 +51,7 @@
         <title>&lt;color=yellow&gt;Hard Testland</title>
         <description>1.25x EXP | Open PVP | Karma ON</description>
         <rates>Similar to the Normal world but with increased PVE difficulty</rates>
-        <version_needed>1.3.4-beta.1</version_needed>
+        <version_needed>1.4.5-beta</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>         
           <Servers>
@@ -78,7 +78,7 @@
         <title>&lt;color=red&gt;Nightmare Testland</title>
         <description>1.35x EXP | 1.25x Gold | Open PVP | &lt;color=red&gt;Karma OFF</description>
         <rates>Increase PVE difficulty + &lt;color=red&gt;Hardcore PVP Players Only!</rates>
-        <version_needed>1.3.4-beta.1</version_needed>
+        <version_needed>1.4.5-beta</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>
           <Servers>
