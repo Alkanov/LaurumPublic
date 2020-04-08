@@ -42,7 +42,7 @@
     },
     {
       "ID": 9,
-      "value": 1.75,
+      "value": 2,
       "description": "Extra HP for PVE hardcore"
     },
     {
@@ -52,12 +52,12 @@
     },
     {
       "ID": 11,
-      "value": 1.875,
+      "value": 1.75,
       "description": "Extra stats for PVE nightmare"
     },
     {
       "ID": 12,
-      "value": 3.5,
+      "value": 4,
       "description": "Extra HP for PVE nightmare"
     }
   ]
