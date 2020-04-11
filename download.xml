@@ -54,7 +54,7 @@
         <title>Hard </title>
         <description>1.25x EXP | 1.25x Gold | PvP enabled</description>
         <rates>Similar to the Normal world but with increased PvE difficulty</rates>
-        <version_needed>1.4.5-beta.1</version_needed>
+        <version_needed>1.4.5-beta.2</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>         
           <Servers>
@@ -69,7 +69,7 @@
         <title>Nightmare</title>
         <description>1.5x EXP | 1.25x Gold | PvP enabled</description>
         <rates>Crazy PvE difficulty and PVP</rates>
-        <version_needed>1.4.5-beta.1</version_needed>
+        <version_needed>1.4.5-beta.2</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>
           <Servers>
