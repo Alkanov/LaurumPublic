@@ -63,6 +63,7 @@
             <IP>45.32.180.3</IP>
             <port>31372</port>
           </Servers>
+        </servers>
        </Worlds>
       <Worlds>
         <title>Nightmare</title>
@@ -77,6 +78,7 @@
             <IP>45.32.180.3</IP>
             <port>31373</port>
           </Servers>
+        </servers>
        </Worlds>  
     </all_worlds>
     <localization>1.46</localization>
