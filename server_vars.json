@@ -37,7 +37,7 @@
     },
     {
       "ID": 8,
-      "value": 1.25,
+      "value": 1.375,
       "description": "Extra stats for PVE hardcore"
     },
     {
@@ -52,7 +52,7 @@
     },
     {
       "ID": 11,
-      "value": 1.5,
+      "value": 1.75,
       "description": "Extra stats for PVE nightmare"
     },
     {
