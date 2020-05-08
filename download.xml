@@ -81,12 +81,51 @@
           <Servers>
             <name>Nightmare#1</name>
             <population>Low</population>
-            <IP>45.32.180.3</IP>
+            <IP>185.254.207.19</IP>
             <port>31373</port>
           </Servers>
         </servers>
        </Worlds>  
+        <Worlds>
+        <title>Testing new server</title>
+        <description>testing stuff</description>
+        <rates>...</rates>
+        <version_needed>1.5-beta.0</version_needed>
+        <ends_on>Have fun!</ends_on>
+        <servers>
+          <Servers>
+            <name>test0</name>
+            <population>Low</population>
+            <IP>185.254.207.19</IP>
+            <port>31370</port>
+          </Servers>
+          <Servers>
+            <name>test1</name>
+            <population>Low</population>
+            <IP>185.254.207.19</IP>
+            <port>31371</port>
+          </Servers>
+          <Servers>
+            <name>test2</name>
+            <population>Low</population>
+            <IP>185.254.207.19</IP>
+            <port>31372</port>
+          </Servers>
+          <Servers>
+            <name>test3</name>
+            <population>Low</population>
+            <IP>185.254.207.19</IP>
+            <port>31373</port>
+          </Servers>
+          <Servers>
+            <name>test4</name>
+            <population>Low</population>
+            <IP>185.254.207.19</IP>
+            <port>31374</port>
+          </Servers>
+        </servers>
+       </Worlds>  
     </all_worlds>
-    <localization>1.46</localization>
+    <localization>1.47</localization>
   </RemoteData>
 </ArrayOfRemoteData>
