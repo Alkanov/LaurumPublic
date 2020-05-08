@@ -81,7 +81,7 @@
           <Servers>
             <name>Nightmare#1</name>
             <population>Low</population>
-            <IP>185.254.207.19</IP>
+            <IP>185.254.207.191</IP>
             <port>31373</port>
           </Servers>
         </servers>
@@ -96,31 +96,31 @@
           <Servers>
             <name>test0</name>
             <population>Low</population>
-            <IP>185.254.207.19</IP>
+            <IP>185.254.207.191</IP>
             <port>31370</port>
           </Servers>
           <Servers>
             <name>test1</name>
             <population>Low</population>
-            <IP>185.254.207.19</IP>
+            <IP>185.254.207.191</IP>
             <port>31371</port>
           </Servers>
           <Servers>
             <name>test2</name>
             <population>Low</population>
-            <IP>185.254.207.19</IP>
+            <IP>185.254.207.191</IP>
             <port>31372</port>
           </Servers>
           <Servers>
             <name>test3</name>
             <population>Low</population>
-            <IP>185.254.207.19</IP>
+            <IP>185.254.207.191</IP>
             <port>31373</port>
           </Servers>
           <Servers>
             <name>test4</name>
             <population>Low</population>
-            <IP>185.254.207.19</IP>
+            <IP>185.254.207.191</IP>
             <port>31374</port>
           </Servers>
         </servers>
