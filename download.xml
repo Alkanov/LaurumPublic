@@ -13,11 +13,17 @@
         <ends_on>Have fun!</ends_on>
         <servers>
           <Servers>
-            <name>&lt;color=red&gt;Localhost</name>
+            <name>&lt;color=red&gt;Localhost TCP</name>
             <population>Low</population>
             <IP>127.0.0.1</IP>
             <port>31370</port>
-          </Servers>   
+          </Servers>
+           <Servers>
+            <name>&lt;color=red&gt;Localhost UDP</name>
+            <population>Low</population>
+            <IP>127.0.0.1</IP>
+            <port>7777</port>
+          </Servers> 
          </servers>
        </Worlds>
       <Worlds>
