@@ -59,6 +59,22 @@
       "ID": 12,
       "value": 3.75,
       "description": "Extra HP for PVE nightmare"
+    },
+    {
+      "ID": 13,
+      "value": 1,
+      "description": "On/off"
+    },
+    {
+      "ID": 14,
+      "value": 25,
+      "description": "# actions"
+    },
+    {
+      "ID": 15,
+      "value": 26,
+      "description": "# before pen"
     }
+    
   ]
 }
