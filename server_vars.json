@@ -42,7 +42,7 @@
     },
     {
       "ID": 9,
-      "value": 1.875,
+      "value": 2,
       "description": "Extra HP for PVE hardcore"
     },
     {
@@ -59,6 +59,27 @@
       "ID": 12,
       "value": 3.75,
       "description": "Extra HP for PVE nightmare"
+    },
+    {
+      "ID": 13,
+      "value": 1,
+      "description": "On/off"
+    },
+    {
+      "ID": 14,
+      "value": 150,
+      "description": "# actions"
+    },
+    {
+      "ID": 15,
+      "value": 150,
+      "description": "# before pen"
+    },
+    {
+      "ID": 16,
+      "value": 300,
+      "description": "flag notif timer"
     }
+    
   ]
 }
