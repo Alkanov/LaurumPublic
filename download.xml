@@ -36,13 +36,13 @@
           <Servers>
             <name>PVE#1 TCP</name>
             <population>Low</population>
-            <IP>45.32.180.3</IP>
+            <IP>209.250.244.245</IP>
             <port>31370</port>
           </Servers>    
             <Servers>
             <name>PVE#1 UDP</name>
             <population>Low</population>
-            <IP>45.32.180.3</IP>
+            <IP>209.250.244.245</IP>
             <port>31470</port>
           </Servers>   
          </servers>
@@ -57,7 +57,7 @@
           <Servers>
             <name>Normal#1 TCP</name>
             <population>Low</population>
-            <IP>45.32.180.3</IP>
+            <IP>209.250.244.245</IP>
             <port>31370</port>
           </Servers>
           <Servers>
