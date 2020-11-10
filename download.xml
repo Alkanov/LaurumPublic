@@ -9,7 +9,7 @@
         <title>Localhost</title>
         <description>Debug</description>
         <rates></rates>
-        <version_needed>1.5-beta.6</version_needed>
+        <version_needed>1.5-beta.7</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>
           <Servers>
@@ -30,7 +30,7 @@
         <title>Normal PvE</title>
         <description>1.0x EXP | PvP disabled</description>
         <rates>PvE version of the Original Laurum Online Experience</rates>
-        <version_needed>1.5-beta.6</version_needed>
+        <version_needed>1.5-beta.7</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>
           <Servers>
@@ -51,7 +51,7 @@
         <title>Normal PVP</title>
         <description>1.0x EXP | 1.25x Gold | PvP enabled</description>
         <rates>The Original Laurum Online Experience</rates>
-        <version_needed>1.5-beta.6</version_needed>
+        <version_needed>1.5-beta.7</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>
           <Servers>
@@ -72,7 +72,7 @@
         <title>Hard </title>
         <description>1.25x EXP | 1.25x Gold | PvP enabled</description>
         <rates>Similar to the Normal world but with increased PvE difficulty</rates>
-        <version_needed>1.5-beta.6</version_needed>
+        <version_needed>1.5-beta.7</version_needed>
         <ends_on>Have fun!</ends_on>
         <servers>         
           <Servers>
@@ -90,6 +90,6 @@
         </servers>
        </Worlds> 
     </all_worlds>
-    <localization>1.51</localization>
+    <localization>1.52</localization>
   </RemoteData>
 </ArrayOfRemoteData>
