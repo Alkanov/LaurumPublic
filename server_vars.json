@@ -79,7 +79,11 @@
       "ID": 16,
       "value": 300,
       "description": "flag notif timer"
+    },
+    {
+      "ID": 17,
+      "value": 5,
+      "description": "bp a day"
     }
-    
   ]
 }
