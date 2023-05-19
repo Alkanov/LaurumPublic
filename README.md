@@ -1,10 +1,10 @@
 # LaurumPublic
 Repository with Laurums Online public information, available to everyone to help
 
-Player->Enemy damage = EnemyTakeDamage
-
-Player->Player damage = PlayerPVPDamage
-
-Enemy->Player = EnemyAttack
-
-Player stats are calculated in PlayerStats
+# Nightmare config
+Difficulty:
+- Monster stats multiplier: https://github.com/Alkanov/LaurumPublic/blob/master/server_vars.json#L55
+- Monster HP multiplier: https://github.com/Alkanov/LaurumPublic/blob/master/server_vars.json#L60
+- Extra EXP: https://github.com/Alkanov/LaurumPublic/blob/master/server_vars.json#L60
+- Drops: 1.55x
+- PVP: enabled
