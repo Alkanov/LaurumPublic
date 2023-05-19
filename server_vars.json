@@ -52,12 +52,12 @@
     },
     {
       "ID": 11,
-      "value": 4.0,
+      "value": 3.0,
       "description": "Extra stats for PVE nightmare"
     },
     {
       "ID": 12,
-      "value": 5.0,
+      "value": 4.0,
       "description": "Extra HP for PVE nightmare"
     },
     {
