@@ -47,17 +47,17 @@
     },
     {
       "ID": 10,
-      "value": 1.5,
+      "value": 2.5,
       "description": "Extra exp for PVE nightmare"
     },
     {
       "ID": 11,
-      "value": 1.75,
+      "value": 3.0,
       "description": "Extra stats for PVE nightmare"
     },
     {
       "ID": 12,
-      "value": 3.75,
+      "value": 5.0,
       "description": "Extra HP for PVE nightmare"
     },
     {
@@ -82,7 +82,7 @@
     },
     {
       "ID": 17,
-      "value": 5,
+      "value": 15,
       "description": "bp a day"
     }
   ]
