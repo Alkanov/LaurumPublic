@@ -1,0 +1,38 @@
+server:
+  id: 1
+  name: ServDev1
+  is_test_server: false
+  auto_restart: 2
+  type: Hard
+
+enemies:
+  atk_buff: 1.5
+  more_hp: 1.2
+  more_defense: 1.1
+  attack_modifiers:
+    stun_buff_chance: 0.2
+    stun_time: 5.0
+    apply_dots_chance: 0.1
+    dots_multiplier: 2.0
+    lock_potion_usage_chance: 0.3
+    lock_potion_time: 10.0
+    burn_player_mana_chance: 0.2
+    burn_player_mana_multiplier: 0.5
+  rewards:
+    drop_more_gold: 1.2
+    drop_more_exp: 1.3
+    drop_more_items: 1.5
+    drop_more_corrupted_items: 1.8
+
+player:
+  penalties:
+    exp_penalty_on_death:
+      pve: 0.2
+      pvp: 0.5
+    item_downgrade_on_death:
+      chance: 0.1
+      amount: 0.2
+
+server_env_damage:
+  multiplier: 0.3
+  power: 50.0
