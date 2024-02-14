@@ -1,5 +1,5 @@
 server:
-  version: 2
+  version: 3
   id: 1
   name: ServDev1
   is_test_server: false
@@ -13,15 +13,15 @@ server:
 
 enemies:
   atk_buff: 1.0
-  max_hp_multiplier: 1.0
-  more_defense: 1.0
+  max_hp_multiplier: 1.0 #1
+  more_defense: 1.0 #1
   hp_regen: 2.5
   dodge_chance_additional_percentage: 0
   critical_chance_additional_percentage: 0
   attack_speed_wait_multiplier: 1.0 #wait more if higher
   walking_speed: 1.0  
-  random_buffs_chance: 1.0
-  random_buffs_amounts: 1
+  random_buffs_chance: 50 #1
+  random_buffs_amounts: 2 #1
 
   boss_stats:
     random_buff_chance: 10.0
@@ -34,7 +34,7 @@ enemies:
     max_hp_multiplier: 1.0
   
   master_monster_stats:
-    min_level_required: 100
+    min_level_required: 1 #100
     spawn_chance: 1.0
     critical_additional: 20.0
     exp_multiplier: 10.0
