@@ -1,0 +1,11 @@
+---
+PvpFinalDamageNerf: 0.0  # Nerf % to the Final(Total) damage (PVP)
+PvpDamageNerf: 0.0  # Nerf Damage % or ^ (Depends on which formula used) (PVP)
+PvpDefenseNerf: 0.0  # Nerf Defense % or ^ (Depends on which formula used) (PVP)
+CritMultiplier: 0.0  # Base Crit Dmg % (PVE)
+UseNewPvpFormula: false  # With 1 new formula will be used, otherwise old one
+PenalizeAfkers: false  # Penalize AFkers
+AfkActionsThreshold: 0  # AFK actions threshold before considered botter
+PenalizeAfkActionsThreshold: 0  # Threshold of afk actions before we penalize them
+TimeBetweenAfkFlags: 0.0  # Max time between server afk flags
+BossPetsPerReboot: 0  # Max Boss pets dropped per server reboot
