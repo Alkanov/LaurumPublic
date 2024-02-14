@@ -12,14 +12,22 @@ enemies:
   hp_regen: 2.5
   dodge_chance_additional_percentage: 0
   critical_chance_additional_percentage: 0
-  attack_speed_wait_multiplier: 1.0
+  attack_speed_wait_multiplier: 1.0 #wait more if higher
   walking_speed: 1.0  
   random_buffs_chance: 1.0
   random_buffs_amounts: 1
   
   master_monster_stats:
     min_level_required: 100
-    master_monster_chance: 1.0
+    spawn_chance: 1.0
+    critical_additional: 20.0
+    exp_multiplier: 10.0
+    defense_multiplier: 1.5
+    damage_multiplier: 1.5
+    dodge_chance_additional: 20.0
+    max_hp_multiplier: 5.0
+    walking_speed_multiplier: 20.0
+    max_aggro_range_multiplier: 2.0
     
   attack_modifiers:
     stun_buff_chance: 0.2
