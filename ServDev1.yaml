@@ -2,7 +2,7 @@ server:
   id: 1
   name: ServDev1
   is_test_server: false
-  auto_restart: 2
+  auto_restart: 86400
   type: Normal
 
 enemies:
