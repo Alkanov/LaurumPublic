@@ -4,6 +4,11 @@ server:
   is_test_server: false
   auto_restart: 86400
   type: Normal
+  pvp:
+    enabled: false
+    gvg_event:
+      enabled: false
+      use_even_time: false
 
 enemies:
   atk_buff: 1.0
