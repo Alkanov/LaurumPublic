@@ -3,12 +3,24 @@ server:
   name: ServDev1
   is_test_server: false
   auto_restart: 2
-  type: Nightmare
+  type: Normal
 
 enemies:
-  atk_buff: 1.5
-  more_hp: 1.2
-  more_defense: 1.1
+  atk_buff: 1.0
+  max_hp_multiplier: 1.0
+  more_defense: 1.0
+  hp_regen: 2.5
+  dodge_chance_additional_percentage: 0
+  critical_chance_additional_percentage: 0
+  attack_speed_wait_multiplier: 1.0
+  walking_speed: 1.0  
+  random_buffs_chance: 1.0
+  random_buffs_amounts: 1
+  
+  master_monster_stats:
+    min_level_required: 100
+    master_monster_chance: 1.0
+    
   attack_modifiers:
     stun_buff_chance: 0.2
     stun_time: 5.0
