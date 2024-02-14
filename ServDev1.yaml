@@ -3,7 +3,7 @@ server:
   name: ServDev1
   is_test_server: false
   auto_restart: 2
-  type: Normal
+  type: Nightmare
 
 enemies:
   atk_buff: 1.5
