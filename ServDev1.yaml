@@ -13,8 +13,8 @@ server:
 
 enemies:
   atk_buff: 1.0
-  max_hp_multiplier: 1.0 #1
-  more_defense: 1.0 #1
+  max_hp_multiplier: 5000 #1
+  more_defense: 500 #1
   hp_regen: 2.5
   dodge_chance_additional_percentage: 0
   critical_chance_additional_percentage: 0
@@ -35,7 +35,7 @@ enemies:
   
   master_monster_stats:
     min_level_required: 1 #100
-    spawn_chance: 1.0
+    spawn_chance: 50.0 #1.0
     critical_additional: 20.0
     exp_multiplier: 10.0
     defense_multiplier: 1.5
