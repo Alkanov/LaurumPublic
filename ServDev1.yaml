@@ -1,5 +1,5 @@
 server:
-  version: 10
+  version: 1
   id: 1
   name: ServDev1
   is_test_server: true
@@ -66,15 +66,15 @@ enemies:
       drop_more_exp: 10
       drop_more_items: 1.0
 
-
 player: 
   penalties: 
     exp_penalty_on_death: 
-      pve: 25
-      pvp: 0
-    item_downgrade_on_death: #tbd
-      chance: 0.1 #tbd
-      amount: 1 #tbd
+      pve:
+        chance: 10
+        amount: 5
+      pvp:
+        chance: 3
+        amount: 0
 
 server_env_damage: #tbd
   multiplier: 0.3 #tbd
