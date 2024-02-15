@@ -28,15 +28,37 @@ enemies:
     gold_drop_multiplier: 3 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
     drop_more_exp: 1.3
     drop_more_items: 1.5 #1.0
-  attack_modifiers: #tbd
-    stun_buff_chance: 0.2 #tbd
-    stun_time: 5.0 #tbd
-    apply_dots_chance: 0.1 #tbd
-    dots_multiplier: 2.0 #tbd
-    lock_potion_usage_chance: 0.3 #tbd
-    lock_potion_time: 10.0 #tbd
-    burn_player_mana_chance: 0.2 #tbd
-    burn_player_mana_multiplier: 0.5 #tbd    
+  attack_modifiers: #tbd 
+    stun:
+      spawn_chance: 100
+      time: 5.0
+      cast_chance: 30
+    burn:
+      spawn_chance: 0
+      time: 5.0
+      cast_chance: 3
+    bleed:
+      spawn_chance: 0
+      time: 5.0
+      cast_chance: 3
+    lock_potion:
+      spawn_chance: 0
+      time: 5.0
+      cast_chance: 3
+    burn_mana:
+      spawn_chance: 0
+      time: 5.0
+      cast_chance: 3
+    slow:
+      spawn_chance: 0
+      time: 5.0
+      cast_chance: 3
+    fear:
+      spawn_chance: 0
+      time: 5.0
+      cast_chance: 3
+    
+      
     
   boss:
     random_buff_chance: 10.0
