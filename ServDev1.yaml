@@ -1,5 +1,5 @@
 server:
-  version: 6
+  version: 7
   id: 1
   name: ServDev1
   is_test_server: false
@@ -45,11 +45,11 @@ enemies:
     damage_multiplier: 1.0
     dodge_chance_additional: 0
     max_hp_multiplier: 1.0
-  rewards:
-    gold_drop_multiplier: 1.0 # Random.Range(1000, 5000 + 1)
-    drop_more_exp: 1.0
-    drop_more_items: 1.5 #tbd
-    drop_more_corrupted_items: 1.8 #tbd
+    rewards:
+      gold_drop_multiplier: 1.0 # Random.Range(1000, 5000 + 1)
+      drop_more_exp: 1.0
+      drop_more_items: 1.5 #tbd
+      drop_more_corrupted_items: 1.8 #tbd
     
   elites:
     min_level_required: 1 #100
@@ -61,11 +61,11 @@ enemies:
     max_hp_multiplier: 5.0
     walking_speed_multiplier: 20.0
     max_aggro_range_multiplier: 2.0
-  rewards:
-    gold_drop_multiplier: 10 # Random.Range(1000, 5000 + 1)
-    drop_more_exp: 10
-    drop_more_items: 1.5 #tbd
-    drop_more_corrupted_items: 1.8 #tbd
+    rewards:
+      gold_drop_multiplier: 10 # Random.Range(1000, 5000 + 1)
+      drop_more_exp: 10
+      drop_more_items: 1.5 #tbd
+      drop_more_corrupted_items: 1.8 #tbd
 
 
 player: #tbd
