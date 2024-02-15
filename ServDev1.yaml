@@ -1,5 +1,5 @@
 server:
-  version: 233
+  version: 2333
   id: 1
   name: ServDev1
   is_test_server: true
@@ -23,7 +23,7 @@ enemies:
   random_buffs_chance: 1 #1
   random_buffs_amounts: 1 #1
   is_aggro_passive: false
-  corrupted_ench_chance: 5.0
+  corrupted_ench_chance: 50 #5
   rewards:
     gold_drop_multiplier: 3 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
     drop_more_exp: 1.3
