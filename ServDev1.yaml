@@ -34,7 +34,7 @@ enemies:
       time: 5.0
       cast_chance: 30
     burn:
-      spawn_chance: 10
+      spawn_chance: 0
       time: 10
       cast_chance: 30
       power: 10 # % of hp over time
@@ -44,8 +44,8 @@ enemies:
       cast_chance: 50
       power: 10 # % of hp over time
     lock_potion:
-      spawn_chance: 40
-      time: 5.0
+      spawn_chance: 50
+      time: 10
       cast_chance: 50
     burn_mana:
       spawn_chance: 0
