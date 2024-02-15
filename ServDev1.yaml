@@ -27,8 +27,8 @@ enemies:
   rewards:
     gold_drop_multiplier: 3 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
     drop_more_exp: 1.3
-    drop_more_items: 1.5 #1.0
-  attack_modifiers: #tbd 
+    drop_more_items: 10 #1.0
+  attack_modifiers:
     stun:
       spawn_chance: 0
       time: 5.0
@@ -44,15 +44,15 @@ enemies:
       cast_chance: 50
       power: 10 # % of hp over time
     lock_potion:
-      spawn_chance: 33
+      spawn_chance: 0
       time: 10
       cast_chance: 50
     slow:
-      spawn_chance: 33
+      spawn_chance: 0
       time: 15.0
       cast_chance: 50
     confusion:
-      spawn_chance: 34
+      spawn_chance: 0
       time: 5.0
       cast_chance: 50
     
