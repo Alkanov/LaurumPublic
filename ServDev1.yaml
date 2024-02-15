@@ -2,7 +2,7 @@ server:
   version: 7
   id: 1
   name: ServDev1
-  is_test_server: false
+  is_test_server: true
   auto_restart: 86400
   type: Normal
   pvp:
@@ -59,7 +59,7 @@ enemies:
     damage_multiplier: 1.5
     dodge_chance_additional: 20.0
     max_hp_multiplier: 5.0
-    walking_speed_multiplier: 20.0
+    walking_speed_multiplier: 1.5
     max_aggro_range_multiplier: 2.0
     rewards:
       gold_drop_multiplier: 10 # Random.Range(1000, 5000 + 1)
