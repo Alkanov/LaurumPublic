@@ -30,13 +30,13 @@ enemies:
     drop_more_items: 1.5 #1.0
   attack_modifiers: #tbd 
     stun:
-      spawn_chance: 100
+      spawn_chance: 0
       time: 5.0
       cast_chance: 30
     burn:
-      spawn_chance: 0
-      time: 5.0
-      cast_chance: 3
+      spawn_chance: 100
+      time: 10
+      cast_chance: 30
     bleed:
       spawn_chance: 0
       time: 5.0
