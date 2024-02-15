@@ -2,7 +2,7 @@
 version: 1
 PvpDamageNerf: 0.85  # Nerf Damage % or ^ (Depends on which formula used) (PVP)
 PvpDefenseNerf: 0.825  # Nerf Defense % or ^ (Depends on which formula used) (PVP)
-AfkActionsThreshold: 150  # AFK actions threshold before considered botter
-PenalizeAfkActionsThreshold: 150  # Threshold of afk actions before we penalize them
-TimeBetweenAfkFlags: 300.0  # Max time between server afk flags
-BossPetsPerReboot: 15  # Max Boss pets dropped per server reboot
+aat: 150  # AFK actions threshold before considered botter
+paat: 150  # Threshold of afk actions before we penalize them
+tbaf: 300.0  # Max time between server afk flags
+bppr: 15  # Max Boss pets dropped per server reboot
