@@ -1,5 +1,5 @@
 server:
-  version: 2
+  version: 23
   id: 1
   name: ServDev1
   is_test_server: true
@@ -42,6 +42,7 @@ enemies:
       spawn_chance: 50
       time: 30.0
       cast_chance: 50
+      power: 10 # % of hp over time
     lock_potion:
       spawn_chance: 40
       time: 5.0
@@ -50,6 +51,7 @@ enemies:
       spawn_chance: 0
       time: 5.0
       cast_chance: 3
+      power: 10 # % of hp over time
     slow:
       spawn_chance: 0
       time: 5.0
