@@ -1,5 +1,5 @@
 server:
-  version: 1
+  version: 12
   id: 1
   name: ServDev1
   is_test_server: true
@@ -40,15 +40,15 @@ enemies:
       cast_chance: 50
       power: 10 # % of hp over time
     poison:
-      spawn_chance: 50
+      spawn_chance: 0
       time: 30.0
       cast_chance: 50
       power: 50 # % of hp over time
     aoe_poison:
-      spawn_chance: 50
-      time: 30.0
+      spawn_chance: 100
+      time: 15
       cast_chance: 50
-      power: 50 # % of hp over time
+      power: 100 # % of hp over time
     stun:
       spawn_chance: 0
       time: 5.0
