@@ -1,5 +1,5 @@
 server:
-  version: 1
+  version: 12
   id: 1
   name: ServDev1
   is_test_server: true
@@ -28,6 +28,7 @@ enemies:
     gold_drop_multiplier: 3 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
     drop_more_exp: 1.3
     drop_more_items: 2 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
+    extra_material: 1.0 # added to the result and after server event
     new_item:
       RNG_mod: true
       mod_extra_luck: 0.0
@@ -86,7 +87,8 @@ enemies:
     rewards:
       gold_drop_multiplier: 1.0 # Random.Range(1000, 5000 + 1)
       drop_more_exp: 1.0
-      drop_more_items: 1.0
+      drop_more_items: 1.0 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
+      extra_material: 1.0 # added to the result and after server event
       new_item:
         RNG_mod: true
         mod_extra_luck: 0.0
@@ -111,6 +113,7 @@ enemies:
       gold_drop_multiplier: 10 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
       drop_more_exp: 10
       drop_more_items: 2 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
+      extra_material: 1.0 # added to the result and after server event
       new_item:
         RNG_mod: true
         mod_extra_luck: 100
