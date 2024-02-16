@@ -48,8 +48,8 @@ enemies:
       time: 10
       cast_chance: 50
     slow:
-      spawn_chance: 0
-      time: 15.0
+      spawn_chance: 100
+      time: 1
       cast_chance: 50
     confusion:
       spawn_chance: 0
