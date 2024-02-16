@@ -1,5 +1,5 @@
 server:
-  version: 123
+  version: 33
   id: 1
   name: ServDev1
   is_test_server: true
@@ -10,8 +10,24 @@ server:
     gvg_event:
       enabled: false
       use_even_time: false
-
+  env_damage: #tbd
+    multiplier: 0.3 #tbd
+    power: 50.0 #tbd
+player: 
+  penalties: 
+    exp_penalty_on_death: 
+      pve:
+        chance: 10
+        amount: 5
+      pvp:
+        chance: 3
+        amount: 0
+  
 enemies:
+  boss_upgrade:
+    max_in_bosses_open_world: 5
+    chance: 1.0
+    spawn_cool_down_mins: 60 # can only happen every x minutes
   atk_buff: 1.0
   max_hp_multiplier: 1.1 #1
   more_defense: 1 #1
@@ -125,16 +141,3 @@ enemies:
         RNG_quality: true
         quality_extra_luck: 50000 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
         
-player: 
-  penalties: 
-    exp_penalty_on_death: 
-      pve:
-        chance: 10
-        amount: 5
-      pvp:
-        chance: 3
-        amount: 0
-
-server_env_damage: #tbd
-  multiplier: 0.3 #tbd
-  power: 50.0 #tbd
