@@ -4,7 +4,7 @@ server:
   name: ServDev1
   is_test_server: true
   auto_restart: 172800
-  type: Hard
+  type: Terror
   pvp:
     enabled: false
     gvg_event:
