@@ -26,7 +26,7 @@ player:
 enemies:
   boss_upgrade:
     max_in_bosses_open_world: 5
-    chance: 1.0
+    chance: 100
     spawn_cool_down_mins: 60 # can only happen every x minutes
   atk_buff: 1.0
   max_hp_multiplier: 1.1 #1
