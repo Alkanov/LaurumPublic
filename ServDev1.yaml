@@ -1,10 +1,10 @@
 server:
-  version: 1
+  version: 2
   id: 1
   name: ServDev1
   is_test_server: true
   auto_restart: 172800
-  type: Hard
+  type: Terror
   pvp:
     enabled: false
     gvg_event:
