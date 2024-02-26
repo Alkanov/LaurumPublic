@@ -1,0 +1,144 @@
+server:
+  version: 1
+  id: 1
+  name: ServDev2
+  is_test_server: true
+  auto_restart: 172800
+  type: Terror
+  pvp:
+    enabled: true
+    gvg_event:
+      enabled: false
+      use_even_time: false
+  env_damage: #tbd
+    multiplier: 0.3 #tbd
+    power: 50.0 #tbd
+player: 
+  penalties: 
+    exp_penalty_on_death: 
+      pve:
+        chance: 25
+        amount: 15
+      pvp:
+        chance: 25
+        amount: 15
+  
+enemies:
+  is_aggro_passive: false
+  hp_regen: 1.4
+  attack_speed_wait_multiplier: 0.6 #wait more if higher
+  walking_speed: 1.35    
+  corrupted_ench_chance: 15 #5 
+  boss_upgrade:
+    max_in_bosses_open_world: 3
+    chance: 100
+    spawn_cool_down_mins: 60 # can only happen every x minutes
+  # general stats
+  random_buffs_chance: 80 #1
+  random_buffs_amounts: 4 #1
+  dodge_chance_additional_percentage: 30.0
+  critical_chance_additional_percentage: 30.0
+  defense_multiplier: 8.0
+  damage_multiplier: 5.0
+  max_hp_multiplier: 5.0
+  rewards:
+    gold_drop_multiplier: 2.25 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
+    drop_more_exp: 2.25
+    drop_more_items: 2.75 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
+    extra_material: 2 # added to the result and after server event
+    new_item:
+      RNG_mod: true
+      mod_extra_luck: 5.55
+      guaranteed_mods_number: 3
+      RNG_upgrade: true
+      upgrade_extra_luck: 5
+      RNG_enchant: true
+      enchant_extra_luck: 40
+      RNG_quality: true
+      quality_extra_luck: 0.0 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
+  attack_modifiers:
+    burn:
+      spawn_chance: 15
+      time: 10.0
+      cast_chance: 20
+      power: 2 # x times the monster normal hit before applying player defenses
+    bleed:
+      spawn_chance: 15
+      time: 10.0
+      cast_chance: 20
+      power: 2 # x times the monster normal hit before applying player defenses
+    poison:
+      spawn_chance: 15
+      time: 10.0
+      cast_chance: 20
+      power: 2 # x times the monster hit before applying player defenses
+    aoe_poison:
+      spawn_chance: 15
+      time: 10.0
+      cast_chance: 20
+      power: 2 # x times the monster hit before applying player defenses
+    stun:
+      spawn_chance: 2.0
+      time: 5.0
+      cast_chance: 20.0
+    lock_potion:
+      spawn_chance: 5.0
+      time: 10.0
+      cast_chance: 20.0
+    slow:
+      spawn_chance: 3.0
+      time: 5.0
+      cast_chance: 20.0
+    confusion:
+      spawn_chance: 1.0
+      time: 5.0
+      cast_chance: 20.0
+  boss:
+    random_buffs_chance: 80 #1
+    random_buffs_amounts: 4 #1  
+    critical_chance_additional_percentage: 30.0
+    dodge_chance_additional_percentage: 30.0
+    defense_multiplier: 2.0
+    damage_multiplier: 1.9
+    max_hp_multiplier: 2.5
+    rewards:
+      gold_drop_multiplier: 10
+      drop_more_exp: 2.25
+      drop_more_items: 2.75 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
+      extra_material: 2 # added to the result and after server event
+      new_item:
+        RNG_mod: true
+        mod_extra_luck: 5.55
+        guaranteed_mods_number: 3
+        RNG_upgrade: true
+        upgrade_extra_luck: 5
+        RNG_enchant: true
+        enchant_extra_luck: 40
+        RNG_quality: true
+        quality_extra_luck: 0.0 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
+  elites:
+    min_level_required: 1 #100
+    spawn_chance: 10.0 #1.0
+    critical_chance_additional_percentage: 15
+    dodge_chance_additional_percentage: 15
+    defense_multiplier: 1.5
+    damage_multiplier: 1.3
+    max_hp_multiplier: 2.5
+    walking_speed_multiplier: 1.65
+    max_aggro_range_multiplier: 2.0
+    rewards:
+      gold_drop_multiplier: 5 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
+      drop_more_exp: 2.25
+      drop_more_items: 2.75 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
+      extra_material: 2 # added to the result and after server event
+      new_item:
+        RNG_mod: true
+        mod_extra_luck: 5.55
+        guaranteed_mods_number: 3
+        RNG_upgrade: true
+        upgrade_extra_luck: 5
+        RNG_enchant: true
+        enchant_extra_luck: 40
+        RNG_quality: true
+        quality_extra_luck: 0.0 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
+        
