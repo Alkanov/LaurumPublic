@@ -40,7 +40,7 @@ enemies:
   dodge_chance_additional_percentage: 30.0
   critical_chance_additional_percentage: 30.0
   defense_multiplier: 8.0
-  damage_multiplier: 5.0
+  damage_multiplier: 4.0
   max_hp_multiplier: 5.0
   rewards:
     gold_drop_multiplier: 2.5 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
