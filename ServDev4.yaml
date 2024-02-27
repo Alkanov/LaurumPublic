@@ -1,5 +1,5 @@
 server:
-  version: 12
+  version: 1
   id: 4
   name: ServDev4
   is_test_server: true
