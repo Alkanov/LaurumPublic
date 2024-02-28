@@ -1,5 +1,5 @@
 server:
-  version: 12
+  version: 122
   id: 2
   name: ServDev2
   is_test_server: true
@@ -39,8 +39,8 @@ enemies:
   random_buffs_amounts: 1 #1
   dodge_chance_additional_percentage: 5.0
   critical_chance_additional_percentage: 5.0
-  defense_multiplier: 1.25
-  damage_multiplier: 1.375
+  defense_multiplier: 2.0
+  damage_multiplier: 1.5
   max_hp_multiplier: 2.0
   rewards:
     gold_drop_multiplier: 1.5 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
