@@ -7,3 +7,4 @@ paat: 150
 tbaf: 300.0
 bppr: 15
 MaxWallJumpDistance: 0.8
+PenaltyPerRebirth: 0.35
