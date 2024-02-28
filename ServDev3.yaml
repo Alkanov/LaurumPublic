@@ -1,5 +1,5 @@
 server:
-  version: 1
+  version: 12
   id: 3
   name: ServDev3
   is_test_server: true
@@ -37,8 +37,8 @@ enemies:
   # general stats
   random_buffs_chance: 25 #1
   random_buffs_amounts: 2 #1
-  dodge_chance_additional_percentage: 6.0
-  critical_chance_additional_percentage: 6.0
+  dodge_chance_additional_percentage: 0.0
+  critical_chance_additional_percentage: 0.0
   defense_multiplier: 3.5
   damage_multiplier: 3.0
   max_hp_multiplier: 4.0
