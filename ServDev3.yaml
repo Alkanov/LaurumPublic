@@ -1,5 +1,5 @@
 server:
-  version: 122
+  version: 1
   id: 3
   name: ServDev3
   is_test_server: true
@@ -39,8 +39,8 @@ enemies:
   random_buffs_amounts: 2 #1
   dodge_chance_additional_percentage: 6.0
   critical_chance_additional_percentage: 6.0
-  defense_multiplier: 2.25
-  damage_multiplier: 2.375
+  defense_multiplier: 3.5
+  damage_multiplier: 3.0
   max_hp_multiplier: 4.0
   rewards:
     gold_drop_multiplier: 2.0 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
@@ -119,7 +119,7 @@ enemies:
         quality_extra_luck: 0.0 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
   elites:
     min_level_required: 50 #100
-    spawn_chance: 20.0 #1.0
+    spawn_chance: -1 #1.0
     walking_speed_multiplier: 1.25
     max_aggro_range_multiplier: 2.0
     critical_chance_additional_percentage: 10.0
