@@ -6,7 +6,7 @@ server:
   auto_restart: 172800
   type: Normal
   pvp:
-    enabled: true
+    enabled: false
     gvg_event:
       enabled: false
       use_even_time: false
@@ -118,8 +118,8 @@ enemies:
         RNG_quality: true
         quality_extra_luck: 0.0 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
   elites:
-    min_level_required: 100 #100
-    spawn_chance: 0.0 #1.0
+    min_level_required: 80 #100
+    spawn_chance: 1.0 #1.0
     critical_chance_additional_percentage: 0.0
     dodge_chance_additional_percentage: 0.0
     defense_multiplier: 1.0
