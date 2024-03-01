@@ -118,7 +118,7 @@ enemies:
         RNG_quality: true
         quality_extra_luck: 0.0 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
   elites:
-    min_level_required: 50 #100
+    min_level_required: 20 #100
     spawn_chance: 10 #1.0
     walking_speed_multiplier: 1.25
     max_aggro_range_multiplier: 2.0
