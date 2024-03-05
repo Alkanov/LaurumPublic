@@ -25,8 +25,8 @@ player:
   
 enemies:
   is_aggro_passive: false
-  hp_regen_per_cycle_percentage: 10 # percentage of max_hp regens every hp_regen_cycle_time
-  hp_regen_cycle_time: 20.0 # hp regen happens every hp_regen_cycle_time
+  hp_regen_per_cycle_percentage: 0.5 # percentage of max_hp regens every hp_regen_cycle_time
+  hp_regen_cycle_time: 200 # hp regen happens every hp_regen_cycle_time
   attack_speed_wait_multiplier: 0.99 #wait more if higher
   walking_speed: 1.1
   corrupted_ench_chance: 10 #5 
