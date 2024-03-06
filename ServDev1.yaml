@@ -25,9 +25,9 @@ player:
 enemies:
   corrupted_ench_chance: 5 #5
   boss_upgrade:
-    max_in_bosses_open_world: 5
-    chance: 100
-    spawn_cool_down_mins: 1 # can only happen every x minutes
+    max_in_bosses_open_world: 0
+    chance: 0
+    spawn_cool_down_mins: 60 # can only happen every x minutes
   attack_modifiers:
     burn:
       spawn_chance: -1
