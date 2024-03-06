@@ -145,7 +145,7 @@ enemies:
     spawn_settings:
       random_buffs_chance: 1.0
       random_buffs_amounts: 1
-      is_aggro_passive: true
+      is_aggro_passive: false
       min_level_required: 80 # only elites use this so far
       spawn_chance: 1.0 #only elites use this so far
       max_aggro_range_multiplier: 2.0 # only elites use this so far
