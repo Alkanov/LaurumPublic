@@ -1,5 +1,5 @@
 server:
-  version: 3
+  version: 5
   id: 4
   name: ServTerror1
   is_test_server: false
@@ -92,7 +92,7 @@ enemies:
         RNG_mod: true
         mod_extra_luck: 50
         guaranteed_mods_number: 1
-        RNG_upgrade: true
+        RNG_upgrade: false
         upgrade_extra_luck: 40.0
         RNG_enchant: true
         enchant_extra_luck: 20.0
@@ -125,7 +125,7 @@ enemies:
         RNG_mod: true
         mod_extra_luck: 20
         guaranteed_mods_number: 2
-        RNG_upgrade: true
+        RNG_upgrade: false
         upgrade_extra_luck: 20.0
         RNG_enchant: true
         enchant_extra_luck: 20.0
@@ -158,7 +158,7 @@ enemies:
         RNG_mod: true
         mod_extra_luck: 15
         guaranteed_mods_number: 2
-        RNG_upgrade: true
+        RNG_upgrade: false
         upgrade_extra_luck: 15.0
         RNG_enchant: true
         enchant_extra_luck: 10.0
