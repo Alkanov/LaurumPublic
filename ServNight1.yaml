@@ -1,5 +1,5 @@
 server:
-  version: 5
+  version: 6
   id: 3
   name: ServNight1
   is_test_server: false
