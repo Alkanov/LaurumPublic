@@ -134,7 +134,7 @@ enemies:
   elites:
     stats:
       damage_multiplier: 1.0
-      max_hp_multiplier: 3.0
+      max_hp_multiplier: 8.0
       defense_multiplier: 1.5
       hp_regen_per_cycle_percentage: 3.0 # percentage of max_hp regens every hp_regen_cycle_time
       hp_regen_cycle_time: 2 # hp regen happens every hp_regen_cycle_time
