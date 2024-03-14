@@ -1,5 +1,5 @@
 server:
-  version: 2
+  version: 3
   id: 4
   name: ServTerror1
   is_test_server: false
@@ -70,7 +70,7 @@ enemies:
       damage_multiplier: 4.0
       max_hp_multiplier: 4.5
       defense_multiplier: 8.0
-      hp_regen_per_cycle_percentage: 1.0 # percentage of max_hp regens every hp_regen_cycle_time
+      hp_regen_per_cycle_percentage: 3.0 # percentage of max_hp regens every hp_regen_cycle_time
       hp_regen_cycle_time: 2 # hp regen happens every hp_regen_cycle_time
       dodge_chance_additional_percentage: 0.0
       critical_chance_additional_percentage: 0.0
@@ -103,7 +103,7 @@ enemies:
       damage_multiplier: 3.375
       max_hp_multiplier: 8.0
       defense_multiplier: 3.25
-      hp_regen_per_cycle_percentage: 1.0 # percentage of max_hp regens every hp_regen_cycle_time
+      hp_regen_per_cycle_percentage: 3.0 # percentage of max_hp regens every hp_regen_cycle_time
       hp_regen_cycle_time: 2 # hp regen happens every hp_regen_cycle_time
       dodge_chance_additional_percentage: 35.0
       critical_chance_additional_percentage: 40.0
@@ -136,7 +136,7 @@ enemies:
       damage_multiplier: 1.10
       max_hp_multiplier: 3.0
       defense_multiplier: 1.5
-      hp_regen_per_cycle_percentage: 1.0 # percentage of max_hp regens every hp_regen_cycle_time
+      hp_regen_per_cycle_percentage: 3.0 # percentage of max_hp regens every hp_regen_cycle_time
       hp_regen_cycle_time: 2 # hp regen happens every hp_regen_cycle_time
       dodge_chance_additional_percentage: 15.0
       critical_chance_additional_percentage: 10.0
