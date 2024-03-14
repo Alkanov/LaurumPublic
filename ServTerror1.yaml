@@ -3,7 +3,7 @@ server:
   id: 4
   name: ServTerror1
   is_test_server: false
-  auto_restart: 172800
+  auto_restart: 172110
   type: Terror
   pvp:
     enabled: true

@@ -3,7 +3,7 @@ server:
   id: 2
   name: ServHard1
   is_test_server: false
-  auto_restart: 172800
+  auto_restart: 172100
   type: Hard
   pvp:
     enabled: false

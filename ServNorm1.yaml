@@ -3,7 +3,7 @@ server:
   id: 1
   name: ServNormal1
   is_test_server: false
-  auto_restart: 172800
+  auto_restart: 172200
   type: Normal
   pvp:
     enabled: false
