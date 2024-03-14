@@ -2,7 +2,7 @@ server:
   version: 1
   id: 2
   name: ServHard1
-  is_test_server: true
+  is_test_server: false
   auto_restart: 172800
   type: Hard
   pvp:
