@@ -1,9 +1,10 @@
 server:
-  version: 9
+  version: 1
   id: 4
   name: ServTerror1
   is_test_server: false
   auto_restart: 28800
+  player_limit: 30
   type: Terror
   pvp:
     enabled: true

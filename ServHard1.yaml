@@ -1,9 +1,10 @@
 server:
-  version: 8
+  version: 1
   id: 2
   name: ServHard1
   is_test_server: false
   auto_restart: 28200
+  player_limit: 30
   type: Hard
   pvp:
     enabled: false
