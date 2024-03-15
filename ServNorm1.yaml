@@ -1,10 +1,10 @@
 server:
-  version: 1
+  version: 2
   id: 1
   name: ServNorm1
   is_test_server: false
   auto_restart: 28000
-  player_limit: 30
+  player_limit: 50
   type: Normal
   pvp:
     enabled: false
