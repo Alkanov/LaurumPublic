@@ -4,7 +4,7 @@ server:
   name: ServDev4
   is_test_server: true
   auto_restart: 172800
-  player_limit: 30
+  player_limit: 10
   type: Terror
   pvp:
     enabled: true
