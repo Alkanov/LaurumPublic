@@ -1,9 +1,9 @@
 server:
-  version: 7
+  version: 8
   id: 3
   name: ServNight1
   is_test_server: false
-  auto_restart: 172000
+  auto_restart: 28400
   type: Nightmare
   pvp:
     enabled: true
