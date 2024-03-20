@@ -1,5 +1,5 @@
 server:
-  version: 2
+  version: 174
   id: 1
   name: ServNorm1
   is_test_server: false
@@ -85,7 +85,7 @@ enemies:
       spawn_chance: 0 #only elites use this so far
       max_aggro_range_multiplier: 1.0 # only elites use this so far
     rewards:
-      gold_drop_chance: 90.0
+      gold_drop_chance: 80.0
       gold_drop_multiplier: 1.0 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
       drop_more_exp: 1.0
       drop_more_items: 1.0 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
@@ -119,7 +119,7 @@ enemies:
       spawn_chance: 0 #only elites use this so far
       max_aggro_range_multiplier: 1.0 # only elites use this so far
     rewards:
-      gold_drop_chance: 90.0
+      gold_drop_chance: 80.0
       gold_drop_multiplier: 1.0
       drop_more_exp: 1.0
       drop_more_items: 1.0 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
@@ -153,7 +153,7 @@ enemies:
       spawn_chance: 1.0 #only elites use this so far
       max_aggro_range_multiplier: 1.0 # only elites use this so far
     rewards:
-      gold_drop_chance: 90.0
+      gold_drop_chance: 80.0
       gold_drop_multiplier: 1.0 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
       drop_more_exp: 1.0
       drop_more_items: 1.0 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
