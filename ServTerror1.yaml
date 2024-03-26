@@ -1,10 +1,11 @@
 server:
-  version: 3
-  id: 3
-  name: ServDev3
-  is_test_server: true
-  auto_restart: 172800
-  type: Nightmare
+  version: 1
+  id: 4
+  name: ServTerror1
+  is_test_server: false
+  auto_restart: 28800
+  player_limit: 30
+  type: Terror
   pvp:
     enabled: true
     gvg_event:
@@ -17,115 +18,120 @@ player:
   penalties: 
     exp_penalty_on_death: 
       pve:
-        chance: 10.0
+        chance: 15.0
         amount: 5.0
       pvp:
         chance: 0
         amount: 0
 enemies:
-  corrupted_ench_chance: 30 #5 
+  corrupted_ench_chance: 50 #5 
   boss_upgrade:
-    max_in_bosses_open_world: 3
-    chance: 20
+    max_in_bosses_open_world: 5
+    chance: 30
     spawn_cool_down_mins: 60 # can only happen every x minutes
   attack_modifiers:
     burn:
-      spawn_chance: 1
+      spawn_chance: 3
       time: 10.0
       cast_chance: 20
       power: 2 # x times the monster normal hit before applying player defenses
     bleed:
-      spawn_chance: 1
+      spawn_chance: 3
       time: 10.0
       cast_chance: 20
       power: 2 # x times the monster normal hit before applying player defenses
     poison:
-      spawn_chance: 1
+      spawn_chance: 3
       time: 10.0
       cast_chance: 20
       power: 2 # x times the monster hit before applying player defenses
     aoe_poison:
-      spawn_chance: 1
+      spawn_chance: 3
       time: 10.0
       cast_chance: 20
       power: 2 # x times the monster hit before applying player defenses
     stun:
-      spawn_chance: -1
-      time: 5.0
-      cast_chance: 20.0
-    lock_potion:
-      spawn_chance: -1
-      time: 10.0
-      cast_chance: 20.0
-    slow:
       spawn_chance: 1
       time: 5.0
       cast_chance: 20.0
+    lock_potion:
+      spawn_chance: 1
+      time: 10.0
+      cast_chance: 20.0
+    slow:
+      spawn_chance: 3
+      time: 5.0
+      cast_chance: 20.0
     confusion:
-      spawn_chance: -1
+      spawn_chance: 1
       time: 5.0
       cast_chance: 20.0
   normal:
     stats:
-      damage_multiplier: 3.0
-      max_hp_multiplier: 4.0
-      defense_multiplier: 3.5
-      hp_regen_per_cycle_percentage: 1.0 # percentage of max_hp regens every hp_regen_cycle_time
+      damage_multiplier: 3.5
+      max_hp_multiplier: 4.5
+      defense_multiplier: 6.0
+      hp_regen_per_cycle_percentage: 3.0 # percentage of max_hp regens every hp_regen_cycle_time
       hp_regen_cycle_time: 2 # hp regen happens every hp_regen_cycle_time
       dodge_chance_additional_percentage: 0.0
       critical_chance_additional_percentage: 0.0
-      attack_speed_wait_multiplier: 0.98 #wait more if higher
-      walking_speed: 1.15
+      attack_speed_wait_multiplier: 0.97 #wait more if higher
+      walking_speed: 1.18
     spawn_settings:
-      random_buffs_chance: 25 #1
+      random_buffs_chance: 100 #1
       random_buffs_amounts: 2 #1    
       is_aggro_passive: false
       min_level_required: 0 # only elites use this so far
       spawn_chance: 0 #only elites use this so far
       max_aggro_range_multiplier: 1.0 # only elites use this so far
     rewards:
-      gold_drop_multiplier: 2.0 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
-      drop_more_exp: 2.5
-      drop_more_items: 1.25 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
-      extra_material: 2 # added to the result and after server event
+      gold_drop_chance: 90.0 # chance to drop gold
+      gold_drop_chance: 80.0
+      gold_drop_multiplier: 2.5 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
+      drop_more_exp: 3.5
+      drop_more_items: 1.20 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
+      extra_material: 3 # added to the result and after server event
+      material_drop_chance_multiplier: 1.0 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
-        mod_extra_luck: 25
+        mod_extra_luck: 50
         guaranteed_mods_number: 1
-        RNG_upgrade: true
-        upgrade_extra_luck: 20.0
+        RNG_upgrade: false
+        upgrade_extra_luck: 40.0
         RNG_enchant: true
-        enchant_extra_luck: 10.0
+        enchant_extra_luck: 20.0
         RNG_quality: true
         quality_extra_luck: 0.0 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
   boss:
     stats:
-      damage_multiplier: 2.375
-      max_hp_multiplier: 4.0
-      defense_multiplier: 2.25
-      hp_regen_per_cycle_percentage: 1.0 # percentage of max_hp regens every hp_regen_cycle_time
+      damage_multiplier: 3.0
+      max_hp_multiplier: 6.0
+      defense_multiplier: 3.25
+      hp_regen_per_cycle_percentage: 3.0 # percentage of max_hp regens every hp_regen_cycle_time
       hp_regen_cycle_time: 2 # hp regen happens every hp_regen_cycle_time
-      dodge_chance_additional_percentage: 25.0
-      critical_chance_additional_percentage: 30.0
+      dodge_chance_additional_percentage: 35.0
+      critical_chance_additional_percentage: 40.0
       attack_speed_wait_multiplier: 1.0 #wait more if higher
       walking_speed: 1.0
     spawn_settings:
-      random_buffs_chance: 50 #1
-      random_buffs_amounts: 2 #1
+      random_buffs_chance: 100 #1
+      random_buffs_amounts: 3 #1
       is_aggro_passive: false
       min_level_required: 0 # only elites use this so far
       spawn_chance: 0 #only elites use this so far
       max_aggro_range_multiplier: 1.0 # only elites use this so far
     rewards:
-      gold_drop_multiplier: 3.5 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
-      drop_more_exp: 3.5
+      gold_drop_chance: 90.0
+      gold_drop_multiplier: 4.5 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
+      drop_more_exp: 4.5
       drop_more_items: 1.20 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
-      extra_material: 2 # added to the result and after server event
+      extra_material: 3 # added to the result and after server event
+      material_drop_chance_multiplier: 1.0 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 20
         guaranteed_mods_number: 2
-        RNG_upgrade: true
+        RNG_upgrade: false
         upgrade_extra_luck: 20.0
         RNG_enchant: true
         enchant_extra_luck: 20.0
@@ -133,32 +139,34 @@ enemies:
         quality_extra_luck: 0.0 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
   elites:
     stats:
-      damage_multiplier: 1.0
-      max_hp_multiplier: 3.0
-      defense_multiplier: 1.5
-      hp_regen_per_cycle_percentage: 1.0 # percentage of max_hp regens every hp_regen_cycle_time
+      damage_multiplier: 3.5
+      max_hp_multiplier: 9.0
+      defense_multiplier: 6.0
+      hp_regen_per_cycle_percentage: 3.0 # percentage of max_hp regens every hp_regen_cycle_time
       hp_regen_cycle_time: 2 # hp regen happens every hp_regen_cycle_time
       dodge_chance_additional_percentage: 15.0
       critical_chance_additional_percentage: 10.0
-      attack_speed_wait_multiplier: 1.25 #wait more if higher
-      walking_speed: 1.0
+      attack_speed_wait_multiplier: 1.0 #wait more if higher
+      walking_speed: 1.1
     spawn_settings:
-      random_buffs_chance: 25 #1
-      random_buffs_amounts: 2 #1
+      random_buffs_chance: 1.0
+      random_buffs_amounts: 1
       is_aggro_passive: false
-      min_level_required: 20 # only elites use this so far
-      spawn_chance: 10 #only elites use this so far
+      min_level_required: 1 # only elites use this so far
+      spawn_chance: 25 #only elites use this so far
       max_aggro_range_multiplier: 2.0 # only elites use this so far
     rewards:
-      gold_drop_multiplier: 2.0 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
-      drop_more_exp: 3.5
-      drop_more_items: 1.15 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
+      gold_drop_chance: 80.0
+      gold_drop_multiplier: 3.0 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
+      drop_more_exp: 4.0
+      drop_more_items: 1.20 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 2 # added to the result and after server event
+      material_drop_chance_multiplier: 1.0 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 15
         guaranteed_mods_number: 2
-        RNG_upgrade: true
+        RNG_upgrade: false
         upgrade_extra_luck: 15.0
         RNG_enchant: true
         enchant_extra_luck: 10.0

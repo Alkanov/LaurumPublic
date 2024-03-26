@@ -1,9 +1,10 @@
 server:
-  version: 1
+  version: 174
   id: 1
-  name: ServDev1
-  is_test_server: true
-  auto_restart: 172800
+  name: ServNorm1
+  is_test_server: false
+  auto_restart: 28000
+  player_limit: 50
   type: Normal
   pvp:
     enabled: false
@@ -84,10 +85,12 @@ enemies:
       spawn_chance: 0 #only elites use this so far
       max_aggro_range_multiplier: 1.0 # only elites use this so far
     rewards:
+      gold_drop_chance: 80.0
       gold_drop_multiplier: 1.0 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
       drop_more_exp: 1.0
       drop_more_items: 1.0 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 0 # added to the result and after server event
+      material_drop_chance_multiplier: 1.0 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 0.0
@@ -117,10 +120,12 @@ enemies:
       spawn_chance: 0 #only elites use this so far
       max_aggro_range_multiplier: 1.0 # only elites use this so far
     rewards:
+      gold_drop_chance: 80.0
       gold_drop_multiplier: 1.0
       drop_more_exp: 1.0
       drop_more_items: 1.0 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 0 # added to the result and after server event
+      material_drop_chance_multiplier: 0.2 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 0.0
@@ -150,10 +155,12 @@ enemies:
       spawn_chance: 1.0 #only elites use this so far
       max_aggro_range_multiplier: 1.0 # only elites use this so far
     rewards:
+      gold_drop_chance: 80.0
       gold_drop_multiplier: 1.0 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
       drop_more_exp: 1.0
       drop_more_items: 1.0 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 0 # added to the result and after server event
+      material_drop_chance_multiplier: 1.0 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 0.0
