@@ -1,5 +1,5 @@
 server:
-  version: 175
+  version: 1
   id: 4
   name: ServTerror1
   is_test_server: false

@@ -1,5 +1,5 @@
 server:
-  version: 174
+  version: 1
   id: 2
   name: ServHard1
   is_test_server: false
@@ -102,7 +102,7 @@ enemies:
         quality_extra_luck: 0.0 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
   boss:
     stats:
-      damage_multiplier: 1.375
+      damage_multiplier: 1.275
       max_hp_multiplier: 2.0
       defense_multiplier: 1.25
       hp_regen_per_cycle_percentage: 3.0 # percentage of max_hp regens every hp_regen_cycle_time
