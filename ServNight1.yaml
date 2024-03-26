@@ -88,8 +88,9 @@ enemies:
       gold_drop_chance: 80.0
       gold_drop_multiplier: 2.0 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
       drop_more_exp: 2.1
-      drop_more_items: 1.25 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
+      drop_more_items: 1.15 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 2 # added to the result and after server event
+      material_drop_chance_multiplier: 1.0 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 25
@@ -122,8 +123,9 @@ enemies:
       gold_drop_chance: 80.0
       gold_drop_multiplier: 3.5 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
       drop_more_exp: 2.1
-      drop_more_items: 1.20 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
+      drop_more_items: 1.15 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 2 # added to the result and after server event
+      material_drop_chance_multiplier: 1.0 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 20
@@ -158,6 +160,7 @@ enemies:
       drop_more_exp: 3.5
       drop_more_items: 1.15 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 2 # added to the result and after server event
+      material_drop_chance_multiplier: 1.0 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 15

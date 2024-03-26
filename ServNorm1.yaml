@@ -90,6 +90,7 @@ enemies:
       drop_more_exp: 1.0
       drop_more_items: 1.0 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 0 # added to the result and after server event
+      material_drop_chance_multiplier: 1.0 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 0.0
@@ -124,6 +125,7 @@ enemies:
       drop_more_exp: 1.0
       drop_more_items: 1.0 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 0 # added to the result and after server event
+      material_drop_chance_multiplier: 0.2 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 0.0
@@ -158,6 +160,7 @@ enemies:
       drop_more_exp: 1.0
       drop_more_items: 1.0 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 0 # added to the result and after server event
+      material_drop_chance_multiplier: 1.0 # this is multiplied by the chance of dropping a material 2.0% * 2.0 = 4.0%
       new_item:
         RNG_mod: true
         mod_extra_luck: 0.0
