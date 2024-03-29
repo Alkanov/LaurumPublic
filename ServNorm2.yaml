@@ -4,7 +4,7 @@ server:
   name: ServNorm2
   is_test_server: false
   auto_restart: 28000
-  player_limit: 50
+  player_limit: 40
   type: Normal
   pvp:
     enabled: false
