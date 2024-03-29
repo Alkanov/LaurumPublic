@@ -1,5 +1,5 @@
 server:
-  version: 2
+  version: 3
   id: 2
   name: ServHard1
   is_test_server: false
@@ -7,7 +7,7 @@ server:
   player_limit: 40
   type: Hard
   pvp:
-    enabled: false
+    enabled: true
     gvg_event:
       enabled: false
       use_even_time: false
