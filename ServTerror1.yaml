@@ -121,7 +121,7 @@ enemies:
       max_aggro_range_multiplier: 1.0 # only elites use this so far
     rewards:
       gold_drop_chance: 80.0
-      gold_drop_multiplier: 4.5 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
+      gold_drop_multiplier: 2.5 # Random.Range(10, 20 + (EnemyStats.Level / 2) + 1)
       drop_more_exp: 4.5
       drop_more_items: 1.20 #1.0-2.0 ideal Multiplier of current drop chances, if 2.0 then: drop chance of 0.1% will be 0.2%
       extra_material: 3 # added to the result and after server event
