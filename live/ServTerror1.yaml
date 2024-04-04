@@ -4,7 +4,7 @@ server:
   name: ServTerror1
   is_test_server: false
   auto_restart: 28800
-  player_limit: 30
+  player_limit: 40
   type: Terror
   pvp:
     enabled: true
