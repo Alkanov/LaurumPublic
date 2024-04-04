@@ -1,9 +1,9 @@
 server:
-  version: 1
+  version: 174
   id: 1
-  name: ServDev1
-  is_test_server: true
-  auto_restart: 280000
+  name: ServNorm1
+  is_test_server: false
+  auto_restart: 28000
   player_limit: 50
   type: Normal
   pvp:
