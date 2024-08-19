@@ -4,6 +4,7 @@ server:
   name: ServDev1
   is_test_server: true
   auto_restart: 280000
+  player_rebirth_required: 1
   player_limit: 50
   type: Normal
   pvp:
