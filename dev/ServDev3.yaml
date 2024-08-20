@@ -4,6 +4,7 @@ server:
   name: ServDev3
   is_test_server: true
   auto_restart: 284000
+  player_rebirth_required: 10
   player_limit: 30
   type: Nightmare
   pvp:

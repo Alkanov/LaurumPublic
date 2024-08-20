@@ -4,6 +4,7 @@ server:
   name: ServDev2
   is_test_server: true
   auto_restart: 282000
+  player_rebirth_required: 5
   player_limit: 30
   type: Hard
   pvp:
