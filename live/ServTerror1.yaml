@@ -111,7 +111,7 @@ enemies:
       dodge_chance_additional_percentage: 35.0
       critical_chance_additional_percentage: 40.0
       attack_speed_wait_multiplier: 1.0 #wait more if higher
-      walking_speed: 1.0
+      walking_speed: 1.20
     spawn_settings:
       random_buffs_chance: 100 #1
       random_buffs_amounts: 3 #1
@@ -146,7 +146,7 @@ enemies:
       dodge_chance_additional_percentage: 15.0
       critical_chance_additional_percentage: 10.0
       attack_speed_wait_multiplier: 1.0 #wait more if higher
-      walking_speed: 1.1
+      walking_speed: 1.20
     spawn_settings:
       random_buffs_chance: 1.0
       random_buffs_amounts: 1
