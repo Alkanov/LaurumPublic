@@ -5,6 +5,7 @@ server:
   is_test_server: false
   auto_restart: 28200
   player_limit: 40
+  player_rebirth_required: 10
   type: Hard
   pvp:
     enabled: true
