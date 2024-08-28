@@ -1,4 +1,4 @@
-version: 1
+version: 2
 admin_team:
   chat:
     text_color: red
