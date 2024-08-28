@@ -3,7 +3,7 @@ admin_team:
   chat:
     text_color: red
     icon_set: skill_iconset
-    index: 383
+    index: 331
   members:
     - admin
     - alkanov
@@ -12,14 +12,15 @@ mod_team:
   chat:
     text_color: "#A020F0"
     icon_set: skill_iconset
-    index: 382
+    index: 108
   members:
     - mod1
+    - dude1
 tutor_team:
   chat:
     text_color: "#CF9FFF"
     icon_set: skill_iconset
-    index: 381
+    index: 109
   members:
     - uragus
     - meeks
