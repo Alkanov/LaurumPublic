@@ -1,0 +1,12 @@
+vars:
+  version: 1
+  admin_team:
+    - admin
+    - alkanov
+    - zelp
+  mod_team:
+    - mod1
+  tutor_team:
+    - uragus
+    - meeks
+    - shotgun
