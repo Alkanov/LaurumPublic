@@ -5,6 +5,7 @@ server:
   is_test_server: false
   auto_restart: 28400
   player_limit: 40
+  player_rebirth_required: 20
   type: Nightmare
   pvp:
     enabled: true
@@ -111,7 +112,7 @@ enemies:
       dodge_chance_additional_percentage: 10.0
       critical_chance_additional_percentage: 10.0
       attack_speed_wait_multiplier: 1.0 #wait more if higher
-      walking_speed: 1.0
+      walking_speed: 1.15
     spawn_settings:
       random_buffs_chance: 50 #1
       random_buffs_amounts: 2 #1
@@ -146,7 +147,7 @@ enemies:
       dodge_chance_additional_percentage: 15.0
       critical_chance_additional_percentage: 10.0
       attack_speed_wait_multiplier: 1.25 #wait more if higher
-      walking_speed: 1.0
+      walking_speed: 1.15
     spawn_settings:
       random_buffs_chance: 25 #1
       random_buffs_amounts: 2 #1
