@@ -1,11 +1,26 @@
 version: 1
 admin_team:
-  - admin
-  - alkanov
-  - zelp
+  chat:
+    text_color: red
+    icon_set: skill_iconset
+    index: 383
+  members:
+    - admin
+    - alkanov
+    - zelp
 mod_team:
-  - mod1
+  chat:
+    text_color: "#A020F0"
+    icon_set: skill_iconset
+    index: 382
+  members:
+    - mod1
 tutor_team:
-  - uragus
-  - meeks
-  - shotgun
+  chat:
+    text_color: "#CF9FFF"
+    icon_set: skill_iconset
+    index: 381
+  members:
+    - uragus
+    - meeks
+    - shotgun
