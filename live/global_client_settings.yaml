@@ -1,4 +1,4 @@
-version: 1
+version: 3
 admin_team:
   chat:
     text_color: red
@@ -10,15 +10,15 @@ admin_team:
     - zelp
 mod_team:
   chat:
-    text_color: "#A020F0"
+    text_color: "#ff8000"
     icon_set: skill_iconset
-    index: 108
+    index: 101
   members:
     - mod1
     - dude1
 tutor_team:
   chat:
-    text_color: "#CF9FFF"
+    text_color: "#e6cc80"
     icon_set: skill_iconset
     index: 109
   members:
