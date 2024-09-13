@@ -1,4 +1,4 @@
-version: 3
+version: 4
 admin_team:
   chat:
     text_color: red
@@ -26,3 +26,4 @@ tutor_team:
     - uragus
     - meeks
     - shotgun
+    - bonet
