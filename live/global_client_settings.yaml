@@ -16,7 +16,6 @@ mod_team:
     index: 101
   members:
     - mod1
-    - dude1
 tutor_team:
   chat:
     text_color: "#e6cc80"
