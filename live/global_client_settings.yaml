@@ -8,7 +8,6 @@ admin_team:
     - admin
     - alkanov
     - zelp
-    - mod1
 mod_team:
   chat:
     text_color: "#ff8000"
