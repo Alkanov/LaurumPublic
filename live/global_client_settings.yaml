@@ -14,7 +14,7 @@ mod_team:
     icon_set: skill_iconset
     index: 101
   members:
-    - mod1
+    - alkanov1
 tutor_team:
   chat:
     text_color: "#e6cc80"
