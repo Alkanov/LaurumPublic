@@ -1,5 +1,5 @@
 ---
-version: 3
+version: 4
 PvpDamageNerf: 0.85  # Nerf Damage % or ^ (Depends on which formula used) (PVP)
 PvpDefenseNerf: 0.825  # Nerf Defense % or ^ (Depends on which formula used) (PVP)
 aat: 150 
@@ -8,4 +8,4 @@ tbaf: 300.0
 bppr: 15
 MaxWallJumpDistance: 0.8
 PenaltyPerRebirth: 0.15
-MaxGuildMembers: 50
+MaxGuildMembers: 30
