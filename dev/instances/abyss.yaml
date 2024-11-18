@@ -1,5 +1,5 @@
 server:
-  version: 3
+  version: 4
   id: 1
   name: N/A #Server name is overwritten by the instance manager
   is_test_server: true
