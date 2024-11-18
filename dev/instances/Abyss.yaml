@@ -3,12 +3,14 @@ server:
   id: 1
   name: Abyss
   is_test_server: true
-  auto_restart: 600
+  auto_restart: 700
   player_rebirth_required: 0
   player_limit: 5
   type: Normal
   intance_details:
     is_intance: true
+    time_to_complete: 600
+    time_to_first_player: 120
   pvp:
     enabled: false
     gvg_event:
