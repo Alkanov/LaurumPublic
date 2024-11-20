@@ -9,8 +9,8 @@ server:
   type: Hard
   intance_details:
     is_intance: true
-    time_to_complete: 500
-    time_to_first_player: 400
+    time_to_complete: 70
+    time_to_first_player: 60
     map: abyss
   pvp:
     enabled: false

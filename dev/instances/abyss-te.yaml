@@ -9,8 +9,8 @@ server:
   type: Terror
   intance_details:
     is_intance: true
-    time_to_complete: 500
-    time_to_first_player: 400
+    time_to_complete: 80
+    time_to_first_player: 70
     map: abyss
   pvp:
     enabled: false
