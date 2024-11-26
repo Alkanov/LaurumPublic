@@ -7,6 +7,11 @@ server:
   player_rebirth_required: 5
   player_limit: 30
   type: Hard
+  intance_details:
+    is_intance: false
+    time_to_complete: 500
+    time_to_first_player: 400
+    map: openworld
   pvp:
     enabled: true
     gvg_event:
