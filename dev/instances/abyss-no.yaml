@@ -9,8 +9,8 @@ server:
   type: Normal
   intance_details:
     is_intance: true
-    time_to_complete: 60
-    time_to_first_player: 40
+    time_to_complete: 600
+    time_to_first_player: 400
     map: abyss
   pvp:
     enabled: false
