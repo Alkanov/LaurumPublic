@@ -9,7 +9,7 @@ server:
   type: Normal
   intance_details:
     is_intance: true
-    time_to_complete: 600
+    time_to_complete: 1200
     time_to_first_player: 120
     map: abyss
     base_tier_scaling_multiplier: 5.0 # Defense_str, Defense_int, Damage_str, Damage_int are multiplied by this and tier
