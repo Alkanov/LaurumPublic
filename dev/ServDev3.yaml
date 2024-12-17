@@ -12,6 +12,11 @@ server:
     time_to_complete: 500
     time_to_first_player: 400
     map: openworld
+    base_tier_scaling_multiplier: 0.0 # Defense_str, Defense_int, Damage_str, Damage_int are multiplied by this and tier
+    critical_chance_per_tier: 0.0 # multiplied by tier and added
+    dodge_chance_per_tier: 0.0 # multiplied by tier and added
+    hp_regen_per_tier: 0.0 # multiplied by tier and added
+    max_hp_tier_scaling_multiplier: 0.0 # MaxHP multiplied by this and tier
   pvp:
     enabled: true
     gvg_event:
