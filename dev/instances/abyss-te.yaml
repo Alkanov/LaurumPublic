@@ -1,5 +1,5 @@
 server:
-  version: 1
+  version: 2
   id: 1
   name: N/A #Server name is overwritten by the instance manager
   is_test_server: true
@@ -12,11 +12,11 @@ server:
     time_to_complete: 600
     time_to_first_player: 120
     map: abyss
-    base_tier_scaling_multiplier: 5.0 # Defense_str, Defense_int, Damage_str, Damage_int are multiplied by this and tier
+    base_tier_scaling_multiplier: 0.05 # Defense_str, Defense_int, Damage_str, Damage_int are multiplied by this and tier
     critical_chance_per_tier: 0.1 # multiplied by tier and added
     dodge_chance_per_tier: 0.1 # multiplied by tier and added
     hp_regen_per_tier: 0.02 # multiplied by tier and added
-    max_hp_tier_scaling_multiplier: 8.0 # MaxHP multiplied by this and tier
+    max_hp_tier_scaling_multiplier: 0.10 # MaxHP multiplied by this and tier
   pvp:
     enabled: false
     gvg_event:
