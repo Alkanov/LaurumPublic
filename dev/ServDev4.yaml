@@ -8,6 +8,7 @@ server:
   player_limit: 30
   type: Terror
   intance_details:
+    allow_instance_request: true
     is_intance: false
     time_to_complete: 500
     time_to_first_player: 400

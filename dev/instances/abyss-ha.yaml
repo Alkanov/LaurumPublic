@@ -8,6 +8,7 @@ server:
   player_limit: 5
   type: Hard
   intance_details:
+    allow_instance_request: false
     is_intance: true
     time_to_complete: 1200
     time_to_first_player: 120
