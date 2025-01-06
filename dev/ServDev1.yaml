@@ -1,5 +1,5 @@
 server:
-  version: 2
+  version: 3
   id: 1
   name: ServDev1
   is_test_server: true
@@ -8,7 +8,7 @@ server:
   player_limit: 50
   type: Normal
   intance_details:
-    allow_instance_request: true
+    allow_instance_request: false
     is_intance: false
     time_to_complete: 500
     time_to_first_player: 400
