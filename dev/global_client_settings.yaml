@@ -1,4 +1,4 @@
-version: 3
+version: 4
 admin_team:
   chat:
     text_color: red
@@ -8,14 +8,14 @@ admin_team:
     - admin
     - alkanov
     - zelp
+    - mod1
 mod_team:
   chat:
     text_color: "#ff8000"
     icon_set: skill_iconset
     index: 101
   members:
-    - mod1
-    - dude1
+    - alkanov1
 tutor_team:
   chat:
     text_color: "#e6cc80"
@@ -25,3 +25,4 @@ tutor_team:
     - uragus
     - meeks
     - shotgun
+    - bonet
