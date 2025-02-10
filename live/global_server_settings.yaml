@@ -9,3 +9,4 @@ bppr: 15
 MaxWallJumpDistance: 0.8
 PenaltyPerRebirth: 0.15
 MaxGuildMembers: 30
+InstanceRequestCD: 120

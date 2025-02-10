@@ -1,23 +1,23 @@
 server:
-  version: 19
+  version: 2
   id: 1
-  name: ServNorm1
-  is_test_server: false
-  auto_restart: 28000
-  player_limit: 50
+  name: N/A #Server name is overwritten by the instance manager
+  is_test_server: true
+  auto_restart: 700
   player_rebirth_required: 0
+  player_limit: 5
   type: Normal
   intance_details:
-    allow_instance_request: true
-    is_intance: false
-    time_to_complete: 500
-    time_to_first_player: 400
-    map: openworld
-    base_tier_scaling_multiplier: 0.0 # Defense_str, Defense_int, Damage_str, Damage_int are multiplied by this and tier
-    critical_chance_per_tier: 0.0 # multiplied by tier and added
-    dodge_chance_per_tier: 0.0 # multiplied by tier and added
-    hp_regen_per_tier: 0.0 # multiplied by tier and added
-    max_hp_tier_scaling_multiplier: 0.0 # MaxHP multiplied by this and tier
+    allow_instance_request: false
+    is_intance: true
+    time_to_complete: 1200
+    time_to_first_player: 300
+    map: abyss
+    base_tier_scaling_multiplier: 0.005 # Defense_str, Defense_int, Damage_str, Damage_int are multiplied by this and tier
+    critical_chance_per_tier: 0.015 # multiplied by tier and added
+    dodge_chance_per_tier: 0.015 # multiplied by tier and added
+    hp_regen_per_tier: 0.02 # multiplied by tier and added
+    max_hp_tier_scaling_multiplier: 0.015 # MaxHP multiplied by this and tier
   pvp:
     enabled: false
     gvg_event:
@@ -43,39 +43,39 @@ enemies:
     spawn_cool_down_mins: 60 # can only happen every x minutes
   attack_modifiers:
     burn:
-      spawn_chance: -1
+      spawn_chance: 3
       time: 10.0
       cast_chance: 20
       power: 2 # x times the monster normal hit before applying player defenses
     bleed:
-      spawn_chance: -1
+      spawn_chance: 3
       time: 10.0
       cast_chance: 20
       power: 2 # x times the monster normal hit before applying player defenses
     poison:
-      spawn_chance: -1
+      spawn_chance: 3
       time: 10.0
       cast_chance: 20
       power: 2 # x times the monster hit before applying player defenses
     aoe_poison:
-      spawn_chance: -1
+      spawn_chance: 3
       time: 10.0
       cast_chance: 20
       power: 2 # x times the monster hit before applying player defenses
     stun:
-      spawn_chance: -1
+      spawn_chance: 1
       time: 5.0
       cast_chance: 20.0
     lock_potion:
-      spawn_chance: -1
+      spawn_chance: 1
       time: 10.0
       cast_chance: 20.0
     slow:
-      spawn_chance: -1
+      spawn_chance: 3
       time: 5.0
       cast_chance: 20.0
     confusion:
-      spawn_chance: -1
+      spawn_chance: 1
       time: 5.0
       cast_chance: 20.0
   normal:
