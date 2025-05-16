@@ -10,7 +10,7 @@ server:
   intance_details:
     allow_instance_request: false
     is_intance: true
-    time_to_complete: 1200
+    time_to_complete: 3600
     time_to_first_player: 300
     map: abyss
     base_tier_scaling_multiplier: 0.010 # Defense_str, Defense_int, Damage_str, Damage_int are multiplied by this and tier
