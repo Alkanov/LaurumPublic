@@ -1,12 +1,12 @@
 server:
-  version: 300
+  version: 301
   id: 1
   name: ServDev1
   is_test_server: true
   auto_restart: 280000
   player_rebirth_required: 0
   player_limit: 50
-  type: Normal
+  type: Terror
   intance_details:
     allow_instance_request: true
     is_intance: false
@@ -19,7 +19,7 @@ server:
     hp_regen_per_tier: 0.0 # multiplied by tier and added
     max_hp_tier_scaling_multiplier: 0.0 # MaxHP multiplied by this and tier
   pvp:
-    enabled: false
+    enabled: true
     gvg_event:
       enabled: false
       use_even_time: false
