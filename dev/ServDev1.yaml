@@ -1,5 +1,5 @@
 server:
-  version: 2
+  version: 300
   id: 1
   name: ServDev1
   is_test_server: true
@@ -30,11 +30,11 @@ player:
   penalties: 
     exp_penalty_on_death: 
       pve:
-        chance: 0
-        amount: 0
+        chance: 100
+        amount: 10
       pvp:
-        chance: 0
-        amount: 0
+        chance: 100
+        amount: 20
 enemies:
   corrupted_ench_chance: 5 #5
   boss_upgrade:
