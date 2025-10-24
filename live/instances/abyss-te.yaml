@@ -2,7 +2,7 @@ server:
   version: 3
   id: 1
   name: N/A #Server name is overwritten by the instance manager
-  is_test_server: true
+  is_test_server: false
   auto_restart: 700
   player_rebirth_required: 0
   player_limit: 5
