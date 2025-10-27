@@ -2,7 +2,7 @@ server:
   version: 300
   id: 1
   name: ServDev1
-  is_test_server: false
+  is_test_server: true
   auto_restart: 280000
   player_rebirth_required: 0
   player_limit: 50
