@@ -1,4 +1,4 @@
-version: 4
+version: 5
 admin_team:
   chat:
     text_color: red
@@ -26,3 +26,4 @@ tutor_team:
     - meeks
     - shotgun
     - bonet
+pvp_gold_required: 100000 #needs to be the same on server side

@@ -10,3 +10,4 @@ MaxWallJumpDistance: 0.8
 PenaltyPerRebirth: 0.15
 MaxGuildMembers: 30
 InstanceRequestCD: 120
+pvp_gold_required: 100000 #needs to be the same on the client side

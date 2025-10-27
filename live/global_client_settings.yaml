@@ -23,3 +23,4 @@ tutor_team:
     index: 109
   members:
     - uragus
+pvp_gold_required: 100000 #needs to be the same on the server side
