@@ -2,12 +2,12 @@
 # The top-level key (e.g., new_years_2025) is a unique name for the event group.
 # It is used for organization and logging but not directly in game logic.
 # The startUTC/endUTC schedule applies to ALL effects listed within the group.
-version: 1
+version: 2
 event_groups:
   new_years_celebration_2025:
     description: "Ringing in the new year with bonuses!"
-    startUTC: 2025-01-01T00:00:00Z
-    endUTC: 2025-01-02T23:59:59Z
+    startUTC: 2025-11-04T00:00:00Z
+    endUTC: 2025-11-05T23:59:59Z
     effects:
       - eventName: grind_exp
         multiplier: 2.0
