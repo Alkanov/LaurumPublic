@@ -8,7 +8,7 @@ server:
   player_limit: 50
   type: Market
   intance_details:
-    allow_instance_request: true
+    allow_instance_request: false
     is_intance: false
     time_to_complete: 500
     time_to_first_player: 400
