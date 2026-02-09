@@ -4,47 +4,86 @@
 # The startUTC/endUTC schedule applies to ALL effects listed within the group.
 version: 2
 event_groups:
-  new_years_celebration_2025:
-    description: "Ringing in the new year with bonuses!"
-    startUTC: 2025-11-04T00:00:00Z
-    endUTC: 2025-11-05T23:59:59Z
+  valentines_2026:
+    description: "Valentine's Day bonuses and good vibes."
+    startUTC: 2026-02-13T18:00:00Z
+    endUTC: 2026-02-16T23:59:59Z
+    effects:
+      - eventName: quest_exp
+        multiplier: 1.8
+      - eventName: quest_gold
+        multiplier: 1.8
+
+  chinese_new_year_2026:
+    description: "Lunar New Year celebration."
+    startUTC: 2026-02-17T00:00:00Z
+    endUTC: 2026-02-19T23:59:59Z
+    effects:
+      - eventName: grind_gold
+        multiplier: 2.0
+      - eventName: mat_drop
+        multiplier: 1.4
+
+  frosty_loot_weekend_feb:
+    description: "Weekend loot bonus to keep things lively."
+    startUTC: 2026-02-20T18:00:00Z
+    endUTC: 2026-02-23T23:59:59Z
+    effects:
+      - eventName: grind_gold
+        multiplier: 2.2
+      - eventName: quest_gold
+        multiplier: 1.4
+
+  march_exp_weekend_2026:
+    description: "Extra experience for a quick power push."
+    startUTC: 2026-03-06T18:00:00Z
+    endUTC: 2026-03-09T23:59:59Z
     effects:
       - eventName: grind_exp
         multiplier: 2.0
       - eventName: quest_exp
-        multiplier: 2.0
-      - eventName: grind_gold
-        multiplier: 2.0
-      - eventName: quest_gold
-        multiplier: 2.0
+        multiplier: 1.6
 
-  gold_rush_weekend_jan:
-    description: "A weekend of riches!"
-    startUTC: 2025-01-10T18:00:00Z
-    endUTC: 2025-01-12T23:59:59Z
-    effects:
-      - eventName: grind_gold
-        multiplier: 2.5
-      - eventName: quest_gold
-        multiplier: 1.5 # A smaller bonus for quests
-
-  gvg_cycle:
-    description: "GvG activates for 30 min every 90 min."
-    startUTC: 2020-01-01T00:00:00Z
-    endUTC: 2099-12-31T23:59:59Z
-    duration_minutes: 30
-    cooldown_minutes: 60
+  war_weekend_2026:
+    description: "War weekend for GvG battles."
+    startUTC: 2026-03-13T18:00:00Z
+    endUTC: 2026-03-16T23:59:59Z
     effects:
       - eventName: guild_wars
-        multiplier: 1.0
+        multiplier: 1.25
 
-  # An example of a future event, the server will ignore it until its time comes.
-  summer_festival_2025:
-    description: "Summer fun event!"
-    startUTC: 2025-06-20T12:00:00Z
-    endUTC: 2025-07-05T12:00:00Z
+  spring_equinox_2026:
+    description: "Midweek Spring Equinox boost for adventurers."
+    startUTC: 2026-03-24T00:00:00Z
+    endUTC: 2026-03-26T23:59:59Z
     effects:
+      - eventName: grind_exp
+        multiplier: 1.7
       - eventName: mat_drop
+        multiplier: 1.3
+
+  easter_2026:
+    description: "Easter weekend rewards."
+    startUTC: 2026-04-03T18:00:00Z
+    endUTC: 2026-04-06T23:59:59Z
+    effects:
+      - eventName: quest_exp
+        multiplier: 1.8
+
+  april_gold_rush_weekend_2026:
+    description: "Gold rush weekend for treasure hunters."
+    startUTC: 2026-04-24T18:00:00Z
+    endUTC: 2026-04-27T23:59:59Z
+    effects:
+      - eventName: grind_gold
+        multiplier: 2.4
+      - eventName: quest_gold
         multiplier: 1.5
-      - eventName: cheap_aug_reroll
-        multiplier: 0.75
+
+  may_day_2026:
+    description: "May Day celebration and marketplace discounts."
+    startUTC: 2026-05-01T18:00:00Z
+    endUTC: 2026-05-04T23:59:59Z
+    effects:
+      - eventName: grind_exp
+        multiplier: 1.6
