@@ -1,10 +1,10 @@
 server:
-  version: 19
+  version: 20
   id: 1
   name: ServNorm1
   is_test_server: false
   auto_restart: 28000
-  player_limit: 50
+  player_limit: 500
   player_rebirth_required: 0
   type: Normal
   intance_details:

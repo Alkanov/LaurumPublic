@@ -7,20 +7,21 @@ admin_team:
   members:
     - admin
     - alkanov
-    - zelp
     - mod1
+    - uragus
 mod_team:
   chat:
     text_color: "#ff8000"
     icon_set: skill_iconset
     index: 101
   members:
-    - alkanov1
+    - InGameMod01
+    - InGameMod02
 tutor_team:
   chat:
     text_color: "#e6cc80"
     icon_set: skill_iconset
     index: 109
   members:
-    - uragus
+    - alkanov
 pvp_gold_required: 100000 #needs to be the same on the server side
