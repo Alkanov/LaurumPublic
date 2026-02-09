@@ -1,0 +1,48 @@
+# Game Event Calendar v2.0 - Grouped Events
+# The top-level key (e.g., new_years_2025) is a unique name for the event group.
+# It is used for organization and logging but not directly in game logic.
+# The startUTC/endUTC schedule applies to ALL effects listed within the group.
+version: 2
+event_groups:
+  new_years_celebration_2025:
+    description: "Ringing in the new year with bonuses!"
+    startUTC: 2025-11-04T00:00:00Z
+    endUTC: 2025-11-05T23:59:59Z
+    effects:
+      - eventName: grind_exp
+        multiplier: 2.0
+      - eventName: quest_exp
+        multiplier: 2.0
+      - eventName: grind_gold
+        multiplier: 2.0
+      - eventName: quest_gold
+        multiplier: 2.0
+
+  gold_rush_weekend_jan:
+    description: "A weekend of riches!"
+    startUTC: 2025-01-10T18:00:00Z
+    endUTC: 2025-01-12T23:59:59Z
+    effects:
+      - eventName: grind_gold
+        multiplier: 2.5
+      - eventName: quest_gold
+        multiplier: 1.5 # A smaller bonus for quests
+
+  permanent_gvg_enabled:
+    description: "GvG is always on for territorial warfare."
+    startUTC: 2020-01-01T00:00:00Z
+    endUTC: 2099-12-31T23:59:59Z
+    effects:
+      - eventName: guild_wars
+        multiplier: 1.0 # 1.0 means active
+
+  # An example of a future event, the server will ignore it until its time comes.
+  summer_festival_2025:
+    description: "Summer fun event!"
+    startUTC: 2025-06-20T12:00:00Z
+    endUTC: 2025-07-05T12:00:00Z
+    effects:
+      - eventName: mat_drop
+        multiplier: 1.5
+      - eventName: cheap_aug_reroll
+        multiplier: 0.75

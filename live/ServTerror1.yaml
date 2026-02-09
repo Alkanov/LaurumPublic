@@ -1,5 +1,5 @@
 server:
-  version: 19
+  version: 1
   id: 4
   name: ServTerror1
   is_test_server: false
@@ -26,9 +26,9 @@ server:
   env_damage: #tbd
     multiplier: 0.3 #tbd
     power: 50.0 #tbd
-player: 
-  penalties: 
-    exp_penalty_on_death: 
+player:
+  penalties:
+    exp_penalty_on_death:
       pve:
         chance: 15.0
         amount: 5.0
@@ -36,7 +36,7 @@ player:
         chance: 0
         amount: 0
 enemies:
-  corrupted_ench_chance: 50 #5 
+  corrupted_ench_chance: 50 #5
   boss_upgrade:
     max_in_bosses_open_world: 5
     chance: 30
@@ -91,7 +91,7 @@ enemies:
       walking_speed: 1.18
     spawn_settings:
       random_buffs_chance: 100 #1
-      random_buffs_amounts: 2 #1    
+      random_buffs_amounts: 2 #1
       is_aggro_passive: false
       min_level_required: 0 # only elites use this so far
       spawn_chance: 0 #only elites use this so far

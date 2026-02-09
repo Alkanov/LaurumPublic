@@ -1,14 +1,14 @@
 server:
-  version: 20
+  version: 1
   id: 1
   name: ServNorm1
   is_test_server: false
   auto_restart: 28000
-  player_limit: 500
+  player_limit: 150
   player_rebirth_required: 0
   type: Normal
   intance_details:
-    allow_instance_request: true
+    allow_instance_request: false
     is_intance: false
     time_to_complete: 500
     time_to_first_player: 400
@@ -26,9 +26,9 @@ server:
   env_damage: #tbd
     multiplier: 0.3 #tbd
     power: 50.0 #tbd
-player: 
-  penalties: 
-    exp_penalty_on_death: 
+player:
+  penalties:
+    exp_penalty_on_death:
       pve:
         chance: 0
         amount: 0
@@ -91,7 +91,7 @@ enemies:
       walking_speed: 1.0
     spawn_settings:
       random_buffs_chance: 1.0
-      random_buffs_amounts: 1    
+      random_buffs_amounts: 1
       is_aggro_passive: true
       min_level_required: 0 # only elites use this so far
       spawn_chance: 0 #only elites use this so far

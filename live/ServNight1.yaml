@@ -1,5 +1,5 @@
 server:
-  version: 19
+  version: 1
   id: 3
   name: ServNight1
   is_test_server: false
@@ -8,7 +8,7 @@ server:
   player_rebirth_required: 20
   type: Nightmare
   intance_details:
-    allow_instance_request: true
+    allow_instance_request: false
     is_intance: false
     time_to_complete: 500
     time_to_first_player: 400
@@ -26,9 +26,9 @@ server:
   env_damage: #tbd
     multiplier: 0.3 #tbd
     power: 50.0 #tbd
-player: 
-  penalties: 
-    exp_penalty_on_death: 
+player:
+  penalties:
+    exp_penalty_on_death:
       pve:
         chance: 10.0
         amount: 5.0
@@ -36,7 +36,7 @@ player:
         chance: 0
         amount: 0
 enemies:
-  corrupted_ench_chance: 30 #5 
+  corrupted_ench_chance: 30 #5
   boss_upgrade:
     max_in_bosses_open_world: 3
     chance: 20
@@ -91,7 +91,7 @@ enemies:
       walking_speed: 1.15
     spawn_settings:
       random_buffs_chance: 25 #1
-      random_buffs_amounts: 2 #1    
+      random_buffs_amounts: 2 #1
       is_aggro_passive: false
       min_level_required: 0 # only elites use this so far
       spawn_chance: 0 #only elites use this so far
