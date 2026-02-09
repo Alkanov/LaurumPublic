@@ -5,7 +5,7 @@ server:
   is_test_server: false
   auto_restart: 28400
   player_limit: 40
-  player_rebirth_required: 20
+  player_rebirth_required: 0
   type: Nightmare
   intance_details:
     allow_instance_request: false
