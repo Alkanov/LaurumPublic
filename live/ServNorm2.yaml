@@ -22,7 +22,6 @@ server:
     enabled: false
     gvg_event:
       enabled: false
-      use_even_time: false
   env_damage: #tbd
     multiplier: 0.3 #tbd
     power: 50.0 #tbd

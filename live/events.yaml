@@ -28,13 +28,15 @@ event_groups:
       - eventName: quest_gold
         multiplier: 1.5 # A smaller bonus for quests
 
-  permanent_gvg_enabled:
-    description: "GvG is always on for territorial warfare."
+  gvg_cycle:
+    description: "GvG activates for 30 min every 90 min."
     startUTC: 2020-01-01T00:00:00Z
     endUTC: 2099-12-31T23:59:59Z
+    duration_minutes: 30
+    cooldown_minutes: 60
     effects:
       - eventName: guild_wars
-        multiplier: 1.0 # 1.0 means active
+        multiplier: 1.0
 
   # An example of a future event, the server will ignore it until its time comes.
   summer_festival_2025:
