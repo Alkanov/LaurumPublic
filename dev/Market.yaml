@@ -1,14 +1,15 @@
 server:
-  version: 301
+  version: 2
   id: 1
-  name: ServDev1
+  name: Market
   is_test_server: true
   auto_restart: 280000
   player_rebirth_required: 0
   player_limit: 50
-  type: Terror
+  type: Market
+  spawn_broker: true
   intance_details:
-    allow_instance_request: true
+    allow_instance_request: false
     is_intance: false
     time_to_complete: 500
     time_to_first_player: 400
@@ -19,22 +20,22 @@ server:
     hp_regen_per_tier: 0.0 # multiplied by tier and added
     max_hp_tier_scaling_multiplier: 0.0 # MaxHP multiplied by this and tier
   pvp:
-    enabled: true
+    enabled: false
     gvg_event:
       enabled: false
       use_even_time: false
   env_damage: #tbd
     multiplier: 0.3 #tbd
     power: 50.0 #tbd
-player: 
-  penalties: 
-    exp_penalty_on_death: 
+player:
+  penalties:
+    exp_penalty_on_death:
       pve:
-        chance: 100
-        amount: 10
+        chance: 0
+        amount: 0
       pvp:
-        chance: 100
-        amount: 20
+        chance: 0
+        amount: 0
 enemies:
   corrupted_ench_chance: 5 #5
   boss_upgrade:
@@ -91,7 +92,7 @@ enemies:
       walking_speed: 1.0
     spawn_settings:
       random_buffs_chance: 1.0
-      random_buffs_amounts: 1    
+      random_buffs_amounts: 1
       is_aggro_passive: true
       min_level_required: 0 # only elites use this so far
       spawn_chance: 0 #only elites use this so far

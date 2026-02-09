@@ -1,7 +1,7 @@
 server:
   version: 301
   id: 1
-  name: ServDev1
+  name: ServDevXX
   is_test_server: true
   auto_restart: 280000
   player_rebirth_required: 0
@@ -26,9 +26,9 @@ server:
   env_damage: #tbd
     multiplier: 0.3 #tbd
     power: 50.0 #tbd
-player: 
-  penalties: 
-    exp_penalty_on_death: 
+player:
+  penalties:
+    exp_penalty_on_death:
       pve:
         chance: 100
         amount: 10
@@ -91,7 +91,7 @@ enemies:
       walking_speed: 1.0
     spawn_settings:
       random_buffs_chance: 1.0
-      random_buffs_amounts: 1    
+      random_buffs_amounts: 1
       is_aggro_passive: true
       min_level_required: 0 # only elites use this so far
       spawn_chance: 0 #only elites use this so far
