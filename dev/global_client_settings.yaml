@@ -1,4 +1,4 @@
-version: 4
+version: 1
 admin_team:
   chat:
     text_color: red
@@ -17,6 +17,7 @@ mod_team:
   members:
     - InGameMod01
     - InGameMod02
+    - alkanov
 tutor_team:
   chat:
     text_color: "#e6cc80"
