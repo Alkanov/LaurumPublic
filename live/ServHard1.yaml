@@ -1,11 +1,11 @@
 server:
-  version: 2
+  version: 3
   id: 2
   name: ServHard1
   is_test_server: false
   auto_restart: 28200
   player_limit: 40
-  player_rebirth_required: 0
+  player_rebirth_required: 1
   type: Hard
   intance_details:
     allow_instance_request: false
