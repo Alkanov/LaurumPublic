@@ -11,28 +11,28 @@ event_groups:
     effects:
       - eventName: quest_exp
         multiplier: 1.8
-      - eventName: quest_gold
-        multiplier: 1.8
+      #- eventName: quest_gold
+      #  multiplier: 1.8
 
-  chinese_new_year_2026:
-    description: "Lunar New Year celebration."
-    startUTC: 2026-02-17T00:00:00Z
-    endUTC: 2026-02-19T23:59:59Z
-    effects:
-      - eventName: grind_gold
-        multiplier: 2.0
-      - eventName: mat_drop
-        multiplier: 1.4
+ # chinese_new_year_2026:
+    #description: "Lunar New Year celebration."
+    #startUTC: 2026-02-17T00:00:00Z
+    #endUTC: 2026-02-19T23:59:59Z
+    #effects:
+      #- eventName: grind_gold
+      #  multiplier: 2.0
+      #- eventName: mat_drop
+      #  multiplier: 1.4
 
   frosty_loot_weekend_feb:
     description: "Weekend loot bonus to keep things lively."
     startUTC: 2026-02-20T18:00:00Z
-    endUTC: 2026-02-23T23:59:59Z
+    endUTC: 2026-02-22T23:59:59Z
     effects:
       - eventName: grind_gold
-        multiplier: 2.2
+        multiplier: 1.5
       - eventName: quest_gold
-        multiplier: 1.4
+        multiplier: 1.5
 
   march_exp_weekend_2026:
     description: "Extra experience for a quick power push."
@@ -70,15 +70,15 @@ event_groups:
       - eventName: quest_exp
         multiplier: 1.8
 
-  april_gold_rush_weekend_2026:
-    description: "Gold rush weekend for treasure hunters."
-    startUTC: 2026-04-24T18:00:00Z
-    endUTC: 2026-04-27T23:59:59Z
-    effects:
-      - eventName: grind_gold
-        multiplier: 2.4
-      - eventName: quest_gold
-        multiplier: 1.5
+  #april_gold_rush_weekend_2026:
+    #description: "Gold rush weekend for treasure hunters."
+    #startUTC: 2026-04-24T18:00:00Z
+    #endUTC: 2026-04-27T23:59:59Z
+    #effects:
+      #- eventName: grind_gold
+        #multiplier: 2.4
+      #- eventName: quest_gold
+       # multiplier: 1.5
 
   may_day_2026:
     description: "May Day celebration and marketplace discounts."
