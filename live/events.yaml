@@ -2,7 +2,7 @@
 # The top-level key (e.g., new_years_2025) is a unique name for the event group.
 # It is used for organization and logging but not directly in game logic.
 # The startUTC/endUTC schedule applies to ALL effects listed within the group.
-version: 2
+version: 3
 event_groups:
   valentines_2026:
     description: "Valentine's Day bonuses and good vibes."
