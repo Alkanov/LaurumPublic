@@ -18,6 +18,7 @@ mod_team:
     - InGameMod01
     - InGameMod02
     - alkanov
+    - LaurumChatBot
 tutor_team:
   chat:
     text_color: "#e6cc80"
