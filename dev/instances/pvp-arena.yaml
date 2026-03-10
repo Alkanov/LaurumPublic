@@ -1,15 +1,3 @@
-# PVP Arena Instance YAML Config
-# ─────────────────────────────────────────────────────────────────────────────
-# This file must be placed in the LaurumPublic repo at:
-#   instances/pvp-arena.yaml
-#
-# The arena instance server downloads this YAML during startup from:
-#   {server_local_settings_repo}instances/pvp-arena.yaml
-#
-# It is shared by ALL arena modes/sizes (the arena controller reads
-# mode-specific config from ServerLocalSettings.instance_gamemode + members).
-# ─────────────────────────────────────────────────────────────────────────────
-
 server:
   version: 1
   id: 0
