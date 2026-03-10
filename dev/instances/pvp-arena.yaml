@@ -1,0 +1,154 @@
+server:
+  version: 1
+  id: 0
+  name: pvp-arena
+  is_test_server: false
+  player_rebirth_required: 0
+  auto_restart: 9999
+  player_limit: 20
+  type: Normal
+  intance_details:
+    allow_instance_request: false
+    is_intance: true
+    time_to_first_player: 60
+    time_to_complete: 600
+    map: pvp-arena-dm-01
+  owned_by_guild_id: 0
+  pvp:
+    enabled: true
+    gvg_event:
+      enabled: false
+      use_even_time: false
+  env_damage:
+    multiplier: 0
+    power: 0
+  spawn_broker: false
+
+enemies:
+  boss_upgrade:
+    max_in_bosses_open_world: 0
+    chance: 0
+    spawn_cool_down_mins: 9999
+  corrupted_ench_chance: 0
+  attack_modifiers: {}
+  normal:
+    stats:
+      damage_multiplier: 1
+      max_hp_multiplier: 1
+      defense_multiplier: 1
+      hp_regen_per_cycle_percentage: 0
+      hp_regen_cycle_time: 0
+      dodge_chance_additional_percentage: 0
+      critical_chance_additional_percentage: 0
+      attack_speed_wait_multiplier: 1
+      walking_speed: 1
+    spawn_settings:
+      random_buffs_chance: 0
+      random_buffs_amounts: 0
+      is_aggro_passive: true
+      min_level_required: 0
+      spawn_chance: 0
+      max_aggro_range_multiplier: 0
+    rewards:
+      gold_drop_chance: 0
+      gold_drop_multiplier: 0
+      drop_more_exp: 0
+      drop_more_items: 0
+      material_drop_chance_multiplier: 0
+      extra_material: 0
+      new_item:
+        RNG_mod: false
+        mod_extra_luck: 0
+        guaranteed_mods_number: 0
+        RNG_upgrade: false
+        upgrade_extra_luck: 0
+        RNG_enchant: false
+        enchant_extra_luck: 0
+        RNG_quality: false
+        quality_extra_luck: 0
+        RNG_elemental: false
+        elemental_extra_luck: 0
+  boss:
+    stats:
+      damage_multiplier: 1
+      max_hp_multiplier: 1
+      defense_multiplier: 1
+      hp_regen_per_cycle_percentage: 0
+      hp_regen_cycle_time: 0
+      dodge_chance_additional_percentage: 0
+      critical_chance_additional_percentage: 0
+      attack_speed_wait_multiplier: 1
+      walking_speed: 1
+    spawn_settings:
+      random_buffs_chance: 0
+      random_buffs_amounts: 0
+      is_aggro_passive: true
+      min_level_required: 0
+      spawn_chance: 0
+      max_aggro_range_multiplier: 0
+    rewards:
+      gold_drop_chance: 0
+      gold_drop_multiplier: 0
+      drop_more_exp: 0
+      drop_more_items: 0
+      material_drop_chance_multiplier: 0
+      extra_material: 0
+      new_item:
+        RNG_mod: false
+        mod_extra_luck: 0
+        guaranteed_mods_number: 0
+        RNG_upgrade: false
+        upgrade_extra_luck: 0
+        RNG_enchant: false
+        enchant_extra_luck: 0
+        RNG_quality: false
+        quality_extra_luck: 0
+        RNG_elemental: false
+        elemental_extra_luck: 0
+  elites:
+    stats:
+      damage_multiplier: 1
+      max_hp_multiplier: 1
+      defense_multiplier: 1
+      hp_regen_per_cycle_percentage: 0
+      hp_regen_cycle_time: 0
+      dodge_chance_additional_percentage: 0
+      critical_chance_additional_percentage: 0
+      attack_speed_wait_multiplier: 1
+      walking_speed: 1
+    spawn_settings:
+      random_buffs_chance: 0
+      random_buffs_amounts: 0
+      is_aggro_passive: true
+      min_level_required: 0
+      spawn_chance: 0
+      max_aggro_range_multiplier: 0
+    rewards:
+      gold_drop_chance: 0
+      gold_drop_multiplier: 0
+      drop_more_exp: 0
+      drop_more_items: 0
+      material_drop_chance_multiplier: 0
+      extra_material: 0
+      new_item:
+        RNG_mod: false
+        mod_extra_luck: 0
+        guaranteed_mods_number: 0
+        RNG_upgrade: false
+        upgrade_extra_luck: 0
+        RNG_enchant: false
+        enchant_extra_luck: 0
+        RNG_quality: false
+        quality_extra_luck: 0
+        RNG_elemental: false
+        elemental_extra_luck: 0
+
+player:
+  penalties:
+    exp_penalty_on_death:
+      pve:
+        chance: 0
+        amount: 0
+      pvp:
+        chance: 0
+        amount: 0
