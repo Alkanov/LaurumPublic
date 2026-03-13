@@ -1018,8 +1018,8 @@ item.name.4003,Testbox 4003,Testbox 4003,Testbox 4003
 item.name.4004,<color=#ff8000>Final Tier Main Weapon Box</color>,<color=#ff8000>Final Tier Main Weapon Box</color>,<color=#ff8000>Final Tier Main Weapon Box</color>
 item.name.3100,Guardian Stone,Guardian Stone,Guardian Stone
 item.name.3101,Vault Stone,Vault Stone,Vault Stone
-item.name.3102,Stability Stone,Stability Stone,Stability Stone
-item.name.3103,Preservation Stone,Preservation Stone,Preservation Stone
+item.name.3102,Legacy Item,Legacy Item,Legacy Item
+item.name.3103,Legacy Item,Legacy Item,Legacy Item
 item.name.3104,Spirit Stone,Spirit Stone,Spirit Stone
 item.name.3300,Prime Jewel,Prime Jewel,Prime Jewel
 item.name.3301,Spirit Jewel,Spirit Jewel,Spirit Jewel
@@ -1706,8 +1706,8 @@ item.desc.4001,This crate grants you one Golden Ticket,Esta caixa lhe concede um
 item.desc.4002,This crate contains from 6 to 12 Premium Gems,Esta caixa contém de 6 a 12 premium Gemas,Esta caja contiene de 6 a 12 gemas
 item.desc.3100,Stops a negative karma player from dropping an item on PvP death. Destroyed after use.,Stops a negative karma player from dropping an item on PvP death. Destroyed after use.,Stops a negative karma player from dropping an item on PvP death. Destroyed after use.
 item.desc.3101,Stops a negative karma player from dropping gold on PvP death. Destroyed after use.,Stops a negative karma player from dropping gold on PvP death. Destroyed after use.,Stops a negative karma player from dropping gold on PvP death. Destroyed after use.
-item.desc.3102,Prevents item downgrade on upgrade failure. Destroyed after use.,Prevents item downgrade on upgrade failure. Destroyed after use.,Prevents item downgrade on upgrade failure. Destroyed after use.
-item.desc.3103,Prevents item from breaking on upgrade failure. Destroyed after use.,Prevents item from breaking on upgrade failure. Destroyed after use.,Prevents item from breaking on upgrade failure. Destroyed after use.
+item.desc.3102,Legacy item. No longer distributed in-game.,Legacy item. No longer distributed in-game.,Legacy item. No longer distributed in-game.
+item.desc.3103,Legacy item. No longer distributed in-game.,Legacy item. No longer distributed in-game.,Legacy item. No longer distributed in-game.
 item.desc.3104,Prevents experience loss on PvE death. Destroyed after use.,Prevents experience loss on PvE death. Destroyed after use.,Prevents experience loss on PvE death. Destroyed after use.
 item.desc.3300,Upgrades gear from +0 to +5 (25% success),Upgrades gear from +0 to +5 (25% success),Upgrades gear from +0 to +5 (25% success)
 item.desc.3301,Upgrades gear from +6 to +8 (50% success\u002c downgrade on fail),Upgrades gear from +6 to +8 (50% success\u002c downgrade on fail),Upgrades gear from +6 to +8 (50% success\u002c downgrade on fail)
@@ -3606,13 +3606,13 @@ item.desc.29306,Grants at least one level of MDEF training. <color=red>Bound - C
 item.desc.29307,Grants at least one level of AGI training. <color=red>Bound - Cannot be traded.</color>,Grants at least one level of AGI training. <color=red>Bound - Cannot be traded.</color>,Grants at least one level of AGI training. <color=red>Bound - Cannot be traded.</color>
 item.name.3150,Bound Guardian Stone,Bound Guardian Stone,Bound Guardian Stone
 item.name.3151,Bound Vault Stone,Bound Vault Stone,Bound Vault Stone
-item.name.3152,Bound Stability Stone,Bound Stability Stone,Bound Stability Stone
-item.name.3153,Bound Preservation Stone,Bound Preservation Stone,Bound Preservation Stone
+item.name.3152,Legacy Bound Item,Legacy Bound Item,Legacy Bound Item
+item.name.3153,Legacy Bound Item,Legacy Bound Item,Legacy Bound Item
 item.name.3154,Bound Spirit Stone,Bound Spirit Stone,Bound Spirit Stone
 item.desc.3150,Prevents item drop on PvP death. <color=red>Bound - Cannot be traded.</color>,Prevents item drop on PvP death. <color=red>Bound - Cannot be traded.</color>,Prevents item drop on PvP death. <color=red>Bound - Cannot be traded.</color>
 item.desc.3151,Prevents gold drop on PvP death. <color=red>Bound - Cannot be traded.</color>,Prevents gold drop on PvP death. <color=red>Bound - Cannot be traded.</color>,Prevents gold drop on PvP death. <color=red>Bound - Cannot be traded.</color>
-item.desc.3152,Prevents item downgrade on upgrade failure. <color=red>Bound - Cannot be traded.</color>,Prevents item downgrade on upgrade failure. <color=red>Bound - Cannot be traded.</color>,Prevents item downgrade on upgrade failure. <color=red>Bound - Cannot be traded.</color>
-item.desc.3153,Prevents item break on upgrade failure. <color=red>Bound - Cannot be traded.</color>,Prevents item break on upgrade failure. <color=red>Bound - Cannot be traded.</color>,Prevents item break on upgrade failure. <color=red>Bound - Cannot be traded.</color>
+item.desc.3152,Legacy item. No longer distributed in-game. <color=red>Bound.</color>,Legacy item. No longer distributed in-game. <color=red>Bound.</color>,Legacy item. No longer distributed in-game. <color=red>Bound.</color>
+item.desc.3153,Legacy item. No longer distributed in-game. <color=red>Bound.</color>,Legacy item. No longer distributed in-game. <color=red>Bound.</color>,Legacy item. No longer distributed in-game. <color=red>Bound.</color>
 item.desc.3154,Prevents XP loss on PvE death. <color=red>Bound - Cannot be traded.</color>,Prevents XP loss on PvE death. <color=red>Bound - Cannot be traded.</color>,Prevents XP loss on PvE death. <color=red>Bound - Cannot be traded.</color>
 item.name.3350,Bound Prime Jewel,Bound Prime Jewel,Bound Prime Jewel
 item.name.3351,Bound Spirit Jewel,Bound Spirit Jewel,Bound Spirit Jewel
@@ -3688,10 +3688,10 @@ item.desc.29430,Increases magic defense by 10% for 24 hours. <color=red>Bound.</
 item.desc.29431,Increases magic defense by 10% for 48 hours. <color=red>Bound.</color>,Increases magic defense by 10% for 48 hours. <color=red>Bound.</color>,Increases magic defense by 10% for 48 hours. <color=red>Bound.</color>
 item.desc.29432,Increases all damage dealt by 10% for 24 hours. <color=red>Bound.</color>,Increases all damage dealt by 10% for 24 hours. <color=red>Bound.</color>,Increases all damage dealt by 10% for 24 hours. <color=red>Bound.</color>
 item.desc.29433,Increases all damage dealt by 10% for 48 hours. <color=red>Bound.</color>,Increases all damage dealt by 10% for 48 hours. <color=red>Bound.</color>,Increases all damage dealt by 10% for 48 hours. <color=red>Bound.</color>
-ui.safeguard.stability_active,Stability Stone equipped. Downgrade will be prevented on fail.,Stability Stone equipped. Downgrade will be prevented on fail.,Stability Stone equipped. Downgrade will be prevented on fail.
-ui.safeguard.preservation_active,Preservation Stone equipped. Destruction will be prevented on fail.,Preservation Stone equipped. Destruction will be prevented on fail.,Preservation Stone equipped. Destruction will be prevented on fail.
-ui.safeguard.stability_wrong,Stability Stone cannot prevent destruction. Equip a Preservation Stone to protect this item.,Stability Stone cannot prevent destruction. Equip a Preservation Stone to protect this item.,Stability Stone cannot prevent destruction. Equip a Preservation Stone to protect this item.
-ui.safeguard.preservation_wrong,Preservation Stone cannot prevent downgrade. Equip a Stability Stone to protect this item.,Preservation Stone cannot prevent downgrade. Equip a Stability Stone to protect this item.,Preservation Stone cannot prevent downgrade. Equip a Stability Stone to protect this item.
+ui.safeguard.stability_active,,,
+ui.safeguard.preservation_active,,,
+ui.safeguard.stability_wrong,,,
+ui.safeguard.preservation_wrong,,,
 item.name.27101,Xmas 2019 Warrior Male Skin,Xmas 2019 Warrior Male Skin,Xmas 2019 Warrior Male Skin
 item.desc.27101,Xmas 2019 festive outfit for Warrior.,Base body skin for Warrior.,Base body skin for Warrior.
 item.name.27102,Xmas 2019 Warrior Female Skin,Xmas 2019 Warrior Female Skin,Xmas 2019 Warrior Female Skin
