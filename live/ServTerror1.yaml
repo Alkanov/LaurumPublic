@@ -4,7 +4,7 @@ server:
   name: ServTerror1
   is_test_server: false
   auto_restart: 28800
-  player_limit: 40
+  player_limit: 70
   player_rebirth_required: 7
   type: Terror
   intance_details:
