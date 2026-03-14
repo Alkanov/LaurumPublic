@@ -1,10 +1,10 @@
 server:
-  version: 3
+  version: 7
   id: 4
   name: ServTerror1
   is_test_server: false
   auto_restart: 28800
-  player_limit: 70
+  player_limit: 50
   player_rebirth_required: 7
   type: Terror
   intance_details:
@@ -19,7 +19,7 @@ server:
     hp_regen_per_tier: 0.0 # multiplied by tier and added
     max_hp_tier_scaling_multiplier: 0.0 # MaxHP multiplied by this and tier
   pvp:
-    enabled: true
+    enabled: false
     gvg_event:
       enabled: false
   env_damage: #tbd
