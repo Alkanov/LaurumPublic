@@ -484,7 +484,7 @@ generic.legacy.10,Mythical,Mítico,Mítico
 generic.legacy.11,Select an enchanted item to be used as material.<br><color=red>WARNING: material item will be destroyed in case of fail or success</color>,Selecione um item encantado para ser usado como material.<br><color=red>AVISO: Item de material será destruído em caso de falha ou sucesso</color>,Seleccione un elemento encantado para transferir.<br><color=red>ADVERTENCIA: El item a transferir será destruido en caso de falla o éxito</color>
 generic.legacy.12,<color=red>Equipping this Training stone will block you from gaining player experience</color>,<color=red>Equipar esta pedra Training irá impedi-lo de ganhar experiência jogador</color>,<color=red>Equiptar esta piedra de entrenamiento bloquea el ganar experiencia</color>
 generic.legacy.13,from upgrade,de atualização,de actualización
-generic.legacy.14,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: In some cases failing to upgrade could end up in a downgrade or destroyed items!</color>,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: In some cases failing to upgrade could end up in a downgrade or destroyed items!</color>,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: In some cases failing to upgrade could end up in a downgrade or destroyed items!</color>
+generic.legacy.14,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: Failing an upgrade can downgrade your item, and high-tier failures can drop it by 2 levels.</color>,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: Failing an upgrade can downgrade your item, and high-tier failures can drop it by 2 levels.</color>,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: Failing an upgrade can downgrade your item, and high-tier failures can drop it by 2 levels.</color>
 generic.legacy.15,DOWNGRADE RISK! On fail\u002c this item will be downgraded to,RISCO DOWNGRADE! No Fail\u002c este item será rebaixado para,¡RIESGO DE RESTROCESO! Si falla\u002c este item será reducido a
 generic.legacy.16,[Story],[História],[Historia]
 generic.legacy.17,[Hourly],[Por hora],[Cada hora]
@@ -1018,8 +1018,8 @@ item.name.4003,Testbox 4003,Testbox 4003,Testbox 4003
 item.name.4004,<color=#ff8000>Final Tier Main Weapon Box</color>,<color=#ff8000>Final Tier Main Weapon Box</color>,<color=#ff8000>Final Tier Main Weapon Box</color>
 item.name.3100,Guardian Stone,Guardian Stone,Guardian Stone
 item.name.3101,Vault Stone,Vault Stone,Vault Stone
-item.name.3102,Legacy Item,Legacy Item,Legacy Item
-item.name.3103,Legacy Item,Legacy Item,Legacy Item
+item.name.3102,Stability Stone,Stability Stone,Stability Stone
+item.name.3103,Preservation Stone,Preservation Stone,Preservation Stone
 item.name.3104,Spirit Stone,Spirit Stone,Spirit Stone
 item.name.3300,Prime Jewel,Prime Jewel,Prime Jewel
 item.name.3301,Spirit Jewel,Spirit Jewel,Spirit Jewel
@@ -1706,12 +1706,12 @@ item.desc.4001,This crate grants you one Golden Ticket,Esta caixa lhe concede um
 item.desc.4002,This crate contains from 6 to 12 Premium Gems,Esta caixa contém de 6 a 12 premium Gemas,Esta caja contiene de 6 a 12 gemas
 item.desc.3100,Stops a negative karma player from dropping an item on PvP death. Destroyed after use.,Stops a negative karma player from dropping an item on PvP death. Destroyed after use.,Stops a negative karma player from dropping an item on PvP death. Destroyed after use.
 item.desc.3101,Stops a negative karma player from dropping gold on PvP death. Destroyed after use.,Stops a negative karma player from dropping gold on PvP death. Destroyed after use.,Stops a negative karma player from dropping gold on PvP death. Destroyed after use.
-item.desc.3102,Legacy item. No longer distributed in-game.,Legacy item. No longer distributed in-game.,Legacy item. No longer distributed in-game.
-item.desc.3103,Legacy item. No longer distributed in-game.,Legacy item. No longer distributed in-game.,Legacy item. No longer distributed in-game.
+item.desc.3102,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents normal upgrade downgrades on fail. Destroyed after use.,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents normal upgrade downgrades on fail. Destroyed after use.,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents normal upgrade downgrades on fail. Destroyed after use.
+item.desc.3103,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents the severe -2 downgrade from failed high-tier upgrades. Destroyed after use.,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents the severe -2 downgrade from failed high-tier upgrades. Destroyed after use.,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents the severe -2 downgrade from failed high-tier upgrades. Destroyed after use.
 item.desc.3104,Prevents experience loss on PvE death. Destroyed after use.,Prevents experience loss on PvE death. Destroyed after use.,Prevents experience loss on PvE death. Destroyed after use.
 item.desc.3300,Upgrades gear from +0 to +5 (25% success),Upgrades gear from +0 to +5 (25% success),Upgrades gear from +0 to +5 (25% success)
 item.desc.3301,Upgrades gear from +6 to +8 (50% success\u002c downgrade on fail),Upgrades gear from +6 to +8 (50% success\u002c downgrade on fail),Upgrades gear from +6 to +8 (50% success\u002c downgrade on fail)
-item.desc.3302,Upgrades +9 to +14 (success varies by level; may destroy on fail),Upgrades +9 to +14 (success varies by level; may destroy on fail),Upgrades +9 to +14 (success varies by level; may destroy on fail)
+item.desc.3302,Upgrades +9 to +14 (success varies by level; downgraded by 2 on fail),Upgrades +9 to +14 (success varies by level; downgraded by 2 on fail),Upgrades +9 to +14 (success varies by level; downgraded by 2 on fail)
 item.desc.5200,Egg description,A inscrição Egg,Descripción del huevo
 item.desc.25101,...,...,...
 item.desc.25102,...,...,...
@@ -3554,7 +3554,7 @@ item.name.26321,Halloween Staff,Halloween Staff,Halloween Staff
 item.desc.26321,...,...,...
 item.name.26421,Halloween Hammer,Halloween Hammer,Halloween Hammer
 item.desc.26421,...,...,...
-ui.itemmaybedestroyed,ITEM DESTRUCTION RISK! On fail\u002c this item will be destroyed.,ITEM DESTRUCTION RISK! On fail\u002c this item will be destroyed.,ITEM DESTRUCTION RISK! On fail\u002c this item will be destroyed.
+ui.itemmaybeseveredowngrade,SEVERE DOWNGRADE RISK! On fail\u002c this item will be downgraded by 2 levels.,SEVERE DOWNGRADE RISK! On fail\u002c this item will be downgraded by 2 levels.,SEVERE DOWNGRADE RISK! On fail\u002c this item will be downgraded by 2 levels.
 pkcantunequip,Cannot unequip: PK players cannot remove equipment.,Cannot unequip: PK players cannot remove equipment.,Cannot unequip: PK players cannot remove equipment.
 pkcanttradegold,Cannot offer: PK players cannot trade gold.,Cannot offer: PK players cannot trade gold.,Cannot offer: PK players cannot trade gold.
 item.name.29200,STR Training Orb,STR Training Orb,STR Training Orb
@@ -3606,20 +3606,20 @@ item.desc.29306,Grants at least one level of MDEF training. <color=red>Bound - C
 item.desc.29307,Grants at least one level of AGI training. <color=red>Bound - Cannot be traded.</color>,Grants at least one level of AGI training. <color=red>Bound - Cannot be traded.</color>,Grants at least one level of AGI training. <color=red>Bound - Cannot be traded.</color>
 item.name.3150,Bound Guardian Stone,Bound Guardian Stone,Bound Guardian Stone
 item.name.3151,Bound Vault Stone,Bound Vault Stone,Bound Vault Stone
-item.name.3152,Legacy Bound Item,Legacy Bound Item,Legacy Bound Item
-item.name.3153,Legacy Bound Item,Legacy Bound Item,Legacy Bound Item
+item.name.3152,Bound Stability Stone,Bound Stability Stone,Bound Stability Stone
+item.name.3153,Bound Preservation Stone,Bound Preservation Stone,Bound Preservation Stone
 item.name.3154,Bound Spirit Stone,Bound Spirit Stone,Bound Spirit Stone
 item.desc.3150,Prevents item drop on PvP death. <color=red>Bound - Cannot be traded.</color>,Prevents item drop on PvP death. <color=red>Bound - Cannot be traded.</color>,Prevents item drop on PvP death. <color=red>Bound - Cannot be traded.</color>
 item.desc.3151,Prevents gold drop on PvP death. <color=red>Bound - Cannot be traded.</color>,Prevents gold drop on PvP death. <color=red>Bound - Cannot be traded.</color>,Prevents gold drop on PvP death. <color=red>Bound - Cannot be traded.</color>
-item.desc.3152,Legacy item. No longer distributed in-game. <color=red>Bound.</color>,Legacy item. No longer distributed in-game. <color=red>Bound.</color>,Legacy item. No longer distributed in-game. <color=red>Bound.</color>
-item.desc.3153,Legacy item. No longer distributed in-game. <color=red>Bound.</color>,Legacy item. No longer distributed in-game. <color=red>Bound.</color>,Legacy item. No longer distributed in-game. <color=red>Bound.</color>
+item.desc.3152,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents normal upgrade downgrades on fail. <color=red>Bound - Cannot be traded.</color>,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents normal upgrade downgrades on fail. <color=red>Bound - Cannot be traded.</color>,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents normal upgrade downgrades on fail. <color=red>Bound - Cannot be traded.</color>
+item.desc.3153,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents the severe -2 downgrade from failed high-tier upgrades. <color=red>Bound - Cannot be traded.</color>,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents the severe -2 downgrade from failed high-tier upgrades. <color=red>Bound - Cannot be traded.</color>,Legacy safeguard stone. Very rare and expensive. No longer drops in-game. Prevents the severe -2 downgrade from failed high-tier upgrades. <color=red>Bound - Cannot be traded.</color>
 item.desc.3154,Prevents XP loss on PvE death. <color=red>Bound - Cannot be traded.</color>,Prevents XP loss on PvE death. <color=red>Bound - Cannot be traded.</color>,Prevents XP loss on PvE death. <color=red>Bound - Cannot be traded.</color>
 item.name.3350,Bound Prime Jewel,Bound Prime Jewel,Bound Prime Jewel
 item.name.3351,Bound Spirit Jewel,Bound Spirit Jewel,Bound Spirit Jewel
 item.name.3352,Bound Void Jewel,Bound Void Jewel,Bound Void Jewel
 item.desc.3350,Upgrades gear from +0 to +6 (100% success). <color=red>Bound - Cannot be traded.</color>,Upgrades gear from +0 to +6 (100% success). <color=red>Bound - Cannot be traded.</color>,Upgrades gear from +0 to +6 (100% success). <color=red>Bound - Cannot be traded.</color>
 item.desc.3351,Upgrades gear from +6 to +9 (50% success\u002c downgrade on fail). <color=red>Bound - Cannot be traded.</color>,Upgrades gear from +6 to +9 (50% success\u002c downgrade on fail). <color=red>Bound - Cannot be traded.</color>,Upgrades gear from +6 to +9 (50% success\u002c downgrade on fail). <color=red>Bound - Cannot be traded.</color>
-item.desc.3352,Upgrades gear from +9 to +15 (70%-45% success\u002c item destroyed on fail). <color=red>Bound - Cannot be traded.</color>,Upgrades gear from +9 to +15 (70%-45% success\u002c item destroyed on fail). <color=red>Bound - Cannot be traded.</color>,Upgrades gear from +9 to +15 (70%-45% success\u002c item destroyed on fail). <color=red>Bound - Cannot be traded.</color>
+item.desc.3352,Upgrades gear from +9 to +15 (70%-45% success\u002c downgraded by 2 on fail). <color=red>Bound - Cannot be traded.</color>,Upgrades gear from +9 to +15 (70%-45% success\u002c downgraded by 2 on fail). <color=red>Bound - Cannot be traded.</color>,Upgrades gear from +9 to +15 (70%-45% success\u002c downgraded by 2 on fail). <color=red>Bound - Cannot be traded.</color>
 item.name.29400,Speed Buff Scroll (24h),Speed Buff Scroll (24h),Speed Buff Scroll (24h)
 item.name.29401,Speed Buff Scroll (48h),Speed Buff Scroll (48h),Speed Buff Scroll (48h)
 item.name.29402,HP Regen Buff Scroll (24h),HP Regen Buff Scroll (24h),HP Regen Buff Scroll (24h)
@@ -3688,10 +3688,10 @@ item.desc.29430,Increases magic defense by 10% for 24 hours. <color=red>Bound.</
 item.desc.29431,Increases magic defense by 10% for 48 hours. <color=red>Bound.</color>,Increases magic defense by 10% for 48 hours. <color=red>Bound.</color>,Increases magic defense by 10% for 48 hours. <color=red>Bound.</color>
 item.desc.29432,Increases all damage dealt by 10% for 24 hours. <color=red>Bound.</color>,Increases all damage dealt by 10% for 24 hours. <color=red>Bound.</color>,Increases all damage dealt by 10% for 24 hours. <color=red>Bound.</color>
 item.desc.29433,Increases all damage dealt by 10% for 48 hours. <color=red>Bound.</color>,Increases all damage dealt by 10% for 48 hours. <color=red>Bound.</color>,Increases all damage dealt by 10% for 48 hours. <color=red>Bound.</color>
-ui.safeguard.stability_active,,,
-ui.safeguard.preservation_active,,,
-ui.safeguard.stability_wrong,,,
-ui.safeguard.preservation_wrong,,,
+ui.safeguard.stability_active,Stability Stone equipped. Normal downgrade will be prevented on fail.,Stability Stone equipped. Normal downgrade will be prevented on fail.,Stability Stone equipped. Normal downgrade will be prevented on fail.
+ui.safeguard.preservation_active,Preservation Stone equipped. Severe -2 downgrade will be prevented on fail.,Preservation Stone equipped. Severe -2 downgrade will be prevented on fail.,Preservation Stone equipped. Severe -2 downgrade will be prevented on fail.
+ui.safeguard.stability_wrong,Stability Stone cannot prevent the severe -2 downgrade from this upgrade. Equip a Preservation Stone to protect this item.,Stability Stone cannot prevent the severe -2 downgrade from this upgrade. Equip a Preservation Stone to protect this item.,Stability Stone cannot prevent the severe -2 downgrade from this upgrade. Equip a Preservation Stone to protect this item.
+ui.safeguard.preservation_wrong,Preservation Stone cannot prevent the normal downgrade from this upgrade. Equip a Stability Stone to protect this item.,Preservation Stone cannot prevent the normal downgrade from this upgrade. Equip a Stability Stone to protect this item.,Preservation Stone cannot prevent the normal downgrade from this upgrade. Equip a Stability Stone to protect this item.
 item.name.27101,Xmas 2019 Warrior Male Skin,Xmas 2019 Warrior Male Skin,Xmas 2019 Warrior Male Skin
 item.desc.27101,Xmas 2019 festive outfit for Warrior.,Base body skin for Warrior.,Base body skin for Warrior.
 item.name.27102,Xmas 2019 Warrior Female Skin,Xmas 2019 Warrior Female Skin,Xmas 2019 Warrior Female Skin
