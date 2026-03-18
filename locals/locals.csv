@@ -1,5 +1,5 @@
 Key,English,PortugueseBR,Spanish
-generic.localization.version,4.1,4.1,4.1
+generic.localization.version,4.2,4.2,4.2
 ui.login.loadtext.1,Locating the required gigapixels to render...,Localizando os gigapixels necessários para renderizar... ,Localizando los gigapíxeles necesarios para renderizar...
 ui.login.loadtext.2,Spinning up the hamster...,Colocando os hamsters para correr...,Girando el hámster...
 ui.login.loadtext.3,Shovelling coal into the server...,Abastecendo o servidor com carvão...,Tirando carbón en el servidor...
@@ -2215,7 +2215,24 @@ server.tp.cd.minutes,Teleport in cooldown for: {0} minutes,Teleport em cooldown 
 server.tp.notin.ds,You cant teleport while in the Devil Square,Você não pode se teletransportar enquanto está na Devil Square,Usted no puede teletransportarse en el Devil Square
 server.tp.notin.arena,You cant teleport in arena,Você não pode se teletransportar na Arena,Usted no puede teletransportarse en la arena
 server.item.added,Item added,item adicionado,Item añadido
+server.new.skin,New skin obtained: {0},Nova skin obtida: {0},Nueva skin obtenida: {0}
 server.new.title,New title obtained: {0},Novo título obtido: {0},Nuevo título obtenido: {0}
+skinbook.error.not_found,Skin not found,Skin não encontrada,Skin no encontrada
+skinbook.error.not_purchasable,This skin is not purchasable,Esta skin não pode ser comprada,Esta skin no se puede comprar
+skinbook.error.not_available,This skin is not currently available,Esta skin não está disponível no momento,Esta skin no está disponible actualmente
+skinbook.error.already_owned,You already own this skin,Você já possui esta skin,Ya posees esta skin
+skinbook.error.not_owned,You don't own this skin,Você não possui esta skin,No posees esta skin
+skinbook.error.class_mismatch,Skin class mismatch,A classe da skin não corresponde,La clase de la skin no coincide
+skinbook.error.type_mismatch,Skin type mismatch,O tipo da skin não corresponde,El tipo de skin no coincide
+skinbook.error.unequip_before_exchange,Unequip this skin before exchange,Desequipe esta skin antes de trocar,Desequipa esta skin antes de intercambiarla
+skinbook.error.not_exchangeable,This skin cannot be exchanged,Esta skin não pode ser trocada,Esta skin no se puede intercambiar
+skinbook.admin.only,Admin only command,Comando apenas para administradores,Comando solo para administradores
+skinbook.admin.invalid_id,Invalid skin ID,ID de skin inválido,ID de skin inválido
+skinbook.admin.player_not_found,Player {0} not found.,Jogador {0} não encontrado.,Jugador {0} no encontrado.
+skinbook.admin.target_unavailable,Target player data unavailable.,Dados do jogador alvo indisponíveis.,Datos del jugador objetivo no disponibles.
+skinbook.admin.target_already_owns,Target already owns this skin.,O alvo já possui esta skin.,El objetivo ya posee esta skin.
+skinbook.admin.granted_sender,Granted skin {0} to {1}.,Skin {0} concedida para {1}.,Skin {0} otorgada a {1}.
+skinbook.admin.granted_target,You have been granted a special skin by staff!,Você recebeu uma skin especial da equipe!,¡El equipo te ha otorgado una skin especial!
 server.max.pets,Max of {0} pets are allowed at same time,Max de {0} pets são permitidos ao mesmo tempo,Se permite un máximo de {0} mascotas a la vez
 server.pets.pk,Player killer can't use companions\u002c clean your karma first,Assassino de jogadores não pode usar pets\u002c limpe o seu karma primeiro,Los asesinos de jugadores no pueden usar mascotas\u002c limpia tu karma
 server.scroll.failed.1,Scroll failed: you haven't died yet,Scroll falhou: você ainda não morreu,Pergamino fallido: no has muerto aún
@@ -3464,15 +3481,8 @@ ui.vip.listing.silver,Benefits:\n* VIP titles: \u0022Silver V.I.P\u0022 + \u0022
 ui.vip.listing.gold,Benefits:\n* VIP titles: \u0022Gold V.I.P\u0022 + \u0022V.I.P\u0022\n* +40% exp buff\n* +15 inventory slots\n* +10 bank slots\n* VIP chat + nameplate icon\n\n<color=yellow>Bonus:</color>\n* Daily Login VIP bonus items (Days 1-4)\n* VIP-exclusive daily rewards (Days 5-7)\n* 10-Day Streak Milestone: Pet Skin Box,Benefits:\n* VIP titles: \u0022Gold V.I.P\u0022 + \u0022V.I.P\u0022\n* +40% exp buff\n* +15 inventory slots\n* +10 bank slots\n* VIP chat + nameplate icon\n\n<color=yellow>Bonus:</color>\n* Daily Login VIP bonus items (Days 1-4)\n* VIP-exclusive daily rewards (Days 5-7)\n* 10-Day Streak Milestone: Pet Skin Box,Benefits:\n* VIP titles: \u0022Gold V.I.P\u0022 + \u0022V.I.P\u0022\n* +40% exp buff\n* +15 inventory slots\n* +10 bank slots\n* VIP chat + nameplate icon\n\n<color=yellow>Bonus:</color>\n* Daily Login VIP bonus items (Days 1-4)\n* VIP-exclusive daily rewards (Days 5-7)\n* 10-Day Streak Milestone: Pet Skin Box
 ui.vip.listing.plat,Benefits:\n* VIP titles: \u0022Platinum V.I.P\u0022 + \u0022V.I.P\u0022\n* +55% exp buff\n* +30 inventory slots\n* +40 bank slots\n* Armory Remote Equip (equip items from bank)\n* VIP chat + nameplate icon\n* Platinum-only visual shine effect\n\n<color=red>Bonus:</color>\n* Daily Login VIP bonus items (Days 1-4)\n* VIP-exclusive daily rewards (Days 5-7)\n* 10-Day Streak Milestone: Pet Skin Box\n* 20-Day Streak Milestone: Weapon Skin Box,Benefits:\n* VIP titles: \u0022Platinum V.I.P\u0022 + \u0022V.I.P\u0022\n* +55% exp buff\n* +30 inventory slots\n* +40 bank slots\n* Armory Remote Equip (equip items from bank)\n* VIP chat + nameplate icon\n* Platinum-only visual shine effect\n\n<color=red>Bonus:</color>\n* Daily Login VIP bonus items (Days 1-4)\n* VIP-exclusive daily rewards (Days 5-7)\n* 10-Day Streak Milestone: Pet Skin Box\n* 20-Day Streak Milestone: Weapon Skin Box,Benefits:\n* VIP titles: \u0022Platinum V.I.P\u0022 + \u0022V.I.P\u0022\n* +55% exp buff\n* +30 inventory slots\n* +40 bank slots\n* Armory Remote Equip (equip items from bank)\n* VIP chat + nameplate icon\n* Platinum-only visual shine effect\n\n<color=red>Bonus:</color>\n* Daily Login VIP bonus items (Days 1-4)\n* VIP-exclusive daily rewards (Days 5-7)\n* 10-Day Streak Milestone: Pet Skin Box\n* 20-Day Streak Milestone: Weapon Skin Box
 ui.armory.equip.platinum,✦ Platinum Remote Equip,✦ Platinum Remote Equip,✦ Platinum Remote Equip
-ui.armory.button.equip.vip,VIP Remote Equip,VIP Remote Equip,VIP Remote Equip
 ui.armory.equip.bank.blocked,Items in bank — Platinum VIP required,Items in bank — Platinum VIP required,Items in bank — Platinum VIP required
-ui.armory.bank.vip.required,Some items are in the bank. Platinum VIP required for remote equip.,Some items are in the bank. Platinum VIP required for remote equip.,Some items are in the bank. Platinum VIP required for remote equip.
-ui.armory.equip.success,Loadout equipped successfully.,Loadout equipped successfully.,Loadout equipped successfully.
-ui.armory.equip.partial,Loadout equipped partially.,Loadout equipped partially.,Loadout equipped partially.
-ui.armory.equip.failed,Failed to equip loadout.,Failed to equip loadout.,Failed to equip loadout.
-ui.armory.equip.inventoryfull,Inventory is full. Free up space before equipping this loadout.,Inventory is full. Free up space before equipping this loadout.,Inventory is full. Free up space before equipping this loadout.
 ui.armory.status.bank.vip,Bank (VIP),Bank (VIP),Bank (VIP)
-ui.armory.status.ready.remote,Ready (Remote),Ready (Remote),Ready (Remote)
 ui.vip.listing.title,Premium VIP Options,Premium VIP Options,Premium VIP Options
 ui.vip.listing.desc,Get the <color=green>VIP</color> you like the most and enjoy 30 days of benefits!,Get the <color=green>VIP</color> you like the most and enjoy 30 days of benefits!,Get the <color=green>VIP</color> you like the most and enjoy 30 days of benefits!
 ui.vip.listing.silver.price.btn,Buy - 5 USD,Buy - 5 USD,Buy - 5 USD
@@ -3782,3 +3792,18 @@ item.name.28404,Celestial Ivory Paladin Weapon Skin,Celestial Ivory Paladin Weap
 item.desc.28404,A radiant ivory celestial weapon appearance for Paladin.,A radiant ivory celestial weapon appearance for Paladin.,A radiant ivory celestial weapon appearance for Paladin.
 item.useas.skinweaponv2,Weapon Skin,Pele da arma,Skins de arma
 item.useas.skinbodyv2,Body Skin,Pele do corpo,Skins de armadura
+ui.armory.bank.vip.required,Some items are in the bank. Platinum VIP required for remote equip.,Alguns itens estão no banco. VIP Platina necessário para equipar remotamente.,Algunos objetos están en el banco. Se requiere VIP Platino para equipar remotamente.
+ui.armory.equip.success,Loadout equipped successfully.,Loadout equipado com sucesso.,Loadout equipado con éxito.
+ui.armory.equip.partial,Loadout equipped partially.,Loadout equipado parcialmente.,Loadout equipado parcialmente.
+ui.armory.equip.inventoryfull,Inventory is full. Free up space before equipping this loadout.,Inventário cheio. Libere espaço antes de equipar este loadout.,Inventario lleno. Libera espacio antes de equipar este loadout.
+ui.armory.equip.failed,Failed to equip loadout.,Falha ao equipar o loadout.,Error al equipar el loadout.
+ui.armory.equip.restricted.combat,Cannot equip loadout while in combat.,Não é possível equipar o loadout durante o combate.,No se puede equipar el loadout durante el combate.
+ui.armory.equip.restricted.death,Cannot equip loadout while dead.,Não é possível equipar o loadout enquanto estiver morto.,No se puede equipar el loadout mientras estás muerto.
+ui.armory.equip.restricted.trading,Cannot equip loadout while trading.,Não é possível equipar o loadout durante uma troca.,No se puede equipar el loadout mientras comercias.
+ui.armory.equip.restricted.pk,Cannot equip loadout while flagged for PK.,Não é possível equipar o loadout enquanto estiver marcado como PK.,No se puede equipar el loadout mientras estás marcado como PK.
+ui.armory.equip.restricted.level,Some items in this loadout require a higher level or rebirth count.,Alguns itens neste loadout requerem um nível ou renascimentos mais altos.,Algunos objetos en este loadout requieren un nivel o renacimientos más altos.
+ui.armory.equip.restricted.server,Cannot equip loadout right now.,Não é possível equipar o loadout agora.,No se puede equipar el loadout en este momento.
+ui.armory.status.ready.remote,Ready (Remote),Pronto (Remoto),Listo (Remoto)
+ui.armory.button.equip.vip,VIP Remote Equip,Equipar Remoto VIP,Equipar Remoto VIP
+ui.armory.badge.level,LVL {0},NVL {0},NVL {0}
+ui.armory.badge.rebirth,REBIRTH 25,RENASCIMENTO 25,RENACIMIENTO 25
