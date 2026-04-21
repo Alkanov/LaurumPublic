@@ -1,5 +1,5 @@
 ---
-version: 1
+version: 2
 PvpDamageNerf: 0.85 # Nerf Damage % or ^ (Depends on which formula used) (PVP)
 PvpDefenseNerf: 0.825 # Nerf Defense % or ^ (Depends on which formula used) (PVP)
 aat: 150
