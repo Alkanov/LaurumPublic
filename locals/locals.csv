@@ -1,5 +1,5 @@
 Key,English,PortugueseBR,Spanish
-generic.localization.version,4.2,4.2,4.2
+generic.localization.version,4.5,4.5,4.5
 ui.login.loadtext.1,Locating the required gigapixels to render...,Localizando os gigapixels necessários para renderizar... ,Localizando los gigapíxeles necesarios para renderizar...
 ui.login.loadtext.2,Spinning up the hamster...,Colocando os hamsters para correr...,Girando el hámster...
 ui.login.loadtext.3,Shovelling coal into the server...,Abastecendo o servidor com carvão...,Tirando carbón en el servidor...
@@ -484,7 +484,7 @@ generic.legacy.10,Mythical,Mítico,Mítico
 generic.legacy.11,Select an enchanted item to be used as material.<br><color=red>WARNING: material item will be destroyed in case of fail or success</color>,Selecione um item encantado para ser usado como material.<br><color=red>AVISO: Item de material será destruído em caso de falha ou sucesso</color>,Seleccione un elemento encantado para transferir.<br><color=red>ADVERTENCIA: El item a transferir será destruido en caso de falla o éxito</color>
 generic.legacy.12,<color=red>Equipping this Training stone will block you from gaining player experience</color>,<color=red>Equipar esta pedra Training irá impedi-lo de ganhar experiência jogador</color>,<color=red>Equiptar esta piedra de entrenamiento bloquea el ganar experiencia</color>
 generic.legacy.13,from upgrade,de atualização,de actualización
-generic.legacy.14,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: Failing an upgrade can downgrade your item, and high-tier failures can drop it by 2 levels.</color>,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: Failing an upgrade can downgrade your item, and high-tier failures can drop it by 2 levels.</color>,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: Failing an upgrade can downgrade your item, and high-tier failures can drop it by 2 levels.</color>
+generic.legacy.14,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: Failing an upgrade can downgrade your item\u002c and high-tier failures can drop it by 2 levels.</color>,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: Failing an upgrade can downgrade your item\u002c and high-tier failures can drop it by 2 levels.</color>,Use Upgrade Jewels to upgrade your gear.<br><color=red>WARNING: Failing an upgrade can downgrade your item\u002c and high-tier failures can drop it by 2 levels.</color>
 generic.legacy.15,DOWNGRADE RISK! On fail\u002c this item will be downgraded to,RISCO DOWNGRADE! No Fail\u002c este item será rebaixado para,¡RIESGO DE RESTROCESO! Si falla\u002c este item será reducido a
 generic.legacy.16,[Story],[História],[Historia]
 generic.legacy.17,[Hourly],[Por hora],[Cada hora]
@@ -2272,6 +2272,7 @@ server.error.broker.notfound,Error removing item: not found,Erro ao remover item
 server.unstuck.casting,Casting emergency unstuck ({0} minutes),Fundição unstuck de emergência ({0} minutos),Invocando desbloqueo de emergencia ({0} minutos)
 server.account.banned,This Account has been banned,Esta conta foi banida,Esta cuenta ha sido prohibida
 server.error.login.6000,Error #6000 while logging in,Erro #6000 enquanto o registo em,Error #6000 al intentar ingresar
+server.error.login.token_expired,Session expired. Please restart the game and log in again.,Sessão expirada. Reinicie o jogo e faça login novamente.,Sesión expirada. Reinicia el juego e inicia sesión de nuevo.
 server.tp.req.level-not-met,Minimum level required:{0}\nCome back later...,Nível mínimo exigido: {0}\nvolte mais tarde ...,Nivel mínimo requerido: {0}\nRegresa más tarde...
 server.ds.final.hit.warning,You can feel a massive amount of energy building up... kill all enemies NOW!,Você pode sentir uma enorme quantidade de energia construção de ... matar todos os inimigos se!,Puedes sentir una enorme cantidad de energía formándose... Mata todos los enemigos ahora!
 server.ds.closing,Quickly! Devil Square will close in {0} seconds!,Rápido! Devil Square será encerrado em {0} segundos!,¡Rápido! Devil Square se cerrará en {0} segundos!
