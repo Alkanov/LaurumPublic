@@ -1,5 +1,5 @@
 Key,English,PortugueseBR,Spanish
-generic.localization.version,4.5,4.5,4.5
+generic.localization.version,4.7,4.7,4.7
 ui.login.loadtext.1,Locating the required gigapixels to render...,Localizando os gigapixels necessários para renderizar... ,Localizando los gigapíxeles necesarios para renderizar...
 ui.login.loadtext.2,Spinning up the hamster...,Colocando os hamsters para correr...,Girando el hámster...
 ui.login.loadtext.3,Shovelling coal into the server...,Abastecendo o servidor com carvão...,Tirando carbón en el servidor...
@@ -2768,14 +2768,111 @@ guild.bonus.activated,is now active,is now active,is now active
 guild.bonus.expires.on,expires on:,expires on:,expires on:
 guild.bonus.name.3,<sprite=\u0022skill_iconset\u0022 index=127> Walking Speed Buff,<sprite=\u0022skill_iconset\u0022 index=127> Walking Speed Buff,<sprite=\u0022skill_iconset\u0022 index=127> Walking Speed Buff
 ui.dashboard,Dashboard,Dashboard,Dashboard
-ui.motd,Message Of The Day,Message Of The Day,Message Of The Day
+ui.motd,Message of the Day,Mensagem do dia,Mensaje del día
 ui.currentocupation,Current Ocupation,Current Ocupation,Current Ocupation
 ui.guild.gold,Guild's Gold,Guild's Gold,Guild's Gold
 ui.guild.premiumgems,Guild's Premium Gems,Guild's Premium Gems,Guild's Premium Gems
-ui.guild.activebuffs,Guild's Active Buffs,Guild's Active Buffs,Guild's Active Buffs
-ui.guild.logs,Guild's Logs,Guild's Logs,Guild's Logs
+ui.guild.activebuffs,Active Buffs,Buffs ativos,Beneficios activos
+ui.guild.activebuffs.empty,No active buffs.,Nenhum efeito ativo.,Sin efectos activos.
+ui.guild.logs,Guild Logs,Registros da guilda,Registros de la hermandad
 ui.guild.members,Members,Members,Members
-ui.motd.empty,Nothing new\u002c the owner of this guild has not set this yet.,Nothing new\u002c the owner of this guild has not set this yet.,Nothing new\u002c the owner of this guild has not set this yet.
+ui.guild.panel.title,Guild,Guilda,Hermandad
+ui.guild.tab.dashboard,Dashboard,Painel,Panel
+ui.guild.tab.members,Members,Membros,Miembros
+ui.guild.tab.buffs,Buffs,Buffs,Mejoras
+ui.guild.tab.donations,Donations,Doações,Donaciones
+ui.guild.tab.statistics,Statistics,Estatísticas,Estadísticas
+ui.guild.tab.actions,Actions,Ações,Acciones
+ui.guild.tab.modpanel,Mod Panel,Painel Mod,Panel Mod
+ui.guild.tab.logs,Logs,Registros,Registros
+ui.guild.tab.recentdeaths,Recent Deaths,Mortes Recentes,Muertes Recientes
+ui.guild.tab.honor,Honor,Honra,Honor
+ui.guild.dashboard.section.guildlevel,Guild Level,Nível da guilda,Nivel de la hermandad
+ui.guild.dashboard.section.occupation,Occupation,Ocupação,Ocupación
+ui.guild.dashboard.section.gold,Gold,Ouro,Oro
+ui.guild.dashboard.section.motd,Message of the Day,Mensagem do dia,Mensaje del día
+ui.guild.dashboard.section.onlinemembers,Online Members,Membros online,Miembros en línea
+ui.guild.dashboard.section.gems,Premium,Premium,Premium
+ui.guild.dashboard.online.empty,No members online.,Nenhum membro online.,No hay miembros en línea.
+ui.guild.dashboard.section.discord,Discord,Discord,Discord
+ui.guild.dashboard.discord.body,Join your guild community from the shared invite link.,Entre na comunidade da sua guilda pelo link de convite compartilhado.,Únete a la comunidad de tu hermandad desde el enlace de invitación compartido.
+ui.guild.dashboard.btn.openinvite,Open Invite,Abrir convite,Abrir invitación
+ui.guild.dashboard.online,Online,Online,En línea
+ui.guild.members.section.roster,Guild Roster,Lista da guilda,Lista de la hermandad
+ui.guild.members.role.owner,Owner,Líder,Líder
+ui.guild.members.role.officer,Officer,Oficial,Oficial
+ui.guild.members.role.member,Member,Membro,Miembro
+ui.guild.members.role.recruit,Recruit,Recruta,Recluta
+ui.guild.members.role.moderator,Moderator,Moderador,Moderador
+ui.guild.members.col.level,Lv,Nv,Nv
+ui.guild.members.col.rebirth,Rebirth,Renascimento,Renacimiento
+ui.guild.members.col.lastseen,Last seen,Visto por último,Visto por última vez
+ui.guild.members.action.whisper,Whisper,Sussurrar,Susurrar
+ui.guild.members.action.party,Invite to Party,Convidar para o grupo,Invitar al grupo
+ui.guild.members.action.trade,Trade,Comerciar,Comerciar
+ui.guild.members.action.promote,Promote,Promover,Ascender
+ui.guild.members.action.demote,Demote,Rebaixar,Degradar
+ui.guild.members.action.kick,Kick,Expulsar,Expulsar
+ui.guild.members.action.offline,Offline,Offline,Desconectado
+ui.guild.members.online,Online,Online,En línea
+ui.guild.members.offline,Offline,Offline,Desconectado
+ui.guild.actions.motd.placeholder,Message of the day...,Mensagem do dia...,Mensaje del día...
+ui.guild.actions.discord.placeholder,Discord invite URL...,URL do convite Discord...,URL de invitación Discord...
+ui.guild.donations.section.title,Guild Bank Donations,Doações para o banco da guilda,Donaciones al banco de la hermandad
+ui.guild.donations.body,Set an amount then choose which bank to contribute into.,Defina um valor e escolha para qual banco contribuir.,Define una cantidad y elige a qué banco contribuir.
+ui.guild.donations.btn.gold,Donate Gold,Doar ouro,Donar oro
+ui.guild.donations.btn.iap,Donate Premium,Doar premium,Donar premium
+ui.guild.donations.spinner.saving,Saving...,Salvando...,Guardando...
+ui.guild.spinner.saving,Saving...,Salvando...,Guardando...
+ui.guild.donations.min,Minimum donation is {0}.,A doação mínima é {0}.,La donación mínima es {0}.
+ui.guild.donations.cooldown.gold,Gold cooldown,Recarga de ouro,Recarga de oro
+ui.guild.donations.cooldown.iap,Gems cooldown,Recarga de gemas,Recarga de gemas
+ui.guild.donations.cooldown.ready,: ready,: pronto,: listo
+ui.guild.donations.cooldown.seconds,: {0}s,: {0}s,: {0}s
+ui.guild.donations.btn.gold.prefix,Donate Gold,Doar Ouro,Donar Oro
+ui.guild.donations.btn.iap.prefix,Donate Gems,Doar Gemas,Donar Gemas
+ui.guild.actions.section.title,Guild Actions,Ações da guilda,Acciones de la hermandad
+ui.guild.actions.btn.invite,Invite Member,Convidar membro,Invitar miembro
+ui.guild.actions.btn.savemotd,Save Message,Salvar mensagem,Guardar mensaje
+ui.guild.actions.section.discord,Discord Invite,Convite do Discord,Invitación de Discord
+ui.guild.actions.btn.savediscord,Save Invite,Salvar convite,Guardar invitación
+ui.guild.actions.section.upgrades,Upgrades,Melhorias,Mejoras
+ui.guild.actions.friends.unavailable,Friends panel is unavailable.,O painel de amigos não está disponível.,El panel de amigos no está disponible.
+ui.guild.actions.upgrade.membersize,Upgrade Member Capacity,Aumentar capacidade de membros,Mejorar capacidad de miembros
+ui.guild.actions.upgrade.boostlevel,Upgrade Boost Level,Aumentar Nível de Boost,Mejorar Nivel de Boost
+ui.guild.modpanel.title,Moderator Tools,Ferramentas de moderação,Herramientas de moderación
+ui.guild.modpanel.body,Phase E binds moderator and owner-only actions into this surface.,A fase E liga as ações de moderador e dono nesta área.,La fase E conecta las acciones de moderador y dueño en esta área.
+ui.guild.logs.title,Guild Logs,Registros da guilda,Registros de la hermandad
+ui.guild.logs.empty,Log entries appear here.,Os registros aparecerão aqui.,Las entradas del registro aparecerán aquí.
+ui.guild.logs.period.today,Today,Hoje,Hoy
+ui.guild.logs.period.7d,7 Days,7 Dias,7 Días
+ui.guild.logs.period.30d,30 Days,30 Dias,30 Días
+ui.guild.logs.period.all,All,Todos,Todos
+ui.guild.logs.filter.placeholder,Filter logs…,Filtrar registros…,Filtrar registros…
+ui.guild.logs.filter.results,Results: {0} / {1},Resultados: {0} / {1},Resultados: {0} / {1}
+ui.guild.logs.filter.clear,Clear filter,Limpar filtro,Limpiar filtro
+ui.guild.logs.filter.search_all,Search All,Buscar tudo,Buscar todo
+ui.guild.logs.empty.no_logs,No log entries yet.,Nenhum registro ainda.,Aún no hay registros.
+ui.guild.logs.empty.no_match,No logs match "{0}" in this period.,Nenhum registro contém "{0}" neste período.,Ningún registro contiene "{0}" en este período.
+ui.guild.logs.grouped.count,×{0},×{0},×{0}
+ui.guild.logs.achievement.unlocked,Guild achievement unlocked: ,Conquista de guilda desbloqueada: ,Logro de hermandad desbloqueado: 
+ui.guild.buffs.empty,No active buffs.,Nenhum buff ativo.,No hay buffs activos.
+ui.guild.buffs.short.exp_player,EXP,EXP,EXP
+ui.guild.buffs.short.exp_training,TRN,TRE,ENT
+ui.guild.buffs.short.walk_spd,SPD,VEL,VEL
+ui.guild.buffs.short.cave1,C1,C1,C1
+ui.guild.buffs.short.cave2,C2,C2,C2
+ui.guild.buffs.short.cave3,C3,C3,C3
+ui.guild.buffs.short.generic,BUFF,BUFF,BUFF
+ui.guild.buffs.tooltip.exp_player,Player EXP,EXP de jogador,EXP de jugador
+ui.guild.buffs.tooltip.exp_training,Training EXP,EXP de treino,EXP de entrenamiento
+ui.guild.buffs.tooltip.walk_spd,Walking SPD,Velocidade de caminhada,Velocidad de movimiento
+ui.guild.buffs.tooltip.cave1,Cave 1,Caverna 1,Cueva 1
+ui.guild.buffs.tooltip.cave2,Cave 2,Caverna 2,Cueva 2
+ui.guild.buffs.tooltip.cave3,Cave 3,Caverna 3,Cueva 3
+ui.guild.buffs.tooltip.generic,Guild Buff,Buff da guilda,Buff de la hermandad
+ui.guild.buffs.expires_on,Expires on {0},Expira em {0},Expira el {0}
+ui.motd.empty,Nothing new\u002c the owner of this guild has not set this yet.,Nada por aqui ainda - o líder da guilda não definiu uma mensagem.,Nada por aquí aún - el líder de la hermandad no ha definido un mensaje.
 ui.guild.online.members,Members on {0},Members on {0},Members on {0}
 ui.guild.donation.accepted,Donation Accepted,Donation Accepted,Donation Accepted
 ui.guild.iapdona.detail,Donate a minimum of {0} <sprite=\u0022ui_icons\u0022 index=1> to your guild by typing the amount below and clicking on Donate,Donate a minimum of {0} <sprite=\u0022ui_icons\u0022 index=1> to your guild by typing the amount below and clicking on Donate,Donate a minimum of {0} <sprite=\u0022ui_icons\u0022 index=1> to your guild by typing the amount below and clicking on Donate
@@ -2788,12 +2885,14 @@ ui.donate.iap.title,Donate <sprite=\u0022ui_icons\u0022 index=1>,Donate <sprite=
 ui.donate.gold.title,Donate <sprite=\u0022ui_icons\u0022 index=0>,Donate <sprite=\u0022ui_icons\u0022 index=0>,Donate <sprite=\u0022ui_icons\u0022 index=0>
 ui.gold.icon,<sprite=\u0022ui_icons\u0022 index=0>,<sprite=\u0022ui_icons\u0022 index=0>,<sprite=\u0022ui_icons\u0022 index=0>
 ui.iap.icon,<sprite=\u0022ui_icons\u0022 index=1>,<sprite=\u0022ui_icons\u0022 index=1>,<sprite=\u0022ui_icons\u0022 index=1>
-ui.guild.bonus.explain.1,Activate this bonus to get a buff of +{0}% experience from all monster kills for {1} hours<br><size=80%><br>(capped at +100%)</size>,Activate this bonus to get a buff of +{0}% experience from all monster kills for {1} hours<br><size=80%><br>(capped at +100%)</size>,Activate this bonus to get a buff of +{0}% experience from all monster kills for {1} hours<br><size=80%><br>(capped at +100%)</size>
-ui.guild.bonus.activ.with.gold,Activate with {0}<sprite=\u0022ui_icons\u0022 index=0>,Activate with {0}<sprite=\u0022ui_icons\u0022 index=0>,Activate with {0}<sprite=\u0022ui_icons\u0022 index=0>
-ui.guild.bonus.activ.with.iap,Activate with {0}<sprite=\u0022ui_icons\u0022 index=1>,Activate with {0}<sprite=\u0022ui_icons\u0022 index=1>,Activate with {0}<sprite=\u0022ui_icons\u0022 index=1>
+ui.guild.bonus.explain.1,Activate this bonus to get a buff of +{0}% experience from all monster kills for {1} hours<br><size=80%><br>(capped at +100%)</size>,Ative este bônus para receber +{0}% de experiência por mortes de monstros por {1} horas<br><size=80%><br>(limitado a +100%)</size>,Activa este bono para recibir un buff de +{0}% de experiencia por matar monstruos durante {1} horas<br><size=80%><br>(limitado a +100%)</size>
+ui.guild.bonus.activ.with.gold,Activate with {0}<sprite="ui_icons" index=0>,Activate with {0}<sprite="ui_icons" index=0>,Activate with {0}<sprite="ui_icons" index=0>
+ui.guild.bonus.activ.with.iap,Activate with {0}<sprite="ui_icons" index=1>,Activate with {0}<sprite="ui_icons" index=1>,Activate with {0}<sprite="ui_icons" index=1>
+ui.guild.bonus.activ.with.gold.uitk,Activate with {0},Ativar com {0},Activar con {0}
+ui.guild.bonus.activ.with.iap.uitk,Activate with {0},Ativar com {0},Activar con {0}
 guild.bonus.name.2,<sprite=\u0022skill_iconset\u0022 index=106> Training Experience Buff,<sprite=\u0022skill_iconset\u0022 index=106> Training Experience Buff,<sprite=\u0022skill_iconset\u0022 index=106> Training Experience Buff
-ui.guild.bonus.explain.2,Activate this bonus to get a buff of +{0}% training experience for {1} hours<br><size=80%><br>(capped at +100%)</size>,Activate this bonus to get a buff of +{0}% training experience for {1} hours<br><size=80%><br>(capped at +100%)</size>,Activate this bonus to get a buff of +{0}% training experience for {1} hours<br><size=80%><br>(capped at +100%)</size>
-ui.guild.bonus.explain.3,Activate this bonus to get a buff of +{0}% walking speed for {1} hours,Activate this bonus to get a buff of +{0}% walking speed for {1} hours,Activate this bonus to get a buff of +{0}% walking speed for {1} hours
+ui.guild.bonus.explain.2,Activate this bonus to get a buff of +{0}% training experience for {1} hours<br><size=80%><br>(capped at +100%)</size>,Ative este bônus para receber +{0}% de experiência de treino por {1} horas<br><size=80%><br>(limitado a +100%)</size>,Activa este bono para recibir un buff de +{0}% de experiencia de entrenamiento durante {1} horas<br><size=80%><br>(limitado a +100%)</size>
+ui.guild.bonus.explain.3,Activate this bonus to get a buff of +{0}% walking speed for {1} hours,Ative este bônus para receber +{0}% de velocidade de movimento por {1} horas,Activa este bono para recibir un buff de +{0}% de velocidad de movimiento durante {1} horas
 ui.buffs,Buffs,Buffs,Buffs
 ui.donations,Donations,Donations,Donations
 ui.guild.buffs.title,Available Guild Buffs,Available Guild Buffs,Available Guild Buffs
@@ -2852,12 +2951,12 @@ ui.discord.syntax.error,Error: Discord URL doesn't seem right,Error: Discord URL
 server.tp.req.hasnoguild,You need to be on a Guild with access to this cave,You need to be on a Guild with access to this cave,You need to be on a Guild with access to this cave
 server.tp.req.guildnoaccess,Your Guild doesn't have the required buff to enter this cave,Your Guild doesn't have the required buff to enter this cave,Your Guild doesn't have the required buff to enter this cave
 guild.bonus.name.4,Entrance to Dohat's Lair,Entrance to Dohat's Lair,Entrance to Dohat's Lair
-ui.guild.bonus.explain.4,Allows you to enter Dohat's Lair (North East) for 72h,Allows you to enter Dohat's Lair (North East) for 72h,Allows you to enter Dohat's Lair (North East) for 72h
+ui.guild.bonus.explain.4,Allows you to enter Dohat's Lair (North East) for 72h,Permite entrar na Toca do Dohat (Nordeste) por 72h,Permite entrar a la Guarida de Dohat (Noreste) durante 72h
 guild.bonus.name.5,Entrance to  Zhixhe's Nest,Entrance to  Zhixhe's Nest,Entrance to  Zhixhe's Nest
-ui.guild.bonus.explain.5,Allows you to enter  Zhixhe's Nest (North West) for 72h,Allows you to enter  Zhixhe's Nest (North West) for 72h,Allows you to enter  Zhixhe's Nest (North West) for 72h
+ui.guild.bonus.explain.5,Allows you to enter  Zhixhe's Nest (North West) for 72h,Permite entrar ao Ninho de Zhixhe (Noroeste) por 72h,Permite entrar al Nido de Zhixhe (Noroeste) durante 72h
 guild.bonus.name.6,Entrance to Utuxl's Cave,Entrance to Utuxl's Cave,Entrance to Utuxl's Cave
-ui.guild.bonus.explain.6,Allows you to enter Utuxl's Cave (South West) for 72h,Allows you to enter Utuxl's Cave (South West) for 72h,Allows you to enter Utuxl's Cave (South West) for 72h
-ui.dinvite.cleared,Discord Invite removed,Discord Invite removed,Discord Invite removed
+ui.guild.bonus.explain.6,Allows you to enter Utuxl's Cave (South West) for 72h,Permite entrar na Caverna de Utuxl (Sudoeste) por 72h,Permite entrar a la Cueva de Utuxl (Suroeste) durante 72h
+ui.dinvite.cleared,Discord invite removed,Convite do Discord removido,Invitación de Discord eliminada
 guild.sucess.memberupgrade,Guild Size increased!,Guild Size increased!,Guild Size increased!
 guild.sucess.boost,Guild Experience Boosted!,Guild Experience Boosted!,Guild Experience Boosted!
 ui.guild.bonus.modorabove,Requires Guild Moderator or Owner role,Requires Guild Moderator or Owner role,Requires Guild Moderator or Owner role
@@ -3808,3 +3907,292 @@ ui.armory.status.ready.remote,Ready (Remote),Pronto (Remoto),Listo (Remoto)
 ui.armory.button.equip.vip,VIP Remote Equip,Equipar Remoto VIP,Equipar Remoto VIP
 ui.armory.badge.level,LVL {0},NVL {0},NVL {0}
 ui.armory.badge.rebirth,REBIRTH 25,RENASCIMENTO 25,RENACIMIENTO 25
+ui.guild.killlog.tab,Recent Deaths,Mortes Recentes,Muertes Recientes
+ui.guild.killlog.col.time,Time,Tempo,Tiempo
+ui.guild.killlog.col.victim,Victim,Vítima,Víctima
+ui.guild.killlog.col.killer,Killer,Assassino,Asesino
+ui.guild.killlog.col.location,Location,Local,Lugar
+ui.guild.killlog.empty,No recent deaths recorded.,Nenhuma morte recente registrada.,No se registraron muertes recientes.
+ui.achievement.guild.tab,Guild,Guilda,Hermandad
+ui.guild.achievements.tab,Achievements,Conquistas da Guilda,Logros de Hermandad
+ui.guild.achievements.empty.unguilded,Join a guild to track achievements.,Entre em uma guilda para acompanhar conquistas.,Únete a una hermandad para ver los logros.
+ui.guild.achievements.section.treasury,Treasury,Tesouro,Tesoro
+ui.guild.achievements.section.halls_conquered,Halls Conquered,Salões Conquistados,Salones Conquistados
+ui.guild.achievements.section.banners_raised,Banners Raised,Estandartes Erguidos,Estandartes Alzados
+ui.guild.achievements.section.citadel_walls,Citadel Walls,Muralhas da Cidadela,Muros de la Ciudadela
+ui.guild.achievements.section.veteran_lines,Veteran Lines,Fileiras Veteranas,Líneas Veteranas
+ui.guild.achievements.group.progress_format,{0} of {1} unlocked,{0} de {1} desbloqueados,{0} de {1} desbloqueados
+ui.guild.achievements.group.treasury.desc,Guild gold accrued over its lifetime.,Ouro da guilda acumulado ao longo de sua existência.,Oro de la hermandad acumulado a lo largo de su existencia.
+ui.guild.achievements.group.halls_conquered.desc,Total dungeons cleared by guild members.,Total de masmorras completadas pelos membros da guilda.,Total de mazmorras completadas por los miembros de la hermandad.
+ui.guild.achievements.group.banners_raised.desc,Gold spent activating guild buffs.,Ouro gasto ativando bônus da guilda.,Oro gastado activando mejoras de la hermandad.
+ui.guild.achievements.group.citadel_walls.desc,Guild member capacity milestones.,Marcos de capacidade de membros da guilda.,Hitos de capacidad de miembros de la hermandad.
+ui.guild.achievements.group.veteran_lines.desc,Concurrent R30+ members online.,Membros R30+ simultâneos online.,Miembros R30+ simultáneos en línea.
+ui.guild.achievements.row.locked,Locked,Bloqueada,Bloqueado
+ui.guild.achievements.row.in_progress,In Progress,Em Progresso,En Progreso
+ui.guild.achievements.row.unlocked,Unlocked,Desbloqueada,Desbloqueado
+ui.guild.achievements.row.progress_format,{0} / {1},{0} / {1},{0} / {1}
+ui.guild.achievements.loading,Loading…,Carregando…,Cargando…
+ui.guild.achievements.row.snapshot_current_format,Current:,Atual:,Actual:
+ui.guild.achievements.row.snapshot_best_format,Best:,Recorde:,Récord:
+ui.guild.achievements.row.snapshot_req_format,Need:,Precisa:,Necesita:
+ui.guild.achievements.toast.format,Your guild unlocked: {0},Sua guilda desbloqueou: {0},Tu hermandad desbloqueó: {0}
+ui.guild.achievements.rarity.uncommon,Uncommon,Incomum,No común
+ui.guild.achievements.rarity.rare,Rare,Raro,Raro
+ui.guild.achievements.rarity.epic,Epic,Épico,Épico
+ui.guild.achievements.rarity.legendary,Legendary,Lendário,Legendario
+ui.guild.achievements.recent.section_title,Recently Unlocked Achievement,Conquista Recém Desbloqueada,Logro Recién Desbloqueado
+ui.guild.achievement.1.name,Patron,Patron,Patron
+ui.guild.achievement.1.description,Donate 1\u002c000\u002c000 gold to the guild bank.,Doe 1\u002c000\u002c000 de ouro ao banco da guilda.,Dona 1\u002c000\u002c000 de oro al banco de la hermandad.
+ui.guild.achievement.2.name,Treasury,Treasury,Treasury
+ui.guild.achievement.2.description,Donate 10\u002c000\u002c000 gold to the guild bank.,Doe 10\u002c000\u002c000 de ouro ao banco da guilda.,Dona 10\u002c000\u002c000 de oro al banco de la hermandad.
+ui.guild.achievement.3.name,Pillar of Gold,Pillar of Gold,Pillar of Gold
+ui.guild.achievement.3.description,Donate 100\u002c000\u002c000 gold to the guild bank.,Doe 100\u002c000\u002c000 de ouro ao banco da guilda.,Dona 100\u002c000\u002c000 de oro al banco de la hermandad.
+ui.guild.achievement.4.name,Dungeon Crew,Dungeon Crew,Dungeon Crew
+ui.guild.achievement.4.description,Complete 100 dungeons as a guild.,Complete 100 masmorras como guilda.,Completa 100 mazmorras como hermandad.
+ui.guild.achievement.5.name,Vault Breakers,Vault Breakers,Vault Breakers
+ui.guild.achievement.5.description,Complete 1\u002c000 dungeons as a guild.,Complete 1\u002c000 masmorras como guilda.,Completa 1\u002c000 mazmorras como hermandad.
+ui.guild.achievement.6.name,Apex Crew,Apex Crew,Apex Crew
+ui.guild.achievement.6.description,Complete 10\u002c000 dungeons as a guild.,Complete 10\u002c000 masmorras como guilda.,Completa 10\u002c000 mazmorras como hermandad.
+ui.guild.achievement.7.name,Standard Bearers,Standard Bearers,Standard Bearers
+ui.guild.achievement.7.description,Spend 50\u002c000\u002c000 gold on guild buffs.,Gaste 50\u002c000\u002c000 de ouro em bônus de guilda.,Gasta 50\u002c000\u002c000 de oro en mejoras de hermandad.
+ui.guild.achievement.8.name,Bannermen,Bannermen,Bannermen
+ui.guild.achievement.8.description,Spend 100\u002c000\u002c000 gold on guild buffs.,Gaste 100\u002c000\u002c000 de ouro em bônus de guilda.,Gasta 100\u002c000\u002c000 de oro en mejoras de hermandad.
+ui.guild.achievement.9.name,War Chest,War Chest,War Chest
+ui.guild.achievement.9.description,Spend 300\u002c000\u002c000 gold on guild buffs.,Gaste 300\u002c000\u002c000 de ouro em bônus de guilda.,Gasta 300\u002c000\u002c000 de oro en mejoras de hermandad.
+ui.guild.achievement.10.name,Sanctum Keepers,Sanctum Keepers,Sanctum Keepers
+ui.guild.achievement.10.description,Spend 600\u002c000\u002c000 gold on guild buffs.,Gaste 600\u002c000\u002c000 de ouro em bônus de guilda.,Gasta 600\u002c000\u002c000 de oro en mejoras de hermandad.
+ui.guild.achievement.11.name,Recruitment Drive,Recruitment Drive,Recruitment Drive
+ui.guild.achievement.11.description,Reach a member cap of 22.,Alcance um limite de 22 membros.,Alcanza un límite de 22 miembros.
+ui.guild.achievement.12.name,Grand Hall,Grand Hall,Grand Hall
+ui.guild.achievement.12.description,Reach a member cap of 25.,Alcance um limite de 25 membros.,Alcanza un límite de 25 miembros.
+ui.guild.achievement.13.name,Mega Roster,Mega Roster,Mega Roster
+ui.guild.achievement.13.description,Reach a member cap of 28.,Alcance um limite de 28 membros.,Alcanza un límite de 28 miembros.
+ui.guild.achievement.14.name,Citadel,Citadel,Citadel
+ui.guild.achievement.14.description,Reach a member cap of 30.,Alcance um limite de 30 membros.,Alcanza un límite de 30 miembros.
+ui.guild.achievement.15.name,Veteran Roll Call,Veteran Roll Call,Veteran Roll Call
+ui.guild.achievement.15.description,Have 5 R30+ guild members online simultaneously.,Tenha 5 membros R30+ da guilda online simultaneamente.,Ten 5 miembros R30+ de la hermandad en línea simultáneamente.
+ui.guild.achievement.16.name,Champion Assembly,Champion Assembly,Champion Assembly
+ui.guild.achievement.16.description,Have 10 R30+ guild members online simultaneously.,Tenha 10 membros R30+ da guilda online simultaneamente.,Ten 10 miembros R30+ de la hermandad en línea simultáneamente.
+ui.guild.achievement.17.name,Elite Convergence,Elite Convergence,Elite Convergence
+ui.guild.achievement.17.description,Have 15 R30+ guild members online simultaneously.,Tenha 15 membros R30+ da guilda online simultaneamente.,Ten 15 miembros R30+ de la hermandad en línea simultáneamente.
+ui.guild.achievement.18.name,Legend Roundtable,Legend Roundtable,Legend Roundtable
+ui.guild.achievement.18.description,Have 30 R30+ guild members online simultaneously.,Tenha 30 membros R30+ da guilda online simultaneamente.,Ten 30 miembros R30+ de la hermandad en línea simultáneamente.
+ui.guild.bonus.title.1,Player EXP Bonus,Bônus de EXP de Jogador,Bono de EXP de Jugador
+ui.guild.bonus.title.2,Training EXP Bonus,Bônus de EXP de Treino,Bono de EXP de Entrenamiento
+ui.guild.bonus.title.3,Walking Speed Bonus,Bônus de Velocidade,Bono de Velocidad
+ui.guild.bonus.title.4,Cave 1 Access (Dohat's Lair),Acesso à Caverna 1 (Toca do Dohat),Acceso a Cueva 1 (Guarida de Dohat)
+ui.guild.bonus.title.5,Cave 2 Access (Zhixhe's Nest),Acesso à Caverna 2 (Ninho de Zhixhe),Acceso a Cueva 2 (Nido de Zhixhe)
+ui.guild.bonus.title.6,Cave 3 Access (Utuxl's Cave),Acesso à Caverna 3 (Caverna de Utuxl),Acceso a Cueva 3 (Cueva de Utuxl)
+ui.guild.dinvite.clear.confirmation,Are you sure you want to clear the Discord invite link?,Tem certeza que deseja remover o link de convite do Discord?,¿Seguro que quieres eliminar el enlace de invitación de Discord?
+ui.guild.dwhook.clear.confirmation,Are you sure you want to clear the Discord webhook?,Tem certeza que deseja remover o webhook do Discord?,¿Seguro que quieres eliminar el webhook de Discord?
+ui.guild.dkillwh.clear.confirmation,Are you sure you want to clear the kill-log webhook?,Are you sure you want to clear the kill-log webhook?,Are you sure you want to clear the kill-log webhook?
+ui.guild.disband.confirmation,Are you sure you want to DISBAND this guild? This cannot be undone.,Tem certeza que deseja DESFAZER esta guilda? Isso não pode ser desfeito.,¿Seguro que quieres DISOLVER este clan? Esto es irreversible.
+ui.guild.transfer.confirmation,Transfer ownership to {0}? You will leave the guild.,Transferir propriedade para {0}? Você sairá da guilda.,¿Transferir el liderazgo a {0}? Saldrás del clan.
+ui.guild.transfer.input.placeholder,Enter member nickname,Digite o nick do membro,Introduce el nick del miembro
+ui.guild.transfer.btn,Transfer Ownership,Transferir Propriedade,Transferir Liderazgo
+ui.guild.disband.btn,Disband Guild,Desfazer Guilda,Disolver Clan
+ui.guild.leave.btn,Leave Guild,Sair da Guilda,Salir del Clan
+ui.guild.actions.invite.placeholder,Enter player name,Digite o nome do jogador,Introduce el nombre del jugador
+ui.guild.actions.invite.btn,Invite by Name,Convidar pelo Nome,Invitar por Nombre
+ui.guild.actions.section.invite,Invite Player,Convidar Jogador,Invitar Jugador
+ui.guild.actions.section.invite.body,Send an invitation to a player by their character name.,Envie um convite para um jogador pelo nome do personagem.,Envía una invitación a un jugador por el nombre de su personaje.
+ui.guild.actions.section.membersize,Upgrade Member Capacity,Aumentar Capacidade de Membros,Mejorar Capacidad de Miembros
+ui.guild.actions.section.membersize.body,Increase the maximum number of players that can join the guild.,Aumente o número máximo de jogadores que podem entrar na guilda.,Aumenta el número máximo de jugadores que pueden unirse al clan.
+ui.guild.actions.section.boostlevel,Boost Guild Level,Aumentar Nível da Guilda,Subir Nivel del Clan
+ui.guild.actions.section.boostlevel.body,Raise the guild level to unlock new perks and rewards.,Aumente o nível da guilda para desbloquear novos benefícios e recompensas.,Sube el nivel del clan para desbloquear nuevos beneficios y recompensas.
+ui.guild.actions.section.leave,Leave Guild,Sair da Guilda,Salir del Clan
+ui.guild.actions.section.leave.body,Permanently leave the guild. You will need to be invited again to rejoin.,Saia da guilda permanentemente. Você precisará ser convidado novamente para retornar.,Sal del clan de forma permanente. Necesitarás ser invitado de nuevo para volver.
+ui.guild.actions.dwhook.section,Discord Bot Webhook,Webhook do Bot do Discord,Webhook del Bot de Discord
+ui.guild.actions.dwhook.placeholder,Webhook URL...,URL do Webhook...,URL del Webhook...
+ui.guild.actions.dwhook.save.btn,Save Webhook,Salvar Webhook,Guardar Webhook
+ui.guild.actions.dwhook.clear.btn,Clear Webhook,Remover Webhook,Eliminar Webhook
+ui.guild.actions.dinvite.clear.btn,Clear Discord Invite,Remover Convite,Eliminar Invitación
+ui.guild.actions.upgrade.cost.gold,{0} <sprite="ui_icons" index=0>,{0} <sprite="ui_icons" index=0>,{0} <sprite="ui_icons" index=0>
+ui.guild.actions.upgrade.cost.iap,{0} <sprite="ui_icons" index=1>,{0} <sprite="ui_icons" index=1>,{0} <sprite="ui_icons" index=1>
+ui.guild.actions.upgrade.membersize.gold.btn,Upgrade Members ({0} <sprite="ui_icons" index=0>),Melhorar Vagas ({0} <sprite="ui_icons" index=0>),Mejorar Miembros ({0} <sprite="ui_icons" index=0>)
+ui.guild.actions.upgrade.membersize.iap.btn,Upgrade Members ({0} <sprite="ui_icons" index=1>),Melhorar Vagas ({0} <sprite="ui_icons" index=1>),Mejorar Miembros ({0} <sprite="ui_icons" index=1>)
+ui.guild.actions.upgrade.boostlevel.gold.btn,Boost Level ({0} <sprite="ui_icons" index=0>),Boost de Nível ({0} <sprite="ui_icons" index=0>),Subir Nivel ({0} <sprite="ui_icons" index=0>)
+ui.guild.actions.upgrade.boostlevel.iap.btn,Boost Level ({0} <sprite="ui_icons" index=1>),Boost de Nível ({0} <sprite="ui_icons" index=1>),Subir Nivel ({0} <sprite="ui_icons" index=1>)
+ui.guild.modpanel.section.discord,Discord (Owner),Discord (Líder),Discord (Líder)
+ui.guild.modpanel.section.dinvite,Invite Link,Link de Convite,Enlace de Invitación
+ui.guild.actions.dinvite.body,Public Discord server invite link shared with guild members. Anyone with this link can join your guild's Discord server.,Public Discord server invite link shared with guild members. Anyone with this link can join your guild's Discord server.,Public Discord server invite link shared with guild members. Anyone with this link can join your guild's Discord server.
+ui.guild.modpanel.section.dwhook,Guild Logs Webhook,Webhook de Logs da Guilda,Webhook de Logs de la Hermandad
+ui.guild.actions.dwhook.body,Posts all guild log events (joins[comma] donations[comma] achievements[comma] promotions[comma] MOTD changes[comma] etc.) to this Discord channel. PvP kills go to the kill-log webhook below if configured.,Posts all guild log events (joins[comma] donations[comma] achievements[comma] promotions[comma] MOTD changes[comma] etc.) to this Discord channel. PvP kills go to the kill-log webhook below if configured.,Posts all guild log events (joins[comma] donations[comma] achievements[comma] promotions[comma] MOTD changes[comma] etc.) to this Discord channel. PvP kills go to the kill-log webhook below if configured.
+ui.guild.modpanel.section.danger,Danger Zone (Owner),Zona de Risco (Líder),Zona Crítica (Líder)
+ui.guild.modpanel.section.motd,Message of the Day,Mensagem do Dia,Mensaje del Día
+ui.guild.modpanel.section.motd.body,Edit the in-game guild message of the day.,Edite a mensagem do dia da guilda.,Edita el mensaje del día del clan.
+ui.guild.modpanel.empty,You do not have moderator privileges.,Você não possui privilégios de moderador.,No tienes privilegios de moderador.
+guild.total.members.count,{0}/{1} Members,{0}/{1} Membros,{0}/{1} Miembros
+ui.guild.refresh,Refresh,Atualizar,Actualizar
+ui.guild.loading,Loading...,Carregando...,Cargando...
+ui.guild.invite.send,Send Invite,Enviar Convite,Enviar Invitación
+ui.guild.invite.name.placeholder,Enter player name,Digite o nome do jogador,Introduce el nombre del jugador
+ui.guild.dashboard.online.title,Online ({0}),Online ({0}),En línea ({0})
+ui.guild.actions.invite.empty,Enter a player name first.,Digite o nome de um jogador primeiro.,Introduce primero el nombre de un jugador.
+ui.guild.transfer.input.empty,Enter a member nickname first.,Digite o nick de um membro primeiro.,Introduce primero el nick del miembro.
+ui.guild.members.filter.all,All,Todos,Todos
+ui.guild.members.filter.online,Online,Online,En línea
+ui.guild.members.filter.offline,Offline,Offline,Desconectados
+ui.guild.members.sort.online,Online,Online,En línea
+ui.guild.members.sort.level,Level,Nível,Nivel
+ui.guild.members.sort.rebirth,Rebirth,Renascer,Renacimiento
+ui.guild.members.sort.class,Class,Classe,Clase
+ui.guild.members.sort.lastseen,Last seen,Visto por último,Visto por última vez
+ui.guild.members.sort.asc,Ascending,Crescente,Ascendente
+ui.guild.members.sort.desc,Descending,Decrescente,Descendente
+ui.guild.members.empty.filter,No members match filter.,Nenhum membro corresponde ao filtro.,Ningún miembro coincide con el filtro.
+ui.guild.members.empty.guild,Your guild has no members.,Sua guilda não tem membros.,Tu clan no tiene miembros.
+ui.guild.members.lastseen.never,Never seen,Nunca visto,Nunca visto
+
+ui.guild.members.col.name,Name,Nome,Nombre
+ui.guild.members.col.role,Role,Cargo,Rol
+ui.guild.members.col.actions,Actions,Ações,Acciones
+ui.guild.members.col.server,Server,Servidor,Servidor
+ui.guild.members.server.offline,Offline,Offline,Desconectado
+ui.guild.lastseen.today,Today,Hoje,Hoy
+ui.guild.lastseen.yesterday,Yesterday,Ontem,Ayer
+ui.guild.lastseen.daysago,{0}d ago,{0}d atrás,Hace {0}d
+ui.guild.statistics.timeframe.day,1 Day,1 Dia,1 Día
+ui.guild.statistics.timeframe.week,7 Days,7 Dias,7 Días
+ui.guild.statistics.timeframe.month,30 Days,30 Dias,30 Días
+ui.guild.statistics.timeframe.threemonths,90 Days,90 Dias,90 Días
+ui.guild.statistics.timeframe.alltime,All Time,Todo o Tempo,Todo el Tiempo
+ui.guild.statistics.currency.gold,Gold,Ouro,Oro
+ui.guild.statistics.currency.gems,Gems,Gemas,Gemas
+ui.guild.statistics.updated.format,Updated {0},Atualizado {0},Actualizado {0}
+ui.guild.statistics.you.title,You · {0},Você · {0},Tú · {0}
+ui.guild.statistics.you.donations,Donated,Doado,Donado
+ui.guild.statistics.you.rank,Rank,Rank,Rango
+ui.guild.statistics.you.count,Donations,Doações,Donaciones
+ui.guild.statistics.you.last,Last,Última,Última
+ui.guild.statistics.delta.unranked,—,—,—
+ui.guild.statistics.delta.lifetime,lifetime,total,total
+ui.guild.statistics.kpi.total,Total Donated,Total Doado,Total Donado
+ui.guild.statistics.kpi.donors,Donors,Doadores,Donadores
+ui.guild.statistics.kpi.donors.coverage,members who donated ≥1 in window,membros que doaram ≥1 no período,miembros que donaron ≥1 en el período
+ui.guild.statistics.kpi.donors.former_suffix,+{0} former,+{0} ex-membros,+{0} ex-miembros
+ui.guild.statistics.kpi.average,Average per Donor,Média por Doador,Promedio por Donador
+ui.guild.statistics.kpi.average.note,total ÷ donors,total ÷ doadores,total ÷ donadores
+ui.guild.statistics.kpi.largest,Largest Single Donation,Maior Doação Individual,Donación Individual Mayor
+ui.guild.statistics.leaderboard.title,Top {0},Top {0},Top {0}
+ui.guild.statistics.leaderboard.overflow,+{0} more donors,+{0} outros doadores,+{0} donadores más
+ui.guild.statistics.leaderboard.showall,Show all ({0}),Ver todos ({0}),Ver todos ({0})
+ui.guild.statistics.leaderboard.col.rank,#,#,#
+ui.guild.statistics.leaderboard.col.name,Name,Nome,Nombre
+ui.guild.statistics.leaderboard.col.amount,Donated,Doado,Donado
+ui.guild.statistics.table.title,All Members · {0},Todos os Membros · {0},Todos los Miembros · {0}
+ui.guild.statistics.table.col.rank,#,#,#
+ui.guild.statistics.table.col.name,Name,Nome,Nombre
+ui.guild.statistics.table.col.gold,Gold,Ouro,Oro
+ui.guild.statistics.table.col.gems,Gems,Gemas,Gemas
+ui.guild.statistics.table.col.last,Last,Último,Último
+ui.guild.statistics.table.col.since,Since,Desde,Desde
+ui.guild.statistics.table.footer.format,Showing 1–{0} of {1},Mostrando 1–{0} de {1},Mostrando 1–{0} de {1}
+ui.guild.statistics.table.filter.all,Show: All members,Mostrar: Todos os membros,Mostrar: Todos los miembros
+ui.guild.statistics.table.filter.donors,Show: Donors only,Mostrar: Apenas doadores,Mostrar: Solo donadores
+ui.guild.statistics.table.filter.zeros,Show: Zero-donors only,Mostrar: Apenas sem doações,Mostrar: Solo sin donaciones
+ui.guild.statistics.table.search.placeholder,Name…,Nome…,Nombre…
+ui.guild.statistics.detail.history.title,Donation History · all time,Histórico de Doações · todo o tempo,Historial · todos los tiempos
+ui.guild.statistics.detail.close,✕,✕,✕
+ui.guild.statistics.detail.totals.gold,Gold,Ouro,Oro
+ui.guild.statistics.detail.totals.gems,Gems,Gemas,Gemas
+ui.guild.statistics.detail.totals.count,Donations,Doações,Donaciones
+ui.guild.statistics.detail.former_member,Former member,,
+ui.guild.statistics.allroster.title.format,All {0} Members · {1},Todos os {0} Doadores · {1},Todos los {0} Donadores · {1}
+ui.guild.statistics.empty.title,No donations yet,Nenhuma doação ainda,Aún sin donaciones
+ui.guild.statistics.empty.body,No activity in this period. Try a longer window.,Sem atividade neste período. Tente um período maior.,Sin actividad en este período. Intenta un período más largo.
+ui.guild.statistics.empty.viewalltime,View All Time,Ver Todo o Tempo,Ver Todo el Tiempo
+ui.guild.statistics.empty.donate,Donate,Doar,Donar
+ui.guild.statistics.events.title,Recent Donations · {0},Doações Recentes · {0},Donaciones Recientes · {0}
+ui.guild.statistics.events.showall,Recent Donations,Doações Recentes,Donaciones Recientes
+ui.guild.statistics.detail.col.date,Date,Data,Fecha
+ui.guild.statistics.detail.col.gold,Gold,Ouro,Oro
+ui.guild.statistics.detail.col.gems,Gems,Gemas,Gemas
+ui.guild.statistics.detail.history.truncated.format,Showing the {0} most recent transactions of {1} total,,
+ui.guild.statistics.allroster.col.rank,#,#,#
+ui.guild.statistics.allroster.col.name,Name,Nome,Nombre
+ui.guild.statistics.allroster.col.amount,Donated,Doado,Donado
+ui.guild.statistics.events.col.time,Time,Hora,Hora
+ui.guild.statistics.events.col.donor,Donor,Doador,Donante
+ui.guild.statistics.events.col.gold,Gold,Ouro,Oro
+ui.guild.statistics.events.col.gems,Gems,Gemas,Gemas
+ui.guild.statistics.events.empty,No donations in this period.,Sem doações neste período.,Sin donaciones en este período.
+ui.guild.statistics.not_in_guild,You are not in this guild.,Você não está nesta guilda.,No estás en esta hermandad.
+ui.guild.statistics.loading,Loading…,Carregando…,Cargando…
+ui.guild.recentdeaths.title,Recent Deaths,Mortes Recentes,Muertes Recientes
+ui.guild.recentdeaths.scope.format,last {0} PvP fights involving the guild,últimas {0} batalhas PvP envolvendo a guilda,últimas {0} batallas PvP relacionadas con la hermandad
+ui.guild.recentdeaths.updated.format,Updated {0},Atualizado {0},Actualizado {0}
+ui.guild.recentdeaths.filter.hideunguilded,Hide unguilded kills,Esconder mortes sem guilda,Ocultar muertes sin hermandad
+ui.guild.recentdeaths.wekilled.title,We Killed · Top 10,Nós Matamos · Top 10,Nosotros Matamos · Top 10
+ui.guild.recentdeaths.killedus.title,Killed Us · Top 10,Nos Mataram · Top 10,Nos Mataron · Top 10
+ui.guild.recentdeaths.wekilled.empty,No kills yet — go fight someone.,Sem mortes ainda — vá lutar.,Sin muertes aún — sal a pelear.
+ui.guild.recentdeaths.killedus.empty,No losses yet — stay safe out there.,Sem mortes ainda — fique seguro.,Sin bajas aún — cuídate ahí fuera.
+ui.guild.recentdeaths.col.when,When,Quando,Cuándo
+ui.guild.recentdeaths.col.victim,Victim,Vítima,Víctima
+ui.guild.recentdeaths.col.killer,Killer,Assassino,Asesino
+ui.guild.recentdeaths.col.kills,Kills,Mortes,Muertes
+ui.guild.recentdeaths.tag.streak.format,{0}-kill streak · 1h,streak de {0} abates · 1h,racha de {0} bajas · 1h
+ui.guild.recentdeaths.tag.revenge.format,revenge for {0},vingança por {0},venganza por {0}
+ui.guild.recentdeaths.tag.avenged.format,avenged by {0},vingado por {0},vengado por {0}
+ui.guild.recentdeaths.tag.spree.format,Spree ×{0},Sequência ×{0},Racha ×{0}
+ui.guild.recentdeaths.tag.massacre.format,Massacre ×{0},Massacre ×{0},Masacre ×{0}
+ui.guild.recentdeaths.tag.annihilation.format,Annihilation ×{0},Aniquilação ×{0},Aniquilación ×{0}
+ui.guild.recentdeaths.leaderboards.period.last90days,Last 90 days,Últimos 90 dias,Últimos 90 días
+ui.guild.recentdeaths.col.deaths,Deaths,Mortes sofridas,Muertes sufridas
+ui.guild.recentdeaths.empty.title,No PvP activity yet,Sem atividade PvP ainda,Sin actividad PvP aún
+ui.guild.recentdeaths.empty.body,The last 50 fights involving the guild will show up here live the moment one happens.,As últimas 50 batalhas envolvendo a guilda aparecerão aqui ao vivo.,Las últimas 50 batallas de la hermandad aparecerán aquí en tiempo real.
+ui.guild.recentdeaths.unguilded,— no guild —,— sem guilda —,— sin hermandad —
+ui.guild.recentdeaths.day.today,Today,Hoje,Hoy
+ui.guild.recentdeaths.day.yesterday,Yesterday,Ontem,Ayer
+ui.guild.recentdeaths.day.tally.format,{0} fights · we {1} · them {2},{0} batalhas · nós {1} · eles {2},{0} batallas · nosotros {1} · ellos {2}
+ui.guild.recentdeaths.fight.title.format,Fight · #{0},Batalha · #{0},Batalla · #{0}
+ui.guild.recentdeaths.fight.victim,Victim,Vítima,Víctima
+ui.guild.recentdeaths.fight.killer,Killer,Assassino,Asesino
+ui.guild.recentdeaths.fight.where,Where,Onde,Dónde
+ui.guild.recentdeaths.fight.viewmap,View on Map,Ver no Mapa,Ver en el Mapa
+ui.guild.recentdeaths.fight.allvs.format,All vs {0},Todos vs {0},Todos vs {0}
+ui.guild.recentdeaths.fight.rally,Rally Squad,Reunir Equipe,Reunir Escuadra
+ui.guild.honor.tab.title,Honor,Honra,Honor
+ui.guild.honor.tab.subtitle,"Thank guildmates who carried fights, taught you something, or stayed up late healing. Spend tokens from the Members tab.","Agradeça membros que carregaram lutas, ensinaram algo ou ficaram acordados curando. Use seus selos pela aba de Membros.","Agradece a miembros que cargaron peleas, te enseñaron algo o se quedaron despiertos curando. Usa tus sellos desde la pestaña de Miembros."
+ui.guild.honor.tokenstrip.title,Honor Token,Selo de Honra,Sello de Honor
+ui.guild.honor.tokenstrip.meta,A new token regenerates every 4 hours.,Um novo selo regenera a cada 4 horas.,Un nuevo sello se regenera cada 4 horas.
+ui.guild.honor.tokenstrip.hint,Honor a guildmate from the Members tab →,Honre um membro da guilda pela aba de Membros →,Honra a un miembro del clan desde la pestaña de Miembros →
+ui.guild.honor.tokenready,Token ready,Selo pronto,Sello listo
+ui.guild.honor.nextin,Next token in {0},Próximo selo em {0},Próximo sello en {0}
+ui.guild.honor.personal.received,Honor received,Honra recebida,Honor recibido
+ui.guild.honor.personal.given,Honor given,Honra dada,Honor entregado
+ui.guild.honor.personal.thisweek,Received this week,Recebido esta semana,Recibido esta semana
+ui.guild.honor.guildgavethisweek,"This week your guild gave {0} honors.","Esta semana sua guilda deu {0} honras.","Esta semana tu clan dio {0} honores."
+ui.guild.honor.guildgavethisweek.suffix,honors given this week,honras dadas esta semana,honores entregados esta semana
+ui.guild.honor.weeklytop3.title,Top honored · this week,Mais honrados · esta semana,Más honrados · esta semana
+ui.guild.honor.weeklytopgivers.title,Top honor givers · this week,Maiores doadores · esta semana,Mayores donantes · esta semana
+ui.guild.honor.monthlytop.title,Top honored · this month,Mais honrados · este mês,Más honrados · este mes
+ui.guild.honor.placeholder.empty,— no entry yet —,— sem entrada ainda —,— aún sin entrada —
+ui.guild.honor.confirm.title,"Honor {0}?","Honrar {0}?","¿Honrar a {0}?"
+ui.guild.honor.confirm.body,"Spend your Honor token to thank {0}. This cannot be undone.","Gaste seu selo de Honra para agradecer {0}. Não pode ser desfeito.","Gasta tu sello de Honor para agradecer a {0}. No se puede deshacer."
+ui.guild.honor.confirm.ok,Honor,Honrar,Honrar
+ui.guild.honor.confirm.cancel,Cancel,Cancelar,Cancelar
+ui.guild.honor.col.rank,#,#,#
+ui.guild.honor.col.name,Player,Jogador,Jugador
+ui.guild.honor.col.count,Honors,Honras,Honores
+ui.guild.log.honor.granted,honored,honrou,honró a
+ui.guild.honor.toast.granted,Honor granted to,Honra concedida a,Honor otorgado a
+ui.honor.members.button,Honor,Honrar,Honrar
+ui.honor.members.button.cooldown,"Honor token cooling — next in {0}","Selo em recarga — próximo em {0}","Sello en recarga — próximo en {0}"
+ui.honor.nudge.toast.body,"You have an Honor token — share some love.","Você tem um selo de Honra — compartilhe carinho.","Tienes un sello de Honor — comparte cariño."
+ui.honor.nudge.toast.action,Open Honor tab,Abrir aba de Honra,Abrir pestaña de Honor
+honor.error.feature_disabled,Honor system is currently disabled.,Sistema de Honra está desativado.,El sistema de Honor está deshabilitado.
+honor.error.no_token,You don't have an Honor token right now.,Você não tem um selo de Honra agora.,No tienes un sello de Honor en este momento.
+honor.error.self_target,You can't honor yourself.,Você não pode honrar a si mesmo.,No puedes honrarte a ti mismo.
+honor.error.cross_guild,You can only honor guildmates.,Você só pode honrar membros da guilda.,Solo puedes honrar a miembros del clan.
+honor.error.rate_limited,Slow down — try again in a moment.,Calma — tente novamente em instantes.,Más despacio — intenta de nuevo en un momento.
+ui.guild.modpanel.toolbar.cap_exceeded,Message too long — remove some text before adding more tags.,Mensagem muito longa — remova texto antes de adicionar mais tags.,Mensaje muy largo — elimina texto antes de agregar más etiquetas.
+ui.guild.modpanel.section.dkillwh,Kill-log Webhook,Kill-log Webhook,Kill-log Webhook
+ui.guild.actions.dkillwh.placeholder,Kill-log webhook URL...,Kill-log webhook URL...,Kill-log webhook URL...
+ui.guild.actions.dkillwh.save.btn,Save Webhook,Save Webhook,Save Webhook
+ui.guild.actions.dkillwh.clear.btn,Clear Webhook,Clear Webhook,Clear Webhook
+ui.guild.actions.dkillwh.body,Receives only PvP kill events. If empty[comma] kills go to the main webhook above.,Receives only PvP kill events. If empty[comma] kills go to the main webhook above.,Receives only PvP kill events. If empty[comma] kills go to the main webhook above.
+ui.guild.dkillwh.test.message,This is a test message from Laurum's Online. Future guild kill logs will be posted here.,This is a test message from Laurum's Online. Future guild kill logs will be posted here.,This is a test message from Laurum's Online. Future guild kill logs will be posted here.
+ui.guild.dkillwh.cleared.message,Kill-log webhook removal confirmed. This was the last kill log posted here.,Kill-log webhook removal confirmed. This was the last kill log posted here.,Kill-log webhook removal confirmed. This was the last kill log posted here.
+ui.guild.dkillwh.cleared,Kill-log webhook cleared.,Kill-log webhook cleared.,Kill-log webhook cleared.
+ui.guild.dkillwh.1.empty,Kill-log webhook is already empty.,Kill-log webhook is already empty.,Kill-log webhook is already empty.
