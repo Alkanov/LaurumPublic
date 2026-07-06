@@ -1,0 +1,186 @@
+server:
+  version: 1
+  id: 0
+  name: last-stand
+  is_test_server: false
+  player_rebirth_required: 0
+  auto_restart: 9999
+  player_limit: 70
+  type: Normal
+  intance_details:
+    allow_instance_request: false
+    is_intance: true
+    time_to_first_player: 900
+    time_to_complete: 3600
+    map: ls_dev_grey
+    base_tier_scaling_multiplier: 0.015
+    max_hp_tier_scaling_multiplier: 0.015
+    critical_chance_per_tier: 0.05
+    dodge_chance_per_tier: 0.015
+    hp_regen_per_tier: 0.02
+  owned_by_guild_id: 0
+  pvp:
+    # Phase 1.9 Decision 1: waves/intermission are co-op. Finale PvP flows through
+    # LS_ArenaPvPZone (isArena), never this flag.
+    enabled: false
+    gvg_event:
+      enabled: false
+      use_even_time: false
+  env_damage:
+    # dead config today (Risk 6); finale ring (PR-14) reads laststand.finale.ring, not this block.
+    multiplier: 0
+    power: 0
+  spawn_broker: false
+
+enemies:
+  boss_upgrade:
+    max_in_bosses_open_world: 0
+    chance: 0
+    spawn_cool_down_mins: 9999
+  corrupted_ench_chance: 0
+  attack_modifiers: {}
+  normal:
+    stats:
+      damage_multiplier: 1
+      max_hp_multiplier: 1
+      defense_multiplier: 1
+      hp_regen_per_cycle_percentage: 0
+      hp_regen_cycle_time: 0
+      dodge_chance_additional_percentage: 0
+      critical_chance_additional_percentage: 0
+      attack_speed_wait_multiplier: 1
+      walking_speed: 1
+    spawn_settings:
+      random_buffs_chance: 0
+      random_buffs_amounts: 0
+      is_aggro_passive: true
+      min_level_required: 0
+      spawn_chance: 0
+      max_aggro_range_multiplier: 0
+    rewards:
+      gold_drop_chance: 0
+      gold_drop_multiplier: 0
+      drop_more_exp: 0
+      drop_more_items: 0
+      material_drop_chance_multiplier: 0
+      extra_material: 0
+      new_item:
+        RNG_mod: false
+        mod_extra_luck: 0
+        guaranteed_mods_number: 0
+        RNG_upgrade: false
+        upgrade_extra_luck: 0
+        RNG_enchant: false
+        enchant_extra_luck: 0
+        RNG_quality: false
+        quality_extra_luck: 0
+        RNG_elemental: false
+        elemental_extra_luck: 0
+  boss:
+    stats:
+      damage_multiplier: 1
+      max_hp_multiplier: 1
+      defense_multiplier: 1
+      hp_regen_per_cycle_percentage: 0
+      hp_regen_cycle_time: 0
+      dodge_chance_additional_percentage: 0
+      critical_chance_additional_percentage: 0
+      attack_speed_wait_multiplier: 1
+      walking_speed: 1
+    spawn_settings:
+      random_buffs_chance: 0
+      random_buffs_amounts: 0
+      is_aggro_passive: true
+      min_level_required: 0
+      spawn_chance: 0
+      max_aggro_range_multiplier: 0
+    rewards:
+      gold_drop_chance: 0
+      gold_drop_multiplier: 0
+      drop_more_exp: 0
+      drop_more_items: 0
+      material_drop_chance_multiplier: 0
+      extra_material: 0
+      new_item:
+        RNG_mod: false
+        mod_extra_luck: 0
+        guaranteed_mods_number: 0
+        RNG_upgrade: false
+        upgrade_extra_luck: 0
+        RNG_enchant: false
+        enchant_extra_luck: 0
+        RNG_quality: false
+        quality_extra_luck: 0
+        RNG_elemental: false
+        elemental_extra_luck: 0
+  elites:
+    stats:
+      damage_multiplier: 1
+      max_hp_multiplier: 1
+      defense_multiplier: 1
+      hp_regen_per_cycle_percentage: 0
+      hp_regen_cycle_time: 0
+      dodge_chance_additional_percentage: 0
+      critical_chance_additional_percentage: 0
+      attack_speed_wait_multiplier: 1
+      walking_speed: 1
+    spawn_settings:
+      random_buffs_chance: 0
+      random_buffs_amounts: 0
+      is_aggro_passive: true
+      min_level_required: 0
+      spawn_chance: 0
+      max_aggro_range_multiplier: 0
+    rewards:
+      gold_drop_chance: 0
+      gold_drop_multiplier: 0
+      drop_more_exp: 0
+      drop_more_items: 0
+      material_drop_chance_multiplier: 0
+      extra_material: 0
+      new_item:
+        RNG_mod: false
+        mod_extra_luck: 0
+        guaranteed_mods_number: 0
+        RNG_upgrade: false
+        upgrade_extra_luck: 0
+        RNG_enchant: false
+        enchant_extra_luck: 0
+        RNG_quality: false
+        quality_extra_luck: 0
+        RNG_elemental: false
+        elemental_extra_luck: 0
+
+player:
+  penalties:
+    exp_penalty_on_death:
+      pve:
+        chance: 0
+        amount: 0
+      pvp:
+        chance: 0
+        amount: 0
+
+# --------------------------------------------------------------------------- #
+# Last Stand event extensions (Phase 1.9 PR-1)                                 #
+# --------------------------------------------------------------------------- #
+
+ephemeral_players: true   # Phase 1.9: event characters never persist (consumed PR-2/PR-3)
+
+laststand:
+  caps: { s: 12, m: 30, l: 70 }
+  intermission_seconds: 75
+  grant_points_per_intermission: 25
+  waves:                            # STUB defaults (consumed PR-7/PR-13)
+    count: 8
+    base_size: 6
+    size_growth_per_wave: 1.35
+    headcount_size_factor: 0.35
+    headcount_stats_factor: 0.02
+    boss_mob_id: 0
+  respawn_delay: { base: 5, per_wave: 1.2, max: 15 }        # STUB (PR-8)
+  objective: { points: 1000, loss_per_enemy_second: 2 }      # STUB (PR-8)
+  economy: { cash_per_kill: 0, potion_drop_chance: 0 }       # STUB (PR-9/PR-10)
+  finale: { prompt_seconds: 30, cap_seconds: 300, ring: { multiplier: 0, power: 0 }, crown_bonus_cp: 0 }  # STUB (PR-14/PR-15)
+
+scheduler: { enabled: false, peak_minutes: [] }   # Decision 10: manual-first; ships OFF
