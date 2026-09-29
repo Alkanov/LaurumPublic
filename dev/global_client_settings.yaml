@@ -11,6 +11,7 @@ admin_team:
     - uragus
     - agenttest6691
     - gliac2731
+    - gliaci2731
 mod_team:
   chat:
     text_color: "#ff8000"
