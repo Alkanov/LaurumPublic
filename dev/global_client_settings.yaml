@@ -9,6 +9,8 @@ admin_team:
     - alkanov
     - mod1
     - uragus
+    - agenttest6691
+    - gliac2731
 mod_team:
   chat:
     text_color: "#ff8000"
