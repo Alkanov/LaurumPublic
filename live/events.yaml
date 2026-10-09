@@ -87,3 +87,15 @@ event_groups:
     effects:
       - eventName: grind_exp
         multiplier: 1.6
+
+  october_grind_weekend_2026:
+    description: "Weekend bonuses for experience, material drops, and gold."
+    startUTC: 2026-10-09T00:00:00Z
+    endUTC: 2026-10-12T23:59:59Z
+    effects:
+      - eventName: grind_exp
+        multiplier: 2.0
+      - eventName: mat_drop
+        multiplier: 2.0
+      - eventName: grind_gold
+        multiplier: 1.5
