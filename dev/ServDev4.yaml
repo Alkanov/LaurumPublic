@@ -32,8 +32,8 @@ player:
         chance: 15.0
         amount: 5.0
       pvp:
-        chance: 0
-        amount: 0
+        chance: 100
+        amount: 20
 enemies:
   corrupted_ench_chance: 50 #5 
   boss_upgrade:
