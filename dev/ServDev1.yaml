@@ -183,3 +183,11 @@ enemies:
         enchant_extra_luck: 0.0
         RNG_quality: true
         quality_extra_luck: 0.0 # Increasing this variable effectively widens the range for which the conditions for higher-tier items are met.
+
+orb_altars:
+  - source_map: 39_starting_zone
+    altar_map: 21_v2_new_rynthia
+    npc_id: 10
+  - source_map: 21_v2_new_rynthia
+    altar_map: 21_v2_new_rynthia
+    npc_id: 10
