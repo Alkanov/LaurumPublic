@@ -1,4 +1,5 @@
 server:
+  spawn_broker: true
   version: 301
   id: 1
   name: ServDev1
