@@ -25,6 +25,10 @@ server:
   spawn_broker: false
 
 enemies:
+  gold_pile: # card 7284: pile = gold_per_1000_hp per 1,000 monster table health, min_pile to max_pile, then rewards.gold_drop_multiplier
+    gold_per_1000_hp: 2.37
+    min_pile: 5.0
+    max_pile: 35.0
   boss_upgrade:
     max_in_bosses_open_world: 0
     chance: 0
